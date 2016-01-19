@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        }
+    },
+    "dependent_plugins": {}
+}

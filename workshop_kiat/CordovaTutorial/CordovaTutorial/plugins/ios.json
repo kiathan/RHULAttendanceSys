@@ -18,6 +18,9 @@
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
         }
     },
     "dependent_plugins": {}

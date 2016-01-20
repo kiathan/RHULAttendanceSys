@@ -30,6 +30,9 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
         }
     },
     "dependent_plugins": {}

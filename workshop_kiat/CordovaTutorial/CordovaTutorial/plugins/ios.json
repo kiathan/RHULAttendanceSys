@@ -21,6 +21,15 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "io.cordova.myapp36e27b"
         }
     },
     "dependent_plugins": {}

@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.8/jquery.form-validator.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
@@ -16,7 +15,7 @@
 
         <div data-role="main" class="ui-content">
             <form id="logInForm"> <!--action for processing details-->
-                <input type="text" name="username" id="username" value="testuser" placeholder="Username" data-validation="length alphanumeric">
+                <input type="text" name="username" id="username" value="testuser" placeholder="Username">
                 <input type="password" name="password" id="password" value= "testpass" placeholder="Password">
                 <input type="submit" class="login-btn" value="Log In">
             </form>
@@ -40,7 +39,7 @@
         </div>
 
         <div data-role="footer" data-position="fixed">
-            <h1>Logout</h1>
+            <h1><a href="#logIn">Logout</a></h1>
         </div>
 
 
@@ -53,6 +52,5 @@
     <script src="scripts/jquery-2.2.0.js"></script>
     <script src="scripts/index.js"></script>
     <script src="scripts/jquery.mobile-1.4.5.js"></script>
-    <script> $.validate(); </script>
 </body>
 </html>

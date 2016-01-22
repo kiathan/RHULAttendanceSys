@@ -30,6 +30,7 @@
     var u = $("#username").val();
     var p = $("#password").val();
     alert("hello," + u + " " + p);
+    window.location.href = "#Landing";
   };
 
   function onPause() {

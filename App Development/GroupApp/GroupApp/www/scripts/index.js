@@ -12,7 +12,9 @@
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
 
+    //calls the login function when login button is clicked.
     $('.login-btn').click(login);
+    $('.logout-btn').click(logout);
     //native popup
     if (navigator.notification) { // Override default HTML alert with native dialog
       window.alert = function(message) {
@@ -26,12 +28,29 @@
     }
   };
 
+  /**
+   * Handles logging in of the account and saving the session on the device.
+   **/
   function login() {
+    //retrieves username and password from the fields.
     var u = $("#username").val();
     var p = $("#password").val();
     alert("hello," + u + " " + p);
+    //TODO: input validation
+    //TODO: calls webserver to attempt to login
+    //TODO: checks login status and decides if user should login.
+    //If login is successful, directs to landing page.
     window.location.href = "#Landing";
   };
+
+  /**
+   * Handles logging out of the account and clearing storage
+   **/
+  function logout() {
+    alert("bye");
+    //TODO: Clears session related data
+    window.location.href = "#logIn";
+  }
 
   function onPause() {
     // TODO: This application has been suspended. Save application state here.

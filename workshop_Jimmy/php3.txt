@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title></title>
+	</head>
+	<body>
+    <?php
+     $item = 5
+     switch ($item):
+         case 2:
+            echo "no";
+            break;
+         case 3:
+             echo "Nah~";
+             break;
+         case 5:
+             echo "YES@!";
+             break;
+        default:
+            echo "you stupid";
+        endswitch;    
+    ?>
+	</body>
+</html>

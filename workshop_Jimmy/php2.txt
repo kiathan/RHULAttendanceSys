@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>
+      <?php
+      
+        $item == 5;
+        if($item == 5){
+            echo "The condition is true";// Write your if/elseif/else statement here!
+        }else{
+            echo "The condition is false";
+        }    
+      ?>
+    </p>
+  </body>
+</html>

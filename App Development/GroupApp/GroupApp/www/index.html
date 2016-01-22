@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+</head>
+<body>
+    <div data-role="page" data-position="fixed" id="logIn">
+
+        <div data-role="header">
+            <h1>Log In</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="logInForm"> <!--action for processing details-->
+                <input type="text" name="StudentID" id="SID" placeholder="Student ID">
+                <input type="text" name="Password" id="PWD" placeholder="Password">
+                <input type="submit" value="Log In">
+            </form>
+            
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h1>Help</h1>
+        </div>
+    </div>
+
+    <div data-role="page" data-position="fixed" id="Landing">
+
+        <div data-role="header">
+            <h1>Welcome</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h1>Logout</h1>
+        </div>
+
+
+    </div>
+    
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/jquery-1.8.0.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>

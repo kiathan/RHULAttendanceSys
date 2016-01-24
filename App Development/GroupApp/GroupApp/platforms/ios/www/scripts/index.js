@@ -32,10 +32,24 @@
    * Handles logging in of the account and saving the session on the device.
    **/
   function login() {
+    //retrieves username and password from the fields.
     var u = $("#username").val();
     var p = $("#password").val();
     alert("hello," + u + " " + p);
-    window.location.href = "#Landing";
+    //TODO: input validation
+    //TODO: calls webserver to attempt to login
+    //TODO: checks login status and decides if user should login.
+    //If login is successful, directs to landing page.
+    var isStudent = true;
+    if (u.localeCompare("lecturer") == 0) {
+      isStudent = false;
+    }
+    if (isStudent) {
+      window.location.href = "#StudentLanding";
+    } else {
+      window.location.href = "#LecturerLanding";
+    }
+
   };
 
   /**
@@ -43,6 +57,7 @@
    **/
   function logout() {
     alert("bye");
+    //TODO: Clears session related data
     window.location.href = "#logIn";
   }
 

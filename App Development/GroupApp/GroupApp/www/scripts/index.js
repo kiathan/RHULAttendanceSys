@@ -40,7 +40,16 @@
     //TODO: calls webserver to attempt to login
     //TODO: checks login status and decides if user should login.
     //If login is successful, directs to landing page.
-    window.location.href = "#Landing";
+    var isStudent = true;
+    if (u.localeCompare("lecturer") == 0) {
+      isStudent = false;
+    }
+    if (isStudent) {
+      window.location.href = "#StudentLanding";
+    } else {
+      window.location.href = "#LecturerLanding";
+    }
+
   };
 
   /**

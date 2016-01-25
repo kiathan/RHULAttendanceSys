@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',
+    function () {
+        return view('welcome');
+    });
 
-Route::get('/testing', function(){
-return "hello";
-});
+Route::get('/testing',
+    function () {
+        return "hello";
+    });
+
+Route::get('/login', 'singinColtroller@singin');
+
+
+Route::post('/login', 'singinColtroller@login');

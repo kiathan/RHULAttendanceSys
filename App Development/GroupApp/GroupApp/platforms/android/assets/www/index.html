@@ -14,12 +14,11 @@
         </div>
 
         <div data-role="main" class="ui-content">
-            <form id="logInForm"> <!--action for processing details-->
+            <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
                 <input type="text" name="username" id="username" value="testuser" placeholder="Username">
                 <input type="password" name="password" id="password" value= "testpass" placeholder="Password">
                 <input type="submit" class="login-btn" value="Log In">
             </form>
-
         </div>
 
         <div data-role="footer" data-position="fixed">
@@ -34,23 +33,60 @@
         </div>
 
         <div data-role="main" class="ui-content">
+
           <ul data-role="listview"  data-inset="true">
             <li><a href="#">Attendance Sign-In</a></li>
             <li><a href="#">Answer Lecture Question</a></li>
-            <li><a href="#">TimeTable</a></li>
+            <li><a href="#Timetable">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
           </ul>
 
         </div>
 
-        <div data-role="footer" data-position="fixed" data-fullscreen="true">
-              <h1>By Holloway, For Holloways</h1>
-              <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
+        <div class="footer-base" data-role="footer" data-position="fixed" data-fullscreen="true">
+          <h1>By Holloway, For Holloways</h1>
+          <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
         </div>
 
 
     </div>
-    <div data-role="page" data-position="fixed" id="LecturerLanding">
+
+    <div data-role="page" data-position="fixed" id="Timetable">
+
+        <div data-role="header">
+            <h1>Timetable</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable">
+                <thead>
+                    <tr>
+                        <th data-priority="6">CustomerID</th>
+                        <th>CustomerName</th>
+                        <th data-priority="1">ContactName</th>
+                        <th data-priority="2">Address</th>
+                        <th data-priority="3">City</th>
+                        <th data-priority="4">PostalCode</th>
+                        <th data-priority="5">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Obere Str. 57</td>
+                        <td>Berlin</td>
+                        <td>12209</td>
+                        <td>Germany</td>
+                    </tr>
+                </tbody>
+            </table>
+
+          </div>
+          <div class="footer-copy"></div>
+  </div>
+  <div data-role="page" data-position="fixed" id="LecturerLanding">
 
         <div data-role="header">
             <h1>Welcome Lecturer</h1>
@@ -64,16 +100,11 @@
             <li><a href="#">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
           </ul>
-
         </div>
 
-        <div data-role="footer" data-position="fixed" data-fullscreen="true">
-              <h1>By Holloway, For Holloways</h1>
-              <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
+        <div class="footer-copy"></div>
         </div>
-
-
-    </div>
+  </div>
 
 
     <!-- Cordova reference, this is added to your app when it's built. -->

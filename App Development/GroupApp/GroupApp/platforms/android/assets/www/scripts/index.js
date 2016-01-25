@@ -32,9 +32,14 @@
    * Handles logging in of the account and saving the session on the device.
    **/
   function login() {
+    //retrieves username and password from the fields.
     var u = $("#username").val();
     var p = $("#password").val();
     alert("hello," + u + " " + p);
+    //TODO: input validation
+    //TODO: calls webserver to attempt to login
+    //TODO: checks login status and decides if user should login.
+    //If login is successful, directs to landing page.
     window.location.href = "#Landing";
   };
 
@@ -43,6 +48,7 @@
    **/
   function logout() {
     alert("bye");
+    //TODO: Clears session related data
     window.location.href = "#logIn";
   }
 

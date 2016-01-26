@@ -35,7 +35,7 @@
         <div data-role="main" class="ui-content">
 
           <ul data-role="listview"  data-inset="true">
-            <li><a href="#">Attendance Sign-In</a></li>
+            <li><a href="#Attendance">Attendance Sign-In</a></li>
             <li><a href="#">Answer Lecture Question</a></li>
             <li><a href="#Timetable">Timetable</a></li>
             <li><a href="#">What's next</a></li>
@@ -51,12 +51,22 @@
 
     </div>
 
-    <div data-role="page" data-position="fixed" id="Timetable">
+    <div data-role="page" data-position="fixed" id="Attendance">
+        <div data-role="header">
+            <h1>Attendance Sign In</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+          <div class="scanner"></div>
+          </div>
+        </div>
+        <div class="footer-copy"></div>
+    </div>
 
+
+    <div data-role="page" data-position="fixed" id="Timetable">
         <div data-role="header">
             <h1>Timetable</h1>
         </div>
-
         <div data-role="main" class="ui-content">
             <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="timetable" style="border: 1px solid black">
                 <thead>

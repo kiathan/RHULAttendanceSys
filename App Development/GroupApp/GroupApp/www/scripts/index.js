@@ -12,23 +12,16 @@
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
 
-    //footer
+    //copy all footer based on footer-base
     $('.footer-base').clone().appendTo('.footer-copy');
 
     //calls the login function when login button is clicked.
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
+
+    //$('.scanner')
     //native popup
-    if (navigator.notification) { // Override default HTML alert with native dialog
-      window.alert = function(message) {
-        navigator.notification.alert(
-          message, // message
-          null, // callback
-          "Royal Ray", // title
-          'OK' // buttonName
-        );
-      };
-    }
+    enableNativePopUp();
 
 
   };
@@ -73,6 +66,20 @@
   function onResume() {
     // TODO: This application has been reactivated. Restore application state here.
   };
+
+  //enables and set native pop up
+  function enableNativePopUp() {
+    if (navigator.notification) { // Override default HTML alert with native dialog
+      window.alert = function(message) {
+        navigator.notification.alert(
+          message, // message
+          null, // callback
+          "Royal Ray", // title
+          'OK' // buttonName
+        );
+      };
+    }
+  }
 
 
 })();

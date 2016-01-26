@@ -25,7 +25,6 @@
         <h1>By Holloway, For Holloways</h1>
     </div>
 </div>
-
 <div data-role="page" data-position="fixed" id="StudentLanding">
 
     <div data-role="header">
@@ -36,7 +35,7 @@
 
         <ul data-role="listview" data-inset="true">
             <li><a href="#">Attendance Sign-In</a></li>
-            <li><a href="#Question">Answer Lecture Question</a></li>
+            <li><a href="#StudentQuestion">Answer Lecture Question</a></li>
             <li><a href="#Timetable">Timetable</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
@@ -51,7 +50,6 @@
 
 
 </div>
-
 <div data-role="page" data-position="fixed" id="Timetable">
 
     <div data-role="header">
@@ -166,21 +164,24 @@
 
 
 </div>
-<div data-role="page" data-position="fixed" id="Question">
+<div data-role="page" data-position="fixed" id="StudentQuestion">
     <div data-role="header">
-        <h1>Question</h1>
+        <h1>Student answer question</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <button name="A" class="btn-ans-A" id="A" type="submit" value="A">A</button>
-        <button name="B" class="btn-ans-B" id="B" type="submit" value="B">B</button>
-        <button name="C" class="btn-ans-C" id="C" type="submit" value="C">C</button>
-        <button name="D" class="btn-ans-D" id="D" type="submit" value="D">D</button>
+        <input type="radio" name="rdoBtn" value="A"> A<br>
+        <input type="radio" name="rdoBtn" value="B"> B<br>
+        <input type="radio" name="rdoBtn" value="C"> C<br>
+        <input type="radio" name="rdoBtn" value="D"> D<br>
+        <button name="answer-btn" class="answer-btn" id="ans-btn" type="submit" >Submit answer </button>
     </div>
     <div data-role="footer" data-position="fixed" data-fullscreen="true">
         <h1>By Holloway, For Holloways</h1>
         <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
     </div>
 </div>
+
+
 <div data-role="page" data-position="fixed" id="LecturerLanding">
 
     <div data-role="header">
@@ -191,7 +192,7 @@
         <ul data-role="listview" data-inset="true">
             <li><a href="#">Sign Students In</a></li>
             <li><a href="#">Current Lecture Attendance</a></li>
-            <li><a href="#">Ask Lecture Question</a></li>
+            <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
             <li><a href="#Timetable">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
@@ -205,7 +206,33 @@
 
 
 </div>
-
+<div data-role="page" data-position="fixed" id="LectureQuestion">
+    <div data-role="header">
+        <h1>Send question to Student</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="questionForm">
+            <form id="questionForm"> <!--action for processing details-->
+                <input type="text" name="question" id="question" value="Please enter question here">
+                <input type="text" name="optA" id="optA">
+                <input type="text" name="optB" id="optB">
+                <input type="text" name="optC" id="optC">
+                <input type="text" name="optD" id="optD">
+                <input type="submit" class="question-btn" value="Send question">
+            </form>
+        </div>
+        <br>
+        <div class="result">
+            <button name="Stop" id="lecture-stop-btn">Close question</button>
+            <br>
+            <button name="checkResult" id="lecture-check-btn">Check answer</button>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-fullscreen="true">
+        <h1>By Holloway, For Holloways</h1>
+        <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
+    </div>
+</div>
 
 <!-- Cordova reference, this is added to your app when it's built. -->
 <script src="cordova.js"></script>

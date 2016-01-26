@@ -13,8 +13,14 @@
     document.addEventListener('resume', onResume.bind(this), false);
 
     //calls the login function when login button is clicked.
+
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
+
+    //call server to increase answer count
+      $("button").click(function() {
+          alert(this.id); // or alert($(this).attr('id'));
+      });
     //native popup
     if (navigator.notification) { // Override default HTML alert with native dialog
       window.alert = function(message) {
@@ -31,6 +37,8 @@
   /**
    * Handles logging in of the account and saving the session on the device.
    **/
+
+
   function login() {
     //retrieves username and password from the fields.
     var u = $("#username").val();

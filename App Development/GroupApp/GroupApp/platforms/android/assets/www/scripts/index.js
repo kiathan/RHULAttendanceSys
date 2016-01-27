@@ -35,12 +35,11 @@
       //retrieves username and password from the fields.
       var u = $("#username").val();
       var p = $("#password").val();
+      var url = "http://bartalveyhe.me";
       var dataString = "username=" + u + "&password=" + p + "&login=";
       alert("hello," + u + " " + p);
 
-
-
-      if ($.trim(email).length > 0 & $.trim(password).length > 0) {
+      if ($.trim(u).length > 0 & $.trim(p).length > 0) {
         $.ajax({
           type: "POST",
           url: url,
@@ -48,16 +47,17 @@
           crossDomain: true,
           cache: false,
           beforeSend: function() {
-            $("#login").html('Connecting...');
+            ActivityIndicator.show("Logging in...");
           },
           success: function(data) {
+            ActivityIndicator.hide();
             if (data == "success") {
               localStorage.login = "true";
-              localStorage.email = email;
-              window.location.href = "index.html";
+              localStorage.username = u;
+              window.location.href = "#studentLanding";
             } else if (data = "failed") {
-              alert("Login error");
-              $("#login").html('Login');
+              alert("Username/Password is invalid");
+              window.location.href = "#logIn";
             }
           }
         });
@@ -75,8 +75,7 @@
    * Handles logging out of the account and clearing storage
    **/
   function logout() {
-    alert("bye");
-    //TODO: Clears session related data
+    localStorage.login = "false";
     window.location.href = "#logIn";
   }
 

@@ -169,11 +169,14 @@
         <h1>Student answer question</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <input type="radio" name="rdoBtn" value="A"> A<br>
-        <input type="radio" name="rdoBtn" value="B"> B<br>
-        <input type="radio" name="rdoBtn" value="C"> C<br>
-        <input type="radio" name="rdoBtn" value="D"> D<br>
-        <button name="answer-btn" class="answer-btn" id="ans-btn" type="submit" >Submit answer </button>
+        <ul data-role="listview" data-inset="true">
+            <li><button name="answer-btn" class="answer-btn" value="A" id="A" type="submit">A</button></li>
+            <li><button name="answer-btn" class="answer-btn" value="B" type="submit">B</button></li>
+            <li><button name="answer-btn" class="answer-btn" value="C" type="submit">C</button></li>
+            <li><button name="answer-btn" class="answer-btn" value="D" type="submit">D</button></li>
+        </ul>
+
+
     </div>
     <div data-role="footer" data-position="fixed" data-fullscreen="true">
         <h1>By Holloway, For Holloways</h1>

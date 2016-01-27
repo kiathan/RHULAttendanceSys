@@ -18,15 +18,27 @@
         $('.logout-btn').click(logout);
 
         //call server to increase answer count
+        /**
+        *$('.answer-btn').click(function () {
+        *   var radios = document.getElementsByName("rdoBtn");
+        *    for (var i=0;i<radios.length;i++){
+        *        if (radios[i].checked){
+        *            alert(radios[i].value);
+        *            break;
+        *        }
+        *    }
+        *});
+        **/
         $('.answer-btn').click(function () {
-            var radios = document.getElementsByName("rdoBtn");
-            for (var i=0;i<radios.length;i++){
-                if (radios[i].checked){
-                    alert(radios[i].value);
-                    break;
-                }
-            }
+
+            alert("You have submit your answer \n Your answer is " + this.value);
+           $('.answer-btn').prop("disabled",true);
+
+            window.location.href="#StudentLanding";
+
         });
+
+
 
         //native popup
         if (navigator.notification) { // Override default HTML alert with native dialog

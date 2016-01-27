@@ -23,6 +23,9 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="ActivityIndicator">
+        <param name="ios-package" value="ActivityIndicator" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="180" src="res/icons/ios/icon-60-3x.png" width="180" />

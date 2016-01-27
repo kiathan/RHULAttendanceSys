@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"ios-package\" value=\"ActivityIndicator\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -36,6 +40,9 @@
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
@@ -72,12 +79,21 @@
             "merges": [
                 "navigator.notification"
             ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+            "clobbers": [
+                "ActivityIndicator"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.1",
         "cordova-plugin-device": "1.1.1",
         "cordova-plugin-console": "1.0.2",
-        "cordova-plugin-dialogs": "1.2.0"
+        "cordova-plugin-dialogs": "1.2.0",
+        "org.apache.cordova.plugin.ActivityIndicator": "1.0.0"
     }
 }

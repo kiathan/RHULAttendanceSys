@@ -31,6 +31,14 @@ module.exports = [
         "merges": [
             "navigator.notification"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+        "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+        "clobbers": [
+            "ActivityIndicator"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -39,7 +47,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.1",
     "cordova-plugin-device": "1.1.1",
     "cordova-plugin-console": "1.0.2",
-    "cordova-plugin-dialogs": "1.2.0"
+    "cordova-plugin-dialogs": "1.2.0",
+    "org.apache.cordova.plugin.ActivityIndicator": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

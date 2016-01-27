@@ -3,38 +3,71 @@
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
 (function() {
-  "use strict";
+    "use strict";
 
-  document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
-  function onDeviceReady() {
-    // Handle the Cordova pause and resume events
-    document.addEventListener('pause', onPause.bind(this), false);
-    document.addEventListener('resume', onResume.bind(this), false);
+    function onDeviceReady() {
+      // Handle the Cordova pause and resume events
+      document.addEventListener('pause', onPause.bind(this), false);
+      document.addEventListener('resume', onResume.bind(this), false);
 
-    //calls the login function when login button is clicked.
-    $('.login-btn').click(login);
-    $('.logout-btn').click(logout);
-    //native popup
-    if (navigator.notification) { // Override default HTML alert with native dialog
-      window.alert = function(message) {
-        navigator.notification.alert(
-          message, // message
-          null, // callback
-          "Royal Ray", // title
-          'OK' // buttonName
-        );
-      };
+      //calls the login function when login button is clicked.
+      $('.login-btn').click(login);
+      $('.logout-btn').click(logout);
+      //native popup
+      if (navigator.notification) { // Override default HTML alert with native dialog
+        window.alert = function(message) {
+          navigator.notification.alert(
+            message, // message
+            null, // callback
+            "Royal Ray", // title
+            'OK' // buttonName
+          );
+        };
+      }
+    };
+
+    /**
+     * Handles logging in of the account and saving the session on the device.
+     **/
+    function login() {
+      //retrieves username and password from the fields.
+      var u = $("#username").val();
+      var p = $("#password").val();
+      var dataString = "username=" + u + "&password=" + p + "&login=";
+      alert("hello," + u + " " + p);
+
+
+
+      if ($.trim(email).length > 0 & $.trim(password).length > 0) {
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: dataString,
+          crossDomain: true,
+          cache: false,
+          beforeSend: function() {
+            $("#login").html('Connecting...');
+          },
+          success: function(data) {
+            if (data == "success") {
+              localStorage.login = "true";
+              localStorage.email = email;
+              window.location.href = "index.html";
+            } else if (data = "failed") {
+              alert("Login error");
+              $("#login").html('Login');
+            }
+          }
+        });
+      }
+      return false;
     }
-  };
-
-  /**
-   * Handles logging in of the account and saving the session on the device.
-   **/
-  function login() {
-    var u = $("#username").val();
-    var p = $("#password").val();
-    alert("hello," + u + " " + p);
+    //TODO: input validation
+    //TODO: calls webserver to attempt to login
+    //TODO: checks login status and decides if user should login.
+    //If login is successful, directs to landing page.
     window.location.href = "#Landing";
   };
 
@@ -43,6 +76,7 @@
    **/
   function logout() {
     alert("bye");
+    //TODO: Clears session related data
     window.location.href = "#logIn";
   }
 

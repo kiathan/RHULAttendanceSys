@@ -44,6 +44,8 @@
 		7CB93D3899EC4B6488C7C0AC /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA6E86C6E894355A58ABC6B /* CDVNotification.m */; };
 		1C6DD75785AA4CF488AB9005 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 88A78D54944E40B2BCCB04A4 /* CDVNotification.bundle */; };
 		CCED0CE272D14ECEA94F7CED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3B9CA272614E87A80255CF /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		31B364AC6C214F3BA0AC3103 /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EC188BF3E4635946A1803 /* ActivityIndicator.m */; };
+		AB380DE9021940A69367B68E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 465528E947F64703A948AB76 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,10 @@
 		8DEBF1A703FE48B191B163A3 /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		88A78D54944E40B2BCCB04A4 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
 		5F3B9CA272614E87A80255CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		383EC188BF3E4635946A1803 /* ActivityIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ActivityIndicator.m"; path = "org.apache.cordova.plugin.ActivityIndicator/ActivityIndicator.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		465528E947F64703A948AB76 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD.m"; path = "org.apache.cordova.plugin.ActivityIndicator/MBProgressHUD.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		0D59222A46274109B68D20B8 /* ActivityIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ActivityIndicator.h"; path = "org.apache.cordova.plugin.ActivityIndicator/ActivityIndicator.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		11A848F052CF474BA1F570BC /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD.h"; path = "org.apache.cordova.plugin.ActivityIndicator/MBProgressHUD.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,10 @@
 				3D5C681F205F485D9C1EE331 /* CDVLogger.h */,
 				ECA6E86C6E894355A58ABC6B /* CDVNotification.m */,
 				8DEBF1A703FE48B191B163A3 /* CDVNotification.h */,
+				383EC188BF3E4635946A1803 /* ActivityIndicator.m */,
+				465528E947F64703A948AB76 /* MBProgressHUD.m */,
+				0D59222A46274109B68D20B8 /* ActivityIndicator.h */,
+				11A848F052CF474BA1F570BC /* MBProgressHUD.h */,
 			);
 			name = Plugins;
 			path = "GroupApp/Plugins";
@@ -412,6 +422,8 @@
 				977D37771022435B83DE18B5 /* CDVDevice.m in Sources */,
 				45907B53CD8C4AEEA312E663 /* CDVLogger.m in Sources */,
 				7CB93D3899EC4B6488C7C0AC /* CDVNotification.m in Sources */,
+				31B364AC6C214F3BA0AC3103 /* ActivityIndicator.m in Sources */,
+				AB380DE9021940A69367B68E /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,8 +42,9 @@
     var p = $("#password").val();
     var url = "http://bartalveyhe.me";
     var dataString = "username=" + u + "&password=" + p + "&login=";
-    alert("hello," + u + " " + p);
+    //alert("hello," + u + " " + p);
 
+    //empty string validation
     if ($.trim(u).length > 0 & $.trim(p).length > 0) {
       $.ajax({
         type: "POST",
@@ -59,31 +60,42 @@
           if (data == "success") {
             localStorage.login = "true";
             localStorage.username = u;
-            window.location.href = "#studentLanding";
-          } else if (data = "failed") {
-            alert("Username/Password is invalid");
-            window.location.href = "#logIn";
+            //If login is successful, directs to landing page.
+            loginReplyRedir();
+          } else {
+            loginReplyRedir();
           }
-        }
+        },
+        error: function(data) {
+          loginReplyRedir();
+        },
+        timeout: 5000 //5 seconds
       });
     }
-    return false;
 
     //TODO: input validation
     //TODO: calls webserver to attempt to login
     //TODO: checks login status and decides if user should login.
-    //If login is successful, directs to landing page.
-    var isStudent = true;
-    if (u.localeCompare("lecturer") == 0) {
-      isStudent = false;
-    }
-    if (isStudent) {
-      window.location.href = "#StudentLanding";
-    } else {
-      window.location.href = "#LecturerLanding";
-    }
+
 
   };
+
+  function loginReplyRedir() {
+    if (localStorage.login == "false") {
+      alert("Username/Password is invalid");
+      window.location.href = "#logIn";
+    } else {
+      var isStudent = true;
+      if (u.localeCompare("lecturer") == 0) {
+        isStudent = false;
+      }
+      if (isStudent) {
+        window.location.href = "#StudentLanding";
+      } else {
+        window.location.href = "#LecturerLanding";
+      }
+    }
+  }
 
   /**
    * Handles logging out of the account and clearing storage

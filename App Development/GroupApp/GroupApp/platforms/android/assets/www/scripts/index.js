@@ -60,33 +60,42 @@
           if (data == "success") {
             localStorage.login = "true";
             localStorage.username = u;
-            //If login is successful, directs to landing page.
-            loginReplyRedir();
+          } else if (data == "failed") {
+            localStorage.login = "false";
+            localStorage.loginerror = "incorrect";
           } else {
-            loginReplyRedir();
+            localStorage.login = "false";
+            localStorage.loginerror = "timeout";
           }
+          loginReplyRedir();
         },
         error: function(data) {
+          ActivityIndicator.hide();
+          localStorage.login = "false";
+          localStorage.loginerror = "timeout";
           loginReplyRedir();
         },
         timeout: 5000 //5 seconds
       });
     }
 
-    //TODO: input validation
-    //TODO: calls webserver to attempt to login
     //TODO: checks login status and decides if user should login.
 
 
   };
 
   function loginReplyRedir() {
-    if (localStorage.login == "false") {
-      alert("Username/Password is invalid");
+    if (localStorage.loginerror == "incorrect" && localStorage.login ==
+      "false") {
+      alert("Username/Password is invalid.");
       window.location.href = "#logIn";
-    } else {
+    } else if (localStorage.loginerror == "timeout" && localStorage.login ==
+      "false") {
+      alert("Server unavailable. Please try again later.");
+      window.location.href = "#logIn";
+    } else if (localStorage.login == "true") {
       var isStudent = true;
-      if (u.localeCompare("lecturer") == 0) {
+      if (localStorage.username.localeCompare("lecturer") == 0) {
         isStudent = false;
       }
       if (isStudent) {

@@ -9,31 +9,18 @@
 <body>
 <div data-role="page" data-position="fixed" id="logIn">
 
-<<<<<<< HEAD
     <div data-role="header">
         <h1>Royal Ray</h1>
     </div>
-=======
-        <div data-role="header">
-            <h1>Royal Ray</h1>
-        </div>
-
-        <div data-role="main" class="ui-content">
-            <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-                <input type="text" name="username" id="username" value="testuser" placeholder="Username">
-                <input type="password" name="password" id="password" value= "testpass" placeholder="Password">
-                <input type="submit" class="login-btn" value="Log In">
-            </form>
-        </div>
->>>>>>> master
 
     <div data-role="main" class="ui-content">
-        <form id="logInForm"> <!--action for processing details-->
+        <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
             <input type="text" name="username" id="username" value="testuser" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
         </form>
     </div>
+
 
     <div data-role="footer" data-position="fixed">
         <h1>By Holloway, For Holloways</h1>
@@ -46,41 +33,35 @@
     </div>
 
     <div data-role="main" class="ui-content">
-
-<<<<<<< HEAD
         <ul data-role="listview" data-inset="true">
-            <li><a href="#">Attendance Sign-In</a></li>
-            <li><a href="#StudentQuestion">Answer Lecture Question</a></li>
-=======
-          <ul data-role="listview"  data-inset="true">
             <li><a href="#Attendance">Attendance Sign-In</a></li>
-            <li><a href="#">Answer Lecture Question</a></li>
->>>>>>> master
-            <li><a href="#Timetable">Timetable</a></li>
+            <li><a href="#StudentQuestion">Answer Lecture Question</a></li>
+            <li><a href="#TimetableScreen">Timetable</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
 
     </div>
 
-<<<<<<< HEAD
-    <div data-role="footer" data-position="fixed">
-        <h1>
-            <button class="logout-btn">Logout</button>
-        </h1>
-    </div>
-=======
-        <div class="footer-copy"></div>
->>>>>>> master
+
+    <div class="footer-copy"></div>
 
 
 </div>
-<div data-role="page" data-position="fixed" id="Timetable">
-
-<<<<<<< HEAD
+<div data-role="page" data-position="fixed" id="Attendance">
+    <div data-role="header">
+        <h1>Attendance Sign In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>You are now signing in for:</p>
+        <div class="currentclass"></div>
+        <button class="sign-in-btn">Sign In</button>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="TimetableScreen">
     <div data-role="header">
         <h1>Timetable</h1>
     </div>
-
     <div data-role="main" class="ui-content">
         <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="timetable"
                style="border: 1px solid black">
@@ -181,182 +162,39 @@
         </table>
 
 
-        <div data-role="footer" data-position="fixed" data-fullscreen="true">
-            <h1>By Holloway, For Holloways</h1>
-            <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
-        </div>
     </div>
-
-
+    <div class="footer-copy"></div>
 </div>
-<div data-role="page" data-position="fixed" id="StudentQuestion">
-    <div data-role="header">
-        <h1>Student answer question</h1>
-    </div>
-    <div data-role="main" class="ui-content">
-        <ul data-role="listview" data-inset="true">
-            <li><button name="answer-btn" class="answer-btn" value="A"  type="submit">A</button></li>
-            <li><button name="answer-btn" class="answer-btn" value="B" type="submit">B</button></li>
-            <li><button name="answer-btn" class="answer-btn" value="C" type="submit">C</button></li>
-            <li><button name="answer-btn" class="answer-btn" value="D" type="submit">D</button></li>
-        </ul>
-
-
-    </div>
-    <div data-role="footer" data-position="fixed" data-fullscreen="true">
-        <h1>By Holloway, For Holloways</h1>
-        <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
-    </div>
-</div>
-=======
-    <div data-role="page" data-position="fixed" id="Attendance">
-        <div data-role="header">
-            <h1>Attendance Sign In</h1>
-        </div>
-        <div data-role="main" class="ui-content">
-          <p>You are now signing in for:</p>
-          <div class="currentclass"></div>
-          <button class="sign-in-btn">Sign In</button>
-          </div>
-        </div>
-        <div class="footer-copy"></div>
-    </div>
-
-
-    <div data-role="page" data-position="fixed" id="Timetable">
-        <div data-role="header">
-            <h1>Timetable</h1>
-        </div>
-        <div data-role="main" class="ui-content">
-            <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="timetable" style="border: 1px solid black">
-                <thead>
-                    <tr style="border-bottom: 3px solid #d6d6d6">
-                        <th>Time</th>
-                        <th data-priority="1">Monday</th>
-                        <th data-priority="1">Tuesday</th>
-                        <th data-priority="1">Wednesday</th>
-                        <th data-priority="1">Thursday</th>
-                        <th data-priority="1">Friday</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>09:00 - 10:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>10:00 - 11:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>11:00 - 12:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>12:00 - 13:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>13:00 - 14:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>14:00 - 15:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>15:00 - 16:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>16:00 - 17:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>17:00 - 18:00</td>
-                        <td>English</td>
-                        <td>French</td>
-                        <td></td>
-                        <td>ICT</td>
-                        <td></td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-
-
-          </div>
-          <div class="footer-copy"></div>
-  </div>
-  <div data-role="page" data-position="fixed" id="LecturerLanding">
->>>>>>> master
-
-
 <div data-role="page" data-position="fixed" id="LecturerLanding">
-
     <div data-role="header">
         <h1>Welcome Lecturer</h1>
     </div>
-
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
             <li><a href="#">Sign Students In</a></li>
             <li><a href="#">Current Lecture Attendance</a></li>
             <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
-            <li><a href="#Timetable">TimeTable</a></li>
+            <li><a href="#TimetableScreen">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
-<<<<<<< HEAD
         </ul>
-
     </div>
-
-    <div data-role="footer" data-position="fixed" data-fullscreen="true">
-        <h1>By Holloway, For Holloways</h1>
-        <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="StudentQuestion">
+    <div data-role="header">
+        <h1>Answer question</h1>
     </div>
+    <div data-role="main" class="ui-content">
+        <div class="questionForm">
 
+            <input type="submit" class="answer-btn" value="A">
+            <input type="submit" class="answer-btn" value="B">
+            <input type="submit" class="answer-btn" value="C">
+            <input type="submit" class="answer-btn" value="D">
 
+        </div>
+    </div>
+    <div class="footer-copy"></div>
 </div>
 <div data-role="page" data-position="fixed" id="LectureQuestion">
     <div data-role="header">
@@ -365,7 +203,7 @@
     <div data-role="main" class="ui-content">
         <div class="questionForm">
             <form id="questionForm"> <!--action for processing details-->
-                <input type="text" class="questTxt"  value="Please enter question here">
+                <input type="text" class="questTxt" value="Please enter question here">
                 <input type="text" name="questOpt" class="optA" value="">
                 <input type="text" name="questOpt" class="optB" value="">
                 <input type="text" name="questOpt" class="optC" value="">
@@ -373,26 +211,10 @@
                 <input type="submit" class="question-btn" value="Send question">
             </form>
         </div>
-        <br>
-        <div class="result">
-            <button name="Stop" id="lecture-stop-btn">Close question</button>
-            <br>
-            <button name="checkResult" id="lecture-check-btn">Check answer</button>
-        </div>
     </div>
-    <div data-role="footer" data-position="fixed" data-fullscreen="true">
-        <h1>By Holloway, For Holloways</h1>
-        <a href="#" class="ui-btn ui-btn-right logout-btn">Logout</a>
-    </div>
+    <div class="footer-copy"></div>
 </div>
-=======
-          </ul>
-        </div>
 
-        <div class="footer-copy"></div>
-        </div>
-  </div>
->>>>>>> master
 
 <!-- Cordova reference, this is added to your app when it's built. -->
 <script src="cordova.js"></script>

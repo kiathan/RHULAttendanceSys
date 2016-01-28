@@ -3,10 +3,10 @@
 
 @section('content')
     <div>
-        @if(!isset($signInResult))
-            Sing into Attend system
-        @elseif($signInResult)
-            You are sign in
+        @if(Auth::check())
+            You are alerady sign in
+        @elseif(!isset($signInResult))
+            Sign into Attend system
         @else
             Uable to sign in, check username or password
         @endif

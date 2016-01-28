@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class singinColtroller extends Controller
 {
@@ -14,9 +15,15 @@ class singinColtroller extends Controller
         return view('login');
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        $signInResult = false;
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $signInResult = Auth::attempt([
+                              "username" => $username,
+                              "password" => $password]);
+
         return view('login')->with(["signInResult" => $signInResult]);
     }
 }

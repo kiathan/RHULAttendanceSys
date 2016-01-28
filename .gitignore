@@ -1,3 +1,4 @@
+
 /vendor
 /node_modules
 Homestead.yaml
@@ -20,7 +21,7 @@ hs_err_pid*
 #custom ignore such as IDE files
 web-server/.idea/
 *.cache
-
+.idea/
 *.bin
 App Development/GroupApp/GroupApp/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock
 

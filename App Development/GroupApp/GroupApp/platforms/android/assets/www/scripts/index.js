@@ -1,4 +1,5 @@
-﻿// For an introduction to the Blank template, see the following documentation:
+﻿
+// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
@@ -19,7 +20,7 @@
 
         //call server to increase answer count
         /**
-        *$('.answer-btn').click(function () {
+         *$('.answer-btn').click(function () {
         *   var radios = document.getElementsByName("rdoBtn");
         *    for (var i=0;i<radios.length;i++){
         *        if (radios[i].checked){
@@ -28,16 +29,21 @@
         *        }
         *    }
         *});
-        **/
+         **/
         $('.answer-btn').click(function () {
+            var value=this.value;
+             $.getJSON( "test.json", function( data ) {
 
-            alert("You have submit your answer \n Your answer is " + this.value);
-           $('.answer-btn').prop("disabled",true);
+                 var username = data["username"];
+                 alert("You have submit your answer \n Your answer is " +value);
 
-            window.location.href="#StudentLanding";
+                 $('.answer-btn').prop("disabled", true);
+                 window.location.href = "#StudentLanding";
+
+            });
+
 
         });
-
 
 
         //native popup

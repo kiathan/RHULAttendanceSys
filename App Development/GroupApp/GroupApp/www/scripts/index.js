@@ -19,7 +19,7 @@
 
         //call server to increase answer count
         /**
-        *$('.answer-btn').click(function () {
+         *$('.answer-btn').click(function () {
         *   var radios = document.getElementsByName("rdoBtn");
         *    for (var i=0;i<radios.length;i++){
         *        if (radios[i].checked){
@@ -28,73 +28,88 @@
         *        }
         *    }
         *});
-        **/
+         **/
         $('.answer-btn').click(function () {
+            var value = this.value;
+            $.getJSON("test.json", function (StudDetail) {
 
-            alert("You have submit your answer \n Your answer is " + this.value);
-           $('.answer-btn').prop("disabled",true);
+                var username = StudDetail["username"];
+                alert("You have submit your answer \nYour answer is " + value);
 
-            window.location.href="#StudentLanding";
+                var request = $.ajax({
 
+                    url: "http://fiddle.jshell.net/favicon.png",
+                    method: "POST",
+                    data: {username: username, answer: value}
+
+                });
+
+                request.done(function (msg) {
+                    alert(msg);
+
+                });
+                $('.answer-btn').prop("disabled", true);
+                window.location.href = "#StudentLanding";
+
+            });
+
+
+            //native popup
+            if (navigator.notification) { // Override default HTML alert with native dialog
+                window.alert = function (message) {
+                    navigator.notification.alert(
+                        message, // message
+                        null, // callback
+                        "Royal Ray", // title
+                        'OK' // buttonName
+                    );
+                };
+            }
         });
 
+        /**
+         * Handles logging in of the account and saving the session on the device.
+         **/
 
 
-        //native popup
-        if (navigator.notification) { // Override default HTML alert with native dialog
-            window.alert = function (message) {
-                navigator.notification.alert(
-                    message, // message
-                    null, // callback
-                    "Royal Ray", // title
-                    'OK' // buttonName
-                );
-            };
-        }
-    };
+        function login() {
+            //retrieves username and password from the fields.
+            var u = $("#username").val();
+            var p = $("#password").val();
+            alert("hello," + u + " " + p);
+            //TODO: input validation
+            //TODO: calls webserver to attempt to login
+            //TODO: checks login status and decides if user should login.
+            //If login is successful, directs to landing page.
+            var isStudent = true;
+            if (u.localeCompare("lecturer") == 0) {
+                isStudent = false;
+            }
+            if (isStudent) {
+                window.location.href = "#StudentLanding";
+            } else {
+                window.location.href = "#LecturerLanding";
+            }
 
-    /**
-     * Handles logging in of the account and saving the session on the device.
-     **/
+        };
 
-
-    function login() {
-        //retrieves username and password from the fields.
-        var u = $("#username").val();
-        var p = $("#password").val();
-        alert("hello," + u + " " + p);
-        //TODO: input validation
-        //TODO: calls webserver to attempt to login
-        //TODO: checks login status and decides if user should login.
-        //If login is successful, directs to landing page.
-        var isStudent = true;
-        if (u.localeCompare("lecturer") == 0) {
-            isStudent = false;
-        }
-        if (isStudent) {
-            window.location.href = "#StudentLanding";
-        } else {
-            window.location.href = "#LecturerLanding";
+        /**
+         * Handles logging out of the account and clearing storage
+         **/
+        function logout() {
+            alert("bye");
+            //TODO: Clears session related data
+            window.location.href = "#logIn";
         }
 
+        function onPause() {
+            // TODO: This application has been suspended. Save application state here.
+        };
+
+        function onResume() {
+            // TODO: This application has been reactivated. Restore application state here.
+        };
+
+
     };
-
-    /**
-     * Handles logging out of the account and clearing storage
-     **/
-    function logout() {
-        alert("bye");
-        //TODO: Clears session related data
-        window.location.href = "#logIn";
-    }
-
-    function onPause() {
-        // TODO: This application has been suspended. Save application state here.
-    };
-
-    function onResume() {
-        // TODO: This application has been reactivated. Restore application state here.
-    };
-
-
-})();
+});

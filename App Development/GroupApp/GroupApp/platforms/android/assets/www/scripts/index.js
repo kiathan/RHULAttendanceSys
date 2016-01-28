@@ -1,5 +1,4 @@
-﻿
-// For an introduction to the Blank template, see the following documentation:
+﻿// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
@@ -9,6 +8,7 @@
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
+        alert("ready");
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
@@ -30,22 +30,53 @@
         *    }
         *});
          **/
+
         $('.answer-btn').click(function () {
-            var value=this.value;
-             $.getJSON( "test.json", function( data ) {
+            var value = this.value;
+            $.getJSON("test.json", function (StudDetail) {
 
-                 var username = data["username"];
-                 alert("You have submit your answer \n Your answer is " +value);
+                var username = StudDetail["username"];
+                alert("You have submit your answer \nYour answer is " + value);
+/*
+                var request = $.ajax({
 
-                 $('.answer-btn').prop("disabled", true);
-                 window.location.href = "#StudentLanding";
+                    url: "bartalveyhe.me",
+                    method: "POST",
+                    data: {username: username, answer: value}
+
+                });
+
+                request.done(function (msg) {
+                    alert(msg);
+
+                });*/
+                $('.answer-btn').prop("disabled", true);
+                window.location.href = "#StudentLanding";
 
             });
 
-
         });
+        // TODO: Awaiting server to come online
+        /*
+        $('.question-btn').click(function () {
+            var QandA = '{"question":' + $('.questTxt').value + ', "optA":' + $('.optA').value + ', "optB":' + $('.optB').value +
+                ', "optC":' + $('.optC').value + ', "optD":' + $('.optD').value + '}';
+            alert("You have submit question " + $('.questTxt').value + "\n" + "Answers are " + $('.optA').value
+                +" "+ $('.optB').value +" "+ $('.optC').value +" "+ $('.optD').value);
+            var request = $.ajax({
 
+                url: "bartalveyhe.me",
+                method: "POST",
+                data: QandA
 
+            });
+
+            request.done(function (msg) {
+                alert(msg);
+
+            });
+
+        });*/
         //native popup
         if (navigator.notification) { // Override default HTML alert with native dialog
             window.alert = function (message) {
@@ -58,6 +89,7 @@
             };
         }
     };
+
 
     /**
      * Handles logging in of the account and saving the session on the device.
@@ -103,4 +135,4 @@
     };
 
 
-})();
+});

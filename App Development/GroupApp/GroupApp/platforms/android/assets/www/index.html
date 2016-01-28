@@ -170,7 +170,7 @@
     </div>
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
-            <li><button name="answer-btn" class="answer-btn" value="A" id="A" type="submit">A</button></li>
+            <li><button name="answer-btn" class="answer-btn" value="A"  type="submit">A</button></li>
             <li><button name="answer-btn" class="answer-btn" value="B" type="submit">B</button></li>
             <li><button name="answer-btn" class="answer-btn" value="C" type="submit">C</button></li>
             <li><button name="answer-btn" class="answer-btn" value="D" type="submit">D</button></li>
@@ -216,11 +216,11 @@
     <div data-role="main" class="ui-content">
         <div class="questionForm">
             <form id="questionForm"> <!--action for processing details-->
-                <input type="text" name="question" id="question" value="Please enter question here">
-                <input type="text" name="optA" id="optA">
-                <input type="text" name="optB" id="optB">
-                <input type="text" name="optC" id="optC">
-                <input type="text" name="optD" id="optD">
+                <input type="text" class="questTxt"  value="Please enter question here">
+                <input type="text" name="questOpt" class="optA" value="">
+                <input type="text" name="questOpt" class="optB" value="">
+                <input type="text" name="questOpt" class="optC" value="">
+                <input type="text" name="questOpt" class="optD" value="">
                 <input type="submit" class="question-btn" value="Send question">
             </form>
         </div>

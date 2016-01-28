@@ -11,7 +11,7 @@ class testSignInApi extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testAPI()
     {
         $wrongCredentials = array(
             'username' => 'FakeUserName',

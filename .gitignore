@@ -1,0 +1,26 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+#custom ignore such as IDE files
+web-server/.idea/
+*.cache
+.idea/
+*.bin
+App Development/GroupApp/GroupApp/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock
+

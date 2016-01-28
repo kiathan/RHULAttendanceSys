@@ -25,10 +25,11 @@ class apiController extends Controller
         //Sing in
 
         $username = $request->input('username');
-        $password = Hash::make($request->input('password'));
+        $password = $request->input('password');
+
         if (Auth::attempt([
                               "username" => $username,
-                              "password" => $password ])
+                              "password" => $password])
         ) {
             $authJSON['state'] = "success";
             $authJSON['token'] = Auth::user()->username;

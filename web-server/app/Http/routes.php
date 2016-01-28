@@ -16,11 +16,6 @@ Route::get('/',
         return view('welcome');
     });
 
-Route::get('/testing',
-    function () {
-        return "hello";
-    });
-
 Route::get('/login', 'singinColtroller@singin');
 
 

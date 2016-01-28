@@ -9,7 +9,14 @@ use App\Http\Controllers\Controller;
 
 class singinColtroller extends Controller
 {
-    public function singin(){
-        return "Sing in to Addent system";
+    public function singin()
+    {
+        return view('login');
+    }
+
+    public function login()
+    {
+        $signInResult = false;
+        return view('login')->with(["signInResult" => $signInResult]);
     }
 }

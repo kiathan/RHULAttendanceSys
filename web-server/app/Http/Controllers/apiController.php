@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Auth;
+use Illuminate\Support\Facades\Hash;
+
+class apiController extends Controller
+{
+    public function getLogin()
+    {
+
+    }
+
+    public function postLogin(Request $request)
+    {
+        $authJSON          = array();
+        $authJSON['state'] = "failure";
+
+        //Sing in
+
+        $username = $request->input('username');
+        $password = Hash::make($request->input('password'));
+        if (Auth::attempt([
+                              "username" => "FakeUserName",
+                              "password" => "FakeUserName"])
+        ) {
+            $authJSON['state'] = "success";
+            $authJSON['token'] = Auth::user()->username;
+        }
+
+        return response()->json($authJSON);
+    }
+
+}

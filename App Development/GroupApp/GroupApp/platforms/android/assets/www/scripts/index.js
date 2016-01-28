@@ -12,6 +12,9 @@
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
 
+    //footer
+    $('.footer-base').clone().appendTo('.footer-copy');
+
     //calls the login function when login button is clicked.
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
@@ -26,6 +29,8 @@
         );
       };
     }
+
+
   };
 
   /**

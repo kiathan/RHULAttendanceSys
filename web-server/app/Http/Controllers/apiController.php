@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class apiController extends Controller
 {
-    public function getLogin()
+    public function getLogin(Request $request)
     {
-
+        $authJSON['message'] = "use POST to login";
+        return response()->json($authJSON);
     }
 
     public function postLogin(Request $request)
@@ -26,8 +27,8 @@ class apiController extends Controller
         $username = $request->input('username');
         $password = Hash::make($request->input('password'));
         if (Auth::attempt([
-                              "username" => "FakeUserName",
-                              "password" => "FakeUserName"])
+                              "username" => $username,
+                              "password" => $password ])
         ) {
             $authJSON['state'] = "success";
             $authJSON['token'] = Auth::user()->username;

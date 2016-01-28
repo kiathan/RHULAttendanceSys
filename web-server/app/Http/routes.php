@@ -27,4 +27,6 @@ Route::get('/login', 'singinColtroller@singin');
 Route::post('/login', 'singinColtroller@login');
 
 
-Route::get('/api/auth/login', 'apiController@postLogin');
+Route::post('/api/auth/login', 'apiController@postLogin');
+
+Route::get('/api/auth/login', 'apiController@getLogin');

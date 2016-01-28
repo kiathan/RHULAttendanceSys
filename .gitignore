@@ -7,3 +7,4 @@ App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/intermediat
 *.xml
 App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/tmp/packageDebugJar/MANIFEST.MF
 *.aar
+*.class

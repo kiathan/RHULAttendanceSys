@@ -48,7 +48,7 @@
         if (u.localeCompare("lecturer") == 0) {
             isStudent = false;
         }
-        if (isStudent) {
+        if (!isStudent) {
             window.location.href = "#StudentLanding";
         } else {
             window.location.href = "#LecturerLanding";
@@ -143,10 +143,19 @@
     }
 
     function sendQuestion() {
+        var optA =$('#optA').val();
+        var optB =$('#optB').val();
+        var optC =$('#optC').val();
+        var optD =$('#optD').val();
+        var newQuestion = $('#questTxt').val();
+
+        /*
         var questionAnswer = '{"question":' + $('.questTxt').value + ', "optA":' + $('.optA').value + ', "optB":' + $('.optB').value +
-            ', "optC":' + $('.optC').value + ', "optD":' + $('.optD').value + '}';
-        alert("You have submit question " + $('.questTxt').value + "\n" + "Answers are " + $('.optA').value
-            + " " + $('.optB').value + " " + $('.optC').value + " " + $('.optD').value);
+            ', "optC":' + $('.optC').value + ', "optD":' + $('.optD').value + '}';*/
+        alert("You have submit question " + newQuestion + "\n" + "Answers are " + optA
+            + " " +optB + " " + optC + " " +optD);
+        window.location.href = "#LecturerLanding";
+        /*
         var request = $.ajax({
 
             url: "bartalveyhe.me",
@@ -159,7 +168,7 @@
             alert(msg);
 
         });
-
+         */
     }
 
 

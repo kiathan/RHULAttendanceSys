@@ -12,24 +12,17 @@
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
 
-
-    //footer
     $('.footer-base').clone().appendTo('.footer-copy');
 
     //calls the login function when login button is clicked.
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
+    $('.sign-in-btn').click(signin);
+
+    //$('.scanner')
     //native popup
-    if (navigator.notification) { // Override default HTML alert with native dialog
-      window.alert = function(message) {
-        navigator.notification.alert(
-          message, // message
-          null, // callback
-          "Royal Ray", // title
-          'OK' // buttonName
-        );
-      };
-    }
+    enableNativePopUp();
+
 
 
   };
@@ -115,6 +108,37 @@
     window.location.href = "#logIn";
   }
 
+  /**
+   * Handles logging out of the account and clearing storage
+   **/
+  function signin() {
+
+    navigator.notification.alert(
+      "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
+      scanner(), // callback
+      "Warning", // title
+      'I agree' // buttonName
+    );
+
+  }
+
+  function scanner() {
+    cordova.plugins.barcodeScanner.scan(
+      function(result) {
+        alert("We got a barcode\n" +
+          "Result: " + result.text + "\n" +
+          "Format: " + result.format + "\n" +
+          "Cancelled: " + result.cancelled);
+      },
+      function(error) {
+        alert("Sign in unsuccessful! Please try again.");
+      }
+    );
+    //TODO: Clears session related data
+    window.location.href = "#logIn";
+  }
+
+
   function onPause() {
     // TODO: This application has been suspended. Save application state here.
   };
@@ -122,6 +146,20 @@
   function onResume() {
     // TODO: This application has been reactivated. Restore application state here.
   };
+
+  //enables and set native pop up
+  function enableNativePopUp() {
+    if (navigator.notification) { // Override default HTML alert with native dialog
+      window.alert = function(message) {
+        navigator.notification.alert(
+          message, // message
+          null, // callback
+          "Royal Ray", // title
+          'OK' // buttonName
+        );
+      };
+    }
+  }
 
 
 })();

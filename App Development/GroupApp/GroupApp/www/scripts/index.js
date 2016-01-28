@@ -18,6 +18,8 @@
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
     $('.sign-in-btn').click(signin);
+    $('.answer-btn').click(answerQuestion);
+    $('.question-btn').click(sendQuestion);
 
     //$('.scanner')
     //native popup
@@ -159,6 +161,59 @@
         );
       };
     }
+  }
+
+  function answerQuestion() {
+    var value = this.value;
+    $.getJSON("test.json", function(StudDetail) {
+      var username = StudDetail["username"];
+      alert("You have submit your answer \nYour answer is " +
+        value);
+      /*
+       var request = $.ajax({
+
+       url: "bartalveyhe.me",
+       method: "POST",
+       data: {username: username, answer: value}
+
+       });
+
+       request.done(function (msg) {
+       alert(msg);
+       */
+      $('.answer-btn').prop("disabled", true);
+      window.location.href = "#StudentLanding";
+    });
+  }
+
+  function sendQuestion() {
+    var optA = $('#optA').val();
+    var optB = $('#optB').val();
+    var optC = $('#optC').val();
+    var optD = $('#optD').val();
+    var newQuestion = $('#questTxt').val();
+
+    /*
+    var questionAnswer = '{"question":' + $('.questTxt').value + ', "optA":' + $('.optA').value + ', "optB":' + $('.optB').value +
+        ', "optC":' + $('.optC').value + ', "optD":' + $('.optD').value + '}';*/
+    alert("You have submit question " + newQuestion + "\n" +
+      "Answers are " + optA + " " + optB + " " + optC + " " +
+      optD);
+    window.location.href = "#LecturerLanding";
+    /*
+    var request = $.ajax({
+
+        url: "bartalveyhe.me",
+        method: "POST",
+        data: questionAnswer
+
+    });
+
+    request.done(function (msg) {
+        alert(msg);
+
+    });
+     */
   }
 
 

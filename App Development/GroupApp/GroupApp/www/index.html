@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/jquery-2.2.0.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.js"></script>
 
 </head>
 <body>
@@ -185,12 +190,12 @@
         <h1>Answer question</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <div class="questionForm">
+        <div class="answerForm">
 
-            <input type="submit" class="answer-btn" value="A">
-            <input type="submit" class="answer-btn" value="B">
-            <input type="submit" class="answer-btn" value="C">
-            <input type="submit" class="answer-btn" value="D">
+            <li><input type="submit" class="answer-btn" value="A"></li>
+            <li><input type="submit" class="answer-btn" value="B"></li>
+            <li><input type="submit" class="answer-btn" value="C"></li>
+            <li><input type="submit" class="answer-btn" value="D"></li>
 
         </div>
     </div>
@@ -217,10 +222,7 @@
 
 
 <!-- Cordova reference, this is added to your app when it's built. -->
-<script src="cordova.js"></script>
-<script src="scripts/platformOverrides.js"></script>
-<script src="scripts/jquery-2.2.0.js"></script>
-<script src="scripts/index.js"></script>
-<script src="scripts/jquery.mobile-1.4.5.js"></script>
+
+
 </body>
 </html>

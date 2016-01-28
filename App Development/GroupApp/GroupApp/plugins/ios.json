@@ -4,16 +4,41 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "cordova-plugin-device": {
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-dialogs": {

@@ -64,14 +64,14 @@
             localStorage.login = "false";
             localStorage.loginerror = "incorrect";
           } else {
-            localStorage.login = "false";
+            localStorage.login = "true";
             localStorage.loginerror = "timeout";
           }
           loginReplyRedir();
         },
         error: function(data) {
           ActivityIndicator.hide();
-          localStorage.login = "false";
+          localStorage.login = "true";
           localStorage.loginerror = "timeout";
           loginReplyRedir();
         },
@@ -95,7 +95,8 @@
       window.location.href = "#logIn";
     } else if (localStorage.login == "true") {
       var isStudent = true;
-      if (localStorage.username.localeCompare("lecturer") == 0) {
+
+      if (localStorage.username == "lecturer") {
         isStudent = false;
       }
       if (isStudent) {

@@ -95,7 +95,8 @@
       window.location.href = "#logIn";
     } else if (localStorage.login == "true") {
       var isStudent = true;
-      if (localStorage.username.localeCompare("lecturer") == 0) {
+
+      if (localStorage.username == "lecturer") {
         isStudent = false;
       }
       if (isStudent) {

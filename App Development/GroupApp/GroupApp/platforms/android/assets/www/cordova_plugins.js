@@ -3,13 +3,11 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-whitelist/whitelist.js",
         "id": "cordova-plugin-whitelist.whitelist",
-        "pluginId": "cordova-plugin-whitelist",
         "runs": true
     },
     {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
-        "pluginId": "cordova-plugin-device",
         "clobbers": [
             "device"
         ]
@@ -17,7 +15,6 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-dialogs/www/notification.js",
         "id": "cordova-plugin-dialogs.notification",
-        "pluginId": "cordova-plugin-dialogs",
         "merges": [
             "navigator.notification"
         ]
@@ -25,7 +22,6 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
         "id": "cordova-plugin-dialogs.notification_android",
-        "pluginId": "cordova-plugin-dialogs",
         "merges": [
             "navigator.notification"
         ]
@@ -33,7 +29,6 @@ module.exports = [
     {
         "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
         "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
         "clobbers": [
             "ActivityIndicator"
         ]
@@ -41,7 +36,6 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
         "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-        "pluginId": "cordova-plugin-barcodescanner",
         "clobbers": [
             "cordova.plugins.barcodeScanner"
         ]

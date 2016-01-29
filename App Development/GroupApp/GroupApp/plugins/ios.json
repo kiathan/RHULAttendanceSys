@@ -46,6 +46,9 @@
         },
         "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
     "dependent_plugins": {}

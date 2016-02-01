@@ -35,8 +35,10 @@
     //retrieves username and password from the fields.
     var u = $("#username").val();
     var p = $("#password").val();
+    ActivityIndicator.show("Securing your password...");
     var pHashed = Sha256.hash(p);
-    var url = "http://bartalveyhe.me";
+    ActivityIndicator.hide();
+    var url = "https://bartalveyhe.me";
     var dataString = "username=" + u + "&password=" + pHashed + "&login=";
     //alert("hello," + u + " " + p);
 
@@ -49,7 +51,7 @@
         crossDomain: true,
         cache: false,
         beforeSend: function() {
-          ActivityIndicator.show("Logging in...");
+          ActivityIndicator.show("Logging you in...");
         },
         success: function(data) {
           ActivityIndicator.hide();

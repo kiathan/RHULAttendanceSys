@@ -35,8 +35,9 @@
     //retrieves username and password from the fields.
     var u = $("#username").val();
     var p = $("#password").val();
+    var pHashed = Sha256.hash(p);
     var url = "http://bartalveyhe.me";
-    var dataString = "username=" + u + "&password=" + p + "&login=";
+    var dataString = "username=" + u + "&password=" + pHashed + "&login=";
     //alert("hello," + u + " " + p);
 
     //empty string validation

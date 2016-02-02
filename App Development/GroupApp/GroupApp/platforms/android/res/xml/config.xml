@@ -14,6 +14,9 @@
     <feature name="ActivityIndicator">
         <param name="android-package" value="org.apache.cordova.plugin.ActivityIndicator" />
     </feature>
+    <feature name="BarcodeScanner">
+        <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icons/android/icon-36-ldpi.png" />
     <icon density="mdpi" src="res/icons/android/icon-48-mdpi.png" />

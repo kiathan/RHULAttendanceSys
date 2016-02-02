@@ -2,6 +2,7 @@
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
+
 (function () {
     "use strict";
 
@@ -27,7 +28,6 @@
 
 
     };
-
     /**
      * Handles logging in of the account and saving the session on the device.
      **/
@@ -35,8 +35,9 @@
         //retrieves username and password from the fields.
         var u = $("#username").val();
         var p = $("#password").val();
+        var pHashed = Sha256.hash(p);
         var url = "http://bartalveyhe.me";
-        var dataString = "username=" + u + "&password=" + p + "&login=";
+        var dataString = "username=" + u + "&password=" + pHashed + "&login=";
         //alert("hello," + u + " " + p);
 
         //empty string validation
@@ -72,33 +73,7 @@
                 },
                 timeout: 5000 //5 seconds
             });
-        }
 
-        //TODO: checks login status and decides if user should login.
-
-
-    };
-
-    function loginReplyRedir() {
-        if (localStorage.loginerror == "incorrect" && localStorage.login ==
-            "false") {
-            alert("Username/Password is invalid.");
-            window.location.href = "#logIn";
-        } else if (localStorage.loginerror == "timeout" && localStorage.login ==
-            "false") {
-            alert("Server unavailable. Please try again later.");
-            window.location.href = "#logIn";
-        } else if (localStorage.login == "true") {
-            var isStudent = true;
-
-            if (localStorage.username == "lecturer") {
-                isStudent = false;
-            }
-            if (isStudent) {
-                window.location.href = "#StudentLanding";
-            } else {
-                window.location.href = "#LecturerLanding";
-            }
         }
     }
 

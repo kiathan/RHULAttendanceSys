@@ -13,18 +13,22 @@ function login() {
   //alert("hello," + u + " " + p);
 
   //empty string validation
+
+
   if ($.trim(u).length > 0 & $.trim(p).length > 0) {
     $.ajax({
-      type: "POST",
-      url: url,
-      data: dataString,
+      method: "POST",
+      url: "https://bartalveyhe.me/api/auth/login",
+      data: {username: "FakeUserName", password:"FakeUserName"},
       crossDomain: true,
       cache: false,
       beforeSend: function() {
         ActivityIndicator.show("Logging you in...");
       },
       success: function(data) {
+        alert(data);
         ActivityIndicator.hide();
+
         if (data == "success") {
           localStorage.login = "true";
           localStorage.username = u;
@@ -38,6 +42,7 @@ function login() {
         loginReplyRedir();
       },
       error: function(data) {
+        alert("fail");
         ActivityIndicator.hide();
         localStorage.login = "true";
         localStorage.loginerror = "timeout";

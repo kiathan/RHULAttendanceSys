@@ -3,47 +3,57 @@
  **/
 function login() {
   //retrieves username and password from the fields.
+  ActivityIndicator.show("Logging you in...");
   var u = $("#username").val();
   var p = $("#password").val();
-  ActivityIndicator.show("Securing your password...");
   var pHashed = Sha256.hash(p);
-  ActivityIndicator.hide();
-  var url = "https://bartalveyhe.me";
-  var dataString = "username=" + u + "&password=" + pHashed + "&login=";
+  var url = "https://bartalveyhe.me/api/auth/login";
+  var dataString = {
+    username: u,
+    password: p
+  };
   //alert("hello," + u + " " + p);
 
   //empty string validation
   if ($.trim(u).length > 0 & $.trim(p).length > 0) {
     $.ajax({
-      type: "POST",
+      method: "POST",
       url: url,
       data: dataString,
-      crossDomain: true,
+      tryCount: 0,
+      retryLimit: 3,
       cache: false,
-      beforeSend: function() {
-        ActivityIndicator.show("Logging you in...");
-      },
       success: function(data) {
+
+        var jsonresult = JSON.stringify(data);
+        var loginresult = JSON.parse(jsonresult);
+
         ActivityIndicator.hide();
-        if (data == "success") {
+        if (loginresult.state == "success") {
           localStorage.login = "true";
           localStorage.username = u;
-        } else if (data == "failed") {
+        } else if (loginresult.state == "failure") {
           localStorage.login = "false";
           localStorage.loginerror = "incorrect";
         } else {
-          localStorage.login = "true";
+          localStorage.login = "false";
           localStorage.loginerror = "timeout";
         }
         loginReplyRedir();
       },
       error: function(data) {
+        this.tryCount++;
+        if (this.tryCount <= this.retryLimit) {
+          //try again
+          $.ajax(this);
+          return;
+        }
         ActivityIndicator.hide();
-        localStorage.login = "true";
+        localStorage.login = "false";
         localStorage.loginerror = "timeout";
         loginReplyRedir();
       },
-      timeout: 5000 //5 seconds
+      timeout: 3000 //3 seconds
     });
   }
   //TODO: checks login status and decides if user should login.

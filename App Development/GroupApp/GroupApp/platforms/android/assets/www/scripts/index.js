@@ -2,7 +2,6 @@
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
-<<<<<<< HEAD
 
 (function () {
     "use strict";
@@ -36,8 +35,10 @@
         //retrieves username and password from the fields.
         var u = $("#username").val();
         var p = $("#password").val();
+        ActivityIndicator.show("Securing your password...");
         var pHashed = Sha256.hash(p);
-        var url = "http://bartalveyhe.me";
+        ActivityIndicator.hide();
+        var url = "https://bartalveyhe.me";
         var dataString = "username=" + u + "&password=" + pHashed + "&login=";
         //alert("hello," + u + " " + p);
 
@@ -50,7 +51,7 @@
                 crossDomain: true,
                 cache: false,
                 beforeSend: function () {
-                    ActivityIndicator.show("Logging in...");
+                    ActivityIndicator.show("Logging you in...");
                 },
                 success: function (data) {
                     ActivityIndicator.hide();
@@ -76,81 +77,6 @@
             });
 
         }
-=======
-(function() {
-  "use strict";
-
-  document.addEventListener('deviceready', onDeviceReady.bind(this), false);
-
-  function onDeviceReady() {
-    // Handle the Cordova pause and resume events
-    document.addEventListener('pause', onPause.bind(this), false);
-    document.addEventListener('resume', onResume.bind(this), false);
-
-    $('.footer-base').clone().appendTo('.footer-copy');
-
-    //calls the login function when login button is clicked.
-    $('.login-btn').click(login);
-    $('.logout-btn').click(logout);
-    $('.sign-in-btn').click(signin);
-    $('.answer-btn').click(answerQuestion);
-    $('.question-btn').click(sendQuestion);
-
-    //$('.scanner')
-    //native popup
-    enableNativePopUp();
-
-
-
-  };
-  /**
-   * Handles logging in of the account and saving the session on the device.
-   **/
-  function login() {
-    //retrieves username and password from the fields.
-    var u = $("#username").val();
-    var p = $("#password").val();
-    ActivityIndicator.show("Securing your password...");
-    var pHashed = Sha256.hash(p);
-    ActivityIndicator.hide();
-    var url = "https://bartalveyhe.me";
-    var dataString = "username=" + u + "&password=" + pHashed + "&login=";
-    //alert("hello," + u + " " + p);
-
-    //empty string validation
-    if ($.trim(u).length > 0 & $.trim(p).length > 0) {
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: dataString,
-        crossDomain: true,
-        cache: false,
-        beforeSend: function() {
-          ActivityIndicator.show("Logging you in...");
-        },
-        success: function(data) {
-          ActivityIndicator.hide();
-          if (data == "success") {
-            localStorage.login = "true";
-            localStorage.username = u;
-          } else if (data == "failed") {
-            localStorage.login = "false";
-            localStorage.loginerror = "incorrect";
-          } else {
-            localStorage.login = "true";
-            localStorage.loginerror = "timeout";
-          }
-          loginReplyRedir();
-        },
-        error: function(data) {
-          ActivityIndicator.hide();
-          localStorage.login = "true";
-          localStorage.loginerror = "timeout";
-          loginReplyRedir();
-        },
-        timeout: 5000 //5 seconds
-      });
->>>>>>> Mobile-App
     }
 
     /**

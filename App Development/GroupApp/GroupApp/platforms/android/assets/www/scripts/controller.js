@@ -8,7 +8,7 @@ function login() {
   ActivityIndicator.show("Securing your password...");
   var pHashed = Sha256.hash(p);
   ActivityIndicator.hide();
-  var url = "https://bartalveyhe.me";
+  var url = "https://bartalveyhe.me/api/auth/login";
   var dataString = "username=" + u + "&password=" + pHashed + "&login=";
   //alert("hello," + u + " " + p);
 

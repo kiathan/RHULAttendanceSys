@@ -3,6 +3,7 @@
  **/
 function login() {
   //retrieves username and password from the fields.
+
   ActivityIndicator.show("Logging you in...");
   var u = $("#username").val();
   var p = $("#password").val();
@@ -94,28 +95,53 @@ function logout() {
  * Handles logging out of the account and clearing storage
  **/
 function signin() {
+  setCurrentPosition();
   navigator.notification.confirm(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
     scanner, // callback
     "Warning", // title
-    'I Agree,Cancel' // buttonName
+    ['I Agree', 'Cancel']
   );
 };
 
+function setCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      localStorage.lat = position.coords.latitude;
+      localStorage.long = position.coords.longitude;
+    },
+    function() {
+      alert('Attendance sign-in unsuccessful! Please try again.');
+    });
+}
+
 function scanner(input) {
   if (input == 1) {
+    setCurrentPosition();
     cordova.plugins.barcodeScanner.scan(
       function(result) {
         alert("We got a barcode\n" +
           "Result: " + result.text + "\n" +
           "Format: " + result.format + "\n" +
-          "Cancelled: " + result.cancelled);
+          "Geolocation: " + localStorage.lat + localStorage.long + "\n"
+        );
       },
       function(error) {
-        alert("Sign in unsuccessful! Please try again.");
-      }
-    );
+        alert("Attendance sign-in unsuccessful! Please try again.");
+      });
+
+
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        localStorage.latitude = position.coords.latitude;
+        localStorage.longitude = position.coords.longitude;
+      },
+      function() {
+        alert('Attendance sign-in unsuccessful! Please try again.');
+      });
+
     window.location.href = "#StudentLanding";
+
   } else {
     loginReplyRedir();
   }
@@ -124,13 +150,6 @@ function scanner(input) {
 };
 
 
-function onPause() {
-  // TODO: This application has been suspended. Save application state here.
-};
-
-function onResume() {
-  // TODO: This application has been reactivated. Restore application state here.
-};
 
 //enables and set native pop up
 function enableNativePopUp() {

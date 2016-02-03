@@ -10,7 +10,7 @@ function login() {
   var url = "https://bartalveyhe.me/api/auth/login";
   var dataString = {
     username: u,
-    password: p
+    password: pHashed
   };
   //alert("hello," + u + " " + p);
 

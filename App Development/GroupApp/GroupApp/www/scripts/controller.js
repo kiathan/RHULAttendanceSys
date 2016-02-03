@@ -94,28 +94,33 @@ function logout() {
  * Handles logging out of the account and clearing storage
  **/
 function signin() {
-  navigator.notification.alert(
+  navigator.notification.confirm(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
-    scanner(), // callback
+    scanner, // callback
     "Warning", // title
-    'I agree' // buttonName
+    'I Agree,Cancel' // buttonName
   );
 };
 
-function scanner() {
-  cordova.plugins.barcodeScanner.scan(
-    function(result) {
-      alert("We got a barcode\n" +
-        "Result: " + result.text + "\n" +
-        "Format: " + result.format + "\n" +
-        "Cancelled: " + result.cancelled);
-    },
-    function(error) {
-      alert("Sign in unsuccessful! Please try again.");
-    }
-  );
+function scanner(input) {
+  if (input == 1) {
+    cordova.plugins.barcodeScanner.scan(
+      function(result) {
+        alert("We got a barcode\n" +
+          "Result: " + result.text + "\n" +
+          "Format: " + result.format + "\n" +
+          "Cancelled: " + result.cancelled);
+      },
+      function(error) {
+        alert("Sign in unsuccessful! Please try again.");
+      }
+    );
+    window.location.href = "#StudentLanding";
+  } else {
+    loginReplyRedir();
+  }
   //TODO: Clears session related data
-  window.location.href = "#logIn";
+
 };
 
 

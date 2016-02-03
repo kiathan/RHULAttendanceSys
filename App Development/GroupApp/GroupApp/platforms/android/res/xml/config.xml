@@ -7,6 +7,10 @@
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icons/android/icon-36-ldpi.png" />
     <icon density="mdpi" src="res/icons/android/icon-48-mdpi.png" />
@@ -36,4 +40,6 @@
     <allow-intent href="geo:*" />
     <vs:plugin name="cordova-plugin-device" version="1.1.1" />
     <vs:plugin name="cordova-plugin-dialogs" version="1.2.0" />
+    <preference name="Fullscreen" value="False" />
+    <vs:plugin name="cordova-plugin-splashscreen" version="3.1.0" />
 </widget>

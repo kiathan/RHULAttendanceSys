@@ -153,27 +153,39 @@
   };
 
   function loadTimetable() {
-      
+
+      var course;
+      var day;
+      var startHour;
+      var endHour;
+
       var timetable = new Timetable();
 
       timetable.setScope(9, 18) //sets scope of table
       timetable.addLocations(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']); //row headings
 
-      //Adds events/lectures to table
-      timetable.addEvent('Software Engineering', 'Tuesday', new Date(null, null, null, 10, 0), new Date(null, null, null, 12, 0), '#Attendance');
-      timetable.addEvent('Databases', 'Monday', new Date(null, null, null, 13, 0), new Date(null, null, null, 14, 0), '#Attendance');
+      $.getJSON("TODO", function(result){
+        $.each(result, function(i, field){
+          $("div").append(field + " ");
+        });
+     });
+
+      
+      
+
+      
 
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
       
       //Checks orientation of screen
-      if (window.orientation == 90) { $('.timetable').fadeIn(); } else { $('#rotateWarning').fadeIn(); }
+      if (window.orientation == 90) { $('.timetable').fadeIn(); } else { $('#rotateWarning').fadeIn('slow'); }
 
       $(window).on("orientationchange", function() {
           if (window.orientation == 0 || window.orientation == 180) // Portrait
           {
               $('.timetable').hide();
-              $('#rotateWarning').fadeIn();
+              $('#rotateWarning').fadeIn('slow');
           }
           else // Landscape
           {

@@ -167,13 +167,13 @@
       renderer.draw('.timetable');
       
       //Checks orientation of screen
-      if (window.orientation == 90) { $('.timetable').fadeIn(); } else { $('#rotateWarning').fadeIn(); }
+      if (window.orientation == 90) { $('.timetable').fadeIn(); } else { $('#rotateWarning').fadeIn('slow'); }
 
       $(window).on("orientationchange", function() {
           if (window.orientation == 0 || window.orientation == 180) // Portrait
           {
               $('.timetable').hide();
-              $('#rotateWarning').fadeIn();
+              $('#rotateWarning').fadeIn('slow');
           }
           else // Landscape
           {

@@ -5,6 +5,9 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 		<link href = "css/bootstrap.min.css" rel = "stylesheet">
 		<link href = "css/style.css" rel = "stylesheet">
+		<link rel="shortcut icon" href="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\AttendanceWeb\images\RHicon.ico">
+
+
 	
 	</head>
 	<body>
@@ -23,21 +26,22 @@
 					<ul class = "nav navbar-nav navbar-right">
 					
 						<li class = "active"><a href = "#">Home</a></li>
-						<li class = "dropdown">
-						
-							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Attendance <b class = "caret"></b></a>
-						
-							<ul class = "dropdown-menu">
-								<li><a href = "Graph.html" target="_self">Graph</a></li>
-								<li><a href = "#">Attendance system</a></li>
-								<li><a href = "#">Warning</a></li>
-							
-							</ul>
-						</li>
+						<li><a href = "Attendance.html">Attendance</a></li>
+
+					
 						<li><a href = "#">Q&A</a></li>
 						<li><a href = "#">Timetable</a></li>
-						<li><a href = "#login" data-toggle = "modal">Login</a></li>
-					
+						<li class = "dropdown">
+						
+							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Login page <b class = "caret"></b></a>
+						
+							<ul class = "dropdown-menu">
+								<li><a href = "#loginStudent" data-toggle = "modal">Student</a></li>
+								<li><a href = "#loginLecturer" data-toggle = "modal">Lecturer</a></li>
+								<li><a href = "#loginStaff" data-toggle = "modal">Staff</a></li>
+							
+							</ul>
+						</li>					
 					</ul>
 				
 				</div>
@@ -85,16 +89,15 @@
 			</div>
 		</div>
 		
-		<div class = "modal fade" id = "login" role = "dialog">
+		<div class = "modal fade" id = "loginStudent" role = "dialog">
 			<div class = "modal-dialog">
 				<div class = "modal-content">
 					<form class="form-horizontal">
 
 						<div class = "modal-header">
-							<h3>Login</h3>
+							<h3>Login for students</h3>
 						</div>
 						<div class = "modal-body">
-							<p>kljdoiafji</p>
 							
 							  <div class="form-group">
 								<label for="inputUserName3" class="col-sm-2 control-label">User ID</label>
@@ -120,6 +123,90 @@
 						</div>
 						<div class = "modal-footer">
 							<button class = "btn btn-info" type = "login">Login</button>
+							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class = "modal fade" id = "loginLecturer" role = "dialog">
+			<div class = "modal-dialog">
+				<div class = "modal-content">
+					<form class="form-horizontal">
+
+						<div class = "modal-header">
+							<h3>Login for lecturers</h3>
+						</div>
+						<div class = "modal-body">
+							
+							  <div class="form-group">
+								<label for="inputUserName3" class="col-sm-2 control-label">User ID</label>
+								<div class="col-sm-10">
+								  <input type="UserName" class="form-control" id="inputUserName3" placeholder="eg)zava123">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-10">
+								  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+								  <div class="checkbox">
+									<label>
+									  <input type="checkbox"> Remember me
+									</label>
+								  </div>
+								</div>
+							  </div>
+						</div>
+						<div class = "modal-footer">
+							<button class = "btn btn-success" type = "login">Login</button>
+							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+				
+		<div class = "modal fade" id = "loginStaff" role = "dialog">
+			<div class = "modal-dialog">
+				<div class = "modal-content">
+					<form class="form-horizontal">
+
+						<div class = "modal-header">
+							<h3>Login for staffs</h3>
+						</div>
+						<div class = "modal-body">
+							
+							  <div class="form-group">
+								<label for="inputUserName3" class="col-sm-2 control-label">User ID</label>
+								<div class="col-sm-10">
+								  <input type="UserName" class="form-control" id="inputUserName3" placeholder="eg)zava123">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-10">
+								  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+								  <div class="checkbox">
+									<label>
+									  <input type="checkbox"> Remember me
+									</label>
+								  </div>
+								</div>
+							  </div>
+						</div>
+						<div class = "modal-footer">
+							<button class = "btn btn-warning" type = "login">Login</button>
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
 						</div>
 					</form>

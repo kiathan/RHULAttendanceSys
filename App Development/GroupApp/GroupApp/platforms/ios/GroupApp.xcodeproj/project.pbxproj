@@ -53,6 +53,8 @@
 		73493D91AA154B01871D0996 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F644795DC0BF4B68968B177F /* AVFoundation.framework */; };
 		0CDC71FF37E243419C4EA7CB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769C53D846A843268C914403 /* CoreVideo.framework */; };
 		8ED2D72135734731B2780E60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEF12229EF3401F9E56F090 /* QuartzCore.framework */; };
+		2091ACF318874393B442E59D /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A69FADA14D82ADFDD210 /* CDVLocation.m */; };
+		8AAD435A00FB486085BEDC3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824B04CFA798452C94360D3D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,9 @@
 		F644795DC0BF4B68968B177F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		769C53D846A843268C914403 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreVideo.framework"; path = "System/Library/Frameworks/CoreVideo.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		0DEF12229EF3401F9E56F090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		4A47A69FADA14D82ADFDD210 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		203696E67CC74D1498221CC7 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		824B04CFA798452C94360D3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +159,7 @@
 				73493D91AA154B01871D0996 /* AVFoundation.framework in Frameworks */,
 				0CDC71FF37E243419C4EA7CB /* CoreVideo.framework in Frameworks */,
 				8ED2D72135734731B2780E60 /* QuartzCore.framework in Frameworks */,
+				8AAD435A00FB486085BEDC3F /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +239,7 @@
 				F644795DC0BF4B68968B177F /* AVFoundation.framework */,
 				769C53D846A843268C914403 /* CoreVideo.framework */,
 				0DEF12229EF3401F9E56F090 /* QuartzCore.framework */,
+				824B04CFA798452C94360D3D /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,6 +268,8 @@
 				9C37B5ECA802445BA60DE2E2 /* CDVBarcodeScanner.mm */,
 				BC164DA89B0446908D7F276C /* zxing-all-in-one.cpp */,
 				69D12B908DCD404EA0D4F868 /* zxing-all-in-one.h */,
+				4A47A69FADA14D82ADFDD210 /* CDVLocation.m */,
+				203696E67CC74D1498221CC7 /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "GroupApp/Plugins";
@@ -454,6 +463,7 @@
 				A4F9C1B3258B45CBB8C14A86 /* MBProgressHUD.m in Sources */,
 				9C8199FB7FCB4EAAA5DCF656 /* CDVBarcodeScanner.mm in Resources */,
 				49FC5F9594264A8DBC69BA69 /* zxing-all-in-one.cpp in Resources */,
+				2091ACF318874393B442E59D /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

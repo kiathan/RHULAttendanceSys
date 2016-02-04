@@ -3,6 +3,7 @@
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
 (function() {
+<<<<<<< HEAD
   "use strict";
 
   document.addEventListener('deviceready', onDeviceReady.bind(this), false);
@@ -29,3 +30,42 @@
 
   };
 })();
+=======
+    "use strict";
+
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+
+    function onDeviceReady() {
+      // Handle the Cordova pause and resume events
+      document.addEventListener('pause', onPause.bind(this), false);
+      document.addEventListener('resume', onResume.bind(this), false);
+
+      $('.footer-base').clone().appendTo('.footer-copy');
+
+      //calls the login function when login button is clicked.
+      $('.login-btn').click(login);
+      $('.logout-btn').click(logout);
+      $('.sign-in-btn').click(signin);
+      $('.answer-btn').click(answerQuestion);
+      $('.question-btn').click(sendQuestion);
+
+      //$('.scanner')
+      //native popup
+      enableNativePopUp();
+
+
+
+    };
+
+    function onPause() {
+      // TODO: This application has been suspended. Save application state here.
+    };
+
+    function onResume() {
+      // TODO: This application has been reactivated. Restore application state here.
+    };
+  }
+
+
+)();
+>>>>>>> master

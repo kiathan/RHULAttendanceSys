@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 </head>
@@ -11,7 +12,7 @@
         </div>
     <div data-role="main" class="ui-content">
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-            <input type="text" name="username" id="username" value="testuser" placeholder="Username">
+            <input type="text" name="username" id="username" value="lecturer" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
         </form>
@@ -34,7 +35,7 @@
             <li><a href="#">What's next</a></li>
         </ul>
 
-        <div data-role="footer" data-position="fixed">
+        <div class="footer-base" data-role="footer" data-position="fixed">
             <h1><button class="logout-btn">Logout</button></h1>
         </div>
 
@@ -137,11 +138,17 @@
 
 <!-- Cordova reference, this is added to your app when it's built. -->
 <script src="cordova.js"></script>
+<<<<<<< HEAD
 <script src="scripts/hash.js"></script>
 <script src="scripts/controller.js"></script>
+=======
+>>>>>>> master
 <script src="scripts/platformOverrides.js"></script>
 <script src="scripts/jquery-2.2.0.js"></script>
-<script src="scripts/index.js"></script>
+<script src="scripts/view.js"></script>
+<script src="scripts/controller.js"></script>
+<script src="scripts/utilities.js"></script>
+<script src="scripts/hash.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 

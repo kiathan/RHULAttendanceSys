@@ -3,6 +3,7 @@
  **/
 function login() {
   //retrieves username and password from the fields.
+<<<<<<< HEAD
   var u = $("#username").val();
   var p = $("#password").val();
   ActivityIndicator.show("Securing your password...");
@@ -10,11 +11,24 @@ function login() {
   ActivityIndicator.hide();
   var url = "https://bartalveyhe.me";
   var dataString = "username=" + u + "&password=" + pHashed + "&login=";
+=======
+
+  ActivityIndicator.show("Logging you in...");
+  var u = $("#username").val();
+  var p = $("#password").val();
+  var pHashed = Sha256.hash(p);
+  var url = "https://bartalveyhe.me/api/auth/login";
+  var dataString = {
+    username: u,
+    password: pHashed
+  };
+>>>>>>> master
   //alert("hello," + u + " " + p);
 
   //empty string validation
   if ($.trim(u).length > 0 & $.trim(p).length > 0) {
     $.ajax({
+<<<<<<< HEAD
       type: "POST",
       url: url,
       data: dataString,
@@ -33,17 +47,54 @@ function login() {
           localStorage.loginerror = "incorrect";
         } else {
           localStorage.login = "true";
+=======
+      method: "POST",
+      url: url,
+      data: dataString,
+      tryCount: 0,
+      retryLimit: 3,
+      cache: false,
+      success: function(data) {
+
+        var jsonresult = JSON.stringify(data);
+        var loginresult = JSON.parse(jsonresult);
+
+        ActivityIndicator.hide();
+        if (loginresult.state == "success") {
+          localStorage.login = "true";
+          localStorage.username = u;
+        } else if (loginresult.state == "failure") {
+          localStorage.login = "false";
+          localStorage.loginerror = "incorrect";
+        } else {
+          localStorage.login = "false";
+>>>>>>> master
           localStorage.loginerror = "timeout";
         }
         loginReplyRedir();
       },
       error: function(data) {
+<<<<<<< HEAD
         ActivityIndicator.hide();
         localStorage.login = "true";
         localStorage.loginerror = "timeout";
         loginReplyRedir();
       },
       timeout: 5000 //5 seconds
+=======
+        this.tryCount++;
+        if (this.tryCount <= this.retryLimit) {
+          //try again
+          $.ajax(this);
+          return;
+        }
+        ActivityIndicator.hide();
+        localStorage.login = "false";
+        localStorage.loginerror = "timeout";
+        loginReplyRedir();
+      },
+      timeout: 3000 //3 seconds
+>>>>>>> master
     });
   }
   //TODO: checks login status and decides if user should login.
@@ -84,6 +135,7 @@ function logout() {
  * Handles logging out of the account and clearing storage
  **/
 function signin() {
+<<<<<<< HEAD
   navigator.notification.alert(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
     scanner(), // callback
@@ -117,6 +169,64 @@ function onResume() {
   // TODO: This application has been reactivated. Restore application state here.
 };
 
+=======
+  setCurrentPosition();
+  navigator.notification.confirm(
+    "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
+    scanner, // callback
+    "Warning", // title
+    ['I Agree', 'Cancel']
+  );
+};
+
+function setCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      localStorage.lat = position.coords.latitude;
+      localStorage.long = position.coords.longitude;
+    },
+    function() {
+      alert('Attendance sign-in unsuccessful! Please try again.');
+    });
+}
+
+function scanner(input) {
+  if (input == 1) {
+    setCurrentPosition();
+    cordova.plugins.barcodeScanner.scan(
+      function(result) {
+        alert("We got a barcode\n" +
+          "Result: " + result.text + "\n" +
+          "Format: " + result.format + "\n" +
+          "Geolocation: " + localStorage.lat + localStorage.long + "\n"
+        );
+      },
+      function(error) {
+        alert("Attendance sign-in unsuccessful! Please try again.");
+      });
+
+
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        localStorage.latitude = position.coords.latitude;
+        localStorage.longitude = position.coords.longitude;
+      },
+      function() {
+        alert('Attendance sign-in unsuccessful! Please try again.');
+      });
+
+    window.location.href = "#StudentLanding";
+
+  } else {
+    loginReplyRedir();
+  }
+  //TODO: Clears session related data
+
+};
+
+
+
+>>>>>>> master
 //enables and set native pop up
 function enableNativePopUp() {
   if (navigator.notification) { // Override default HTML alert with native dialog

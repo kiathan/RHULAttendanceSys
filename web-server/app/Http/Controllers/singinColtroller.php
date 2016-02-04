@@ -18,7 +18,7 @@ class singinColtroller extends Controller
     public function login(Request $request)
     {
         $username = $request->input('username');
-        $password = hash("sha256", $request->input('password'));
+        $password = hash("sha256", $request->input('password')) ;
 
         $signInResult = Auth::attempt([
                               "username" => $username,

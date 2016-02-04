@@ -49,6 +49,9 @@
         },
         "cordova-plugin-barcodescanner": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
     "dependent_plugins": {}

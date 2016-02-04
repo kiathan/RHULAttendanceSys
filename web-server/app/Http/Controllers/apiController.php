@@ -25,8 +25,8 @@ class apiController extends Controller
         //Sing in
 
         $username = $request->input('username');
-        $password = $request->input('password');
-
+        $password = hash("sha256", $request->input('password'));
+        $password;
         if (Auth::attempt([
                               "username" => $username,
                               "password" => $password])

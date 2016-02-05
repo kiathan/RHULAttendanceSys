@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="Update the kernal to exclude the VerifyCsrfToken to all the api to work.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/app/User.php" afterPath="$PROJECT_DIR$/web-server/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/database/seeds/fakeUsername.php" afterPath="$PROJECT_DIR$/web-server/database/seeds/fakeUsername.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/web-server/vendor/composer/autoload_classmap.php" />
-    </list>
+    <list default="true" id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="Update the kernal to exclude the VerifyCsrfToken to all the api to work." />
     <ignored path="TeamProject06.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

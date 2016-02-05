@@ -45,4 +45,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
         'remember_token'];
+
+
+    public function course(){
+        return $this->belongsToMany(\App\course::class);
+    }
+
+    public function attendnes(){
+        return $this->belongsToMany(\App\lecture::class, 'lecture_user');
+    }
 }

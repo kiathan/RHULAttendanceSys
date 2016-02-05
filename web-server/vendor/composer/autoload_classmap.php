@@ -6,12 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateAwnsersTable' => $baseDir . '/database/migrations/2016_02_05_143639_create_awnsers_table.php',
+    'CreateCourseUserTable' => $baseDir . '/database/migrations/2016_02_05_142543_create_course_user_table.php',
+    'CreateCoursesTable' => $baseDir . '/database/migrations/2016_02_05_142343_create_courses_table.php',
+    'CreateLectureUserTable' => $baseDir . '/database/migrations/2016_02_05_143515_create_lecture_user_table.php',
+    'CreateLecturesTable' => $baseDir . '/database/migrations/2016_02_05_143225_create_lectures_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePermissionRoleTable' => $baseDir . '/database/migrations/2015_01_01_000003_create_permission_role_table.php',
     'CreatePermissionsTable' => $baseDir . '/database/migrations/2015_01_01_000002_create_permissions_table.php',
+    'CreateQuestionsTable' => $baseDir . '/database/migrations/2016_02_05_143624_create_questions_table.php',
     'CreateRoleUserTable' => $baseDir . '/database/migrations/2015_01_01_000004_create_role_user_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2015_01_01_000001_create_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
+    'CreateVenuesTable' => $baseDir . '/database/migrations/2016_02_05_143013_create_venues_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',

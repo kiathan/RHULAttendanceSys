@@ -193,26 +193,20 @@ function answerQuestion() {
     });
 };
 
-function sendQuestion() {
-    var optA = $('#optA').val();
-    var optB = $('#optB').val();
-    var optC = $('#optC').val();
-    var optD = $('#optD').val();
+function start_stop_Quiz() {
+
+    var initQuiz = $('.quiz-btn').val();
     var newQuestion = $('#questTxt').val();
 
     /*
-     var questionAnswer = '{"question":' + $('.questTxt').value + ', "optA":' + $('.optA').value + ', "optB":' + $('.optB').value +
-     ', "optC":' + $('.optC').value + ', "optD":' + $('.optD').value + '}';*/
-    alert("You have submit question " + newQuestion + "\n" +
-        "Answers are " + optA + " " + optB + " " + optC + " " +
-        optD);
-    window.location.href = "#LecturerLanding";
+     var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';*/
+    alert("You have " +startQuiz+" question. ");
     /*
      var request = $.ajax({
 
      url: "bartalveyhe.me",
      method: "POST",
-     data: questionAnswer
+     data: requestQuiz
 
      });
 

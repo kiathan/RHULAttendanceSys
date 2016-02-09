@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
@@ -21,15 +25,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"ios-package\" value=\"ActivityIndicator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"ios-package\" value=\"ActivityIndicator\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -48,7 +48,7 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-barcodescanner": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-console": {
@@ -60,18 +60,26 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "org.apache.cordova.plugin.ActivityIndicator": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-barcodescanner": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "cordova-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
             "id": "cordova-plugin-console.console",
@@ -105,22 +113,6 @@
             ]
         },
         {
-            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-            "clobbers": [
-                "ActivityIndicator"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "cordova-plugin-barcodescanner",
-            "clobbers": [
-                "cordova.plugins.barcodeScanner"
-            ]
-        },
-        {
             "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
             "id": "cordova-plugin-geolocation.Coordinates",
             "pluginId": "cordova-plugin-geolocation",
@@ -151,15 +143,14 @@
             "clobbers": [
                 "navigator.geolocation"
             ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+            "clobbers": [
+                "ActivityIndicator"
+            ]
         }
-    ],
-    "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.2.1",
-        "cordova-plugin-console": "1.0.2",
-        "cordova-plugin-device": "1.1.1",
-        "cordova-plugin-dialogs": "1.2.0",
-        "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
-        "cordova-plugin-barcodescanner": "0.7.0",
-        "cordova-plugin-geolocation": "2.1.0"
-    }
+    ]
 }

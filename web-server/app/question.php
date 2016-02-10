@@ -13,6 +13,6 @@ class question extends Model
 
     public function lecture()
     {
-        return $this->belongsTo(\App\lecture::class);
+        return $this->belongsTo(\App\lecture_instend::class);
     }
 }

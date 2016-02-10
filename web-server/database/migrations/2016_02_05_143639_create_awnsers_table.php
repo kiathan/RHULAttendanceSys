@@ -15,9 +15,9 @@ class CreateAwnsersTable extends Migration
         Schema::create('awnsers',
             function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('question_id')->unique()->index();
+                $table->integer('question_id')->unsigned()->index();
                 $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-                $table->integer('user_id')->unique()->index();
+                $table->integer('user_id')->unsigned()->index();
                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
                 $table->boolean('isValit');
                 $table->boolean('awnser');

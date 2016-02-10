@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsTable extends Migration
+class MakeLectureInstanceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function(Blueprint $table)
+        Schema::create('lecture_instend', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('lecture_instend_id')->unsigned()->index();
-            $table->foreign('lecture_instend_id')->references('id')->on('lecture_instend')->onDelete('cascade');
-            $table->boolean('isValit');
+            $table->integer('lecture_id')->unsigned()->index();
+            $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('cascade');
+            $table->boolean('isActive');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('questions');
+        Schema::drop('lecture_instend');
     }
 }

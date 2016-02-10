@@ -15,10 +15,11 @@ class CreateLecturesTable extends Migration
         Schema::create('lectures',
             function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('coure_id')->unique()->index();
-                $table->foreign('coure_id')->references('id')->on('coures')->onDelete('cascade');
-                $table->integer('venue_id')->unique()->index();
+                $table->integer('course_id')->unsigned()->index();
+                $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+                $table->integer('venue_id')->unsigned()->index();
                 $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
+                $table->enum('dayofweek', array("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"));
                 $table->time('starttime');
                 $table->time('endtime');
                 $table->timestamps();

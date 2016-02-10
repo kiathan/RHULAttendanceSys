@@ -47,11 +47,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'remember_token'];
 
 
-    public function course(){
-        return $this->belongsToMany(\App\course::class);
+    public function course()
+    {
+        return $this->belongsToMany(\App\course::class)->withPivot("role")->withTimestamps();
     }
 
-    public function attendnes(){
-        return $this->belongsToMany(\App\lecture::class, 'lecture_user');
+    public function attendnes()
+    {
+        return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
+    }
+
+    public function saveCouse()
+    {
+        $this->course()->save();
     }
 }

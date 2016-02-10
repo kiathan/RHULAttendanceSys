@@ -19,7 +19,7 @@ class fakeUsername extends Seeder
         $user->middlename = "FakeUserName";
         $user->lastname   = "FakeUserName";
         $user->email      = "FakeUserName";
-        $user->password   = Hash::make(hash("sha256", "FakeUserName"));
+        $user->password   = HHasash::make(hash("sha256", "FakeUserName"));
 
         $user->save();
 

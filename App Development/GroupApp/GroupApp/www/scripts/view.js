@@ -20,7 +20,7 @@
       $('.logout-btn').click(logout);
       $('.sign-in-btn').click(signin);
       $('.answer-btn').click(answerQuestion);
-      $('.question-btn').click(sendQuestion);
+      $('.quiz-btn').click(start_stop_Quiz);
 
       //$('.scanner')
       //native popup

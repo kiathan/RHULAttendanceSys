@@ -195,12 +195,11 @@ function answerQuestion() {
 
 function start_stop_Quiz() {
 
-    var initQuiz = $('.quiz-btn').val();
-    var newQuestion = $('#questTxt').val();
+    var initQuiz = this.value;
 
     /*
      var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';*/
-    alert("You have " +startQuiz+" question. ");
+    alert("You have " +initQuiz+" question. ");
     /*
      var request = $.ajax({
 

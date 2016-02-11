@@ -68,6 +68,30 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "pluginId": "com.phonegap.plugins.PushPlugin",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
+        "pluginId": "phonegap-plugin-push",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -80,7 +104,10 @@ module.exports.metadata =
     "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
     "cordova-plugin-barcodescanner": "0.7.0",
     "cordova-plugin-geolocation": "2.1.0",
-    "cordova-plugin-vibration": "2.1.1-dev"
+    "cordova-plugin-vibration": "2.1.1-dev",
+    "com.phonegap.plugins.PushPlugin": "2.5.0",
+    "phonegap-plugin-push": "1.5.3",
+    "onesignal-cordova-plugin": "1.10.2"
 }
 // BOTTOM OF METADATA
 });

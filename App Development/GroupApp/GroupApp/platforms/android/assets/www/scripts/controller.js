@@ -123,6 +123,7 @@ function setCurrentPosition() {
 function scanner(input) {
     if (input == 1) {
         setCurrentPosition();
+        cordova.plugins.
         cordova.plugins.barcodeScanner.scan(
             function (result) {
                 alert("We got a barcode\n" +

@@ -35,6 +35,18 @@
                         {
                             "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -45,6 +57,12 @@
                         {
                             "xml": "<string />",
                             "count": 1
+                        }
+                    ],
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 2
                         }
                     ]
                 }
@@ -74,6 +92,15 @@
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
@@ -167,6 +194,30 @@
                 "navigator.notification",
                 "navigator"
             ]
+        },
+        {
+            "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+            "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+            "pluginId": "com.phonegap.plugins.PushPlugin",
+            "clobbers": [
+                "PushNotification"
+            ]
+        },
+        {
+            "file": "plugins/phonegap-plugin-push/www/push.js",
+            "id": "phonegap-plugin-push.PushNotification",
+            "pluginId": "phonegap-plugin-push",
+            "clobbers": [
+                "PushNotification"
+            ]
+        },
+        {
+            "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+            "id": "onesignal-cordova-plugin.OneSignal",
+            "pluginId": "onesignal-cordova-plugin",
+            "clobbers": [
+                "OneSignal"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -177,6 +228,9 @@
         "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
         "cordova-plugin-barcodescanner": "0.7.0",
         "cordova-plugin-geolocation": "2.1.0",
-        "cordova-plugin-vibration": "2.1.1-dev"
+        "cordova-plugin-vibration": "2.1.1-dev",
+        "com.phonegap.plugins.PushPlugin": "2.5.0",
+        "phonegap-plugin-push": "1.5.3",
+        "onesignal-cordova-plugin": "1.10.2"
     }
 }

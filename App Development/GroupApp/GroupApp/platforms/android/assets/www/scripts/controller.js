@@ -131,15 +131,6 @@ function scanner(input) {
       });
 
 
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        localStorage.latitude = position.coords.latitude;
-        localStorage.longitude = position.coords.longitude;
-      },
-      function() {
-        alert('Attendance sign-in unsuccessful! Please try again.');
-      });
-
     window.location.href = "#StudentLanding";
 
   } else {

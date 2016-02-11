@@ -109,6 +109,7 @@ function signin() {
 }
 ;
 
+<<<<<<< HEAD
 function setCurrentPosition() {
     navigator.geolocation.getCurrentPosition(
         function (position) {
@@ -147,6 +148,9 @@ function scanner(input) {
             });
 
         window.location.href = "#StudentLanding";
+=======
+    window.location.href = "#StudentLanding";
+>>>>>>> Mobile-App
 
     } else {
         loginReplyRedir();

@@ -30,6 +30,7 @@
       //calls the login functiwindow.plugins.OneSignalon when login button is clicked.
       $('.login-btn').click(login);
       $('.logout-btn').click(logout);
+      $('.home-btn').click(loginReplyRedir);
       $('.sign-in-btn').click(signin);
       $('.answer-btn').click(answerQuestion);
       $('.quiz-btn').click(start_stop_Quiz);

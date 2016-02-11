@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+        "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+        "pluginId": "cordova-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
         "id": "cordova-plugin-console.console",
         "pluginId": "cordova-plugin-console",
@@ -30,22 +38,6 @@ module.exports = [
         "pluginId": "cordova-plugin-dialogs",
         "merges": [
             "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-        "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-        "clobbers": [
-            "ActivityIndicator"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-        "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-        "pluginId": "cordova-plugin-barcodescanner",
-        "clobbers": [
-            "cordova.plugins.barcodeScanner"
         ]
     },
     {
@@ -81,6 +73,7 @@ module.exports = [
         ]
     },
     {
+<<<<<<< HEAD
         "file": "plugins/cordova-plugin-vibration/www/vibration.js",
         "id": "cordova-plugin-vibration.notification",
         "pluginId": "cordova-plugin-vibration",
@@ -111,11 +104,19 @@ module.exports = [
         "pluginId": "onesignal-cordova-plugin",
         "clobbers": [
             "OneSignal"
+=======
+        "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+        "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+        "clobbers": [
+            "ActivityIndicator"
+>>>>>>> Mobile-App
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
+<<<<<<< HEAD
 {
     "cordova-plugin-whitelist": "1.2.1",
     "cordova-plugin-console": "1.0.2",
@@ -129,5 +130,8 @@ module.exports.metadata =
     "phonegap-plugin-push": "1.5.3",
     "onesignal-cordova-plugin": "1.10.2"
 }
+=======
+{}
+>>>>>>> Mobile-App
 // BOTTOM OF METADATA
 });

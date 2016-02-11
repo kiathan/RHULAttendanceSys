@@ -15,9 +15,19 @@
             // Enable to debug issues.
             // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
+<<<<<<< HEAD
             var notificationOpenedCallback = function (jsonData) {
                 alert("Received!");
             };
+=======
+      //calls the login function when login button is clicked.
+      $('.login-btn').click(login);
+      $('.logout-btn').click(logout);
+      $('.home-btn').click(loginReplyRedir);
+      $('.sign-in-btn').click(signin);
+      $('.answer-btn').click(answerQuestion);
+      $('.question-btn').click(sendQuestion);
+>>>>>>> Mobile-App
 
             window.plugins.OneSignal.init("f3910626-2f31-44fc-beeb-6bd9fb5103d5",
                 {googleProjectNumber: "610240135914"},

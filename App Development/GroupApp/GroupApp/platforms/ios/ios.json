@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
@@ -21,15 +25,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"ios-package\" value=\"ActivityIndicator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"ios-package\" value=\"ActivityIndicator\" /></feature>",
                             "count": 1
                         },
                         {
@@ -70,7 +70,7 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-barcodescanner": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-console": {
@@ -82,13 +82,13 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "org.apache.cordova.plugin.ActivityIndicator": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-barcodescanner": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-vibration": {
@@ -106,6 +106,14 @@
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "cordova-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
             "id": "cordova-plugin-console.console",
@@ -136,22 +144,6 @@
             "pluginId": "cordova-plugin-dialogs",
             "merges": [
                 "navigator.notification"
-            ]
-        },
-        {
-            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-            "clobbers": [
-                "ActivityIndicator"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "cordova-plugin-barcodescanner",
-            "clobbers": [
-                "cordova.plugins.barcodeScanner"
             ]
         },
         {
@@ -187,6 +179,7 @@
             ]
         },
         {
+<<<<<<< HEAD
             "file": "plugins/cordova-plugin-vibration/www/vibration.js",
             "id": "cordova-plugin-vibration.notification",
             "pluginId": "cordova-plugin-vibration",
@@ -233,4 +226,14 @@
         "phonegap-plugin-push": "1.5.3",
         "onesignal-cordova-plugin": "1.10.2"
     }
+=======
+            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+            "clobbers": [
+                "ActivityIndicator"
+            ]
+        }
+    ]
+>>>>>>> Mobile-App
 }

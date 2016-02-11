@@ -100,6 +100,7 @@ function logout() {
 function signin() {
 
     setCurrentPosition();
+<<<<<<< HEAD
     navigator.notification.confirm(
         "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
         scanner, // callback
@@ -152,12 +153,33 @@ function scanner(input) {
         loginReplyRedir();
     }
     //TODO: Clears session related data
+=======
+    cordova.plugins.barcodeScanner.scan(
+      function(result) {
+        localStorage.signinBarcode = result.text;
+        $("div.currentAttendance").text(localStorage.signinBarcode);
+        $("div.locationX").text(localStorage.lat);
+        $("div.locationY").text(localStorage.long);
+
+        window.location.href = "#AttendanceAfter";
+      },
+      function(error) {
+        alert("Attendance sign-in unsuccessful! Please try again.");
+        loginReplyRedir();
+      });
+
+  } else {
+    loginReplyRedir();
+  }
+  //TODO: Clears session related data
+>>>>>>> Mobile-App
 
 };
 
 
 //enables and set native pop up
 function enableNativePopUp() {
+<<<<<<< HEAD
     if (navigator.notification) { // Override default HTML alert with native dialog
         window.alert = function (message) {
             navigator.notification.alert(
@@ -168,6 +190,26 @@ function enableNativePopUp() {
             );
         };
     }
+=======
+  if (navigator.notification) { // Override default HTML alert with native dialog
+    window.alert = function(message) {
+      navigator.notification.alert(
+        message, // message
+        null, // callback
+        "Royal Ray", // title
+        'OK' // buttonName
+      );
+    };
+    window.confirm = function(message) {
+      navigator.notification.confirm(
+        message, // message
+        null, // callback
+        "Royal Ray", // title
+        'OK' // buttonName
+      );
+    };
+  }
+>>>>>>> Mobile-App
 };
 
 function answerQuestion() {

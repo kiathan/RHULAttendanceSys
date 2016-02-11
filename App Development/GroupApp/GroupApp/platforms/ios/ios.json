@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -67,6 +71,9 @@
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
@@ -151,6 +158,15 @@
             "clobbers": [
                 "navigator.geolocation"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+            "id": "cordova-plugin-vibration.notification",
+            "pluginId": "cordova-plugin-vibration",
+            "merges": [
+                "navigator.notification",
+                "navigator"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -160,6 +176,7 @@
         "cordova-plugin-dialogs": "1.2.0",
         "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
         "cordova-plugin-barcodescanner": "0.7.0",
-        "cordova-plugin-geolocation": "2.1.0"
+        "cordova-plugin-geolocation": "2.1.0",
+        "cordova-plugin-vibration": "2.1.1-dev"
     }
 }

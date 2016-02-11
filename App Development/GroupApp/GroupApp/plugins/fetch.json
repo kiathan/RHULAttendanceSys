@@ -25,8 +25,9 @@
     },
     "cordova-plugin-dialogs": {
         "source": {
-            "type": "registry",
-            "id": "cordova-plugin-dialogs"
+            "type": "git",
+            "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-dialogs.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
@@ -52,6 +53,15 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-vibration": {
+        "source": {
+            "type": "git",
+            "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-vibration.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

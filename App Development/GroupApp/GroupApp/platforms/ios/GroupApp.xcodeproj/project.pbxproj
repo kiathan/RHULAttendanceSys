@@ -55,6 +55,7 @@
 		8ED2D72135734731B2780E60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEF12229EF3401F9E56F090 /* QuartzCore.framework */; };
 		2091ACF318874393B442E59D /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A69FADA14D82ADFDD210 /* CDVLocation.m */; };
 		8AAD435A00FB486085BEDC3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824B04CFA798452C94360D3D /* CoreLocation.framework */; };
+		F1D46468CA81468F82135BA2 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AB259819D6443EB5E51B61 /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		4A47A69FADA14D82ADFDD210 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		203696E67CC74D1498221CC7 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		824B04CFA798452C94360D3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		79AB259819D6443EB5E51B61 /* CDVVibration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3B33C4F8B44246B48A6E84CD /* CDVVibration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,8 @@
 				69D12B908DCD404EA0D4F868 /* zxing-all-in-one.h */,
 				4A47A69FADA14D82ADFDD210 /* CDVLocation.m */,
 				203696E67CC74D1498221CC7 /* CDVLocation.h */,
+				79AB259819D6443EB5E51B61 /* CDVVibration.m */,
+				3B33C4F8B44246B48A6E84CD /* CDVVibration.h */,
 			);
 			name = Plugins;
 			path = "GroupApp/Plugins";
@@ -464,6 +469,7 @@
 				9C8199FB7FCB4EAAA5DCF656 /* CDVBarcodeScanner.mm in Resources */,
 				49FC5F9594264A8DBC69BA69 /* zxing-all-in-one.cpp in Resources */,
 				2091ACF318874393B442E59D /* CDVLocation.m in Sources */,
+				F1D46468CA81468F82135BA2 /* CDVVibration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

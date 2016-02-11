@@ -3,6 +3,7 @@
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
 (function() {
+
     "use strict";
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
@@ -19,7 +20,7 @@
       $('.logout-btn').click(logout);
       $('.sign-in-btn').click(signin);
       $('.answer-btn').click(answerQuestion);
-      $('.question-btn').click(sendQuestion);
+      $('.quiz-btn').click(start_stop_Quiz);
 
       //$('.scanner')
       //native popup
@@ -40,3 +41,4 @@
 
 
 )();
+

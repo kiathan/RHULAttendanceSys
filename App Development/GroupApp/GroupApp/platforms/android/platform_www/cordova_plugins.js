@@ -59,6 +59,15 @@ module.exports = [
         "id": "cordova-plugin-geolocation.PositionError",
         "pluginId": "cordova-plugin-geolocation",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "id": "cordova-plugin-vibration.notification",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -70,7 +79,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.2.0",
     "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
     "cordova-plugin-barcodescanner": "0.7.0",
-    "cordova-plugin-geolocation": "2.1.0"
+    "cordova-plugin-geolocation": "2.1.0",
+    "cordova-plugin-vibration": "2.1.1-dev"
 }
 // BOTTOM OF METADATA
 });

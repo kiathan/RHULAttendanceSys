@@ -1,5 +1,5 @@
 {
-    "AudioToolbox.framework": 2,
+    "AudioToolbox.framework": 3,
     "libiconv.dylib": 2,
     "AVFoundation.framework": 2,
     "CoreVideo.framework": 2,

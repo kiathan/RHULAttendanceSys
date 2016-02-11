@@ -42,14 +42,10 @@
       <true/>
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
-<<<<<<< HEAD
-    <string/>
+    <string></string>
     <key>UIBackgroundModes</key>
     <array>
       <string>remote-notification</string>
     </array>
-=======
-    <string></string>
->>>>>>> Mobile-App
   </dict>
 </plist>

@@ -9,7 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
                             "count": 1
                         },
                         {
@@ -21,14 +21,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"android-package\" value=\"org.apache.cordova.plugin.ActivityIndicator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
                             "count": 1
                         },
@@ -37,15 +29,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"android-package\" value=\"com.plugin.gcm.PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ActivityIndicator\"><param name=\"android-package\" value=\"org.apache.cordova.plugin.ActivityIndicator\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -64,38 +52,6 @@
                         },
                         {
                             "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:exported=\"true\" android:name=\"com.plugin.gcm.PushHandlerActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:name=\"com.plugin.gcm.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"io.cordova.myapp81c6f5\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:name=\"com.plugin.gcm.GCMIntentService\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:exported=\"true\" android:name=\"com.google.android.gms.gcm.GcmReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"${applicationId}\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.GCMIntentService\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /></intent-filter></service>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.PushInstanceIDListenerService\"><intent-filter><action android:name=\"com.google.android.gms.iid.InstanceID\" /></intent-filter></service>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.RegistrationIntentService\"></service>",
                             "count": 1
                         },
                         {
@@ -126,42 +82,6 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-                            "count": 3
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<permission android:name=\"io.cordova.myapp81c6f5.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"io.cordova.myapp81c6f5.permission.C2D_MESSAGE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" />",
                             "count": 1
                         }
                     ],
@@ -662,7 +582,7 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-barcodescanner": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-console": {
@@ -674,40 +594,31 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "org.apache.cordova.plugin.ActivityIndicator": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-barcodescanner": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "phonegap-plugin-push": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
     "dependent_plugins": {},
     "modules": [
         {
-            "file": "plugins/cordova-plugin-whitelist/whitelist.js",
-            "id": "cordova-plugin-whitelist.whitelist",
-            "pluginId": "cordova-plugin-whitelist",
-            "runs": true
+            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
         },
         {
             "file": "plugins/cordova-plugin-device/www/device.js",
             "id": "cordova-plugin-device.device",
-            "pluginId": "cordova-plugin-device",
             "clobbers": [
                 "device"
             ]
@@ -715,7 +626,6 @@
         {
             "file": "plugins/cordova-plugin-dialogs/www/notification.js",
             "id": "cordova-plugin-dialogs.notification",
-            "pluginId": "cordova-plugin-dialogs",
             "merges": [
                 "navigator.notification"
             ]
@@ -723,31 +633,13 @@
         {
             "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
             "id": "cordova-plugin-dialogs.notification_android",
-            "pluginId": "cordova-plugin-dialogs",
             "merges": [
                 "navigator.notification"
             ]
         },
         {
-            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-            "clobbers": [
-                "ActivityIndicator"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "cordova-plugin-barcodescanner",
-            "clobbers": [
-                "cordova.plugins.barcodeScanner"
-            ]
-        },
-        {
             "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
             "id": "cordova-plugin-geolocation.geolocation",
-            "pluginId": "cordova-plugin-geolocation",
             "clobbers": [
                 "navigator.geolocation"
             ]
@@ -755,54 +647,29 @@
         {
             "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
             "id": "cordova-plugin-geolocation.PositionError",
-            "pluginId": "cordova-plugin-geolocation",
             "runs": true
         },
         {
             "file": "plugins/cordova-plugin-vibration/www/vibration.js",
             "id": "cordova-plugin-vibration.notification",
-            "pluginId": "cordova-plugin-vibration",
             "merges": [
                 "navigator.notification",
                 "navigator"
             ]
         },
         {
-            "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
-            "id": "com.phonegap.plugins.PushPlugin.PushNotification",
-            "pluginId": "com.phonegap.plugins.PushPlugin",
-            "clobbers": [
-                "PushNotification"
-            ]
-        },
-        {
-            "file": "plugins/phonegap-plugin-push/www/push.js",
-            "id": "phonegap-plugin-push.PushNotification",
-            "pluginId": "phonegap-plugin-push",
-            "clobbers": [
-                "PushNotification"
-            ]
-        },
-        {
             "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
             "id": "onesignal-cordova-plugin.OneSignal",
-            "pluginId": "onesignal-cordova-plugin",
             "clobbers": [
                 "OneSignal"
             ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+            "clobbers": [
+                "ActivityIndicator"
+            ]
         }
-    ],
-    "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.2.1",
-        "cordova-plugin-console": "1.0.2",
-        "cordova-plugin-device": "1.1.1",
-        "cordova-plugin-dialogs": "1.2.0",
-        "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
-        "cordova-plugin-barcodescanner": "0.7.0",
-        "cordova-plugin-geolocation": "2.1.0",
-        "cordova-plugin-vibration": "2.1.1-dev",
-        "com.phonegap.plugins.PushPlugin": "2.5.0",
-        "phonegap-plugin-push": "1.5.3",
-        "onesignal-cordova-plugin": "1.10.2"
-    }
+    ]
 }

@@ -22,22 +22,13 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "org.apache.cordova.plugin.ActivityIndicator": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "phonegap-plugin-push": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },

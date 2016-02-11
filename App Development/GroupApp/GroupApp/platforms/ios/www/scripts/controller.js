@@ -100,7 +100,7 @@ function logout() {
 function signin() {
 
     setCurrentPosition();
-<<<<<<< HEAD
+
     navigator.notification.confirm(
         "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
         scanner, // callback
@@ -124,62 +124,32 @@ function setCurrentPosition() {
 function scanner(input) {
     if (input == 1) {
         setCurrentPosition();
-        cordova.plugins.
         cordova.plugins.barcodeScanner.scan(
             function (result) {
-                alert("We got a barcode\n" +
-                    "Result: " + result.text + "\n" +
-                    "Format: " + result.format + "\n" +
-                    "Geolocation: " + localStorage.lat + localStorage.long + "\n"
-                );
+                localStorage.signinBarcode = result.text;
+                $("div.currentAttendance").text(localStorage.signinBarcode);
+                $("div.locationX").text(localStorage.lat);
+                $("div.locationY").text(localStorage.long);
+
+                window.location.href = "#AttendanceAfter";
             },
             function (error) {
                 alert("Attendance sign-in unsuccessful! Please try again.");
+                loginReplyRedir();
             });
-
-
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                localStorage.latitude = position.coords.latitude;
-                localStorage.longitude = position.coords.longitude;
-            },
-            function () {
-                alert('Attendance sign-in unsuccessful! Please try again.');
-            });
-
-        window.location.href = "#StudentLanding";
 
     } else {
         loginReplyRedir();
     }
     //TODO: Clears session related data
-=======
-    cordova.plugins.barcodeScanner.scan(
-      function(result) {
-        localStorage.signinBarcode = result.text;
-        $("div.currentAttendance").text(localStorage.signinBarcode);
-        $("div.locationX").text(localStorage.lat);
-        $("div.locationY").text(localStorage.long);
 
-        window.location.href = "#AttendanceAfter";
-      },
-      function(error) {
-        alert("Attendance sign-in unsuccessful! Please try again.");
-        loginReplyRedir();
-      });
-
-  } else {
-    loginReplyRedir();
-  }
-  //TODO: Clears session related data
->>>>>>> Mobile-App
 
 };
 
 
 //enables and set native pop up
 function enableNativePopUp() {
-<<<<<<< HEAD
+
     if (navigator.notification) { // Override default HTML alert with native dialog
         window.alert = function (message) {
             navigator.notification.alert(
@@ -189,27 +159,16 @@ function enableNativePopUp() {
                 'OK' // buttonName
             );
         };
+        window.confirm = function (message) {
+            navigator.notification.confirm(
+                message, // message
+                null, // callback
+                "Royal Ray", // title
+                'OK' // buttonName
+            );
+        };
     }
-=======
-  if (navigator.notification) { // Override default HTML alert with native dialog
-    window.alert = function(message) {
-      navigator.notification.alert(
-        message, // message
-        null, // callback
-        "Royal Ray", // title
-        'OK' // buttonName
-      );
-    };
-    window.confirm = function(message) {
-      navigator.notification.confirm(
-        message, // message
-        null, // callback
-        "Royal Ray", // title
-        'OK' // buttonName
-      );
-    };
-  }
->>>>>>> Mobile-App
+
 };
 
 function answerQuestion() {
@@ -242,7 +201,7 @@ function start_stop_Quiz() {
 
     /*
      var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';*/
-    alert("You have " +initQuiz+" question. ");
+    alert("You have " + initQuiz + " question. ");
     /*
      var request = $.ajax({
 

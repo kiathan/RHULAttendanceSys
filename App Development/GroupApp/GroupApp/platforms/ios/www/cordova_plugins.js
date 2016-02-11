@@ -73,7 +73,6 @@ module.exports = [
         ]
     },
     {
-<<<<<<< HEAD
         "file": "plugins/cordova-plugin-vibration/www/vibration.js",
         "id": "cordova-plugin-vibration.notification",
         "pluginId": "cordova-plugin-vibration",
@@ -83,55 +82,24 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
-        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
-        "pluginId": "com.phonegap.plugins.PushPlugin",
-        "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
-        "file": "plugins/phonegap-plugin-push/www/push.js",
-        "id": "phonegap-plugin-push.PushNotification",
-        "pluginId": "phonegap-plugin-push",
-        "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
         "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
         "id": "onesignal-cordova-plugin.OneSignal",
         "pluginId": "onesignal-cordova-plugin",
         "clobbers": [
             "OneSignal"
-=======
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
         "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
         "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
         "clobbers": [
             "ActivityIndicator"
->>>>>>> Mobile-App
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-<<<<<<< HEAD
-{
-    "cordova-plugin-whitelist": "1.2.1",
-    "cordova-plugin-console": "1.0.2",
-    "cordova-plugin-device": "1.1.1",
-    "cordova-plugin-dialogs": "1.2.0",
-    "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
-    "cordova-plugin-barcodescanner": "0.7.0",
-    "cordova-plugin-geolocation": "2.1.0",
-    "cordova-plugin-vibration": "2.1.1-dev",
-    "com.phonegap.plugins.PushPlugin": "2.5.0",
-    "phonegap-plugin-push": "1.5.3",
-    "onesignal-cordova-plugin": "1.10.2"
-}
-=======
 {}
->>>>>>> Mobile-App
 // BOTTOM OF METADATA
 });

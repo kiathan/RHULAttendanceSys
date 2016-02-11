@@ -18,11 +18,14 @@ class singinColtroller extends Controller
     public function login(Request $request)
     {
         $username = $request->input('username');
-        $password = hash("sha256", $request->input('password')) ;
+        $password = hash("sha256", $request->input('password'));
+
 
         $signInResult = Auth::attempt([
-                              "username" => $username,
-                              "password" => $password]);
+            "username" => $username,
+            "password" => $password]);
+
+        $user = \App\User::where(["username" => $username])->first();
 
         return view('login')->with(["signInResult" => $signInResult]);
     }

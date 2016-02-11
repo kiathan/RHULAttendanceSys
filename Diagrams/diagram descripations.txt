@@ -45,13 +45,21 @@ Relations
 	roles    <- -> premissions        : many to many
 	user     <- -> user_verification  : one to many
 	teaches  <- -> user               : one to one
+	
+
 	teaches  <- -> coures             : many to many
 	coures   <- -> lecturer           : one to many
 	user     <- -> course             : maney to many
 	lecturer <- -> rooms              : one to one
 	rooms    <- -> building           : many to one
+	
 	attends  <- -> user               : one to one 
 	                                    (combin key)
 	attends  <- -> lecturer           : one to one
+
 	lecturer <- -> quiz               : many to many
 	quiz     <- -> anwers             : one to many
+
+
+
+	user.... [roles -> []]

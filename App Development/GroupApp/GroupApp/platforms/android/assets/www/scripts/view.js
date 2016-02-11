@@ -24,9 +24,9 @@
             notificationOpenedCallback);
 
         // Show an alert box if a notification comes in when the user is in your app.
-        window.plugins.OneSignal.enableInAppAlertNotification(true);
+     
         window.plugins.OneSignal.setSubscription(true);
-        window.plugins.OneSignal.enableNotificationsWhenActive(treu);
+        window.plugins.OneSignal.enableNotificationsWhenActive(true);
       //calls the login functiwindow.plugins.OneSignalon when login button is clicked.
       $('.login-btn').click(login);
       $('.logout-btn').click(logout);

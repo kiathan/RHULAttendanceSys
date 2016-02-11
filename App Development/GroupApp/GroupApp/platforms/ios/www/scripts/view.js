@@ -3,24 +3,37 @@
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
 (function() {
+
     "use strict";
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
-      // Handle the Cordova pause and resume events
-      document.addEventListener('pause', onPause.bind(this), false);
-      document.addEventListener('resume', onResume.bind(this), false);
+        // Handle the Cordova pause and resume events
+        document.addEventListener('pause', onPause.bind(this), false);
+        document.addEventListener('resume', onResume.bind(this), false);
+        // Enable to debug issues.
+        // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
-      $('.footer-base').clone().appendTo('.footer-copy');
+        var notificationOpenedCallback = function (jsonData) {
+            alert("Received!");
+        };
 
-      //calls the login function when login button is clicked.
+        window.plugins.OneSignal.init("f3910626-2f31-44fc-beeb-6bd9fb5103d5",
+            {googleProjectNumber: "610240135914"},
+            notificationOpenedCallback);
+
+        // Show an alert box if a notification comes in when the user is in your app.
+        window.plugins.OneSignal.enableInAppAlertNotification(true);
+        window.plugins.OneSignal.setSubscription(true);
+        window.plugins.OneSignal.enableNotificationsWhenActive(treu);
+      //calls the login functiwindow.plugins.OneSignalon when login button is clicked.
       $('.login-btn').click(login);
       $('.logout-btn').click(logout);
       $('.home-btn').click(loginReplyRedir);
       $('.sign-in-btn').click(signin);
       $('.answer-btn').click(answerQuestion);
-      $('.question-btn').click(sendQuestion);
+      $('.quiz-btn').click(start_stop_Quiz);
 
       //$('.scanner')
       //native popup
@@ -41,3 +54,4 @@
 
 
 )();
+

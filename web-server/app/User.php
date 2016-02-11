@@ -57,8 +57,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
     }
 
-    public function saveCouse()
+    public function saveCouse(\App\course $course, $role)
     {
-        $this->course()->save();
+        return $this->course()->attach($course, ['role' => $role]);
     }
 }

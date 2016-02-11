@@ -17,6 +17,7 @@
       //calls the login function when login button is clicked.
       $('.login-btn').click(login);
       $('.logout-btn').click(logout);
+      $('.home-btn').click(loginReplyRedir);
       $('.sign-in-btn').click(signin);
       $('.answer-btn').click(answerQuestion);
       $('.question-btn').click(sendQuestion);

@@ -120,27 +120,17 @@ function scanner(input) {
     setCurrentPosition();
     cordova.plugins.barcodeScanner.scan(
       function(result) {
-        alert("We got a barcode\n" +
-          "Result: " + result.text + "\n" +
-          "Format: " + result.format + "\n" +
-          "Geolocation: " + localStorage.lat + localStorage.long + "\n"
-        );
+        localStorage.signinBarcode = result.text;
+        $("div.currentAttendance").text(localStorage.signinBarcode);
+        $("div.locationX").text(localStorage.lat);
+        $("div.locationY").text(localStorage.long);
+
+        window.location.href = "#AttendanceAfter";
       },
       function(error) {
         alert("Attendance sign-in unsuccessful! Please try again.");
+        loginReplyRedir();
       });
-
-
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        localStorage.latitude = position.coords.latitude;
-        localStorage.longitude = position.coords.longitude;
-      },
-      function() {
-        alert('Attendance sign-in unsuccessful! Please try again.');
-      });
-
-    window.location.href = "#StudentLanding";
 
   } else {
     loginReplyRedir();
@@ -156,6 +146,14 @@ function enableNativePopUp() {
   if (navigator.notification) { // Override default HTML alert with native dialog
     window.alert = function(message) {
       navigator.notification.alert(
+        message, // message
+        null, // callback
+        "Royal Ray", // title
+        'OK' // buttonName
+      );
+    };
+    window.confirm = function(message) {
+      navigator.notification.confirm(
         message, // message
         null, // callback
         "Royal Ray", // title

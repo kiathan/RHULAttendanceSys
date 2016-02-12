@@ -27,6 +27,8 @@
     window.plugins.OneSignal.enableNotificationsWhenActive(true);
     window.plugins.OneSignal.setSubscription(true);
 
+    $('.footer-base').clone().appendTo('.footer-copy');
+
     //calls the login functiwindow.plugins.OneSignalon when login button is clicked.
     $('.login-btn').click(login);
     $('.logout-btn').click(logout);
@@ -35,6 +37,8 @@
     $('.quiz-btn').click(start_stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
     //$('.scanner')
+
+
     //native popup
     enableNativePopUp();
 

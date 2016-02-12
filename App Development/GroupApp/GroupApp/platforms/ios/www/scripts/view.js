@@ -35,6 +35,8 @@
     $('.quiz-btn').click(start_stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
     //$('.scanner')
+
+    $('.footer-base').clone().appendTo('.footer-copy');
     //native popup
     enableNativePopUp();
 

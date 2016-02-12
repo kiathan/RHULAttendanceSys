@@ -1,11 +1,28 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-        "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-        "pluginId": "cordova-plugin-barcodescanner",
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "id": "cordova-plugin-vibration.notification",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
         "clobbers": [
-            "cordova.plugins.barcodeScanner"
+            "OneSignal"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+        "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+        "clobbers": [
+            "ActivityIndicator"
         ]
     },
     {
@@ -25,19 +42,19 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+        "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+        "pluginId": "cordova-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
         "clobbers": [
             "device"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-        "id": "cordova-plugin-dialogs.notification",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
         ]
     },
     {
@@ -73,28 +90,11 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
-        "id": "cordova-plugin-vibration.notification",
-        "pluginId": "cordova-plugin-vibration",
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "id": "cordova-plugin-dialogs.notification",
+        "pluginId": "cordova-plugin-dialogs",
         "merges": [
-            "navigator.notification",
-            "navigator"
-        ]
-    },
-    {
-        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-        "id": "onesignal-cordova-plugin.OneSignal",
-        "pluginId": "onesignal-cordova-plugin",
-        "clobbers": [
-            "OneSignal"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-        "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-        "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-        "clobbers": [
-            "ActivityIndicator"
+            "navigator.notification"
         ]
     }
 ];

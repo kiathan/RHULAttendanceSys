@@ -48,6 +48,8 @@
 		FEC53485879F4E0E9BF2A481 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EE74259938F941D98CD135B3 /* CDVNotification.m */; };
 		9154FA448C8049D08E9F8D57 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 885258935C68405F9631C064 /* CDVNotification.bundle */; };
 		B6F85C032A1249FDABD82290 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A25A66D113F4EBC8B3AF5FC /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BE9C46B16758403ABA8ACF33 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2122DBB55DB645268F7D55CE /* CDVSplashScreen.m */; };
+		4ED463293AEC4E11B446B7F6 /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FC097BCE364C9EB1005388 /* CDVViewController+SplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,10 @@
 		DA4234C3B24E461C92C29D42 /* CDVNotification.h */ = {isa = PBXFileReference; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		885258935C68405F9631C064 /* CDVNotification.bundle */ = {isa = PBXFileReference; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
 		7A25A66D113F4EBC8B3AF5FC /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		2122DBB55DB645268F7D55CE /* CDVSplashScreen.m */ = {isa = PBXFileReference; name = "CDVSplashScreen.m"; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F6FC097BCE364C9EB1005388 /* CDVViewController+SplashScreen.m */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.m"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		42D4B5CE1D28440AA9C67E73 /* CDVSplashScreen.h */ = {isa = PBXFileReference; name = "CDVSplashScreen.h"; path = "cordova-plugin-splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		B293692689C744E5854E0845 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +306,10 @@
 				FA172A204893448A9BE4756B /* CDVLocation.h */,
 				EE74259938F941D98CD135B3 /* CDVNotification.m */,
 				DA4234C3B24E461C92C29D42 /* CDVNotification.h */,
+				2122DBB55DB645268F7D55CE /* CDVSplashScreen.m */,
+				F6FC097BCE364C9EB1005388 /* CDVViewController+SplashScreen.m */,
+				42D4B5CE1D28440AA9C67E73 /* CDVSplashScreen.h */,
+				B293692689C744E5854E0845 /* CDVViewController+SplashScreen.h */,
 			);
 			name = Plugins;
 			path = "GroupApp/Plugins";
@@ -432,6 +442,8 @@
 				928C285DA95443ECA023BA60 /* CDVDevice.m in Sources */,
 				3DB98710D50747979D2B517C /* CDVLocation.m in Sources */,
 				FEC53485879F4E0E9BF2A481 /* CDVNotification.m in Sources */,
+				BE9C46B16758403ABA8ACF33 /* CDVSplashScreen.m in Sources */,
+				4ED463293AEC4E11B446B7F6 /* CDVViewController+SplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

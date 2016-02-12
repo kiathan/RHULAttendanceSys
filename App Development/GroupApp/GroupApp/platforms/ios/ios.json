@@ -39,6 +39,10 @@
                         {
                             "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -87,6 +91,9 @@
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
@@ -187,6 +194,14 @@
             "pluginId": "cordova-plugin-dialogs",
             "merges": [
                 "navigator.notification"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "pluginId": "cordova-plugin-splashscreen",
+            "clobbers": [
+                "navigator.splashscreen"
             ]
         }
     ]

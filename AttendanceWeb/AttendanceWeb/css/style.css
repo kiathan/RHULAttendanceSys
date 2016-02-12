@@ -6,6 +6,13 @@ body {
  .img-responsive {
     display: block;
     height: auto;
-    width: 100%;
-	max-height: 520px;
+    width: 85%;
+	max-height: 530px;
+	
 }  
+.navbar-fnt {
+    color: #CC3333;
+}
+.navbar-backgrnd {
+    color: #CC3333;
+}

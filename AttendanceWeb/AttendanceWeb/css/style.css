@@ -10,6 +10,11 @@ body {
 	max-height: 530px;
 	
 }  
+.img-QA{
+	display: block;
+	height: 300px;
+	width: 250px;
+}
 .navbar-fnt {
     color: #CC3333;
 }

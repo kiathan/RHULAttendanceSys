@@ -9,15 +9,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <amazon:enable-feature android:name="com.amazon.device.messaging" android:required="false" xmlns:amazon="http://schemas.amazon.com/apk/res/android" />
-        <service android:exported="false" android:name="com.onesignal.ADMMessageHandler" />
-        <receiver android:name="com.onesignal.ADMMessageHandler$Receiver" android:permission="com.amazon.device.messaging.permission.SEND">
-            <intent-filter>
-                <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-                <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-                <category android:name="io.cordova.myapp81c6f5" />
-            </intent-filter>
-        </receiver>
         <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden" android:exported="false" android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="com.phonegap.plugins.barcodescanner.SCAN" />
@@ -38,10 +29,10 @@
         </activity>
     </application>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 </manifest>

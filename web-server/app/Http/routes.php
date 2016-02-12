@@ -28,6 +28,12 @@ Route::post('/auth/store', 'AuthController@store');
 Route::get('/couse/index', 'courseController@index');
 Route::get('/couse/create', 'courseController@create');
 
+Route::get('/lecture/index', 'lectureController@index');
+Route::get('/lecture/create', 'lectureController@create');
+
+Route::get('/venue/index', 'venuController@index');
+Route::get('/venue/create', 'venuController@create');
+
 Route::post('/api/auth/login', 'apiController@postLogin');
 Route::get('/api/auth/login', 'apiController@getLogin');
 

@@ -3,7 +3,8 @@
 <head>
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div data-role="page" data-position="fixed" id="logIn">
@@ -12,7 +13,7 @@
         </div>
     <div data-role="main" class="ui-content">
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-            <input type="text" name="username" id="username" value="lecturer" placeholder="Username">
+            <input type="text" name="username" id="username" value="testuser" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
         </form>
@@ -36,7 +37,8 @@
         </ul>
 
         <div class="footer-base" data-role="footer" data-position="fixed">
-            <h1><button class="logout-btn">Logout</button></h1>
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
         </div>
 
 </div>
@@ -49,6 +51,19 @@
         <p>You are now signing in for:</p>
         <div class="currentclass"></div>
         <button class="sign-in-btn">Sign In</button>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="AttendanceAfter">
+    <div data-role="header">
+        <h1>Attendance Sign In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>Sign in Status:</p>
+        <div class="currentAttendance"></div></br>
+        <p>Current Location:</p>
+        <div class="locationX"></div></br>
+        <div class="locationY"></div>
     </div>
     <div class="footer-copy"></div>
 </div>
@@ -122,14 +137,9 @@
     </div>
     <div data-role="main" class="ui-content">
         <div class="questionForm">
-            <form id="questionForm"> <!--action for processing details-->
-                <input type="text" id="questTxt" value="Please enter question here">
-                <input type="text" name="questOpt" id="optA" value="optA">
-                <input type="text" name="questOpt" id="optB" value="optB">
-                <input type="text" name="questOpt" id="optC" value="optC">
-                <input type="text" name="questOpt" id="optD" value="optD">
-                <input type="submit" class="question-btn" value="Send question">
-            </form>
+                <li><input type="submit" class="quiz-btn" value="Start"></li>
+                <li><input type="submit" class="quiz-btn" value="Stop"></li>
+                <li><input type="submit" class="result-btn" value="Review"></li>
         </div>
     </div>
     <div class="footer-copy"></div>
@@ -144,8 +154,8 @@
 <script src="scripts/controller.js"></script>
 <script src="scripts/utilities.js"></script>
 <script src="scripts/hash.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script src="scripts/jquery.mobile-1.4.5.min.js"></script>
 
 </body>
 </html>

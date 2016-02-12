@@ -2,7 +2,12 @@
     background-color:  grey;
 }
 
-#logInForm {
-    width: 20%;
+#ui-btn
+.footer-btn-left {
+  position: absolute;
+  left: 0.4em;
 }
-
+.footer-btn-right {
+  position: absolute;
+  right: 0.4em;
+}

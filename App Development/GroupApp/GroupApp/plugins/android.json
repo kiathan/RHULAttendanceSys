@@ -1,52 +1,59 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
-    },
-    "config_munge": {
-        "files": {
-            "res/xml/config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            }
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [{
+            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+            "count": 1
+          }, {
+            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+            "count": 1
+          }, {
+            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+            "count": 1
+          }]
         }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
     },
-    "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "org.apache.cordova.plugin.ActivityIndicator": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-barcodescanner": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        }
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
     },
-    "dependent_plugins": {}
+    "org.apache.cordova.plugin.ActivityIndicator": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+    }
+  },
+  "dependent_plugins": {}
 }

@@ -45,4 +45,20 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
         'remember_token'];
+
+
+    public function course()
+    {
+        return $this->belongsToMany(\App\course::class)->withPivot("role")->withTimestamps();
+    }
+
+    public function attendnes()
+    {
+        return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
+    }
+
+    public function saveCouse(\App\course $course, $role)
+    {
+        return $this->course()->attach($course, ['role' => $role]);
+    }
 }

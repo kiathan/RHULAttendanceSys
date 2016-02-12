@@ -21,7 +21,13 @@ Route::get('/login', 'singinColtroller@singin');
 
 Route::post('/login', 'singinColtroller@login');
 
+Route::get('/auth/index', 'AuthController@index');
+Route::get('/auth/create', 'AuthController@create');
+Route::post('/auth/store', 'AuthController@store');
+
+Route::get('/couse/index', 'courseController@index');
+Route::get('/couse/create', 'courseController@create');
 
 Route::post('/api/auth/login', 'apiController@postLogin');
-
 Route::get('/api/auth/login', 'apiController@getLogin');
+

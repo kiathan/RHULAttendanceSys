@@ -9,15 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
                             "count": 1
                         },
                         {
@@ -25,7 +21,39 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "NSLocationWhenInUseUsageDescription": [
+                        {
+                            "xml": "<string />",
+                            "count": 1
+                        }
+                    ],
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
                             "count": 1
                         }
                     ]
@@ -34,27 +62,61 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
-        },
-        "cordova-plugin-dialogs": {
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "org.apache.cordova.plugin.ActivityIndicator": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
         "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+            "id": "cordova-plugin-vibration.notification",
+            "pluginId": "cordova-plugin-vibration",
+            "merges": [
+                "navigator.notification",
+                "navigator"
+            ]
+        },
+        {
+            "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+            "id": "onesignal-cordova-plugin.OneSignal",
+            "pluginId": "onesignal-cordova-plugin",
+            "clobbers": [
+                "OneSignal"
+            ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
+            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
+            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
+            "clobbers": [
+                "ActivityIndicator"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
             "id": "cordova-plugin-console.console",
@@ -72,11 +134,51 @@
             ]
         },
         {
+            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "cordova-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
+        },
+        {
             "file": "plugins/cordova-plugin-device/www/device.js",
             "id": "cordova-plugin-device.device",
             "pluginId": "cordova-plugin-device",
             "clobbers": [
                 "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+            "id": "cordova-plugin-geolocation.Coordinates",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Coordinates"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "id": "cordova-plugin-geolocation.PositionError",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "PositionError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+            "id": "cordova-plugin-geolocation.Position",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Position"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+            "id": "cordova-plugin-geolocation.geolocation",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "navigator.geolocation"
             ]
         },
         {
@@ -86,30 +188,6 @@
             "merges": [
                 "navigator.notification"
             ]
-        },
-        {
-            "file": "plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js",
-            "id": "org.apache.cordova.plugin.ActivityIndicator.ActivityIndicator",
-            "pluginId": "org.apache.cordova.plugin.ActivityIndicator",
-            "clobbers": [
-                "ActivityIndicator"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "cordova-plugin-barcodescanner",
-            "clobbers": [
-                "cordova.plugins.barcodeScanner"
-            ]
         }
-    ],
-    "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.2.1",
-        "cordova-plugin-console": "1.0.2",
-        "cordova-plugin-device": "1.1.1",
-        "cordova-plugin-dialogs": "1.2.0",
-        "org.apache.cordova.plugin.ActivityIndicator": "1.0.0",
-        "cordova-plugin-barcodescanner": "0.7.0"
-    }
+    ]
 }

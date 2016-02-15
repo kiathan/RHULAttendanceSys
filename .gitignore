@@ -9,4 +9,8 @@ App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/tmp/package
 *.aar
 *.class
 Documents/~$test1.xlsx
+<<<<<<< Updated upstream
 AttendanceWeb/Prototype/~$Web prototype.pptm
+=======
+web-server/.env
+>>>>>>> Stashed changes

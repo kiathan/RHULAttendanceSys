@@ -11,7 +11,7 @@
                 @endforeach
             </select>
             <input type="hidden" name="isActive" id="isActive" value="true" >
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+            <input type="text" name="_token" value="{{ csrf_token() }}">
             <input type="submit" value="submit" name="Submit">
         </form>
     </div>

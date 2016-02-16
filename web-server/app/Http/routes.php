@@ -25,8 +25,33 @@ Route::get('/',
 
 
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
-    Route::post('/auth/login', 'apiController@postLogin');
+
+    Route::post('/auth/index', 'AuthController@index');
+    Route::post('/auth/create', 'AuthController@create');
+    Route::post('/auth/store', 'AuthController@store');
+    Route::post('/auth/logout', 'AuthController@logout');
+
+
+    Route::post('/couse/index', 'courseController@index');
+    Route::post('/couse/create', 'courseController@create');
+    Route::post('/couse/store/', 'courseController@store');
+
+    Route::post('/lecture/index', 'lectureController@index');
+    Route::post('/lecture/create', 'lectureController@create');
+    Route::post('/lecture/store', 'lectureController@store');
+
+    Route::post('/venue/index', 'venuController@index');
+    Route::post('/venue/create', 'venuController@create');
+    Route::post('/venue/store', 'venuController@store');
+
+    Route::post('/lecture_instends/index', 'lectureInstanceController@index');
+    Route::post('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
+    Route::post('/lecture_instends/store', 'lectureInstanceController@store');
+    Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
+
 });
+
+Route::post('api/auth/login', 'AuthController@login');
 
 Route::get('/login', 'singinColtroller@singin');
 
@@ -54,3 +79,6 @@ Route::post('/venue/store', 'venuController@store');
 Route::get('/lecture_instends/index', 'lectureInstanceController@index');
 Route::get('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
+Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
+
+Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');

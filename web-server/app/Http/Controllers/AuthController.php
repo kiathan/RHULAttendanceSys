@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use KDuma\Permissions\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -16,9 +18,13 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = \App\User::all();
+
+        if ($request->segment(1) == "api") {
+            return $users;
+        }
 
         return view('auth.index')->with(["users" => $users]);
     }
@@ -28,10 +34,48 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $roles = Role::all();
+
         return view('auth.create', ["roles" => $roles]);
+    }
+
+    public function showLogin(Request $request)
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        if ($request->segment(1) == "api") {
+            $username = $request->input('username');
+            $password = $request->input('password');
+
+            $reuslts = Auth::attempt([
+                "username" => $username,
+                "password" => $password]);
+
+            if (Auth::check()) {
+                $user = Auth::user();
+                $user->token = Str::random(60) . "-" . time();
+                $user->save();
+                return json_encode(["username" => $user->username, "user_id" => $user->id, "token" => hash("sha256", $user->token)]);
+            } else {
+                return json_encode(["status" => "Error", "message" => "username or password wrong"]);
+            }
+        }
+
+        $username = $request->input('username');
+        $password = hash("sha256", $request->input('password'));
+
+        $reuslts = Auth::attempt([
+            "username" => $username,
+            "password" => $password]);
+
+
+        return view('login')->with(["signInResult" => Auth::check()]);
+
     }
 
     /**
@@ -65,7 +109,7 @@ class AuthController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         //
     }
@@ -76,7 +120,7 @@ class AuthController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         //
     }
@@ -99,12 +143,13 @@ class AuthController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
 
     }

@@ -91,4 +91,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->course()->attach($course, ['role' => $role]);
     }
+
+    public function checkToken($token = null)
+    {
+        if (is_null($token)) {
+            return false;
+        }
+
+        return hash("sha256", $this->token) === $token;
+    }
 }

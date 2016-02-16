@@ -31,6 +31,10 @@ Route::get('/attendance',
         return view('attendance');
     });
     
+Route::get('/contact',
+    function () {
+        return view('contact');
+    });
 
 
 Route::get('/login', 'singinColtroller@singin');

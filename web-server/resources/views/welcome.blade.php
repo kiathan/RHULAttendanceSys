@@ -1,4 +1,4 @@
-@extends('Master.layout')
+@extends('Master.open-layout')
 
 @section('content')
 <div id="myCarousel" class="carousel slide" data-ride="carousel" align="center">

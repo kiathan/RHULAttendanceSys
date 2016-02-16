@@ -18,7 +18,7 @@
 
 	<!-- LOGIN POP UP -->
 	
-	<div class = "modal fade" id = "login" role = "dialog" data-backdrop="static" data-keyboard="false">
+	<div class = "modal fade" id = "login" role = "dialog">
 		<div class = "modal-dialog">
 			<div class = "modal-content">
 				<form class="form-horizontal" action="/login" method="post">
@@ -71,22 +71,6 @@
 		</div>
 	</div>
 
-	<!-- CHECK IF LOGGED IN -->
-
-	@if(Auth::check())
-        <script>
-        	$('#login').modal('hide');
-        </script>
-    @elseif(!isset($signInResult))
-        <script>
-        	$('#login').modal('show');
-        </script>
-    @else
-        <script>
-        	$('.modal').modal('show');
-        </script>
-    @endif
-
 	<!-- TOP NAV BAR -->
 
 	<div class = "navbar navbar-inverse navbar-static-top">
@@ -107,7 +91,7 @@
 					<li><a href = "Attendance.html">Attendance</a></li>
 					<li><a href = "QA.html">Q&A</a></li>
 					<li><a href = "timetable.html">Timetable</a></li>
-					<li><a href = "#">Logout</a></li>
+					<li><a href = "#login" data-toggle = "modal">Login</a></li>
 					<li><a href = "contact.html">Contact Us</a></li>
 					
 				</ul>

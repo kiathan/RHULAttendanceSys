@@ -1,45 +1,53 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('Master.layout')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
+<div id="myCarousel" class="carousel slide" data-ride="carousel" align="center">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+	
+		<div class="item active">
+			<img class="img-responsive" src="images\rhul1.jpg" >
+			<div class="carousel-caption">
+				<h2>Title</h2>
+				<p>Description</p>
+			</div>
+		</div>
+	
+		<div class="item">
+			<img class="img-responsive" src="images\students.jpg">
+			<div class="carousel-caption">
+				<h2>Title</h2>
+				<p>Description</p>
+			</div>
+		</div>
+	
+		<div class="item">
+			<img class="img-responsive" src="images\rhul2.jpg">
+			<div class="carousel-caption">
+				<h2>Title</h2>
+				<p>Description</p>
+			</div>
+		</div>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+	</div>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+	<!-- Left and right controls -->
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+</div>
+@stop

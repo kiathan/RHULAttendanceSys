@@ -4,7 +4,7 @@ namespace Illuminate\Foundation\Auth\Access;
 
 use Illuminate\Contracts\Auth\Access\Gate;
 
-trait Authorizable
+trait  Authorizable
 {
     /**
      * Determine if the entity has a given ability.

@@ -16,7 +16,9 @@ class lectureController extends Controller
      */
     public function index()
     {
-        return view('lecture.index');
+        $lectures = \App\lecture::all();
+
+        return view('lecture.index')->with(['lectures' => $lectures]);
     }
 
     /**
@@ -39,7 +41,8 @@ class lectureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\lecture::create($request->all());
+        return redirect("/");
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use KDuma\Permissions\Models\Role;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthController extends Controller
     public function index()
     {
         $users = \App\User::all();
+
         return view('auth.index')->with(["users" => $users]);
     }
 
@@ -28,7 +30,8 @@ class AuthController extends Controller
      */
     public function create()
     {
-        return view('auth.create');
+        $roles = Role::all();
+        return view('auth.create', ["roles" => $roles]);
     }
 
     /**
@@ -99,5 +102,10 @@ class AuthController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout(){
+        Auth::logout();
+
     }
 }

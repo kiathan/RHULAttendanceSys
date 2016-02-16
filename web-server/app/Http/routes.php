@@ -23,6 +23,11 @@ Route::get('/',
         return $linkText;
     });
 
+
+Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
+    Route::post('/auth/login', 'apiController@postLogin');
+});
+
 Route::get('/login', 'singinColtroller@singin');
 
 
@@ -47,9 +52,5 @@ Route::get('/venue/create', 'venuController@create');
 Route::post('/venue/store', 'venuController@store');
 
 Route::get('/lecture_instends/index', 'lectureInstanceController@index');
-Route::get('/lecture_instends/create/{filter}', 'lectureInstanceController@create');
+Route::get('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
-
-Route::post('/api/auth/login', 'apiController@postLogin');
-Route::get('/api/auth/login', 'apiController@getLogin');
-

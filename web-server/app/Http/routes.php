@@ -15,6 +15,23 @@ Route::get('/',
     function () {
         return view('welcome');
     });
+    
+Route::get('/qa',
+    function () {
+        return view('qa');
+    });
+    
+Route::get('/timetable',
+    function () {
+        return view('timtable');
+    });
+    
+Route::get('/attendance',
+    function () {
+        return view('attendance');
+    });
+    
+
 
 Route::get('/login', 'singinColtroller@singin');
 

@@ -87,12 +87,12 @@
 			<div class = "collapse navbar-collapse navHeaderCollapse">
 				<ul class = "nav navbar-nav navbar-right">
 					
-					<li><a href = "#">Home</a></li>
-					<li><a href = "Attendance.html">Attendance</a></li>
-					<li><a href = "QA.html">Q&A</a></li>
-					<li><a href = "timetable.html">Timetable</a></li>
+					<li><a href = "/">Home</a></li>
+					<li><a href = "/attendance">Attendance</a></li>
+					<li><a href = "/qa">Q&A</a></li>
+					<li><a href = "/timetable">Timetable</a></li>
 					<li><a href = "#login" data-toggle = "modal">Login</a></li>
-					<li><a href = "contact.html">Contact Us</a></li>
+					<li><a href = "/contact">Contact Us</a></li>
 					
 				</ul>
 			</div>
@@ -110,7 +110,7 @@
 		<div class = "container">
 		
 			<p class = "navbar-text pull-left">Site Built By Team6</p>
-			<a href = "http:moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
+			<a href = "moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
 		
 		</div>
 	</div>

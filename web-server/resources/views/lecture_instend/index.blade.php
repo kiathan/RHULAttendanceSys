@@ -13,6 +13,7 @@
                         <th>{{$names}}</th>
                     @endforeach
                     <th>Qr code for auth</th>
+                    <th>Qr code result</th>
                 </tr>
                 @foreach($lecture_instends as $lecture)
                     <tr>
@@ -22,6 +23,7 @@
                         <td>{{$lecture->created_at}}</td>
                         <td>{{$lecture->updated_at}}</td>
                         <td>{!! $lecture->sendQRcode() !!}</td>
+                        <td>{!! $lecture->createHash() !!}</td>
                     </tr>
                 @endforeach
             </table>

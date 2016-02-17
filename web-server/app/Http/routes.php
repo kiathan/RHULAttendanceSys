@@ -49,6 +49,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/store', 'lectureInstanceController@store');
     Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
+
 });
 
 Route::post('api/auth/login', 'AuthController@login');

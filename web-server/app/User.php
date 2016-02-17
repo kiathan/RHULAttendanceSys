@@ -59,8 +59,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
     }
 
-    public function addAttendnes()
+    public function checkIfAlreadyAttendnes(\App\lecture_instend $lecture_instend)
     {
+        /*
+         * Has one or more sign in on the current lecture instance
+         */
+        return ($this->attendnes()->find($lecture_instend->id)->count() > 0);
+    }
+
+    public function addAttendnes(\App\lecture_instend $lecture_instend)
+    {
+        return $this->attendnes()->withTimestamps()->attach($lecture_instend);
     }
 
     public function currentLectures()
@@ -74,9 +83,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function getCurrentLectureInstance()
     {
-        if ($lecture = $this->currentLectures() == null) {
+        if (($lecture = $this->currentLectures()) == null) {
             return null;
         }
+
         return $lecture->getActiveLecture()->get();
     }
 

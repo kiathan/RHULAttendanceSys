@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 
 class lectureInstanceController extends Controller
 {
@@ -105,14 +106,42 @@ class lectureInstanceController extends Controller
         //
     }
 
-    public function auth(Request $request)
+    public function auth(Request $request, Guard $auth)
     {
+        if ($request->segment(1) == "api") {
+            $request->all();
+            $user = \App\User::find($auth->user()->id);
+            $lecture_instances = $user->getCurrentLectureInstance();
 
+            if (is_null($lecture_instances) || empty($lecture_instances)) {
+                $jsonRespones['status'] = "error";
+                $jsonRespones['message'] = "No lecture instance is active for the user";
+                return json_encode($jsonRespones);
+            }
+            $lecture_instances = $lecture_instances[0];
+            $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
+
+            if($user->checkIfAlreadyAttendnes($lecture_instances)){
+                $jsonRespones['status'] = "success";
+                $jsonRespones['message'] = "Already sign in";
+                return json_encode($jsonRespones);
+            }
+            else if ($authStatus) {
+                $jsonRespones['status'] = "success";
+                $jsonRespones['message'] = "you have sign in to the lecture";
+                $user->addAttendnes($lecture_instances);
+                return json_encode($jsonRespones);
+            } else {
+                $jsonRespones['status'] = "error";
+                $jsonRespones['message'] = "The qr code did not matach the entry for the class";
+                return json_encode($jsonRespones);
+            }
+        }
+        return "In progress please hold on";
     }
 
     public function qrCode(Request $request, $id)
     {
-
         $lecture_instend = \App\lecture_instend::find($id);
 
         if (is_null($lecture_instend)) {
@@ -121,11 +150,7 @@ class lectureInstanceController extends Controller
              */
             return "";
         }
-
         $response = Response::make($lecture_instend->sendQRcode(), 200);
-
-
         return $response;
-
     }
 }

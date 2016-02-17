@@ -37,8 +37,8 @@ class AuthController extends Controller
     public function create(Request $request)
     {
         $roles = Role::all();
-
-        return view('auth.create', ["roles" => $roles]);
+        $courses = \App\course::all();
+        return view('auth.create', ["roles" => $roles, "courses" => $courses]);
     }
 
     public function showLogin(Request $request)
@@ -75,7 +75,6 @@ class AuthController extends Controller
 
 
         return view('login')->with(["signInResult" => Auth::check()]);
-
     }
 
     /**
@@ -97,7 +96,11 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
+            foreach ($request->get('coures') as $course_id) {
+                $user->saveCouse(\App\course::find($course_id), 'student');
+            }
             return redirect("/");
+
         } else {
             return redirect("/auth/create");
         }

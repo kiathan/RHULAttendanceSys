@@ -31,7 +31,7 @@ class fillDatabase extends Seeder
             }
         }
 
-
+        $this->attachUsersToCoures();
     }
 
     private function makeCouse()
@@ -92,5 +92,19 @@ class fillDatabase extends Seeder
     private function rand($range, $offset = 0)
     {
         return ((mt_rand() / mt_getrandmax()) * $range) + $offset;
+    }
+
+    private function attachUsersToCoures()
+    {
+        $numberOfUsers = \App\User::count();
+        $numberOfCoures = \App\User::count();
+        $users = \App\User::all();
+        for ($j = 0; $j < $numberOfUsers; ++$j) {
+            $user = $users[$j];
+            for ($i = 0; $i < 5; ++$i) {
+                $Course = \App\course::find(rand(1, $numberOfCoures));
+                    $user->saveCouse($Course, 'student');
+            }
+        }
     }
 }

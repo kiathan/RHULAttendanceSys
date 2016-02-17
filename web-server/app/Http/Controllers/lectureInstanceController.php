@@ -18,7 +18,7 @@ class lectureInstanceController extends Controller
      */
     public function index()
     {
-        $lecture_instends = \App\lecture_instend::all();
+        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -64,7 +64,8 @@ class lectureInstanceController extends Controller
      */
     public function show($id)
     {
-        return \App\lecture_instend::find($id);
+        $lecture_instend = \App\lecture_instend::find($id);
+        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
     }
 
     /**
@@ -87,8 +88,10 @@ class lectureInstanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $instance = \App\lecture_instend::where('isActive', 'true')->first($id);
-
+        $instance = \App\lecture_instend::find($id);
+        $instance->fill($request->all());
+        $instance->save();
+        return redirect("/lecture_instends/show/" . $id);
     }
 
     /**

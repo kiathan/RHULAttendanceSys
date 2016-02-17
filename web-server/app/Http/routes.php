@@ -82,3 +82,5 @@ Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
+Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
+Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');

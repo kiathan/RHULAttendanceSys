@@ -5,21 +5,19 @@
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <link href = "css/bootstrap.min.css" rel = "stylesheet">
     <link href = "css/style.css" rel = "stylesheet">
-    <link rel="shortcut icon" href="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\AttendanceWeb\images\RHicon.ico">
+    <link rel="shortcut icon" href="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\web-server\resources\views\views-Jiha\images\RHicon.ico">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
 </head>
 <body>
-    <div class="container">
-        @yield('content')
-    </div>
+
 
 
 
 <div class = "navbar navbar-inverse navbar-static-top">
     <div class = "container">
-        <a href="index.html" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
+        <a href="index.blade.php" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
 
         <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
             <span class = "icon-bar"></span>
@@ -32,12 +30,12 @@
             <ul class = "nav navbar-nav navbar-right">
 
                 <li class = "active"><a href = "#">Home</a></li>
-                <li><a href = "Attendance.html">Attendance</a></li>
+                <li><a href = "Attendance.blade.php">Attendance</a></li>
 
 
-                <li><a href = "QA.html">Q&A</a></li>
-                <li><a href = "timetable.html">Timetable</a></li>
-                <li><a href = "contact.html">Contact us</a></li>
+                <li><a href = "QA.blade.php">Q&A</a></li>
+                <li><a href = "timetable.blade.php">Timetable</a></li>
+                <li><a href = "contact.blade.php">Contact us</a></li>
 
                 <li class = "dropdown">
 
@@ -68,7 +66,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\AttendanceWeb\images\rhul1.jpg" >
+            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\web-server\resources\views\views-Jiha\images\rhul1.jpg" >
             <div class="carousel-caption">
                 <h2>Title</h2>
                 <p>Description</p>
@@ -76,7 +74,7 @@
         </div>
 
         <div class="item">
-            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\AttendanceWeb\images\rhul3.jpg">
+            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\web-server\resources\views\views-Jiha\images\students.jpg">
             <div class="carousel-caption">
                 <h2>Title</h2>
                 <p>Description</p>
@@ -84,7 +82,7 @@
         </div>
 
         <div class="item">
-            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\AttendanceWeb\images\rhul2.jpg">
+            <img class="img-responsive" src="C:\Users\J.H.Kim\Documents\GitHub\TP2\TeamProject06\web-server\resources\views\views-Jiha\images\rhul2.jpg">
             <div class="carousel-caption">
                 <h2>Title</h2>
                 <p>Description</p>

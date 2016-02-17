@@ -9,10 +9,7 @@ function login() {
   var p = $("#password").val();
   var pHashed = Sha256.hash(p);
   var url = "https://bartalveyhe.me/api/auth/login";
-  var dataString = {
-    username: u,
-    password: pHashed
-  };
+  var dataString = "username=" + u + "&password=" + pHashed;
   //alert("hello," + u + " " + p);
 
   //empty string validation

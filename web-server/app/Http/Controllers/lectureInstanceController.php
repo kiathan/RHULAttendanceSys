@@ -114,7 +114,7 @@ class lectureInstanceController extends Controller
             $lecture_instances = $user->getCurrentLectureInstance();
 
             if (is_null($lecture_instances) || empty($lecture_instances)) {
-                $jsonRespones['status'] = "error";
+                $jsonRespones['state'] = "error";
                 $jsonRespones['message'] = "No lecture instance is active for the user";
                 return json_encode($jsonRespones);
             }
@@ -122,17 +122,17 @@ class lectureInstanceController extends Controller
             $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
 
             if($user->checkIfAlreadyAttendnes($lecture_instances)){
-                $jsonRespones['status'] = "success";
+                $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);
             }
             else if ($authStatus) {
-                $jsonRespones['status'] = "success";
+                $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "you have sign in to the lecture";
                 $user->addAttendnes($lecture_instances);
                 return json_encode($jsonRespones);
             } else {
-                $jsonRespones['status'] = "error";
+                $jsonRespones['state'] = "error";
                 $jsonRespones['message'] = "The qr code did not matach the entry for the class";
                 return json_encode($jsonRespones);
             }

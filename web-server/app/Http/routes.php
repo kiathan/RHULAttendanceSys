@@ -31,3 +31,5 @@ Route::get('/couse/create', 'courseController@create');
 Route::post('/api/auth/login', 'apiController@postLogin');
 Route::get('/api/auth/login', 'apiController@getLogin');
 
+
+Route::post('/quiz/quiz','quizController@');

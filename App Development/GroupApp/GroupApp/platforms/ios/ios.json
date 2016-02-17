@@ -33,15 +33,15 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -94,6 +94,9 @@
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.cordova.myapp81c6f5"
+        },
+        "cordova-plugin-barcodescanner": {
             "PACKAGE_NAME": "io.cordova.myapp81c6f5"
         }
     },
@@ -202,6 +205,14 @@
             "pluginId": "cordova-plugin-device",
             "clobbers": [
                 "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "cordova-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
             ]
         }
     ]

@@ -9,10 +9,8 @@ function login() {
   var p = $("#password").val();
   var pHashed = Sha256.hash(p);
   var url = "https://bartalveyhe.me/api/auth/login";
-  var dataString = {
-    username: u,
-    password: pHashed
-  };
+  var dataString = "username=" + u + "&password=" + pHashed;
+  localStorage.username = u;
   //alert("hello," + u + " " + p);
 
   //empty string validation
@@ -22,23 +20,21 @@ function login() {
       url: url,
       data: dataString,
       tryCount: 0,
-      retryLimit: 3,
+      retryLimit: 5,
       cache: false,
       success: function(data) {
-
-        var jsonresult = JSON.stringify(data);
-        var loginresult = JSON.parse(jsonresult);
+        var loginresult = JSON.parse(data);
 
         ActivityIndicator.hide();
-        if (loginresult.state == "success") {
+        if (loginresult.state == "success" && loginresult.username ==
+          localStorage.username) {
           localStorage.login = "true";
-          localStorage.username = u;
+          localStorage.token = loginresult.token;
         } else if (loginresult.state == "failure") {
           localStorage.login = "false";
           localStorage.loginerror = "incorrect";
         } else {
           localStorage.login = "false";
-
           localStorage.loginerror = "timeout";
         }
         loginReplyRedir();

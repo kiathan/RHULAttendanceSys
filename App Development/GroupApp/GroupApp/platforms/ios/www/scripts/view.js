@@ -38,6 +38,7 @@
     $('.home-btn').click(loginReplyRedir);
     //$('.scanner')
 
+    $(document).on("pageshow", "#TimetableScreen", loadTimetable);
 
     //native popup
     enableNativePopUp();

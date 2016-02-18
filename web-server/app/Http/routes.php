@@ -11,30 +11,29 @@
 |
 */
 
-Route::get('/',
-    function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+	return view('welcome');
+});
     
-Route::get('/qa',
-    function () {
-        return view('qa');
-    });
+Route::get('/qa', function () {
+	return view('qa');
+});
     
-Route::get('/timetable',
-    function () {
-        return view('timtable');
-    });
+Route::get('/timetable', function () {
+    return view('timetable');
+});
     
-Route::get('/attendance',
-    function () {
-        return view('attendance');
-    });
+Route::get('/attendance', function () {
+    return view('attendance');
+});
     
-Route::get('/contact',
-    function () {
-        return view('contact');
-    });
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/users', function () {
+    return view('users');
+});
 
 
 Route::get('/login', 'singinColtroller@singin');

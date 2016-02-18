@@ -91,7 +91,13 @@
 					<li><a href = "/attendance">Attendance</a></li>
 					<li><a href = "/qa">Q&A</a></li>
 					<li><a href = "/timetable">Timetable</a></li>
-					<li><a href = "#login" data-toggle = "modal">Login</a></li>
+					@if(Auth::check())
+						<li><a href = "#">Logout</a></li>
+					@elseif(!isset($signInResult))
+						<li><a href = "#login" data-toggle = "modal">Login</a></li>
+					@else
+						<li><a href = "#login" data-toggle = "modal">Login</a></li>
+					@endif
 					<li><a href = "/contact">Contact Us</a></li>
 					
 				</ul>

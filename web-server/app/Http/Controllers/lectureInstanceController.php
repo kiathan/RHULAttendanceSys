@@ -124,7 +124,7 @@ class lectureInstanceController extends Controller
             $lecture_instances = $user->getCurrentLectureInstance();
 
             if (is_null($lecture_instances) || empty($lecture_instances)) {
-                $jsonRespones['state'] = "error";
+                $jsonRespones['state'] = "failure";
                 $jsonRespones['message'] = "No lecture instance is active for the user";
                 return json_encode($jsonRespones);
             }
@@ -141,7 +141,7 @@ class lectureInstanceController extends Controller
                 $user->addAttendnes($lecture_instances);
                 return json_encode($jsonRespones);
             } else {
-                $jsonRespones['state'] = "error";
+                $jsonRespones['state'] = "failure";
                 $jsonRespones['message'] = "The qr code did not matach the entry for the class";
                 return json_encode($jsonRespones);
             }
@@ -178,5 +178,9 @@ class lectureInstanceController extends Controller
         }
         \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
         return redirect("/");
+    }
+
+    public function status(Request $request){
+
     }
 }

@@ -1,6 +1,9 @@
 /**
  * Handles logging in of the account and saving the session on the device.
  **/
+
+var server = "https://bartalveyhe.me/";
+
 function login() {
   //retrieves username and password from the fields.
 
@@ -8,7 +11,7 @@ function login() {
   var u = $("#username").val();
   var p = $("#password").val();
   var pHashed = Sha256.hash(p);
-  var url = "https://bartalveyhe.me/api/auth/login";
+  var url = server + "api/auth/login";
   var dataString = "username=" + u + "&password=" + pHashed;
   localStorage.username = u;
   //alert("hello," + u + " " + p);
@@ -56,7 +59,6 @@ function login() {
 
     });
   }
-  //TODO: checks login status and decides if user should login.
 };
 
 function loginReplyRedir() {
@@ -112,7 +114,7 @@ function setCurrentPosition() {
       localStorage.long = position.coords.longitude;
     },
     function() {
-      alert('Attendance sign-in unsuccessful! Please try again.');
+      alert('Please enable location services and try again!');
     });
 }
 

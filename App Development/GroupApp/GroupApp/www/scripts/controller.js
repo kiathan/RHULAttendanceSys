@@ -26,8 +26,7 @@ function login() {
       retryLimit: 5,
       cache: false,
       success: function(data) {
-        var loginresult = JSON.parse(data);
-
+        var loginresult = data;
         ActivityIndicator.hide();
         if (loginresult.state == "success" && loginresult.username ==
           localStorage.username) {
@@ -92,13 +91,56 @@ function logout() {
   window.location.href = "#logIn";
 };
 
+//Loads and Displays the current class
+function loadAttendance() {
+  setCurrentPosition();
+
+  ActivityIndicator.show("Retrieving Class to sign in...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var url = server + "api/auth";
+  var dataString = "username=" + u + "&token=" + t;
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      var result = data;
+      ActivityIndicator.hide();
+
+      //sets the screen with the display picture
+      localStorage.currentClassName = result.currentclass;
+      $("div.currentclass").text(localStorage.currentClassName);
+      $("div.locationX").text(localStorage.lat);
+      $("div.locationY").text(localStorage.long);
+
+      if (result.state == "success") {
+        //enables the button
+      }
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+};
+
 /**
  * Handles logging out of the account and clearing storage
  **/
 function signin() {
-
   setCurrentPosition();
-
   navigator.notification.confirm(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
     scanner, // callback
@@ -107,16 +149,60 @@ function signin() {
   );
 };
 
-function setCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(
-    function(position) {
-      localStorage.lat = position.coords.latitude;
-      localStorage.long = position.coords.longitude;
+/**
+ * Handles the signing in to the server
+ **/
+function signin_withServer() {
+  setCurrentPosition();
+  ActivityIndicator.show("Retrieving Class to sign in...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var c = localStorage.signinBarcode;
+  var lat = localStorage.lat;
+  var long = localStorage.long;
+  var url = server + "api/lecture_instends/auth";
+  var dataString = "username=" + u + "&token=" + t + "&lectureAuthCode=" + c +
+    "&lat=" + lat + "&long=" + long;
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      var result = JSON.parse(data);
+      ActivityIndicator.hide();
+
+      //sets the screen with the display picture
+      localStorage.currentClassStatus = result.state;
+
+
+      if (result.state == "success") {
+        $("div.currentAttendance").text(result.message);
+        $("div.locationX").text(localStorage.lat);
+        $("div.locationY").text(localStorage.long);
+      } else if (result.state == "failure") {
+        $("div.currentAttendance").text(
+          result.message);
+      }
     },
-    function() {
-      alert('Please enable location services and try again!');
-    });
-}
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+};
+
+
 
 function scanner(input) {
   if (input == 1) {
@@ -127,6 +213,7 @@ function scanner(input) {
         $("div.currentAttendance").text(localStorage.signinBarcode);
         $("div.locationX").text(localStorage.lat);
         $("div.locationY").text(localStorage.long);
+        signin_withServer();
 
         window.location.href = "#AttendanceAfter";
       },
@@ -144,29 +231,6 @@ function scanner(input) {
 };
 
 
-//enables and set native pop up
-function enableNativePopUp() {
-
-  if (navigator.notification) { // Override default HTML alert with native dialog
-    window.alert = function(message) {
-      navigator.notification.alert(
-        message, // message
-        null, // callback
-        "Royal Ray", // title
-        'OK' // buttonName
-      );
-    };
-    window.confirm = function(message) {
-      navigator.notification.confirm(
-        message, // message
-        null, // callback
-        "Royal Ray", // title
-        'OK' // buttonName
-      );
-    };
-  }
-
-};
 
 function answerQuestion() {
   var value = this.value;

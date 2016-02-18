@@ -39,6 +39,7 @@
     //$('.scanner')
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
+    $(document).on("pageshow", "#Attendance", loadAttendance);
 
     //native popup
     enableNativePopUp();

@@ -64,7 +64,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         /*
          * Has one or more sign in on the current lecture instance
          */
-        return ($this->attendnes()->find($lecture_instend->id)->count() > 0);
+        return ($this->attendnes()->find($lecture_instend->id) != null);
     }
 
     public function addAttendnes(\App\lecture_instend $lecture_instend)

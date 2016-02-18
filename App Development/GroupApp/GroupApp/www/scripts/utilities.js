@@ -1,3 +1,14 @@
+function setCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      localStorage.lat = position.coords.latitude;
+      localStorage.long = position.coords.longitude;
+    },
+    function() {
+      alert('Please enable location services and try again!');
+    });
+}
+
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(lat2 - lat1); // deg2rad below
@@ -14,3 +25,27 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI / 180)
 }
+
+//enables and set native pop up
+function enableNativePopUp() {
+
+  if (navigator.notification) { // Override default HTML alert with native dialog
+    window.alert = function(message) {
+      navigator.notification.alert(
+        message, // message
+        null, // callback
+        "Royal Ray", // title
+        'OK' // buttonName
+      );
+    };
+    window.confirm = function(message) {
+      navigator.notification.confirm(
+        message, // message
+        null, // callback
+        "Royal Ray", // title
+        'OK' // buttonName
+      );
+    };
+  }
+
+};

@@ -60,7 +60,7 @@ class AuthController extends Controller
                 $user = Auth::user();
                 $user->token = Str::random(60) . "-" . time();
                 $user->save();
-                return json_encode(["state" => "success", "username" => $user->username, "user_id" => $user->id, "token" => hash("sha256", $user->token)]);
+                return response()->json(["state" => "success", "username" => $user->username, "user_id" => $user->id, "token" => hash("sha256", $user->token)]);
             } else {
                 return json_encode(["state" => "failure", "message" => "username or password wrong"]);
             }

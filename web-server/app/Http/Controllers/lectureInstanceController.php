@@ -28,10 +28,20 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($filter = false)
+    public function create($filter = false, $user_id = false)
     {
-        if (!$filter) {
+        $user = \App\User::all();
+        $userFilder = \App\User::find($user_id);
+        if (!$filter && !$user_id) {
             $lectures = \App\lecture::all();
+        } else if (!is_null($userFilder)) {
+            $lectures = $userFilder->allLectures();
+            $currentTime = new Carbon();
+            $day = strtolower($currentTime->format("l"));
+            $time = $currentTime->format("G:i:s");
+            $lectures = \App\lecture::whereIn('id', $lectures->pluck('id'))->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
+
+
         } else {
             $currentTime = new Carbon();
             $day = strtolower($currentTime->format("l"));
@@ -39,7 +49,7 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
 
-        return view('lecture_instend/create')->with(['lectures' => $lectures]);
+        return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
     }
 
     /**
@@ -121,12 +131,11 @@ class lectureInstanceController extends Controller
             $lecture_instances = $lecture_instances[0];
             $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
 
-            if($user->checkIfAlreadyAttendnes($lecture_instances)){
+            if ($user->checkIfAlreadyAttendnes($lecture_instances)) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);
-            }
-            else if ($authStatus) {
+            } else if ($authStatus) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "you have sign in to the lecture";
                 $user->addAttendnes($lecture_instances);
@@ -152,5 +161,22 @@ class lectureInstanceController extends Controller
         }
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
+    }
+
+
+    /*DEBUG INFO*/
+    public function createLectureInstance(Request $request)
+    {
+        $user = \App\User::find($request->get('user_id'));
+        if (!$user->currentLectures()) {
+            \App\lecture::createRandomLecture($user);
+        }
+
+        $lecutre = $user->currentLectures();
+        if (\App\lecture_instend::where('isActive', 'true')->where('lecture_id', $lecutre->id)->first()) {
+            return redirect("/");
+        }
+        \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
+        return redirect("/");
     }
 }

@@ -1,0 +1,65 @@
+Problem description
+	The attend system that is currently in place at royal Holloway is an manual entry system that will require Manuel entry to figure out the attested rate of an student, as such to help unify the process.
+
+	To help this we have identify the following entries that need considering
+
+		* users, including name, student number, user name, password, roles, contact information, and there current token
+
+		* roles, including the name of the role and an description, and permission that follow along with the role
+
+		* permissions, including the name and description
+
+		* userVerifycation, user code, verification method, verification proof
+
+		* teaches, user code, department, 
+
+		* teaches_course, teaches code, course code
+
+		* course, course code, status, start time, end time, 
+
+		* lectors, including the lecturer code, name, room number, start time, end time, lecturers, department code, 
+
+		* lecturer_course, lecturer code, date, verification_hash
+
+		* enrolment, user code, course code.
+
+		* rooms, the room code, building code, geo_x, geo_z, geo_y, type (pc-lab, etc)
+
+		* building, the building code, name
+
+		* department, department code, name
+
+		* quiz, the quiz code, lector code, in progress, time stamps
+
+		* quiz answers, the answer code, user code, the answer, time stamps, lecturer_course code
+
+		* student_attend, lecturer_course code, timestamps, verification_method
+
+
+
+Table list 
+	users, roles, permissions, user_verification, teaches, course, teaches_course, lecturer, lecturer_course, enrolment, rooms, building, department, quiz, quiz_answers, student_attends
+
+Relations
+	user     <- -> roles              : many to many
+	roles    <- -> premissions        : many to many
+	user     <- -> user_verification  : one to many
+	teaches  <- -> user               : one to one
+	
+
+	teaches  <- -> coures             : many to many
+	coures   <- -> lecturer           : one to many
+	user     <- -> course             : maney to many
+	lecturer <- -> rooms              : one to one
+	rooms    <- -> building           : many to one
+	
+	attends  <- -> user               : one to one 
+	                                    (combin key)
+	attends  <- -> lecturer           : one to one
+
+	lecturer <- -> quiz               : many to many
+	quiz     <- -> anwers             : one to many
+
+
+
+	user.... [roles -> []]

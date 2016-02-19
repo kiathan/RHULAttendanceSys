@@ -145,6 +145,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+         *
+         */
+
+        KDuma\Permissions\PermissionsServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
     ],
 
     /*
@@ -193,6 +201,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Permissions'        => KDuma\Permissions\Facades\Permissions::class,
+        'PermissionsManager' => KDuma\Permissions\Facades\PermissionsManager::class,
+            'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
     ],
 

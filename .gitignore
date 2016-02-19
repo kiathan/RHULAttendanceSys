@@ -1,2 +1,41 @@
+App Development/GroupApp/GroupApp/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin
+*.bin
+*.jar
+App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaWebViewImpl$1.class
+*.class
+App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/intermediates/incremental/mergeAssets/debug/merger.xml
+*.xml
+App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/tmp/packageDebugJar/MANIFEST.MF
+*.aar
+*.class
+
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+#custom ignore such as IDE files
+web-server/.idea/
+.idea/
+*.cache
+
+.idea/
 *.bin
 App Development/GroupApp/GroupApp/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock
+
+
+web-server/node_modules/bootstrap-sass/test/dummy_rails/tmp/cache/sprockets/v4.0/*

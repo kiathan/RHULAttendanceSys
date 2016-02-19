@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class quizController extends Controller
 {
     public function ansQuiz(Request $answer){
+        dd($answer);
 
     }
 

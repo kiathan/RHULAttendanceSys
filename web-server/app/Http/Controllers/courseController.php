@@ -27,7 +27,10 @@ class courseController extends Controller
      */
     public function create()
     {
-        return view('couse.create');
+        // Need venues and couses
+        $couses = \App\course::all();
+        $venues = \App\venue::all();
+        return view('couse.create')->with(['couses' => $couses, 'venues' => $venues]);
     }
 
     /**
@@ -38,7 +41,9 @@ class courseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\course::create($request->all());
+        return redirect("/");
+
     }
 
     /**

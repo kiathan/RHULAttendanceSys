@@ -11,8 +11,21 @@ class question extends Model
         return $this->hasMany(\App\awnser::class);
     }
 
+    public function attachAwnaaser(){
+
+    }
+
     public function lecture()
     {
         return $this->belongsTo(\App\lecture_instend::class);
     }
+
+    public function takeOffline(){
+
+    }
+
+    public static function getResults(){
+
+    }
+
 }

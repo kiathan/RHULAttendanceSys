@@ -12,14 +12,18 @@
             <label for="email"> email </label> <input type="text" name="email" id="email"/> <br>
             <label for="password"> password </label> <input type="password" name="password" id="password"/> <br>
 
-            @if(isset($courses))
-                @foreach($courses as $course)
-                    <label>
-                        <input type="checkbox" name="courses[]" value="{{$course->id}}"/>
-                        ({{$course->code}}) - {{$course->name}}
-                    </label><br>
+
+            <label for="role"> Role </label> <select name="role" id="role">
+
+                @foreach($roles as $role)
+                    <option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
                 @endforeach
-            @endif
+
+            </select>
+
+            <br>
+
+
             <input type="hidden" name="_token" value="{{ csrf_token() }}" 1>
             <input type="submit" value="submit" name="Submit">
         </form>

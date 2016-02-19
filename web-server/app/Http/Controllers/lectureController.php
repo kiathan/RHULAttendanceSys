@@ -16,7 +16,9 @@ class lectureController extends Controller
      */
     public function index()
     {
-        //
+        $lectures = \App\lecture::all();
+
+        return view('lecture.index')->with(['lectures' => $lectures]);
     }
 
     /**
@@ -26,24 +28,27 @@ class lectureController extends Controller
      */
     public function create()
     {
-        //
+        $venues = \App\venue::all();
+        $couses = \App\course::all();
+        return view('lecture.create')->with(['couses' => $couses, "venues" => $venues]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        \App\lecture::create($request->all());
+        return redirect("/");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,7 +59,7 @@ class lectureController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -65,8 +70,8 @@ class lectureController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -77,11 +82,21 @@ class lectureController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function createInstance($lecture_id)
+    {
+
+    }
+
+    public function updateInstance()
+    {
+
     }
 }

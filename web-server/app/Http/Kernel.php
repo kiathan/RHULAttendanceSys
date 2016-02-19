@@ -12,6 +12,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \App\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -30,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'permission' => \KDuma\Permissions\Middleware\Permission::class,
         'role' => \KDuma\Permissions\Middleware\Role::class,
+        'apiSignIn' => \App\Http\Middleware\apiSignIn::class,
     ];
 }

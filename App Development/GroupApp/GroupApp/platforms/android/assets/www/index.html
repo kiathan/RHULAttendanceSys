@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/timetablejs.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -12,6 +13,9 @@
             <h1>Royal Ray</h1>
         </div>
     <div data-role="main" class="ui-content">
+
+
+
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
             <input type="text" name="username" id="username" value="testuser" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
@@ -71,32 +75,11 @@
     <div data-role="header">
         <h1>Timetable</h1>
     </div>
-      <div data-role="main" class="ui-content">
-          <table border="1" data-role="table" data-mode="columntoggle" data-column-btn-text="Select day(s) to view" class="ui-responsive ui-shadow" id="timetable">
-              <thead>
-                  <tr>
-                      <th>Time</th>
-                      <th data-priority="6">Monday</th>
-                      <th data-priority="6">Tuesday</th>
-                      <th data-priority="6">Wednesday</th>
-                      <th data-priority="6">Thursday</th>
-                      <th data-priority="6">Friday</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr><td>09:00 - 10:00</td></tr>
-                  <tr><td>10:00 - 11:00</td></tr>
-                  <tr><td>11:00 - 12:00</td></tr>
-                  <tr><td>12:00 - 13:00</td></tr>
-                  <tr><td>13:00 - 14:00</td></tr>
-                  <tr><td>14:00 - 15:00</td></tr>
-                  <tr><td>15:00 - 16:00</td></tr>
-                  <tr><td>16:00 - 17:00</td></tr>
-                  <tr><td>17:00 - 18:00</td></tr>
-              </tbody>
-          </table>
-
+      <div data-role="main" id="tableContainer">
+          <h1 hidden align="center" style="background-color: lightslategrey; color:lightgrey; border-radius:50px;" id="rotateWarning" class="ui-content ui-icon-recycle">Rotate Device</h1>
+          <div hidden class="timetable"></div>
       </div>
+
       <div class="footer-copy"></div>
 </div>
 
@@ -149,11 +132,12 @@
 <!-- Cordova reference, this is added to your app when it's built. -->
 <script src="cordova.js"></script>
 <script src="scripts/platformOverrides.js"></script>
-<script src="scripts/jquery-2.2.0.js"></script>
 <script src="scripts/view.js"></script>
 <script src="scripts/controller.js"></script>
 <script src="scripts/utilities.js"></script>
+<script src="scripts/timetable.min.js"></script>
 <script src="scripts/hash.js"></script>
+<script src="scripts/jquery-2.2.0.js"></script>
 <script src="scripts/jquery-1.11.3.min.js"></script>
 <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
 

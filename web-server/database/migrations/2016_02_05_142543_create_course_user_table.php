@@ -19,7 +19,7 @@ class CreateCourseUserTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('course_id')->unsigned()->index();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->enum('role', ["student", "lectern"]);
+                $table->enum('role', ["student", "lectern"]);
             $table->timestamps();
         });
     }

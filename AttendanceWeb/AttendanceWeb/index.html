@@ -109,7 +109,7 @@
 				<a href = "http:moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right"data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
 			</div>
 		</div>
-		
+		<?php include("SinginUsernameTest.php"); ?>
 		<div class = "modal fade" id = "loginStudent" role = "dialog">
 			<div class = "modal-dialog">
 				<div class = "modal-content">
@@ -137,14 +137,14 @@
 								<div class="col-sm-offset-2 col-sm-10">
 								  <div class="checkbox">
 									<label>
-									  <input type="checkbox"> Remember me
+									  <input type="checkbox"> Remember me 
 									</label>
 								  </div>
 								</div>
 							  </div>
 						</div>
 						<div class = "modal-footer">
-							<button class = "btn btn-info" type = "login">Login</button>
+							<button class = "btn btn-info" type = "submit" value = "submit">Login</button>
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
 						</div>
 					</form>
@@ -186,7 +186,7 @@
 							  </div>
 						</div>
 						<div class = "modal-footer">
-							<button class = "btn btn-success" type = "login">Login</button>
+							<button class = "btn btn-success" type = "submit" value = "submit">Login</button>
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
 						</div>
 					</form>

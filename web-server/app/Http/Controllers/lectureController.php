@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Contracts\Auth\Guard;
+
 class lectureController extends Controller
 {
     /**
@@ -14,10 +16,15 @@ class lectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Guard $auth)
     {
-        $lectures = \App\lecture::all();
 
+        if($request->segment(1)=="api"){
+            $user = $auth->user();
+            $user = \App\User::find($user->id);
+            return $user->allLectures();
+        }
+        $lectures = \App\lecture::all();
         return view('lecture.index')->with(['lectures' => $lectures]);
     }
 

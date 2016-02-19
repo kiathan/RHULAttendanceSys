@@ -42,7 +42,7 @@
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
 							
-								<input type="password" id="password" name="password" class="form-control" placeholder="11password">
+								<input type="password" id="password" name="password" class="form-control" placeholder="passw0rd">
 							
 							</div>
 						</div>

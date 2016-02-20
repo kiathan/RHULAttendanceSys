@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;  script-src 'unsafe-inline' *; style-src *;">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/timetablejs.css">
@@ -12,11 +12,11 @@
         <div data-role="header">
             <h1>Royal Ray</h1>
         </div>
+        <div class="fullscreen-bg">
+                <video id="rhul_video" class="fullscreen-bg__video" webkit-playsinline loop muted autoplay></video>
+        </div>
     <div data-role="main" class="ui-content">
-<<<<<<< HEAD
-
-
-
+        <div class = "loginformspace"></div>
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
             <input type="text" name="username" id="username" value="testuser" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
@@ -29,25 +29,6 @@
 </div>
 <div data-role="page" data-position="fixed" id="StudentLanding">
 
-=======
-		<div style="width: 1000px; height: 500px;"
-		  data-vide-bg="video/rhul" data-vide-options="loop: true, muted: false, position: 0% 0%">
-		</div>
-
-
-        <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-            <input type="text" name="username" id="username" value="testuser" placeholder="Username">
-            <input type="password" name="password" id="password" value="testpass" placeholder="Password">
-            <input type="submit" class="login-btn" value="Log In">
-        </form>
-    </div>
-    <div data-role="footer" data-position="fixed">
-        <h1>By Holloway, For Holloways</h1>
-    </div>
-</div>
-<div data-role="page" data-position="fixed" id="StudentLanding">
-
->>>>>>> Mobile-UI-(draft)
     <div data-role="header">
         <h1>Welcome Student</h1>
     </div>
@@ -157,10 +138,6 @@
 <script src="scripts/utilities.js"></script>
 <script src="scripts/timetable.min.js"></script>
 <script src="scripts/hash.js"></script>
-<<<<<<< HEAD
-=======
-<script src="scripts/jquery.vide.min.js"></script>
->>>>>>> Mobile-UI-(draft)
 <script src="scripts/jquery-2.2.0.js"></script>
 <script src="scripts/jquery-1.11.3.min.js"></script>
 <script src="scripts/jquery.mobile-1.4.5.min.js"></script>

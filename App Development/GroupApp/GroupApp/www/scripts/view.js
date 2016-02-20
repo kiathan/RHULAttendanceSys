@@ -41,6 +41,11 @@
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#Attendance", loadAttendance);
 
+    window.plugins.html5Video.initialize({
+      "rhul_video": "rhul.mp4",
+    })
+    window.plugins.html5Video.play("rhul_video")
+
     //native popup
     enableNativePopUp();
 

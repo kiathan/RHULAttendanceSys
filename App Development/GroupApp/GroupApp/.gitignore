@@ -1,5 +1,3 @@
 ﻿# .gitignore
 platforms/
 plugins/
-
-!platforms\android\res\raw

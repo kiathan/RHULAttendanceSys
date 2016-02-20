@@ -14,15 +14,17 @@
 
 
             <label for="role"> Role </label> <select name="role" id="role">
-
                 @foreach($roles as $role)
                     <option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
                 @endforeach
+            </select><br>
 
+            <label for="coures[]">attending</label>
+            <select multiple name="coures[]" id="coures[]">
+                @foreach($courses as $course)
+                    <option value="{{$course->id}}">({{$course->code}}) - {{$course->name}}</option>
+                @endforeach
             </select>
-
-            <br>
-
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}" 1>
             <input type="submit" value="submit" name="Submit">

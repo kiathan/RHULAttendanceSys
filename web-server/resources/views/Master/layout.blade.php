@@ -61,6 +61,7 @@
 					
 					<div class = "modal-footer">
 						
+						<input type="hidden" name="route" value="{{ Route::getCurrentRoute()->getPath() }}">
 						<input type = "hidden" name ="_token" value = "{{ csrf_token() }}">
 						<input class = "btn btn-success" type = "submit" value="Submit" name="Submit">
 							
@@ -92,7 +93,7 @@
 	<div class = "navbar navbar-inverse navbar-static-top">
 		<div class = "container">
 		
-			<a href="index.html" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
+			<a href="/" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
 			<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 			
 				<span class = "icon-bar"></span>

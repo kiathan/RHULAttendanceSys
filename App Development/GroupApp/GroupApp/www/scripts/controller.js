@@ -280,11 +280,15 @@ function start_stop_Quiz() {
 };
 
 function loadTimetable() {
-
+  var url = server + "api/lecture/index;
+  var dataString = "username=" + u + "&token=" + t;
+  
   var course;
   var day;
   var startHour;
   var endHour;
+  
+
 
   var timetable = new Timetable();
 
@@ -293,12 +297,16 @@ function loadTimetable() {
     'Friday'
   ]); //row headings
 
-  $.getJSON("TODO", function(result) {
-    $.each(result, function(i, field) {
-      $("div").append(field + " ");
-    });
-  });
-
+ $.ajax({
+      method: "POST",
+      url: url,
+      data: dataString,
+      tryCount: 0,
+      retryLimit: 5,
+      cache: false,
+      success: function(data) {
+        
+      };
 
 
   var renderer = new Timetable.Renderer(timetable);

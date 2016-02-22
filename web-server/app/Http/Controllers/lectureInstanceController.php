@@ -17,8 +17,24 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Guard $auth)
     {
+        if ($request->segment(1) == "api") {
+            $user = $auth->user();
+            $user = \App\User::find($user->id);
+            $lecutesInstance = $user->getCurrentLectureInstance();
+
+            $checkOfActiveCount = count($lecutesInstance, 1);
+            if($checkOfActiveCount == 0){
+                $response['state'] = 'failure';
+                $response['message'] = 'No lecture is active right now';
+
+                return json_encode($response);
+            }
+
+            return $lecutesInstance;
+        }
+
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
@@ -180,7 +196,8 @@ class lectureInstanceController extends Controller
         return redirect("/");
     }
 
-    public function status(Request $request){
+    public function status(Request $request)
+    {
 
     }
 }

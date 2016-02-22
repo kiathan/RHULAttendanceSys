@@ -86,8 +86,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         if (($lecture = $this->currentLectures()) == null) {
             return null;
         }
-
-        return $lecture->getActiveLecture()->get();
+        $lectureInstances = array();
+        foreach($lecture as $item){
+            if(sizeof($item->getActiveLecture()->get()) > 1) {
+                $lectureInstances[] = $item->getActiveLecture()->get();
+            }
+        }
+        return $lectureInstances;
     }
 
     public function allLectures()

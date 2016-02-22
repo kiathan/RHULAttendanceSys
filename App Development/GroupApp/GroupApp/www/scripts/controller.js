@@ -280,19 +280,15 @@ function start_stop_Quiz() {
 };
 
 function loadTimetable() {
+ 
+ 
+  
   
   var u = localStorage.username;
   var t = localStorage.token;
   var url = server + "api/lecture/index";
   var dataString = "username=" + u + "&token=" + t;
   
-  var course;
-  var day;
-  var startHour;
-  var endHour;
-  
-
-
   var timetable = new Timetable();
 
   timetable.setScope(9, 18) //sets scope of table
@@ -300,6 +296,7 @@ function loadTimetable() {
     'Friday'
   ]); //row headings
 
+ ActivityIndicator.show("Retrieving timetable information...");
  $.ajax({
       method: "POST",
       url: url,
@@ -311,6 +308,7 @@ function loadTimetable() {
         $.each(data, function() {
           timetable.addEvent(lectureName, location, startDate, endDate);
         });
+        ActivityIndicator.hide();
       };
 
 
@@ -321,6 +319,7 @@ function loadTimetable() {
   if (window.orientation == 90) {
     $('.timetable').fadeIn();
   } else {
+    ActivityIndicator.hide();
     $('#rotateWarning').fadeIn('slow');
   }
 
@@ -329,6 +328,7 @@ function loadTimetable() {
     {
       $('.timetable').hide();
       $('#rotateWarning').fadeIn('slow');
+      ActivityIndicator.hide();
     } else // Landscape
     {
       $('.timetable').fadeIn();

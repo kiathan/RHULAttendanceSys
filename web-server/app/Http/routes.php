@@ -22,7 +22,34 @@ Route::get('/',
         }
         return $linkText;
     });
+    
+Route::get('/welcome', function () {
+	return view('welcome');
+});
+    
+Route::get('/qa', function () {
+	return view('qa');
+});
 
+Route::get('/now', function () {
+	return view('now');
+});
+    
+Route::get('/timetable', function () {
+    return view('timetable');
+});
+    
+Route::get('/attendance', function () {
+    return view('attendance');
+});
+    
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/users', function () {
+    return view('users');
+});
 
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
 
@@ -54,8 +81,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
 Route::post('api/auth/login', 'AuthController@login');
 
 Route::get('/login', 'singinColtroller@singin');
-
-
+	
 Route::post('/login', 'singinColtroller@login');
 
 Route::get('/auth/index', 'AuthController@index');
@@ -77,13 +103,7 @@ Route::get('/venue/create', 'venuController@create');
 Route::post('/venue/store', 'venuController@store');
 
 Route::get('/lecture_instends/index', 'lectureInstanceController@index');
-<<<<<<< HEAD
-Route::get('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
-Route::post('/lecture_instends/store', 'lectureInstanceController@store');
-Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
-Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-=======
 Route::get('/lecture_instends/create/{filter?}/{userid?}', 'lectureInstanceController@create');
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
@@ -92,4 +112,3 @@ Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');
 Route::any('/lecture_instends/createTest', 'lectureInstanceController@createLectureInstance');
->>>>>>> Mobile-UI-(draft)

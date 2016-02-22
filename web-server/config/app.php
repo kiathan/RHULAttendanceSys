@@ -151,6 +151,7 @@ return [
          */
 
         KDuma\Permissions\PermissionsServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
     ],
 
@@ -202,6 +203,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Permissions'        => KDuma\Permissions\Facades\Permissions::class,
         'PermissionsManager' => KDuma\Permissions\Facades\PermissionsManager::class,
+            'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
     ],
 

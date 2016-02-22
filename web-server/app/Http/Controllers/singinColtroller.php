@@ -21,7 +21,7 @@ class singinColtroller extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $route = $request->input('route');
-        if($route == '/') {
+        if($route == '/' || $route == '/login' || !isset($route)) {
         
         	$route = '/welcome';
         

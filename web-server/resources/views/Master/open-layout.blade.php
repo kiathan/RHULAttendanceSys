@@ -113,7 +113,7 @@
 
 	<!-- BOTTOM NAV BAR -->
 
-	<div class = "navbar navbar-default navbar-fixed-bottom">		
+	<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">		
 		<div class = "container">
 		
 			<p class = "navbar-text pull-left">Site Built By Team6</p>

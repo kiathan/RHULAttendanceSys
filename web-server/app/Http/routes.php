@@ -22,6 +22,10 @@ Route::get('/welcome', function () {
 Route::get('/qa', function () {
 	return view('qa');
 });
+
+Route::get('/now', function () {
+	return view('now');
+});
     
 Route::get('/timetable', function () {
     return view('timetable');

@@ -7,7 +7,7 @@
           <div class="col-md-4">
             <center><img src="images\Q&A3.jpg"
             class="img-QA"></center>
-            <h3 align="center"><a href="now.html">New Questions to Answer</a></h3>
+            <h3 align="center"><a href="/now">New Questions to Answer</a></h3>
             <p>New questions are up here.
 				<br>You should finish them during the lecture.
 				<br>Feedbacks are given in a few days.

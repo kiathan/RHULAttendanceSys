@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class lecture extends Model
 {
+    protected $with = ["course", "venue"];
     protected $fillable = ["course_id", "venue_id", "dayofweek", "starttime", "endtime"];
 
 

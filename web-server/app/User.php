@@ -78,7 +78,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $currentTime = new Carbon();
         $day = strtolower($currentTime->format("l"));
         $time = $currentTime->format("G:i:s");
-        return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->first();
+        return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
     }
 
     public function getCurrentLectureInstance()
@@ -94,7 +94,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         $couresesAttending = $this->course()->get()->keys()->all();
         return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->get();
-
     }
 
     public function saveCouse(\App\course $course, $role)

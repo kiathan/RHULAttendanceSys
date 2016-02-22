@@ -280,7 +280,10 @@ function start_stop_Quiz() {
 };
 
 function loadTimetable() {
-  var url = server + "api/lecture/index;
+  
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var url = server + "api/lecture/index";
   var dataString = "username=" + u + "&token=" + t;
   
   var course;
@@ -305,7 +308,9 @@ function loadTimetable() {
       retryLimit: 5,
       cache: false,
       success: function(data) {
-        
+        $.each(data, function() {
+          timetable.addEvent(lectureName, location, startDate, endDate);
+        });
       };
 
 

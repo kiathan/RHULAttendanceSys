@@ -14,9 +14,17 @@
 Route::get('/', function () {
 	return view('welcome');
 });
+
+Route::get('/welcome', function () {
+	return view('welcome');
+});
     
 Route::get('/qa', function () {
 	return view('qa');
+});
+
+Route::get('/now', function () {
+	return view('now');
 });
     
 Route::get('/timetable', function () {
@@ -37,8 +45,7 @@ Route::get('/users', function () {
 
 
 Route::get('/login', 'singinColtroller@singin');
-
-
+	
 Route::post('/login', 'singinColtroller@login');
 
 

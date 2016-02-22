@@ -32,7 +32,7 @@ class lectureInstanceController extends Controller
                 return json_encode($response);
             }
 
-            return $lecutesInstance;
+            return json_encode($user->getCurrentLectureInstance());
         }
 
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();

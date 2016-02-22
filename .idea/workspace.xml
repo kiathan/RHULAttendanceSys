@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="">
+    <list default="true" id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="Bug fix, forgot to add in the status on the sign in">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureController.php" afterPath="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php" afterPath="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/app/User.php" afterPath="$PROJECT_DIR$/web-server/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/app/lecture.php" afterPath="$PROJECT_DIR$/web-server/app/lecture.php" />
     </list>
     <ignored path="TeamProject06.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,48 +37,20 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-server/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="29" column="47" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="47" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="34" />
+              <folding>
+                <element signature="e#7#392#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-32.916668">
-              <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lecture_instend.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/app/lecture_instend.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.166667">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lectureController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lectureController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/lectureController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12931034">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="courseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/courseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="20.625">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -85,50 +59,72 @@
       <file leaf-file-name="lectureInstanceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.45283">
-              <caret line="92" column="31" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="31" />
+            <state vertical-scroll-proportion="-8.833333">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="25" />
               <folding>
-                <element signature="e#23#59#0#PHP" expanded="true" />
+                <element signature="e#40#53#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-server/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.716981">
-              <caret line="1001" column="27" selection-start-line="1001" selection-start-column="27" selection-end-line="1001" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.30490017">
+              <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016_02_05_143515_create_lecture_user_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/database/migrations/2016_02_05_143515_create_lecture_user_table.php">
+      <file leaf-file-name="Collection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+            <state vertical-scroll-proportion="58.132076">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#48#75#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecture_instend.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-server/app/lecture_instend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.625">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BelongsToMany.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php">
+      <file leaf-file-name="lecture.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-server/app/lecture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.433962">
-              <caret line="768" column="73" selection-start-line="768" selection-start-column="68" selection-end-line="768" selection-end-column="73" />
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="8" column="59" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="55" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -140,11 +136,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="model" />
-      <push-target-info repo="$PROJECT_DIR$" source="create-sign-in" target-remote="origin" target-branch="lecture-signin" />
+      <push-target-info repo="$PROJECT_DIR$" source="create-sign-in" target-remote="origin" target-branch="master" />
     </push-targets>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response76.html" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response9.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -168,14 +164,12 @@
         <option value="$PROJECT_DIR$/web-server/resources/views/lecture/create.blade.php" />
         <option value="$PROJECT_DIR$/web-server/app/venue.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/venue/index.blade.php" />
-        <option value="$PROJECT_DIR$/web-server/resources/views/lecture/index.blade.php" />
         <option value="$PROJECT_DIR$/web-server/app/course.php" />
         <option value="$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/Authorizable.php" />
         <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/venuController.php" />
         <option value="$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php" />
         <option value="$PROJECT_DIR$/web-server/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Support/Facades/App.php" />
-        <option value="$PROJECT_DIR$/web-server/resources/views/lecture_instend/create.blade.php" />
         <option value="$PROJECT_DIR$/web-server/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/web-server/database/migrations/2016_02_12_133745_create_basic_roles.php" />
         <option value="$PROJECT_DIR$/web-server/app/Http/Middleware/Authenticate.php" />
@@ -189,17 +183,19 @@
         <option value="$PROJECT_DIR$/web-server/resources/views/user/edit.blade.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/user/show.blade.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/auth/create.blade.php" />
-        <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/auth/index.blade.php" />
         <option value="$PROJECT_DIR$/web-server/database/seeds/fillDatabase.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/lecture_instend/show.blade.php" />
-        <option value="$PROJECT_DIR$/web-server/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/web-server/app/lecture.php" />
+        <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/lecture_instend/index.blade.php" />
-        <option value="$PROJECT_DIR$/web-server/app/lecture_instend.php" />
-        <option value="$PROJECT_DIR$/web-server/app/User.php" />
-        <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php" />
+        <option value="$PROJECT_DIR$/web-server/resources/views/lecture_instend/create.blade.php" />
+        <option value="$PROJECT_DIR$/web-server/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/web-server/resources/views/lecture/index.blade.php" />
         <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureController.php" />
+        <option value="$PROJECT_DIR$/web-server/app/lecture_instend.php" />
+        <option value="$PROJECT_DIR$/web-server/app/lecture.php" />
+        <option value="$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php" />
+        <option value="$PROJECT_DIR$/web-server/app/User.php" />
       </list>
     </option>
   </component>
@@ -243,7 +239,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -724,6 +719,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -735,8 +731,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web-server/resources/views/lecture_instend" />
       <recent name="$PROJECT_DIR$/web-server/resources/views/auth" />
+      <recent name="$PROJECT_DIR$/web-server/resources/views/lecture_instend" />
       <recent name="$PROJECT_DIR$/web-server/resources/views" />
       <recent name="$PROJECT_DIR$/web-server/resources/views/couse" />
       <recent name="$PROJECT_DIR$/Diagrams" />
@@ -745,6 +741,1146 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/api/lecture_instends/index" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0a9fd2d021b4e7b64fbf4435819b4ff069c6ad69ba4cb17b005ab8a17f6510ef" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/lecture_instends/index/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0a9fd2d021b4e7b64fbf4435819b4ff069c6ad69ba4cb17b005ab8a17f6510ef" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/lecture/index/current" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0a9fd2d021b4e7b64fbf4435819b4ff069c6ad69ba4cb17b005ab8a17f6510ef" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/lecture/index" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0a9fd2d021b4e7b64fbf4435819b4ff069c6ad69ba4cb17b005ab8a17f6510ef" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/lecture_instends/auth" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0a9fd2d021b4e7b64fbf4435819b4ff069c6ad69ba4cb17b005ab8a17f6510ef" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="api/lecture_instends/auth" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740594000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImRrZGlnSTFsWE1xTkJjSDNDSEF5Wnc9PSIsInZhbHVlIjoidlBVMUZUOTg1UG9iQmsweXl1dVV5RzE2YytNZENFTnRvY1U3UzRJa0xKY1YwOStEek5TR21IejVjeHV5Nyt6TVdFTzRxb0FMWEp5Uk5ZRkMxcmkzelE9PSIsIm1hYyI6IjdmMTdhMjBhYzZlNmQxMzQ3NDJhNjAyNzJlZTJhNTU2N2Q2NTY0ZDMyOWUzNDEyMmRiYTdjZGIzODE4MDJhYjAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740566000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlZsYzdOT3Z4RlpVXC9RZnNzZ2lCN1NBPT0iLCJ2YWx1ZSI6ImUxMkJNT1ZQUjJzUmtQN215SFI2eW1TT3pEVVdBODZUMlI3SkYreHJUcVBQZXZ5VHRnRUdWU1hCUnB4XC9XT1NtbWJSVDdcL2xqNVAxOUdzT0JKbmNXYkE9PSIsIm1hYyI6IjRlYTY1NWY4OTA0YTE4MzBjZjkyN2Y3NjkyYzkyN2U4ZWEyYjk2NTVjNGVjNjE1MjM1MjlmOTYxZTZkODIxYWMifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740376000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkJibFwvQnYrUFh6WnUrNWRjMUJNbE9BPT0iLCJ2YWx1ZSI6ImhLNDcybnM2ZGlMUDZaSk00NjBYbFFvdnR6TWVONGxyeFAwejBEZ3hJUEJnUXBBaVlhSzY4bU14YW1tZ1h6ZmhWSDdyaWZVYWx1OGp0VGY1bitkTmdBPT0iLCJtYWMiOiJkMDYxZTcxZGVjYmVjNjMxOTYyYmJkOTNmODM2NDdkYmViNWU3YTE5Yjc4N2I1ZGE4YjE1NDYyMjVkZjZlMTYyIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740375000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im0wWUJHblwva25Wc3JkUVZoajF3WGx3PT0iLCJ2YWx1ZSI6IktlaFhMT1VcL0pyRm84OUF3SVFaMnc2WVc3Qmx4OXFVa3Mrd3pGVVc2cVFtMmZTNWx2QkRXSWI2NFwvUUhhbVBXUWp3enFCdWpSUXFIRlMwYlBNV2tCY1E9PSIsIm1hYyI6IjFlNzgwZTY3OGI3NmJhMWQ4NDllMDAwMmQ3NzE3Nzk1ODA0NzAxOGZiYzkyMDQ0OTI4NzIxYWRjNjU3NThhYmEifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740344000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjZKQ2xDUzZOTkc5NExKMU1oVWNnbVE9PSIsInZhbHVlIjoiT0ZDMStmVU1xaHJ2dlVXcFA1Ync2XC9EanhkMEIrNEZYdjUzaXhIXC9xdW1iK3d4WGZmbjgyVG1PSjNOdzhBQ1J1SHQzUDRPeTR5SEMxYlkxMHVxMzJ4Zz09IiwibWFjIjoiYTY0NzA4NjVhYmU2NzRhZDIxNGZjZDZjOGQyNGUzMjBkMjdjNGQ0Y2E4NGViMjBlZjJmYWJkY2Q5YzgzYmNmNCJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740320000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlE5NXdyWEorMDd0ZVhwMDhyajAxOGc9PSIsInZhbHVlIjoiWkkxV0xCVFA1dXpcL09JeHZsK1EwSFVcL0VQTkZcL0RKTUxkQmtybGxTT2oxa0ljMkNacWNDbXJsQWtWT1wvb3lDeExwOWwxYlBvMVdjVlNxSFBjclwvenptQT09IiwibWFjIjoiY2Q4MGQzOGI2MGEwNGUwNTE5ZDFmOTM0NmU3MmJjZDM1MWNmM2FlZTE0NDg1Njg1MzAwOGE2Mjg0M2I4MjcyMyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740320000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InExdFR5R3JWTW5ESE83cnNtUnR0VXc9PSIsInZhbHVlIjoiN2JSM1NsbkpTenZObnU2ZDNRcmhic0hocFwvNkhraU5SSkJveUZ1U1QzdHhiMlQwN3JiRHNmc3JzU1ZIZnZFTGxYeVZlSTFET0wzU1E4Z1B5bytKZnVRPT0iLCJtYWMiOiJmODM4NjNiMjYyNmVjMGY1ZTkzODRkZmJmZWEzN2Q1NTRhMmI3NzZlMWM3MmNiYmI3MTFhOThjNGU5NGRiYzkyIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740278000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Ijh1bXRNSTRsdGd3K2owQmtJRGV1cnc9PSIsInZhbHVlIjoiam9EMWhSMnZabFNHTFRDYlVxUERyaWpEMVZvV0xJakdrZjJtYTRTNCtSS1pobkdacDBcL0tmeHMzNEdIOXZ1UkNHckVDd0FOK3pxY28wN1dGYVwvODRuUT09IiwibWFjIjoiMjNhYjQwNGQyODVmMjBhNzgyMGI1ZmZkOGRjNDZhNjI2YjliNmQ5MjE1MTM4NjAzZDkxODFjMjY1MzZlZGFmMSJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455740259000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImxWYmdablwvXC9HT3BvYlBiR09PYjJmQT09IiwidmFsdWUiOiJLaUx2NTFpM2F4dCs5Uys4VTVqOWNsWVVcL2hzNDJ1Q1wvQ2VNcjA2eGxEcTQwZG1CUlZvNjVwaG52WTl1M0FxR2l4djJZSVNnVVFtZjg0bnlsakF0dDVBPT0iLCJtYWMiOiJjOTUxZGU2ZjUwZGZhMjE1NTIxYmI5OWEyMzg2OWI5YTZlMDU4MWY4NmM1ZWQ2N2Q3MzlkZjNmMDA1YTg0NTc1In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455738229000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlJVeHE3MDlwXC84ckFwTnpHTk1KUHJ3PT0iLCJ2YWx1ZSI6IlVLMVN4SVRjaHhhK1hDZHhBbWtnN0MwWVk0NHBBZVFhSEt0RWs1SFplMENvQ0JyaFluTzBKOUlSK1Jtamxhdktqd3JrdHI4Q2JOUndrdERSTTZDYVZnPT0iLCJtYWMiOiJhZTRiYWU5ZDg1Yjg1YmRlNmNlMmI5MDdiYzY0M2NkNmVhN2NkYzJhZmM2NDE2MzRjNzg5YmY4MWFhZDJmN2ZmIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455737975000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFKQWlteEYwaHowR29lVjhITFwvbU5BPT0iLCJ2YWx1ZSI6Im1Tc0FlN0ExWWYxdmVUNEpyclZMZkVYV3REUWlGR0grQmRFVlMxTWEyXC9LbWJnNllEdytJQUlNMGJpQXY0b2h5Y3pMNEtYTFlmU3VjVDNDZmNMMVRyQT09IiwibWFjIjoiMjVhMWQ5MmUxYzkyMmQ4Nzc5Y2IwZTZjODljYmI1Mzc4MDI4NjgwMTIwMDE2ODU5MzdjYTVhNWJhNDgxYWU1MyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455737975000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjFKQWlteEYwaHowR29lVjhITFwvbU5BPT0iLCJ2YWx1ZSI6Im1Tc0FlN0ExWWYxdmVUNEpyclZMZkVYV3REUWlGR0grQmRFVlMxTWEyXC9LbWJnNllEdytJQUlNMGJpQXY0b2h5Y3pMNEtYTFlmU3VjVDNDZmNMMVRyQT09IiwibWFjIjoiMjVhMWQ5MmUxYzkyMmQ4Nzc5Y2IwZTZjODljYmI1Mzc4MDI4NjgwMTIwMDE2ODU5MzdjYTVhNWJhNDgxYWU1MyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1455736853000" />
+                <option name="domain" value="bartalveyhe.me" />
+                <option name="name" value="laravel_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im9oR1JlZUd3a1BYdDNUS1V3STI3Mmc9PSIsInZhbHVlIjoiSkpjNmZLcXY3SUtWdGRRYngrUkVQVk9DQURRUUhkc2hlazlhNjFubWFxb1VTUmFIV285RldTQ2lNWFZwbjRaOGlsdytjY0ZXZDdVeFwvK3Y4VEpEK3RnPT0iLCJtYWMiOiJhOTBiNWZhZTVhM2VjNmE5MTQ0OTVmNzVkMWJmNTBmYWJmMDFjOTVhN2ZiYTdkMzQzZGQ2ZjQzM2FhN2Q2YTJiIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="https://bartalveyhe.me" />
+          <option name="urlPath" value="/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/api/auth/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="testuser" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="c02aeb197cf4540c285722d73eddbb40b6a94679ef48dfd44e07f5a005c3a42f" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lectureAuthCode" />
+                <option name="value" value="0bbc637ec524c032747025586d937b2caf1a1023239eac4fd248e4d9d87a176b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:8080" />
@@ -1495,7 +2631,55 @@
       <option name="project" value="LOCAL" />
       <updated>1455720312988</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Task: time table&#10;  Add in the controller logic for the time table for the api calleds">
+      <created>1455720857578</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1455720857578</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Bug fix, forgot to add in the state on the sign in, and remove the status to state">
+      <created>1455730970678</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1455730970678</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Task lecture sign in:&#10;    Add in the ability to create lecutres for user and lecture instances faster for debuging">
+      <created>1455813342097</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1455813342097</updated>
+    </task>
+    <task id="LOCAL-00021" summary="bug fix where count only work if here was an lecture instacts already">
+      <created>1455813482942</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1455813482942</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Update to error to failure to be more consistned">
+      <created>1455815525670</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1455815525670</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Task: time table / lecutre sign in&#10;   Add auto loading for the lecture of courese and venu&#10;   &#10;   Add filter to the route /lecture/index/ so that we can expand the filter later&#10;   &#10;   Update the user so that current lecture will return an list of the current lecture in case of lecture conflit&#10;   &#10;   &#10;">
+      <created>1456142800547</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1456142800547</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Task: lecture sign in&#10;   Add in the ablilty to filter the results, so that an user will only recive the current lecture.">
+      <created>1456163889111</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1456163889111</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Task: lecture sign in&#10;    Add in the ability to get the current lecture instance, and also send back an message if the instance is not created.">
+      <created>1456164748880</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1456164748880</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1504,23 +2688,23 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3092896" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3486339" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1551,74 +2735,21 @@
     <MESSAGE value="add in files that where not add in my php strome" />
     <MESSAGE value="Task: lecture sign in&#10;    add in the show and update the lecture instances&#10;    add in the entrys to add users to coures&#10;    create data faker for uses and coures" />
     <MESSAGE value="Task: lecture sign in&#10;    Add in controller logic to handle sign in of applications" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task: lecture sign in&#10;    Add in controller logic to handle sign in of applications" />
+    <MESSAGE value="Task: time table&#10;  Add in the controller logic for the time table for the api calleds" />
+    <MESSAGE value="Bug fix, forgot to add in the state on the sign in, and remove the status to state" />
+    <MESSAGE value="Task lecture sign in:&#10;    Add in the ability to create lecutres for user and lecture instances faster for debuging" />
+    <MESSAGE value="bug fix where count only work if here was an lecture instacts already" />
+    <MESSAGE value="Update to error to failure to be more consistned" />
+    <MESSAGE value="Task: time table / lecutre sign in&#10;   Add auto loading for the lecture of courese and venu&#10;   &#10;   Add filter to the route /lecture/index/ so that we can expand the filter later&#10;   &#10;   Update the user so that current lecture will return an list of the current lecture in case of lecture conflit&#10;   &#10;   &#10;" />
+    <MESSAGE value="Task: lecture sign in&#10;   Add in the ablilty to filter the results, so that an user will only recive the current lecture." />
+    <MESSAGE value="Task: lecture sign in&#10;    Add in the ability to get the current lecture instance, and also send back an message if the instance is not created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Task: lecture sign in&#10;    Add in the ability to get the current lecture instance, and also send back an message if the instance is not created." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4232614">
-          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Middleware/VerifyCsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.069524914">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Console/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture_instend/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22595596">
-          <caret line="13" column="65" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/database/migrations/2016_02_12_133745_create_basic_roles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3650058">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.203837">
-          <caret line="781" column="48" selection-start-line="781" selection-start-column="40" selection-end-line="781" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/config/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/vendor/symfony/routing/Route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8957126">
-          <caret line="659" column="0" selection-start-line="659" selection-start-column="0" selection-end-line="659" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Auth/Guard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5778612">
@@ -1630,7 +2761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.455516">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1645,7 +2775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1653,7 +2782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08007117">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1675,17 +2803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6797153">
           <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Middleware/apiSignIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3469751">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="e#39#51#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1693,14 +2810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.053380784">
           <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/apiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6672598">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1708,7 +2817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08007117">
           <caret line="3" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1723,7 +2831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1731,7 +2838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1739,7 +2845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-31.458334">
           <caret line="205" column="19" selection-start-line="205" selection-start-column="13" selection-end-line="205" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1747,7 +2852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1755,15 +2859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/auth/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1771,7 +2866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46875">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1779,7 +2873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1787,7 +2880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1795,7 +2887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3584559">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1808,7 +2899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.666666">
           <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1816,7 +2906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53125">
           <caret line="42" column="35" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1824,7 +2913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63419116">
           <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1832,15 +2920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5514706">
           <caret line="21" column="46" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1848,23 +2927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34655172">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/lecture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41379312">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture_instend/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1872,10 +2934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.125">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#476#496#0#HTML" expanded="true" />
-            <element signature="e#520#550#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1883,7 +2941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.5">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1891,72 +2948,175 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.433962">
           <caret line="768" column="73" selection-start-line="768" selection-start-column="68" selection-end-line="768" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/apiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.716981">
-          <caret line="1001" column="27" selection-start-line="1001" selection-start-column="27" selection-end-line="1001" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.916668">
-          <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.45283">
-          <caret line="92" column="31" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="31" />
-          <folding>
-            <element signature="e#23#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/lecture_instend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.166667">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.10428737">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/courseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Middleware/apiSignIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33951333">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.017381229">
+          <caret line="589" column="13" selection-start-line="589" selection-start-column="13" selection-end-line="589" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Support/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36551723">
+          <caret line="441" column="25" selection-start-line="441" selection-start-column="20" selection-end-line="441" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/database/migrations/2016_02_05_143225_create_lectures_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51724136">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture_instend/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20689656">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture_instend/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54310346">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7392816">
+          <caret line="2086" column="28" selection-start-line="2086" selection-start-column="23" selection-end-line="2086" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53965515">
+          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php">
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/auth/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23275863">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/auth/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57931036">
+          <caret line="254" column="44" selection-start-line="254" selection-start-column="44" selection-end-line="254" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="34" />
+          <folding>
+            <element signature="e#7#392#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="55" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/lecture/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/lecture_instend.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/lecture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/lectureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12931034">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="58.132076">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/Http/Controllers/lectureInstanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.833333">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-server/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30490017">
+          <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
           <folding />
         </state>
       </provider>

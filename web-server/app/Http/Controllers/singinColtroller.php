@@ -12,18 +12,20 @@ class singinColtroller extends Controller
 {
     public function singin()
     {
-        return view('login');
+    	$route = $request->input('route');
+        return view($route);
     }
 
     public function login(Request $request)
     {
         $username = $request->input('username');
         $password = $request->input('password');
+        $route = $request->input('route');
 
         $signInResult = Auth::attempt([
                               "username" => $username,
                               "password" => $password]);
 
-        return view('login')->with(["signInResult" => $signInResult]);
+        return view($route)->with(["signInResult" => $signInResult]);
     }
 }

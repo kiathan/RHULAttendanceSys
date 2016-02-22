@@ -21,6 +21,11 @@ class singinColtroller extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $route = $request->input('route');
+        if($route == '/') {
+        
+        	$route = '/welcome';
+        
+        }
 
         $signInResult = Auth::attempt([
                               "username" => $username,

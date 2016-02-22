@@ -14,6 +14,10 @@
 Route::get('/', function () {
 	return view('welcome');
 });
+
+Route::get('/welcome', function () {
+	return view('welcome');
+});
     
 Route::get('/qa', function () {
 	return view('qa');
@@ -37,8 +41,7 @@ Route::get('/users', function () {
 
 
 Route::get('/login', 'singinColtroller@singin');
-
-
+	
 Route::post('/login', 'singinColtroller@login');
 
 

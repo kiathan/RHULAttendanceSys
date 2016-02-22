@@ -2,42 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Dontforget.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/RHicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/feedback.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/mat-Feedback.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/question-mark.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/students.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/windsor.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Attendance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/HomePage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TeamProject06.iml" afterPath="$PROJECT_DIR$/.idea/TeamProject06.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/Attendance.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/QA.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/contact.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/feedback.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Attendance.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Dontforget.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/HomePage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Q&amp;A3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/RHicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/feedback.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/logo4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/mat-Feedback.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/question-mark.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/rhul3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/students.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/images/windsor.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/now.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/previous.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/sendingMessage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/timetable.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/Attendance.blade.php" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/Attendance.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php" afterPath="$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AttendanceWeb/AttendanceWeb/.htaccess" afterPath="$PROJECT_DIR$/AttendanceWeb/AttendanceWeb/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AttendanceWeb/AttendanceWeb/index.html" afterPath="$PROJECT_DIR$/AttendanceWeb/AttendanceWeb/index.html" />
     </list>
     <ignored path="TeamProject06.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,41 +74,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7142856">
-              <caret line="7" column="132" selection-start-line="7" selection-start-column="132" selection-end-line="7" selection-end-column="132" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-server/resources/views/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+            <state vertical-scroll-proportion="-4.75">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-server/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.69031143">
+              <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-server/resources/views/Master/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57678574">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+            <state vertical-scroll-proportion="-11.535714">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,6 +126,7 @@
         <option value="$PROJECT_DIR$/web-server/resources/views/views-Jiha/now.blade.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/views-Jiha/Attendance.blade.php" />
         <option value="$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php" />
+        <option value="$PROJECT_DIR$/web-server/config/app.php" />
       </list>
     </option>
   </component>
@@ -136,12 +135,15 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="29" />
-    <option name="y" value="1" />
-    <option name="width" value="1336" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -214,11 +216,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamProject06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamProject06" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="web-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -241,40 +257,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views-Jiha" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamProject06" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamProject06" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views-Jiha" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,6 +283,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamProject06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamProject06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="errors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,6 +466,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ba7cd6b2-4e93-4187-9bcf-2789a7c66422" name="Default" comment="" />
@@ -468,10 +479,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="1" width="1336" height="726" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25530303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -489,6 +500,14 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -530,64 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/QA.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.642857">
-          <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/feedback.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.642857">
-          <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/now.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.642857">
-          <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/contact.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.107143">
-          <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#5;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/timetable.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.642857">
-          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/sendingMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.928572">
-          <caret line="137" column="2" selection-start-line="137" selection-start-column="2" selection-end-line="137" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-server/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="66.85714">
@@ -612,34 +573,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/previous.blade.php">
+    <entry file="file://$PROJECT_DIR$/web-server/resources/views/Master/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.642857">
-          <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/views-Jiha/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7142856">
-          <caret line="7" column="132" selection-start-line="7" selection-start-column="132" selection-end-line="7" selection-end-column="132" />
+        <state vertical-scroll-proportion="-11.535714">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-server/resources/views/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+        <state vertical-scroll-proportion="-4.75">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-server/resources/views/Master/layout.blade.php">
+    <entry file="file://$PROJECT_DIR$/web-server/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57678574">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.69031143">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding />
         </state>
       </provider>

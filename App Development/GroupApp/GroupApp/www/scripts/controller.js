@@ -307,8 +307,8 @@ function loadTimetable() {
   var timetable = new Timetable();
 
   timetable.setScope(9, 18) //sets scope of table
-  timetable.addLocations(['Monday', 'Tuesday', 'Wednesday', 'Thursday',
-    'Friday'
+  timetable.addLocations(['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY',
+    'FRIDAY', 'SATURDAY', 'SUNDAY'
   ]); //row headings
 
   ActivityIndicator.show("Retrieving timetable information...");
@@ -321,13 +321,23 @@ function loadTimetable() {
       cache: false,
       success: function(data) {
 
-      	var lecture = jQuery.parseJSON(data);
-      	//$.each(lecture, function(info) {
-      		alert(lecture.id);
-          //timetable.addEvent(lectureName, day, startTime, endtime);
-        //});
+      	
+      	$.each(data, function(index) {
+
+      		var starttimeFormat = (data[index].starttime).split(":");
+      		var endtimeFormat = (data[index].endtime).split(":");
+      		//alert(starttimeFormat[0]);
+      		//alert(starttimeFormat[1]);
+      		alert((data[index].dayofweek).toUpperCase());
+
+      		//timetable.addEvent(data[index].course_id, (data[index].dayofweek).toUpperCase(), new Date(null,null,null,starttimeFormat[0],starttimeFormat[1]), new Date(null,null,null,endtimeFormat[0],endtimeFormat[1]));
+          
+        });
         
-        ActivityIndicator.hide();
+		ActivityIndicator.hide();
+  		var renderer = new Timetable.Renderer(timetable);
+  		renderer.draw('.timetable');
+        
       },
       error: function(data) {
       	ActivityIndicator.hide();

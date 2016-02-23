@@ -298,10 +298,7 @@ function start_stop_Quiz() {
 };
 
 function loadTimetable() {
- 
- 
-  
-  
+
   var u = localStorage.username;
   var t = localStorage.token;
   var url = server + "api/lecture/index";
@@ -314,8 +311,8 @@ function loadTimetable() {
     'Friday'
   ]); //row headings
 
- ActivityIndicator.show("Retrieving timetable information...");
- $.ajax({
+  ActivityIndicator.show("Retrieving timetable information...");
+     $.ajax({
       method: "POST",
       url: url,
       data: dataString,
@@ -323,11 +320,23 @@ function loadTimetable() {
       retryLimit: 5,
       cache: false,
       success: function(data) {
-        $.each(data, function() {
-          timetable.addEvent(lectureName, location, startDate, endDate);
-        });
+
+      	var lecture = jQuery.parseJSON(data);
+      	//$.each(lecture, function(info) {
+      		alert(lecture.id);
+          //timetable.addEvent(lectureName, day, startTime, endtime);
+        //});
+        
         ActivityIndicator.hide();
-      };
+      },
+      error: function(data) {
+      	ActivityIndicator.hide();
+       	alert("Error - Cannot connect to server")
+
+      },
+      
+
+    });
 
 
   var renderer = new Timetable.Renderer(timetable);
@@ -337,7 +346,6 @@ function loadTimetable() {
   if (window.orientation == 90) {
     $('.timetable').fadeIn();
   } else {
-    ActivityIndicator.hide();
     $('#rotateWarning').fadeIn('slow');
   }
 
@@ -346,7 +354,6 @@ function loadTimetable() {
     {
       $('.timetable').hide();
       $('#rotateWarning').fadeIn('slow');
-      ActivityIndicator.hide();
     } else // Landscape
     {
       $('.timetable').fadeIn();

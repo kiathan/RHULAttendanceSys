@@ -94,11 +94,12 @@ function logout() {
 //Loads and Displays the current class
 function loadAttendance() {
   setCurrentPosition();
+  $('.sign-in-btn').prop('disabled', true);
 
   ActivityIndicator.show("Retrieving Class to sign in...");
   var u = localStorage.username;
   var t = localStorage.token;
-  var url = server + "api/auth";
+  var url = server + "/api/lecture_instends/index";
   var dataString = "username=" + u + "&token=" + t;
 
   $.ajax({
@@ -109,18 +110,37 @@ function loadAttendance() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
-      var result = data;
       ActivityIndicator.hide();
 
-      //sets the screen with the display picture
-      localStorage.currentClassName = result.currentclass;
-      $("div.currentclass").text(localStorage.currentClassName);
-      $("div.locationX").text(localStorage.lat);
-      $("div.locationY").text(localStorage.long);
+      if (data.state == "failure") {
+        alert(result.message);
+        loginReplyRedir();
+      } else {
 
-      if (result.state == "success") {
+        var datastr = data.substring(3, data.length - 2);
+        var result = jQuery.parseJSON(datastr);
+
+        //sets the screen with the display picture
+        localStorage.currentClassName = result.lecture.course.name;
+        localStorage.currentClassCode = result.lecture.course.code;
+        localStorage.currentClassLat = result.lecture.venue.geoX;
+        localStorage.currentClassLong = result.lecture.venue.geoY;
+        localStorage.currentClassVenue = result.lecture.venue.name;
+
+        var dist = getDistanceFromLatLonInKm(localStorage.lat,
+          localStorage.long, localStorage.currentClassLat,
+          localStorage.currentClassLong);
+
+        $("div.currentclass").text(localStorage.currentClassName);
+        $("div.distance").text(dist);
+        $("div.currentClassVenue").text(localStorage.currentClassVenue);
         //enables the button
+        $('.sign-in-btn').prop('disabled', false);
+
       }
+
+
+
     },
     error: function(data) {
       this.tryCount++;
@@ -181,8 +201,6 @@ function signin_withServer() {
 
       if (result.state == "success") {
         $("div.currentAttendance").text(result.message);
-        $("div.locationX").text(localStorage.lat);
-        $("div.locationY").text(localStorage.long);
       } else if (result.state == "failure") {
         $("div.currentAttendance").text(
           result.message);

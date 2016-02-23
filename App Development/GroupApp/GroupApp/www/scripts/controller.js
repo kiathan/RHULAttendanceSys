@@ -132,12 +132,16 @@ function loadAttendance() {
           localStorage.long, localStorage.currentClassLat,
           localStorage.currentClassLong);
 
-        $("div.currentclass").text(localStorage.currentClassName);
-        $("div.distance").text(dist);
-        $("div.currentClassVenue").text(localStorage.currentClassVenue);
-        //enables the button
-        $('.sign-in-btn').prop('disabled', false);
-
+        if (dist > 10) { //geolocation distance limit to be set (in KM)
+          alert("You are too far away from the venue");
+          loginReplyRedir();
+        } else {
+          $("div.currentclass").text(localStorage.currentClassName);
+          $("div.distance").text(dist);
+          $("div.currentClassVenue").text(localStorage.currentClassVenue);
+          //enables the button
+          $('.sign-in-btn').prop('disabled', false);
+        }
       }
 
 
@@ -181,9 +185,10 @@ function signin_withServer() {
   var c = localStorage.signinBarcode;
   var lat = localStorage.lat;
   var long = localStorage.long;
+  var classCode = localStorage.currentClassCode;
   var url = server + "api/lecture_instends/auth";
   var dataString = "username=" + u + "&token=" + t + "&lectureAuthCode=" + c +
-    "&lat=" + lat + "&long=" + long;
+    "&lat=" + lat + "&long=" + long + "&classcode=" + classCode;
 
   $.ajax({
     method: "POST",

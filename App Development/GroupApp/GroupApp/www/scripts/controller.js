@@ -306,7 +306,7 @@ function loadTimetable() {
   
   var timetable = new Timetable();
 
-  timetable.setScope(9, 18) //sets scope of table
+  timetable.setScope(0, 23) //sets scope of table
   timetable.addLocations(['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY',
     'FRIDAY', 'SATURDAY', 'SUNDAY'
   ]); //row headings
@@ -326,11 +326,11 @@ function loadTimetable() {
 
       		var starttimeFormat = (data[index].starttime).split(":");
       		var endtimeFormat = (data[index].endtime).split(":");
-      		//alert(starttimeFormat[0]);
-      		//alert(starttimeFormat[1]);
-      		alert((data[index].dayofweek).toUpperCase());
+      		//alert(starttimeFormat[0] + endtimeFormat[0]);
+      		
+      		
 
-      		//timetable.addEvent(data[index].course_id, (data[index].dayofweek).toUpperCase(), new Date(null,null,null,starttimeFormat[0],starttimeFormat[1]), new Date(null,null,null,endtimeFormat[0],endtimeFormat[1]));
+      		timetable.addEvent(data[index].course_id, (data[index].dayofweek).toUpperCase(), new Date(null,null,null,starttimeFormat[0],starttimeFormat[1]), new Date(null,null,null,endtimeFormat[0],endtimeFormat[1]));
           
         });
         

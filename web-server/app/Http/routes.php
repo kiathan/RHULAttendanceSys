@@ -56,6 +56,9 @@ Route::post('api/auth/login', 'AuthController@login');
 Route::get('/login', 'singinColtroller@singin');
 
 
+
+
+
 Route::post('/login', 'singinColtroller@login');
 
 Route::get('/auth/index', 'AuthController@index');
@@ -81,13 +84,13 @@ Route::get('/lecture_instends/create/{filter?}/{userid?}', 'lectureInstanceContr
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
-<<<<<<< HEAD
 
-Route::post('/quiz/quiz','quizController@');
+Route::post('/quiz/studentQuiz','quizController@ansQuiz');
+Route::post('/quiz/lectureQuiz','quizController@startNstop');
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-=======
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');
 Route::any('/lecture_instends/createTest', 'lectureInstanceController@createLectureInstance');
->>>>>>> master
+
+

@@ -238,7 +238,7 @@ function answerQuestion() {
     var username = StudDetail["username"];
     alert("You have submit your answer \nYour answer is " +
       value);
-    /*
+
      var request = $.ajax({
 
      url: "bartalveyhe.me",
@@ -250,7 +250,7 @@ function answerQuestion() {
      request.done(function (msg) {
      alert(msg);
      }
-     */
+
     $('.answer-btn').prop("disabled", true);
     window.location.href = "#StudentLanding";
   });

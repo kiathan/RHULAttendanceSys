@@ -61,6 +61,7 @@ function login() {
 };
 
 function loginReplyRedir() {
+  setCurrentPosition();
   if (localStorage.loginerror == "incorrect" && localStorage.login ==
     "false") {
     alert("Username/Password is invalid.");
@@ -197,14 +198,14 @@ function signin_withServer() {
 
       //sets the screen with the display picture
       localStorage.currentClassStatus = result.state;
+      alert(result.message);
+      $("div.currentAttendance").text(result.message);
 
-
-      if (result.state == "success") {
-        $("div.currentAttendance").text(result.message);
-      } else if (result.state == "failure") {
-        $("div.currentAttendance").text(
-          result.message);
+      if ($("div.currentAttendance").text() == "Sending to Server...") {
+        alert("Server unavailable. Please try again later");
+        loginReplyRedir();
       }
+
     },
     error: function(data) {
       this.tryCount++;
@@ -214,6 +215,10 @@ function signin_withServer() {
         return;
       }
       ActivityIndicator.hide();
+
+      alert("Server unavailable. Please try again later");
+      loginReplyRedir();
+
     },
     timeout: 3000 //3 seconds
 
@@ -228,7 +233,7 @@ function scanner(input) {
     cordova.plugins.barcodeScanner.scan(
       function(result) {
         localStorage.signinBarcode = result.text;
-        $("div.currentAttendance").text(localStorage.signinBarcode);
+        $("div.currentAttendance").text("Sending to Server...");
         $("div.locationX").text(localStorage.lat);
         $("div.locationY").text(localStorage.long);
         signin_withServer();

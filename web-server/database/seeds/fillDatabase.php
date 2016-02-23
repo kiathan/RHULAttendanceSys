@@ -31,7 +31,11 @@ class fillDatabase extends Seeder
             }
         }
 
+<<<<<<< HEAD
+
+=======
         $this->attachUsersToCoures();
+>>>>>>> Mobile-UI-(draft)
     }
 
     private function makeCouse()
@@ -93,6 +97,8 @@ class fillDatabase extends Seeder
     {
         return ((mt_rand() / mt_getrandmax()) * $range) + $offset;
     }
+<<<<<<< HEAD
+=======
 
     private function attachUsersToCoures()
     {
@@ -107,4 +113,5 @@ class fillDatabase extends Seeder
             }
         }
     }
+>>>>>>> Mobile-UI-(draft)
 }

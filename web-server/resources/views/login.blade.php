@@ -8,7 +8,7 @@
         @elseif(!isset($signInResult))
             Sign into Attend system
         @else
-            Uable to sign in, check username or password
+            Unable to sign in, check username or password
         @endif
     </div>
     <form action="/login" method="post">

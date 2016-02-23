@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
+=======
 use Illuminate\Contracts\Auth\Guard;
+>>>>>>> Mobile-UI-(draft)
 
 class lectureInstanceController extends Controller
 {
@@ -19,7 +22,11 @@ class lectureInstanceController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        $lecture_instends = \App\lecture_instend::all();
+=======
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
+>>>>>>> Mobile-UI-(draft)
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -28,6 +35,12 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+    public function create($filter = false)
+    {
+        if (!$filter) {
+            $lectures = \App\lecture::all();
+=======
     public function create($filter = false, $user_id = false)
     {
         $user = \App\User::all();
@@ -42,6 +55,7 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::whereIn('id', $lectures->pluck('id'))->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
 
 
+>>>>>>> Mobile-UI-(draft)
         } else {
             $currentTime = new Carbon();
             $day = strtolower($currentTime->format("l"));
@@ -49,7 +63,11 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
 
+<<<<<<< HEAD
+        return view('lecture_instend/create')->with(['lectures' => $lectures]);
+=======
         return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
+>>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -75,8 +93,12 @@ class lectureInstanceController extends Controller
      */
     public function show($id)
     {
+<<<<<<< HEAD
+        return \App\lecture_instend::find($id);
+=======
         $lecture_instend = \App\lecture_instend::find($id);
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
+>>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -99,10 +121,15 @@ class lectureInstanceController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
+        $instance = \App\lecture_instend::where('isActive', 'true')->first($id);
+
+=======
         $instance = \App\lecture_instend::find($id);
         $instance->fill($request->all());
         $instance->save();
         return redirect("/lecture_instends/show/" . $id);
+>>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -116,6 +143,11 @@ class lectureInstanceController extends Controller
         //
     }
 
+<<<<<<< HEAD
+    public function auth(Request $request)
+    {
+
+=======
     public function auth(Request $request, Guard $auth)
     {
         if ($request->segment(1) == "api") {
@@ -147,10 +179,15 @@ class lectureInstanceController extends Controller
             }
         }
         return "In progress please hold on";
+>>>>>>> Mobile-UI-(draft)
     }
 
     public function qrCode(Request $request, $id)
     {
+<<<<<<< HEAD
+
+=======
+>>>>>>> Mobile-UI-(draft)
         $lecture_instend = \App\lecture_instend::find($id);
 
         if (is_null($lecture_instend)) {
@@ -159,6 +196,13 @@ class lectureInstanceController extends Controller
              */
             return "";
         }
+<<<<<<< HEAD
+
+        $response = Response::make($lecture_instend->sendQRcode(), 200);
+
+
+        return $response;
+=======
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }
@@ -181,6 +225,7 @@ class lectureInstanceController extends Controller
     }
 
     public function status(Request $request){
+>>>>>>> Mobile-UI-(draft)
 
     }
 }

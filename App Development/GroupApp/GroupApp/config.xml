@@ -8,6 +8,7 @@
     <vs:features />
     <preference name="SplashScreen" value="screen" />
     <preference name="windows-target-version" value="8.1" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -107,4 +108,5 @@
     <plugin name="cordova-plugin-barcodescanner" spec="~0.7.0" />
     <plugin name="org.apache.cordova.plugin.ActivityIndicator" spec="https://github.com/Initsogar/cordova-activityindicator" />
     <plugin name="onesignal-cordova-plugin" spec="~1.11.0" />
+    <plugin name="jaeger.Html5Video" spec="https://github.com/jaeger25/Html5Video.git" />
 </widget>

@@ -12,14 +12,20 @@ class singinColtroller extends Controller
 {
     public function singin()
     {
-        return view('login');
+    	$route = $request->input('route');
+        return view($route);
     }
 
     public function login(Request $request)
     {
         $username = $request->input('username');
         $password = hash("sha256", $request->input('password'));
-
+        $route = $request->input('route');
+        if($route == '/' || $route == '/login' || !isset($route)) {
+        
+        	$route = '/welcome';
+        
+        }
 
         $signInResult = Auth::attempt([
             "username" => $username,
@@ -27,6 +33,6 @@ class singinColtroller extends Controller
 
         $user = \App\User::where(["username" => $username])->first();
 
-        return view('login')->with(["signInResult" => $signInResult]);
+        return view($route)->with(["signInResult" => $signInResult]);
     }
 }

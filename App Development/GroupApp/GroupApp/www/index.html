@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;  script-src 'unsafe-inline' *; style-src *;">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/timetablejs.css">
@@ -12,10 +12,11 @@
         <div data-role="header">
             <h1>Royal Ray</h1>
         </div>
+        <div class="fullscreen-bg">
+                <video id="rhul_video" class="fullscreen-bg__video" webkit-playsinline loop muted autoplay></video>
+        </div>
     <div data-role="main" class="ui-content">
-
-
-
+        <div class = "loginformspace"></div>
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
             <input type="text" name="username" id="username" value="testuser" placeholder="Username">
             <input type="password" name="password" id="password" value="testpass" placeholder="Password">
@@ -54,6 +55,10 @@
     <div data-role="main" class="ui-content">
         <p>You are now signing in for:</p>
         <div class="currentclass"></div></br>
+        <p>Your Class is at:</p>
+        <div class="currentClassVenue"></div><br  />
+        <p>Current Distance from Class:</p>
+        <div class="distance"></div>KM<br />
         <button class="sign-in-btn">Sign In</button>
     </div>
     <div class="footer-copy"></div>
@@ -64,10 +69,7 @@
     </div>
     <div data-role="main" class="ui-content">
         <p>Sign in Status:</p>
-        <div class="currentAttendance"></div></br>
-        <p>Current Location:</p>
-        <div class="locationX"></div></br>
-        <div class="locationY"></div>
+        <div class="currentAttendance"></div>
     </div>
     <div class="footer-copy"></div>
 </div>

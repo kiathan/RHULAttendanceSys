@@ -61,6 +61,7 @@ function login() {
 };
 
 function loginReplyRedir() {
+  setCurrentPosition();
   if (localStorage.loginerror == "incorrect" && localStorage.login ==
     "false") {
     alert("Username/Password is invalid.");
@@ -94,11 +95,12 @@ function logout() {
 //Loads and Displays the current class
 function loadAttendance() {
   setCurrentPosition();
+  $('.sign-in-btn').prop('disabled', true);
 
   ActivityIndicator.show("Retrieving Class to sign in...");
   var u = localStorage.username;
   var t = localStorage.token;
-  var url = server + "api/auth";
+  var url = server + "/api/lecture_instends/index";
   var dataString = "username=" + u + "&token=" + t;
 
   $.ajax({
@@ -109,18 +111,42 @@ function loadAttendance() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
-      var result = data;
       ActivityIndicator.hide();
 
-      //sets the screen with the display picture
-      localStorage.currentClassName = result.currentclass;
-      $("div.currentclass").text(localStorage.currentClassName);
-      $("div.locationX").text(localStorage.lat);
-      $("div.locationY").text(localStorage.long);
+      if (data.substring(11, 18) == "failure") {
+        var result = jQuery.parseJSON(data);
+        alert(result.message);
+        loginReplyRedir();
+      } else {
 
-      if (result.state == "success") {
-        //enables the button
+        var datastr = data.substring(3, data.length - 2);
+        var result = jQuery.parseJSON(datastr);
+
+        //sets the screen with the display picture
+        localStorage.currentClassName = result.lecture.course.name;
+        localStorage.currentClassCode = result.lecture.course.code;
+        localStorage.currentClassLat = result.lecture.venue.geoX;
+        localStorage.currentClassLong = result.lecture.venue.geoY;
+        localStorage.currentClassVenue = result.lecture.venue.name;
+
+        var dist = getDistanceFromLatLonInKm(localStorage.lat,
+          localStorage.long, localStorage.currentClassLat,
+          localStorage.currentClassLong);
+
+        if (dist > 10) { //geolocation distance limit to be set (in KM)
+          alert("You are too far away from the venue");
+          loginReplyRedir();
+        } else {
+          $("div.currentclass").text(localStorage.currentClassName);
+          $("div.distance").text(dist);
+          $("div.currentClassVenue").text(localStorage.currentClassVenue);
+          //enables the button
+          $('.sign-in-btn').prop('disabled', false);
+        }
       }
+
+
+
     },
     error: function(data) {
       this.tryCount++;
@@ -160,9 +186,10 @@ function signin_withServer() {
   var c = localStorage.signinBarcode;
   var lat = localStorage.lat;
   var long = localStorage.long;
+  var classCode = localStorage.currentClassCode;
   var url = server + "api/lecture_instends/auth";
   var dataString = "username=" + u + "&token=" + t + "&lectureAuthCode=" + c +
-    "&lat=" + lat + "&long=" + long;
+    "&lat=" + lat + "&long=" + long + "&classcode=" + classCode;
 
   $.ajax({
     method: "POST",
@@ -177,16 +204,14 @@ function signin_withServer() {
 
       //sets the screen with the display picture
       localStorage.currentClassStatus = result.state;
+      alert(result.message);
+      $("div.currentAttendance").text(result.message);
 
-
-      if (result.state == "success") {
-        $("div.currentAttendance").text(result.message);
-        $("div.locationX").text(localStorage.lat);
-        $("div.locationY").text(localStorage.long);
-      } else if (result.state == "failure") {
-        $("div.currentAttendance").text(
-          result.message);
+      if ($("div.currentAttendance").text() == "Sending to Server...") {
+        alert("Server unavailable. Please try again later");
+        loginReplyRedir();
       }
+
     },
     error: function(data) {
       this.tryCount++;
@@ -196,6 +221,10 @@ function signin_withServer() {
         return;
       }
       ActivityIndicator.hide();
+
+      alert("Server unavailable. Please try again later");
+      loginReplyRedir();
+
     },
     timeout: 3000 //3 seconds
 
@@ -210,7 +239,7 @@ function scanner(input) {
     cordova.plugins.barcodeScanner.scan(
       function(result) {
         localStorage.signinBarcode = result.text;
-        $("div.currentAttendance").text(localStorage.signinBarcode);
+        $("div.currentAttendance").text("Sending to Server...");
         $("div.locationX").text(localStorage.lat);
         $("div.locationY").text(localStorage.long);
         signin_withServer();

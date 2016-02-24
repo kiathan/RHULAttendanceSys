@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 
 use Illuminate\Contracts\Auth\Guard;
+=======
+use Illuminate\Contracts\Auth\Guard;
+
+>>>>>>> master
 
 class lectureInstanceController extends Controller
 {
@@ -76,7 +81,10 @@ class lectureInstanceController extends Controller
      */
     public function show($id)
     {
+<<<<<<< HEAD
         return \App\lecture_instend::find($id);
+=======
+>>>>>>> master
         $lecture_instend = \App\lecture_instend::find($id);
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
     }
@@ -161,6 +169,14 @@ class lectureInstanceController extends Controller
              */
             return "";
         }
+<<<<<<< HEAD
+=======
+
+        $response = Response::make($lecture_instend->sendQRcode(), 200);
+
+
+        return $response;
+>>>>>>> master
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }

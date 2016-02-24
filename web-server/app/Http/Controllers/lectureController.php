@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 use Illuminate\Contracts\Auth\Guard;
 
 class lectureController extends Controller

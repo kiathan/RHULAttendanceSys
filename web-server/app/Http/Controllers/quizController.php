@@ -12,29 +12,21 @@ use Illuminate\Support\Facades\Hash;
 class quizController extends Controller
 {
 
-    public function ansQuiz(Request $data){
-        $timestamps = false;
-        $q = $data->input('question_id');
-        $u = $data->input('user_id');
-        $i = $data->input('isValit');
-
-
+    public function ansQuiz(Request $data)
+    {
+        $question = $data->input('question_id');
+        $user = $data->input('user_id');
+        $answer = $data->input('answer');
         DB::table('awnsers')->insert(
-            ['question_id' => $q, 'user_id' => $u,'isValit'=>true,'awnser'=>true]
+            ['question_id' => $question, 'user_id' => $user, 'awnser' => $answer]
         );
-
-
-        return $q . " ". $u." ".$i;
-
-
     }
 
 
-    public function startNstop(Request $switcher){
-         DB::table('questions')->where('courseID', $switcher->input('courseID'))->update(['isValit' => false]);
+    public function startNstop(Request $switcher)
+    {
+        DB::table('questions')->where('courseID', $switcher->input('courseID'))->update(['isValit' => false]);
     }
-
-
 
 
 }

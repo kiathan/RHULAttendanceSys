@@ -113,7 +113,8 @@ function loadAttendance() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      if (data.state == "failure") {
+      if (data.substring(11, 18) == "failure") {
+        var result = jQuery.parseJSON(data);
         alert(result.message);
         loginReplyRedir();
       } else {

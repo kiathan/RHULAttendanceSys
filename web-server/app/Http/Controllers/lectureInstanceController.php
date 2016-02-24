@@ -144,17 +144,24 @@ class lectureInstanceController extends Controller
                 $jsonRespones['message'] = "No lecture instance is active for the user";
                 return json_encode($jsonRespones);
             }
-            $lecture_instances = $lecture_instances[0];
-            $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
 
-            if ($user->checkIfAlreadyAttendnes($lecture_instances)) {
+            $lecture_instances = $lecture_instances[0];
+            $instanceAuth = NULL;
+            foreach ($lecture_instances as $lecture_instance) {
+                if($lecture_instance->checkQRcode($request->get('lectureAuthCode'))){
+                    $instanceAuth = $lecture_instance;
+                    break;
+                }
+            }
+
+            if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($lecture_instances)) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);
-            } else if ($authStatus) {
+            } else if ($instanceAuth) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "you have sign in to the lecture";
-                $user->addAttendnes($lecture_instances);
+                $user->addAttendnes($instanceAuth);
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";

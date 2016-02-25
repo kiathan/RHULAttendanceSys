@@ -13,7 +13,7 @@ class fakeUsername extends Seeder
     {
         $user = new App\User;
 
-        $user->name = "FakeUserName";
+
         $user->username = "FakeUserName";
         $user->firstname = "FakeUserName";
         $user->middlename = "FakeUserName";
@@ -26,7 +26,7 @@ class fakeUsername extends Seeder
 
         $user = new App\User;
 
-        $user->name = "FakeUserName";
+
         $user->username = "testuser";
         $user->firstname = "FakeUserName";
         $user->middlename = "FakeUserName";
@@ -39,14 +39,13 @@ class fakeUsername extends Seeder
 
         $user = new App\User;
 
-        $user->name = "FakeUserName";
+
         $user->username = "lecturer";
         $user->firstname = "FakeUserName";
         $user->middlename = "FakeUserName";
         $user->lastname = "FakeUserName";
         $user->email = "testUser2222";
         $user->password = Hash::make(hash("sha256", "testpass"));
-
         $user->save();
 
     }

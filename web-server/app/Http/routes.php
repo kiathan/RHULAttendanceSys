@@ -83,6 +83,8 @@ Route::post('api/auth/login', 'AuthController@login');
 
 Route::any('/login', 'AuthController@login');
 
+Route::any('/logout', 'AuthController@logout');
+
 Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');
 Route::post('/auth/store', 'AuthController@store');

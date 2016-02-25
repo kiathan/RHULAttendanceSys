@@ -149,7 +149,7 @@ class lectureInstanceController extends Controller
             $lecture_instances = $lecture_instances[0];
             $instanceAuth = NULL;
             foreach ($lecture_instances as $lecture_instance) {
-                if($lecture_instance->checkQRcode($request->get('lectureAuthCode'))){
+                if($lecture_instance->checkQRcode($request->get('lectureAuthCode'))) {
                     $instanceAuth = $lecture_instance;
                     break;
                 }
@@ -166,7 +166,7 @@ class lectureInstanceController extends Controller
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";
-                $jsonRespones['message'] = "The qr code did not matach the entry for the class";
+                $jsonRespones['message'] = "The qr code did not match the entry for the class";
                 return json_encode($jsonRespones);
             }
         }
@@ -184,10 +184,6 @@ class lectureInstanceController extends Controller
             return "";
         }
 
-        $response = Response::make($lecture_instend->sendQRcode(), 200);
-
-
-        return $response;
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }

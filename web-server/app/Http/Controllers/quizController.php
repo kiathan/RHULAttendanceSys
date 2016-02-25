@@ -23,13 +23,13 @@ class quizController extends Controller
             if (is_null($lecture_inc)) {
                 return json_encode(['state' => 'fail', 'message' => 'No activate question found.']);
             } else {
-                $question = $data->input('question_id');
+                $question = $data->input('courseID');
                 $user = $data->input('user_id');
                 $answer = $data->input('answer');
 
 
                 DB::table('awnsers')->insert(
-                    ['question_id' => $question, 'user_id' => $user, 'awnser' => $answer]
+                    ['courseID' => $question, 'user_id' => $user, 'awnser' => $answer]
                 );
 
                 return json_encode(['state' => 'success', 'message' => 'You have answered question.']);

@@ -24,16 +24,16 @@
     }
 
     .timetable aside {
-        width: 25%;
+        width: 17%;
         padding: 0 !important;
-        margin-top: 46px;
+        margin-top:91px;
         border-right: 5px solid transparent;
     }
 
         .timetable aside li {
             padding: 0 15px;
             background-color: #EFEFEF;
-            line-height: 46px;
+            line-height: 91px;
         }
 
             .timetable aside li:not(:last-of-type) {
@@ -55,11 +55,11 @@
     }
 
     .timetable aside li, .timetable time li {
-        height: 46px;
+        height: 91px;
     }
 
     .timetable section {
-        width: 75%;
+        width: 83%;
         padding: 0 !important;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
@@ -71,7 +71,7 @@
         }
 
         .timetable section header {
-            height: 46px;
+            height: 91px;
             -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
             font-size: 0;
@@ -88,7 +88,7 @@
                 font-size: 1rem;
                 overflow: visible;
                 width: 0;
-                line-height: 46px;
+                line-height: 91px;
                 display: inline-block;
                 position: relative;
             }
@@ -151,7 +151,7 @@
         }
 
         .timetable ul.room-timeline li:first-child .time-entry {
-            height: 44px;
+            height: 89px;
         }
 
         .timetable ul.room-timeline li:after, .timetable ul.room-timeline li:before {
@@ -178,7 +178,7 @@
 .timetable .time-entry {
     background-color: forestgreen;
     transition: 200ms background-color;
-    height: 45px;
+    height: 90px;
     display: block;
     position: absolute;
     z-index: 2;
@@ -186,7 +186,7 @@
     white-space: normal;
     overflow: hidden;
     color: #fff;
-    border: 1px solid #e32c1b;
+    border: 0px solid green;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }

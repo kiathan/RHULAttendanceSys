@@ -24,16 +24,16 @@ class lectureInstanceController extends Controller
             $user = $auth->user();
             $user = \App\User::find($user->id);
             $lecutesInstance = $user->getCurrentLectureInstance();
-
-            $checkOfActiveCount = count($lecutesInstance, 1);
+            $checkOfActiveCount = sizeof($lecutesInstance);
             if ($checkOfActiveCount == 0) {
                 $response['state'] = 'failure';
                 $response['message'] = 'No lecture is active right now';
 
                 return json_encode($response);
             }
-
-            return json_encode($user->getCurrentLectureInstance());
+            $reuslt = $user->getCurrentLectureInstance();
+            $reuslt = array_merge($reuslt, ['state' => "success", 'message' => ""]);
+            return json_encode($reuslt);
         }
 
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get()->load('lecture');

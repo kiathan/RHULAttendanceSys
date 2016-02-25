@@ -116,14 +116,15 @@ function loadAttendance() {
       ActivityIndicator.hide();
 
       var result1 = jQuery.parseJSON(data);
+      var result = result1[0][0];
 
       if (result1.state == "failure") {
         alert(result1.message);
         loginReplyRedir();
+      } else if (result.lecture.UserAttended == true) {
+        alert("Awesome! You have signed in already.");
+        loginReplyRedir();
       } else {
-
-        var result = result1[0][0];
-
         //sets the screen with the display picture
         localStorage.currentClassName = result.lecture.course.name;
         localStorage.currentClassCode = result.lecture.course.code;

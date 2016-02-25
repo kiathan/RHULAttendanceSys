@@ -156,7 +156,7 @@ class lectureInstanceController extends Controller
                 }
             }
 
-            if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($lecture_instances)) {
+            if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($instanceAuth)) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);

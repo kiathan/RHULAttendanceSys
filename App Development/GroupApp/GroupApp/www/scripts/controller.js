@@ -24,7 +24,7 @@ function login() {
             tryCount: 0,
             retryLimit: 5,
             cache: false,
-            success: function(data) {
+            success: function (data) {
                 var loginresult = data;
                 ActivityIndicator.hide();
                 if (loginresult.state == "success" && loginresult.username ==
@@ -40,7 +40,7 @@ function login() {
                 }
                 loginReplyRedir();
             },
-            error: function(data) {
+            error: function (data) {
 
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
@@ -109,7 +109,7 @@ function loadAttendance() {
         tryCount: 0,
         retryLimit: 5,
         cache: false,
-        success: function(data) {
+        success: function (data) {
             ActivityIndicator.hide();
 
             if (data.substring(11, 18) == "failure") {
@@ -145,9 +145,8 @@ function loadAttendance() {
             }
 
 
-
         },
-        error: function(data) {
+        error: function (data) {
             this.tryCount++;
             if (this.tryCount <= this.retryLimit) {
                 //try again
@@ -197,7 +196,7 @@ function signin_withServer() {
         tryCount: 0,
         retryLimit: 5,
         cache: false,
-        success: function(data) {
+        success: function (data) {
             var result = JSON.parse(data);
             ActivityIndicator.hide();
 
@@ -212,7 +211,7 @@ function signin_withServer() {
             }
 
         },
-        error: function(data) {
+        error: function (data) {
             this.tryCount++;
             if (this.tryCount <= this.retryLimit) {
                 //try again
@@ -231,12 +230,11 @@ function signin_withServer() {
 };
 
 
-
 function scanner(input) {
     if (input == 1) {
         setCurrentPosition();
         cordova.plugins.barcodeScanner.scan(
-            function(result) {
+            function (result) {
                 localStorage.signinBarcode = result.text;
                 $("div.currentAttendance").text("Sending to Server...");
                 $("div.locationX").text(localStorage.lat);
@@ -245,7 +243,7 @@ function scanner(input) {
 
                 window.location.href = "#AttendanceAfter";
             },
-            function(error) {
+            function (error) {
                 alert("Attendance sign-in unsuccessful! Please try again.");
                 loginReplyRedir();
             });
@@ -259,52 +257,58 @@ function scanner(input) {
 };
 
 
-
 function answerQuestion() {
     var value = this.value;
-    $.getJSON("test.json", function(StudDetail) {
-        var username = StudDetail["username"];
-        alert("You have submit your answer \nYour answer is " +
-            value);
-        /*
-         var request = $.ajax({
+    var username = localStorage.username;
 
-         url: "bartalveyhe.me",
-         method: "POST",
-         data: {username: username, answer: value}
+    alert("You have submit your answer \nYour answer is " +
+        value);
 
-         });
+    var request = $.ajax({
 
-         request.done(function (msg) {
-         alert(msg);
-         }
-         */
-        $('.answer-btn').prop("disabled", true);
-        window.location.href = "#StudentLanding";
+        url: "bartalveyhe.me/quiz/studentQuiz",
+        method: "POST",
+        data: {user_id: username, answer: value, courseID: localStorage.currentClassCode}
+
     });
+
+    request.done(function (msg) {
+        alert(msg);
+    });
+    request.fail(function (msg) {
+        alert(msg);
+    });
+
+
+    //$('.answer-btn').prop("disabled", true);
+    window.location.href = "#StudentLanding";
+
 };
 
 function start_stop_Quiz() {
 
     var initQuiz = this.value;
 
-    /*
-     var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';*/
+
+    //var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';
+
     alert("You have " + initQuiz + " question. ");
-    /*
-     var request = $.ajax({
 
-     url: "bartalveyhe.me",
-     method: "POST",
-     data: requestQuiz
+    var request = $.ajax({
 
-     });
+        url: "bartalveyhe.me/quiz.lecturerQuiz",
+        method: "POST",
+        data: {user_id: username, state: initQuiz, courseID: localStorage.currentClassCode}
+    });
 
-     request.done(function (msg) {
-     alert(msg);
+    request.done(function (msg) {
+        alert(msg);
+    });
+    request.fail(function (msg) {
+        alert(msg);
+    });
 
-     });
-     */
+
 };
 
 function loadTimetable() {
@@ -329,15 +333,14 @@ function loadTimetable() {
         tryCount: 0,
         retryLimit: 5,
         cache: false,
-        success: function(data) {
+        success: function (data) {
 
 
-            $.each(data, function(index) {
+            $.each(data, function (index) {
 
                 var starttimeFormat = (data[index].starttime).split(":");
                 var endtimeFormat = (data[index].endtime).split(":");
                 //alert(starttimeFormat[0] + endtimeFormat[0]);
-
 
 
                 timetable.addEvent((data[index].course_id + " - " + data[index].venue.name), (data[index].dayofweek).toUpperCase(), new Date(null, null, null, starttimeFormat[0], starttimeFormat[1]), new Date(null, null, null, endtimeFormat[0], endtimeFormat[1]));
@@ -349,7 +352,7 @@ function loadTimetable() {
             renderer.draw('.timetable');
 
         },
-        error: function(data) {
+        error: function (data) {
             ActivityIndicator.hide();
             alert("Error - Cannot connect to server")
 
@@ -362,14 +365,14 @@ function loadTimetable() {
     renderer.draw('.timetable');
 
     $('.timetable').fadeIn();
-	
+
 
 };
 
 function setOrientation() {
-	window.plugins.orientationLock.lock("portrait");
+    window.plugins.orientationLock.lock("portrait");
 };
 
 function unlockOrientation() {
-	window.plugins.orientationLock.unlock();
+    window.plugins.orientationLock.unlock();
 };

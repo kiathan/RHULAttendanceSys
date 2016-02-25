@@ -41,7 +41,7 @@
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);
-    $(document).on("pagehide", "#StudentLanding", unlockOrientation);
+  
     $(document).on("pageshow", "#Attendance", loadAttendance);
 
     window.plugins.html5Video.initialize({

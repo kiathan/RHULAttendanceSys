@@ -60,6 +60,7 @@ function login() {
 };
 
 function loginReplyRedir() {
+
     setCurrentPosition();
     if (localStorage.loginerror == "incorrect" && localStorage.login ==
         "false") {
@@ -80,6 +81,7 @@ function loginReplyRedir() {
         } else {
             window.location.href = "#LecturerLanding";
         }
+
     }
 };
 
@@ -158,6 +160,7 @@ function loadAttendance() {
         timeout: 3000 //3 seconds
 
     });
+
 };
 
 /**
@@ -226,6 +229,7 @@ function signin_withServer() {
         },
         timeout: 3000 //3 seconds
 
+
     });
 };
 
@@ -247,6 +251,7 @@ function scanner(input) {
                 alert("Attendance sign-in unsuccessful! Please try again.");
                 loginReplyRedir();
             });
+
 
     } else {
         loginReplyRedir();
@@ -281,6 +286,7 @@ function answerQuestion() {
 
 
     //$('.answer-btn').prop("disabled", true);
+
     window.location.href = "#StudentLanding";
 
 };

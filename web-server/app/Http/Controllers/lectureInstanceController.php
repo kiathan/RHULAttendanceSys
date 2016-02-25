@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Contracts\Auth\Guard;
 
 
@@ -20,6 +21,7 @@ class lectureInstanceController extends Controller
      */
     public function index(Request $request, Guard $auth)
     {
+
         if ($request->segment(1) == "api") {
             $user = $auth->user();
             $user = \App\User::find($user->id);
@@ -36,7 +38,9 @@ class lectureInstanceController extends Controller
             return json_encode($user->getCurrentLectureInstance());
         }
 
+
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
+
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -45,6 +49,7 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create($filter = false, $user_id = false)
     {
         $user = \App\User::all();
@@ -66,7 +71,9 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
 
+
         return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
+
     }
 
     /**
@@ -92,8 +99,10 @@ class lectureInstanceController extends Controller
      */
     public function show($id)
     {
+
         $lecture_instend = \App\lecture_instend::find($id);
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
+
     }
 
     /**
@@ -116,10 +125,12 @@ class lectureInstanceController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $instance = \App\lecture_instend::find($id);
         $instance->fill($request->all());
         $instance->save();
         return redirect("/lecture_instends/show/" . $id);
+
     }
 
     /**
@@ -171,10 +182,13 @@ class lectureInstanceController extends Controller
             }
         }
         return "In progress please hold on";
+
     }
 
     public function qrCode(Request $request, $id)
     {
+
+
         $lecture_instend = \App\lecture_instend::find($id);
 
         if (is_null($lecture_instend)) {
@@ -207,6 +221,7 @@ class lectureInstanceController extends Controller
 
     public function status(Request $request)
     {
+
 
     }
 }

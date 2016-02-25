@@ -59,6 +59,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
     }
 
+
     public function checkIfAlreadyAttendnes(\App\lecture_instend $lecture_instend)
     {
         /*
@@ -70,6 +71,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function addAttendnes(\App\lecture_instend $lecture_instend)
     {
         return $this->attendnes()->withTimestamps()->attach($lecture_instend);
+
     }
 
     public function currentLectures()
@@ -83,9 +85,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function getCurrentLectureInstance()
     {
+
         if (($lecture = $this->currentLectures()) == null) {
             return null;
         }
+
 
         $lectureInstances = array();
         foreach($lecture as $item){
@@ -94,6 +98,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             }
         }
         return $lectureInstances;
+
     }
 
     public function allLectures()

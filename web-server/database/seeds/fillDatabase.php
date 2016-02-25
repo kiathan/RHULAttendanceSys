@@ -5,7 +5,6 @@ use Illuminate\Database\Seeder;
 class fillDatabase extends Seeder
 {
     private $faker;
-    private $useCourseCode = array();
 
     /**
      * Run the database seeds.
@@ -161,12 +160,6 @@ class fillDatabase extends Seeder
 
         $venue->save();
         return $venue;
-    }
-
-    private function venuName()
-    {
-        $prefixList = ["Born Building", "THe hub", "Maccrre", "Founters"];
-        return array_rand($prefixList, 1);
     }
 
 

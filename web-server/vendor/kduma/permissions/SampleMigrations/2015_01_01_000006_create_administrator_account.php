@@ -18,8 +18,7 @@ class CreateAdministratorAccount extends Migration {
 		$user->emailConfirmed = true;
 		$user->save();
 
-
-		$role = Role::where('str_id', 'admin')->firstOrFail();
+		$role = Role::where('str_id', 'BSc')->firstOrFail();
 		$user->roles()->sync([$role->id], false);
 	}
 

@@ -319,10 +319,12 @@ function loadTimetable() {
 
   var timetable = new Timetable();
 
-  timetable.setScope(0, 23) //sets scope of table
+
+  timetable.setScope(9, 22) //sets scope of table
   timetable.addLocations(['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY',
     'FRIDAY', 'SATURDAY', 'SUNDAY'
   ]); //row headings
+
 
   ActivityIndicator.show("Retrieving timetable information...");
   $.ajax({
@@ -341,13 +343,14 @@ function loadTimetable() {
         var endtimeFormat = (data[index].endtime).split(":");
         //alert(starttimeFormat[0] + endtimeFormat[0]);
 
-
-
-        timetable.addEvent((data[index].course_id + " - " + data[
-            index].venue.name), (data[index].dayofweek).toUpperCase(),
-          new Date(null, null, null, starttimeFormat[0],
-            starttimeFormat[1]), new Date(null, null, null,
-            endtimeFormat[0], endtimeFormat[1]));
+        if (starttimeFormat[0] >= 9 && starttimeFormat[0] <= 21 &&
+          endtimeFormat[0] <= 22 && endtimeFormat[0] >= 10) {
+          timetable.addEvent((data[index].course.name + " - " + data[
+              index].venue.name), (data[index].dayofweek).toUpperCase(),
+            new Date(null, null, null, starttimeFormat[0],
+              starttimeFormat[1]), new Date(null, null, null,
+              endtimeFormat[0], endtimeFormat[1]));
+        }
 
       });
 

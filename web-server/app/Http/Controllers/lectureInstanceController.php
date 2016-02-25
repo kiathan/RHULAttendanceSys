@@ -24,19 +24,20 @@ class lectureInstanceController extends Controller
             $user = $auth->user();
             $user = \App\User::find($user->id);
             $lecutesInstance = $user->getCurrentLectureInstance();
-
-            $checkOfActiveCount = count($lecutesInstance, 1);
-            if($checkOfActiveCount == 0){
+            $checkOfActiveCount = sizeof($lecutesInstance);
+            if ($checkOfActiveCount == 0) {
                 $response['state'] = 'failure';
                 $response['message'] = 'No lecture is active right now';
 
                 return json_encode($response);
             }
-
-            return json_encode($user->getCurrentLectureInstance());
+            $reuslt = $user->getCurrentLectureInstance();
+            $reuslt = array_merge($reuslt, ['state' => "success", 'message' => ""]);
+            return json_encode($reuslt);
         }
 
-        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
+        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get()->load('lecture');
+
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -149,7 +150,7 @@ class lectureInstanceController extends Controller
             $lecture_instances = $lecture_instances[0];
             $instanceAuth = NULL;
             foreach ($lecture_instances as $lecture_instance) {
-                if($lecture_instance->checkQRcode($request->get('lectureAuthCode'))){
+                if ($lecture_instance->checkQRcode($request->get('lectureAuthCode'))) {
                     $instanceAuth = $lecture_instance;
                     break;
                 }
@@ -166,7 +167,7 @@ class lectureInstanceController extends Controller
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";
-                $jsonRespones['message'] = "The qr code did not matach the entry for the class";
+                $jsonRespones['message'] = "The qr code did not match the entry for the class";
                 return json_encode($jsonRespones);
             }
         }
@@ -185,10 +186,6 @@ class lectureInstanceController extends Controller
         }
 
         $response = Response::make($lecture_instend->sendQRcode(), 200);
-
-
-        return $response;
-        $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }
 
@@ -197,15 +194,21 @@ class lectureInstanceController extends Controller
     public function createLectureInstance(Request $request)
     {
         $user = \App\User::find($request->get('user_id'));
-        if (!$user->currentLectures()) {
+        if (sizeof($user->currentLectures()) == 0) {
             \App\lecture::createRandomLecture($user);
         }
 
-        $lecutre = $user->currentLectures();
-        if (\App\lecture_instend::where('isActive', 'true')->where('lecture_id', $lecutre->id)->first()) {
-            return redirect("/");
+        $lecutres = $user->currentLectures();
+        foreach ($lecutres as $lecutre) {
+            if (\App\lecture_instend::where('isActive', 'true')->where('lecture_id', $lecutre->id)->first()) {
+                return redirect("/");
+            }
         }
-        \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
+
+        foreach ($lecutres as $lecutre) {
+            \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
+            break;
+        }
         return redirect("/");
     }
 

@@ -19,15 +19,7 @@ class lecture extends Model
         return $this->belongsTo(\App\course::class);
     }
 
-<<<<<<< HEAD
-    public function lecture_instance(){
-        return $this->hasMany(\App\lecture_instend::class);
-    }
 
-    public function getActiveLecture(){
-        return $this->lecture_instance()->where('isActive', '1');
-    }
-=======
     public function lecture_instance()
     {
         return $this->hasMany(\App\lecture_instend::class);
@@ -51,5 +43,5 @@ class lecture extends Model
         }
 
     }
->>>>>>> Mobile-UI-(draft)
+
 }

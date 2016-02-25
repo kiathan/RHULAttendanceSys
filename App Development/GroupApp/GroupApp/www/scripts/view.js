@@ -9,6 +9,7 @@
   document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
   function onDeviceReady() {
+    window.plugins.orientationLock.lock("portrait");
     // Handle the Cordova pause and resume events
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
@@ -39,6 +40,8 @@
     //$('.scanner')
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
+    $(document).on("pageshow", "#StudentLanding", setOrientation);
+    $(document).on("pagehide", "#StudentLanding", unlockOrientation);
     $(document).on("pageshow", "#Attendance", loadAttendance);
 
     window.plugins.html5Video.initialize({

@@ -1,0 +1,88 @@
+CS1801 Object oriented programming 
+CS1820 Computing laboratory (robotics) 
+CS1830 Computing laboratory (games) 
+CS1840 Internet services 
+CS1890 Software design 
+CS1860 Mathematical structures 
+CS1870 Machine fundamentals 
+CS2800 Software engineering 
+CS2810 Team project 
+CS2821 Systems programming 
+CS2830 Robotics 
+CS2844 Computer graphics 
+CS2850 Operating systems 
+CS2855 Databases 
+CS2860 Algorithms and complexity 
+IY2760 Introduction to information security 
+IY2840 Computer and network Security 
+CS3001 Year out in industry 
+CS3810 Full unit project
+CS3821 Full unit project
+CS3822 Individual project in artificial intelligence
+IY3821 Full unit project (Information Security) 
+CS3110 Bioinformatics 
+CS3220 Fundamentals of digital sound and music 
+CS3230 Computer games technology 
+CS3250 Visualisation and exploratory analysis 
+CS3330 Embedded and realtime systems 
+CS3450 Software verification 
+CS3460 Compiling for embedded systems 
+CS3480 Software language engineering 
+CS3470 Compilers and code generation 
+CS3490 Computational optimisation 
+CS3510 Functional programming and applications 
+CS3580 Advanced data communications 
+CS3750 Concurrent and parallel programming 
+CS3870 Advanced algorithms 
+CS3920 Computer learning 
+CS3930 Computational finance 
+CS3940 Intelligent agents and multi-agent systems 
+IY3840 Malicious software 
+IY3660 Applications of cryptography
+PS1021 Learning and Memory
+PS1030 Self and Society
+PS1060 Biological Foundations of Psychology
+PS1110 Introduction to Abnormal Psychology
+CR1011 Introduction to Criminology
+CR1013 Criminal Justice System
+PS2030 Social Psychology
+PS2040 Developmental Psychology
+PS2050 Personality and Individual Differences
+PS2080 Conceptual Issues in Psychology
+CR2010 Research Methods for Psychologists
+CR2013 Key Perspectives and Debates in Criminology
+CR2030 Data Analysis for Psychologists
+PS2021 Cognitive psychology
+PS2061 Brain and Behaviour
+CR3025 Dissertation (psychological focus)
+PS3022 Language, Communication, and Thought 
+PS3030 Methods in Cognitive Neuroscience
+PS3041 Advanced Developmental Psychology
+PS3050 Health Psychology 
+PS3060 Perception and Awareness of the World and the Self 
+PS3061 The Ageing Brain 
+PS3090 Advanced and Applied Social Psychology 
+PS3110 Adult Psychological Problems 
+PS3121 Developmental Disorders 
+PS3131 Human Neuropsychology 
+PS3141 Clinical and Cognitive Neuroscience
+PS3151 Occupational and Organisational Psychology
+PS3171 Human Performance: Work, Sport and Medicine 
+PS3181 Criminal and Forensic Psychology 
+PS3190 Educational Psychology 
+CR3003 Youth in Society: Deviance and Delinquency 
+CR3004 Youth in Society: Culture, Subculture and Transgression 
+CR3005 Crime and the Media 
+CR3006 Crime and Literature 
+Version 3.0
+CR3008 Critical Readings in Criminology 
+CR3009 Race and Ethnicity in Contemporary Society 
+CR3010 Race, Crime and Justice 
+CR3012 Health Care: Sociological and Criminological Perspectives 
+CR3020 Risk Insecurity and Terrorism 
+CR3024 Health Care: Criminological and Sociological Perspectives
+CR3015 Children, Society and Risk
+CR3023 Prisons
+
+
+

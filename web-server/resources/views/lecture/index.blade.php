@@ -23,6 +23,7 @@
                 <th colspan="2">updated_at</th>
                 <th colspan="2">course</th>
                 <th colspan="2">venue</th>
+                <th colspan="2">user attened</th>
             </tr>
             @foreach($lectures as $lecture)
                 <tr>
@@ -37,6 +38,7 @@
                     <td colspan="1"> {{$lecture->course->code}} </td>
                     <td colspan="1"> {{$lecture->course->name}} </td>
                     <td colspan="2"> {{$lecture->venue->name}} </td>
+                    <td colspan="2"> {{$lecture->UserAttended ? "True" : "False"}}</td>
                 </tr>
             @endforeach
         </table>

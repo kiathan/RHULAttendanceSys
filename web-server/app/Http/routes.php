@@ -13,7 +13,7 @@
 
 Route::get('/',
     function () {
-        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
+        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index/{filter?}", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
 
         $linkText = "";
         foreach ($links as $key => $link) {
@@ -63,7 +63,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/couse/create', 'courseController@create');
     Route::post('/couse/store/', 'courseController@store');
 
-    Route::post('/lecture/index', 'lectureController@index');
+    Route::post('/lecture/index/{filter?}', 'lectureController@index');
     Route::post('/lecture/create', 'lectureController@create');
     Route::post('/lecture/store', 'lectureController@store');
 
@@ -75,6 +75,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
     Route::post('/lecture_instends/store', 'lectureInstanceController@store');
     Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
+    Route::post('/lecture_instends/status', 'lectureInstanceController@status');
 
 });
 
@@ -86,13 +87,14 @@ Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');
 Route::post('/auth/store', 'AuthController@store');
 Route::get('/auth/logout', 'AuthController@logout');
+Route::get('/auth/show/{id}', 'AuthController@show');
 
 
 Route::get('/couse/index', 'courseController@index');
 Route::get('/couse/create', 'courseController@create');
 Route::post('/couse/store/', 'courseController@store');
 
-Route::get('/lecture/index', 'lectureController@index');
+Route::get('/lecture/index/{filter?}', 'lectureController@index');
 Route::get('/lecture/create', 'lectureController@create');
 Route::post('/lecture/store', 'lectureController@store');
 

@@ -341,7 +341,7 @@ function loadTimetable() {
       		
       		
 
-      		timetable.addEvent(data[index].course_id, (data[index].dayofweek).toUpperCase(), new Date(null,null,null,starttimeFormat[0],starttimeFormat[1]), new Date(null,null,null,endtimeFormat[0],endtimeFormat[1]));
+      		timetable.addEvent((data[index].course_id + " - " + data[index].venue.name), (data[index].dayofweek).toUpperCase(), new Date(null,null,null,starttimeFormat[0],starttimeFormat[1]), new Date(null,null,null,endtimeFormat[0],endtimeFormat[1]));
           
         });
         

@@ -59,10 +59,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->belongsToMany(\App\lecture_instend::class, 'lecture_user');
     }
 
-<<<<<<< HEAD
-    public function addAttendnes()
-    {
-=======
     public function checkIfAlreadyAttendnes(\App\lecture_instend $lecture_instend)
     {
         /*
@@ -74,7 +70,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function addAttendnes(\App\lecture_instend $lecture_instend)
     {
         return $this->attendnes()->withTimestamps()->attach($lecture_instend);
->>>>>>> Mobile-UI-(draft)
     }
 
     public function currentLectures()
@@ -83,29 +78,28 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $currentTime = new Carbon();
         $day = strtolower($currentTime->format("l"));
         $time = $currentTime->format("G:i:s");
-        return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->first();
+        return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
     }
 
     public function getCurrentLectureInstance()
     {
-<<<<<<< HEAD
-        if ($lecture = $this->currentLectures() == null) {
-            return null;
-        }
-=======
         if (($lecture = $this->currentLectures()) == null) {
             return null;
         }
 
->>>>>>> Mobile-UI-(draft)
-        return $lecture->getActiveLecture()->get();
+        $lectureInstances = array();
+        foreach($lecture as $item){
+            if(sizeof($item->getActiveLecture()->get()) > 0) {
+                $lectureInstances[] = $item->getActiveLecture()->with('lecture')->get();
+            }
+        }
+        return $lectureInstances;
     }
 
     public function allLectures()
     {
         $couresesAttending = $this->course()->get()->keys()->all();
         return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->get();
-
     }
 
     public function saveCouse(\App\course $course, $role)

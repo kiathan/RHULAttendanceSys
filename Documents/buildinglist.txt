@@ -1,0 +1,13 @@
+Moore Building, 51.426582, -0.565304
+Horton Building, 51.426492, -0.563919
+Founders' Building, 51.424845, -0.566686
+McCrea Building, 51.426166, -0.564366
+Bourne Building, 51.426277, -0.562965
+Bourne Annex, 51.425974, -0.562471
+Queen's Building, 51.426424, -0.561508
+Boiler house 51.427116, -0.564744
+International Building, 51.427537, -0.563929
+Windsor Building, 51.425799, -0.565743
+Arts Building, 51.425965, -0.564733
+John Boyer Building, 51.425950, -0.561543
+Computer Center, 51.426310, -0.565727

@@ -8,10 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
-=======
 use Illuminate\Contracts\Auth\Guard;
->>>>>>> Mobile-UI-(draft)
+
 
 class lectureInstanceController extends Controller
 {
@@ -20,13 +18,25 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Guard $auth)
     {
-<<<<<<< HEAD
-        $lecture_instends = \App\lecture_instend::all();
-=======
+        if ($request->segment(1) == "api") {
+            $user = $auth->user();
+            $user = \App\User::find($user->id);
+            $lecutesInstance = $user->getCurrentLectureInstance();
+
+            $checkOfActiveCount = count($lecutesInstance, 1);
+            if($checkOfActiveCount == 0){
+                $response['state'] = 'failure';
+                $response['message'] = 'No lecture is active right now';
+
+                return json_encode($response);
+            }
+
+            return json_encode($user->getCurrentLectureInstance());
+        }
+
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
->>>>>>> Mobile-UI-(draft)
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -35,12 +45,6 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function create($filter = false)
-    {
-        if (!$filter) {
-            $lectures = \App\lecture::all();
-=======
     public function create($filter = false, $user_id = false)
     {
         $user = \App\User::all();
@@ -55,7 +59,6 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::whereIn('id', $lectures->pluck('id'))->where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
 
 
->>>>>>> Mobile-UI-(draft)
         } else {
             $currentTime = new Carbon();
             $day = strtolower($currentTime->format("l"));
@@ -63,11 +66,7 @@ class lectureInstanceController extends Controller
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
 
-<<<<<<< HEAD
-        return view('lecture_instend/create')->with(['lectures' => $lectures]);
-=======
         return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
->>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -93,12 +92,8 @@ class lectureInstanceController extends Controller
      */
     public function show($id)
     {
-<<<<<<< HEAD
-        return \App\lecture_instend::find($id);
-=======
         $lecture_instend = \App\lecture_instend::find($id);
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
->>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -121,15 +116,10 @@ class lectureInstanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-<<<<<<< HEAD
-        $instance = \App\lecture_instend::where('isActive', 'true')->first($id);
-
-=======
         $instance = \App\lecture_instend::find($id);
         $instance->fill($request->all());
         $instance->save();
         return redirect("/lecture_instends/show/" . $id);
->>>>>>> Mobile-UI-(draft)
     }
 
     /**
@@ -143,11 +133,6 @@ class lectureInstanceController extends Controller
         //
     }
 
-<<<<<<< HEAD
-    public function auth(Request $request)
-    {
-
-=======
     public function auth(Request $request, Guard $auth)
     {
         if ($request->segment(1) == "api") {
@@ -160,17 +145,24 @@ class lectureInstanceController extends Controller
                 $jsonRespones['message'] = "No lecture instance is active for the user";
                 return json_encode($jsonRespones);
             }
-            $lecture_instances = $lecture_instances[0];
-            $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
 
-            if ($user->checkIfAlreadyAttendnes($lecture_instances)) {
+            $lecture_instances = $lecture_instances[0];
+            $instanceAuth = NULL;
+            foreach ($lecture_instances as $lecture_instance) {
+                if($lecture_instance->checkQRcode($request->get('lectureAuthCode'))){
+                    $instanceAuth = $lecture_instance;
+                    break;
+                }
+            }
+
+            if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($lecture_instances)) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);
-            } else if ($authStatus) {
+            } else if ($instanceAuth) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "you have sign in to the lecture";
-                $user->addAttendnes($lecture_instances);
+                $user->addAttendnes($instanceAuth);
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";
@@ -179,15 +171,10 @@ class lectureInstanceController extends Controller
             }
         }
         return "In progress please hold on";
->>>>>>> Mobile-UI-(draft)
     }
 
     public function qrCode(Request $request, $id)
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> Mobile-UI-(draft)
         $lecture_instend = \App\lecture_instend::find($id);
 
         if (is_null($lecture_instend)) {
@@ -196,13 +183,11 @@ class lectureInstanceController extends Controller
              */
             return "";
         }
-<<<<<<< HEAD
 
         $response = Response::make($lecture_instend->sendQRcode(), 200);
 
 
         return $response;
-=======
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }
@@ -224,8 +209,8 @@ class lectureInstanceController extends Controller
         return redirect("/");
     }
 
-    public function status(Request $request){
->>>>>>> Mobile-UI-(draft)
+    public function status(Request $request)
+    {
 
     }
 }

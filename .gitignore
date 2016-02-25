@@ -8,16 +8,16 @@ App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/intermediat
 App Development/GroupApp/GroupApp/platforms/android/CordovaLib/build/tmp/packageDebugJar/MANIFEST.MF
 *.aar
 *.class
-<<<<<<< HEAD
+
 Documents/~$test1.xlsx
-<<<<<<< Updated upstream
+
 AttendanceWeb/Prototype/~$Web prototype.pptm
-=======
+
 web-server/.env
->>>>>>> Stashed changes
+
 
 web-server/.env.example
-=======
+
 
 /vendor
 /node_modules
@@ -49,4 +49,5 @@ App Development/GroupApp/GroupApp/platforms/android/.gradle/2.2.1/taskArtifacts/
 
 
 web-server/node_modules/bootstrap-sass/test/dummy_rails/tmp/cache/sprockets/v4.0/*
->>>>>>> master
+
+App Development/GroupApp/GroupApp/platforms/android/assets/www/plugins/org.apache.cordova.plugin.ActivityIndicator/www/activityIndicator.js

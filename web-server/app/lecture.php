@@ -21,6 +21,7 @@ class lecture extends Model
         return $this->belongsTo(\App\course::class);
     }
 
+
     public function lecture_instance()
     {
         return $this->hasMany(\App\lecture_instend::class);
@@ -70,4 +71,5 @@ class lecture extends Model
         }
 
     }
+
 }

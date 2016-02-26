@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 <<<<<<< HEAD
 =======
+
+>>>>>>> master
 use Illuminate\Contracts\Auth\Guard;
 
->>>>>>> Mobile-UI-(draft)
 class lectureController extends Controller
 {
     /**
@@ -19,12 +19,6 @@ class lectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function index()
-    {
-        $lectures = \App\lecture::all();
-
-=======
     public function index(Request $request, Guard $auth)
     {
 
@@ -34,7 +28,6 @@ class lectureController extends Controller
             return $user->allLectures();
         }
         $lectures = \App\lecture::all();
->>>>>>> Mobile-UI-(draft)
         return view('lecture.index')->with(['lectures' => $lectures]);
     }
 

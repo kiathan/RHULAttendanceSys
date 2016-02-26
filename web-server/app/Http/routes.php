@@ -22,27 +22,27 @@ Route::get('/',
         }
         return $linkText;
     });
-    
+
 Route::get('/welcome', function () {
-	return view('welcome');
+    return view('welcome');
 });
-    
+
 Route::get('/qa', function () {
-	return view('qa');
+    return view('qa');
 });
 
 Route::get('/now', function () {
-	return view('now');
+    return view('now');
 });
-    
+
 Route::get('/timetable', function () {
     return view('timetable');
 });
-    
+
 Route::get('/attendance', function () {
     return view('attendance');
 });
-    
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -80,9 +80,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
 
 Route::post('api/auth/login', 'AuthController@login');
 
-Route::get('/login', 'singinColtroller@singin');
-	
-Route::post('/login', 'singinColtroller@login');
+Route::any('/login', 'AuthController@login');
 
 Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');

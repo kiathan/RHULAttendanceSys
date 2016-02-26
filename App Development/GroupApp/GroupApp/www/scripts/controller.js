@@ -371,11 +371,11 @@ function loadTimetable() {
 };
 
 function setOrientation() {
-    window.plugins.orientationLock.lock("portrait");
+  window.plugins.orientationLock.lock("portrait");
 };
 
 function unlockOrientation() {
-    window.plugins.orientationLock.unlock();
+  window.plugins.orientationLock.unlock();
 };
 
 function loadLecturerSignInStud() {

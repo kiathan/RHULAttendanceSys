@@ -75,7 +75,7 @@ function loginReplyRedir() {
   } else if (localStorage.login == "true") {
     var isStudent = true;
 
-    if (localStorage.username == "lecturer") {
+    if (localStorage.username == 107900000) {
       isStudent = false;
     }
     if (isStudent) {
@@ -116,8 +116,11 @@ function loadAttendance() {
       ActivityIndicator.hide();
 
       var result1 = jQuery.parseJSON(data);
-      var result = result1[0][0];
+      var result;
 
+      if (result1.state == "success") {
+        result = result1[0][0];
+      }
       if (result1.state == "failure") {
         alert(result1.message);
         loginReplyRedir();
@@ -317,15 +320,12 @@ function loadTimetable() {
   var t = localStorage.token;
   var url = server + "api/lecture/index";
   var dataString = "username=" + u + "&token=" + t;
-
   var timetable = new Timetable();
-
 
   timetable.setScope(9, 22) //sets scope of table
   timetable.addLocations(['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY',
     'FRIDAY', 'SATURDAY', 'SUNDAY'
   ]); //row headings
-
 
   ActivityIndicator.show("Retrieving timetable information...");
   $.ajax({
@@ -336,14 +336,9 @@ function loadTimetable() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
-
-
       $.each(data, function(index) {
-
         var starttimeFormat = (data[index].starttime).split(":");
         var endtimeFormat = (data[index].endtime).split(":");
-        //alert(starttimeFormat[0] + endtimeFormat[0]);
-
         if (starttimeFormat[0] >= 9 && starttimeFormat[0] <= 21 &&
           endtimeFormat[0] <= 22 && endtimeFormat[0] >= 10) {
           timetable.addEvent((data[index].course.name + " - " + data[
@@ -352,29 +347,19 @@ function loadTimetable() {
               starttimeFormat[1]), new Date(null, null, null,
               endtimeFormat[0], endtimeFormat[1]));
         }
-
       });
-
       ActivityIndicator.hide();
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
-
     },
     error: function(data) {
       ActivityIndicator.hide();
       alert("Error - Cannot connect to server")
-
     },
-
   });
-
-
   var renderer = new Timetable.Renderer(timetable);
   renderer.draw('.timetable');
-
   $('.timetable').fadeIn();
-
-
 };
 
 function setOrientation() {
@@ -384,3 +369,64 @@ function setOrientation() {
 function unlockOrientation() {
   window.plugins.orientationLock.unlock();
 };
+
+function loadLecturerSignInStud() {
+  //get current class details
+  ActivityIndicator.show("Retrieving Class...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var url = server + "/api/lecture_instends/index";
+  var dataString = "username=" + u + "&token=" + t;
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      ActivityIndicator.hide();
+
+      var result1 = jQuery.parseJSON(data);
+
+
+      if (result1.state == "failure") {
+        alert(result1.message);
+        loginReplyRedir();
+      } else {
+        var result = result1[0][0];
+        //sets the screen with the display picture
+        localStorage.currentClassName = result.lecture.course.name;
+        localStorage.currentClassCode = result.lecture.course.code;
+
+        $("#lect_currentclass").val(localStorage.currentClassCode);
+        $("#timePicker1").val(result.lecture.starttime);
+      }
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+
+}
+
+function signInStud() {
+
+}
+
+function scanInStud() {
+
+}
+
+function signInStud_withServer() {
+  var time = $('#timePicker1').val();
+}

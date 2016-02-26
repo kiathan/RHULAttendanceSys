@@ -37,12 +37,14 @@
     $('.answer-btn').click(answerQuestion);
     $('.quiz-btn').click(start_stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
+    $('.sign-stud-btn').click(signInStud);
+    $('.scan-stud-btn').click(scanInStud);
     //$('.scanner')
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);
-  
     $(document).on("pageshow", "#Attendance", loadAttendance);
+    $(document).on("pageshow", "#LecturerSignInStud", loadLecturerSignInStud);
 
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",

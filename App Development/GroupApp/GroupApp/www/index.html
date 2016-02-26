@@ -92,12 +92,32 @@
     </div>
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
-            <li><a href="#">Sign Students In</a></li>
+            <li><a href="#LecturerSignInStud">Sign Students In</a></li>
             <li><a href="#">Current Lecture Attendance</a></li>
             <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
             <li><a href="#TimetableScreen">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="LecturerSignInStud">
+    <div data-role="header">
+        <h1>Sign Students In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
+          <p>You are now signing in:</p>
+          <input type="text" name="studname" id="studname" value="100793773" placeholder="Student's ID">
+          <p>For Class:</p>
+          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1111" placeholder="Class Code">
+          <p>Date of Class:</p>
+          <input type="date" name="datePicker1" id="datePicker1" data-role="date">
+          <p>Time of Class:</p>
+          <input type="time" name="timePicker1" id="timePicker1" value="09:00">
+          <input type="submit" class="sign-stud-btn" value="Sign Student In">
+      </form>
+        <button class="scan-stud-btn">Scan Student Card to Sign In</button>
     </div>
     <div class="footer-copy"></div>
 </div>

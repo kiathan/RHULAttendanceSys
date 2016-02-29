@@ -69,11 +69,11 @@ class fakeUsername extends Seeder
 
         $user = new App\User;
 
-        $user->username = "107900000";
+        $user->username = "87654321";
         $user->firstname = "Johannas";
         $user->middlename = "";
         $user->lastname = "Kinder";
-        $user->email = "107900000@rhul.ac.uk";
+        $user->email = "10790000@rhul.ac.uk";
         $user->password = Hash::make(hash("sha256", $user->username ));
         $user->save();
         $role = Role::where('str_id', 'lecturer')->firstOrFail();

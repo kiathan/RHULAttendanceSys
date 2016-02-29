@@ -37,7 +37,7 @@
     $('.answer-btn').click(answerQuestion);
     $('.quiz-btn').click(start_stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
-    $('.sign-stud-btn').click(signInStud);
+    $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);
     //$('.scanner')
 

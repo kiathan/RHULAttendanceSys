@@ -22,6 +22,31 @@ Route::get('/',
         }
         return $linkText;
     });
+    
+Route::get('/welcome', function () {
+	return view('welcome');
+});
+    
+Route::get('/qa', function () {
+	return view('qa');
+});
+
+Route::get('/now', function () {
+	return view('now');
+});
+    
+Route::get('/timetable', function () {
+    return view('timetable');
+});
+    
+Route::get('/attendance', function () {
+    return view('attendance');
+});
+    
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -81,9 +106,11 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
 
 Route::post('api/auth/login', 'AuthController@login');
 
+
 Route::any('/login', 'AuthController@login');
 
 Route::any('/logout', 'AuthController@logout');
+
 
 Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');
@@ -110,6 +137,10 @@ Route::get('/lecture_instends/create/{filter?}/{userid?}', 'lectureInstanceContr
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
+
+Route::post('/quiz/studentQuiz','quizController@ansQuiz');
+Route::post('/quiz/lectureQuiz','quizController@startNstop');
+Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');

@@ -35,9 +35,7 @@ class lectureInstanceController extends Controller
             $reuslt = array_merge($reuslt, ['state' => "success", 'message' => ""]);
             return json_encode($reuslt);
         }
-
         $lecture_instends = \App\lecture_instend::where('isActive', '1')->get()->load('lecture');
-
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -132,6 +130,18 @@ class lectureInstanceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function authUser(Request $request, Guard $auth)
+    {
+        $currentUser = $auth->user();
+        $userToSignIn = \App\User::where('username', $request->input('username'));
+        // Date
+        // Time
+        $date = new \Carbon\Carbon($request->input('date'));
+
+        $lectureInstacne = \App\lecture_instend::find(1);
+
     }
 
     public function auth(Request $request, Guard $auth)

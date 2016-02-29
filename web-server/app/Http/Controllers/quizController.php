@@ -41,7 +41,6 @@ class quizController extends Controller
 
     public function startNstop(Request $switcher)
     {
-
         $lecture_inc = \App\lecture_instend::find($switcher->input('courseID'));
 
         if (is_null($lecture_inc)) {

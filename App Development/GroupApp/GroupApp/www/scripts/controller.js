@@ -25,7 +25,8 @@ function login() {
       retryLimit: 5,
       cache: false,
       success: function(data) {
-        var loginresult = data;
+        var loginresult = makeJSON(data);
+
         ActivityIndicator.hide();
         if (loginresult.state == "success" && loginresult.username ==
           localStorage.username) {
@@ -73,12 +74,12 @@ function loginReplyRedir() {
     alert("Server unavailable. Please try again later.");
     window.location.href = "#logIn";
   } else if (localStorage.login == "true") {
-    var isStudent = true;
+    localStorage.isStudent = "true";
 
-    if (localStorage.username == 107900000) {
-      isStudent = false;
+    if (localStorage.username < 100000000) {
+      localStorage.isStudent = "false";
     }
-    if (isStudent) {
+    if (localStorage.isStudent == "true") {
       window.location.href = "#StudentLanding";
     } else {
       window.location.href = "#LecturerLanding";
@@ -393,7 +394,6 @@ function loadLecturerSignInStud() {
 
       if (result1.state == "failure") {
         alert(result1.message);
-        loginReplyRedir();
       } else {
         var result = result1[0][0];
         //sets the screen with the display picture
@@ -419,14 +419,58 @@ function loadLecturerSignInStud() {
 
 }
 
-function signInStud() {
-
-}
-
 function scanInStud() {
-
+  cordova.plugins.barcodeScanner.scan(
+    function(result) {
+      $('#studname').val(result.text);
+      window.location.href = "#LecturerSignInStud";
+    },
+    function(error) {
+      alert("Scan card unsuccessful! Please key in successfully.");
+    });
 }
 
 function signInStud_withServer() {
+  ActivityIndicator.show("Signing in Student...");
+  var u = localStorage.username;
+  var t = localStorage.token;
   var time = $('#timePicker1').val();
+  var stud = $('#studname').val();
+  var cc = $('#lect_currentclass').val();
+  var date = $('#datePicker1').val();
+  var url = server + "/api/lecture_instends/index";
+  var dataString = "username=" + u + "&token=" + t + "&time=" + time +
+    "&student=" + stud + "&classcode=" + cc + "&date=" + date;
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      ActivityIndicator.hide();
+
+      var result1 = makeJSON(data);
+
+      if (result1.state == "failure") {
+        alert(result1.message);
+      } else {
+        alert(result1.message);
+      }
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+
 }

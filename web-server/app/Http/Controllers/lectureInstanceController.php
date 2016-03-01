@@ -192,7 +192,7 @@ class lectureInstanceController extends Controller
             $userToSignIn->addAttendnes($lecture_instance);
             return json_encode(["state" => "success", "message" => "you have successfully signed the student into the lecture"]);
         } else {
-            return json_encode(["state" => "failure", "message" => "unable to sign user in"]);
+            return json_encode(["state" => "failure", "message" => "Student already signed in"]);
         }
     }
 

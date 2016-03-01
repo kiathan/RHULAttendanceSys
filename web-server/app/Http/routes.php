@@ -103,6 +103,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/authUser', 'lectureInstanceController@authUser');
     Route::post('/lecture_instends/status', 'lectureInstanceController@status');
     Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
+    Route::post('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 
     Route::post('/quiz/studentQuiz','quizController@ansQuiz');
     Route::post('/quiz/lectureQuiz','quizController@startNstop');

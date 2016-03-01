@@ -64,7 +64,6 @@ class lectureInstanceController extends Controller
             $time = $currentTime->format("G:i:s");
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
-
         return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
     }
 
@@ -89,10 +88,25 @@ class lectureInstanceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $lecture_instend = \App\lecture_instend::find($id);
-        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
+        $UserSignIn = $lecture_instend->attendentsSignin;
+        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
+
+        if ($request->segment(1) == "api") {
+            $return = array();
+            $return["state"] = 'success';
+            $return['message'] = "List of user that have attend and not attend the class";
+            $return['attend-count'] = sizeof($UserSignIn);
+            $return['absence-count'] = sizeof($UserNotSignIn);
+            $return['total-count'] = $lecture_instend->lecture->course->user->count();
+            $return['attend-students'] = $UserSignIn;
+            $return['absence-students'] = $UserNotSignIn;
+            return json_encode($return);
+        }
+
+        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend, 'UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
     }
 
     /**
@@ -148,7 +162,7 @@ class lectureInstanceController extends Controller
     {
 
         $currentUser = $auth->user();
-        $userToSignIn = \App\User::where('username', $request->input('username'))->first();
+        $userToSignIn = \App\User::where('username', $request->input('student'))->first();
         $time = $request->input('time');
 
         $dateTime = new \Carbon\Carbon($request->input('date') . " " . $time);

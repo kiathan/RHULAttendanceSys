@@ -46,7 +46,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $hidden = [
         'password',
-        'remember_token'];
+        'remember_token',
+        'token','created_at', 'updated_at'];
 
 
     public function course()

@@ -132,16 +132,54 @@ class lectureInstanceController extends Controller
         //
     }
 
+    /**
+     * @param Request $request
+     * @param Guard $auth
+     *
+     * This is for sign in an user
+     * API
+     *  student    =>     student number (to be sign in)
+     *  date       =>     dd-mm-yyyy
+     *  time       =>     hh:mm
+     *  classcode  =>     yyxxxx
+     *
+     */
     public function authUser(Request $request, Guard $auth)
     {
+
         $currentUser = $auth->user();
-        $userToSignIn = \App\User::where('username', $request->input('username'));
-        // Date
-        // Time
-        $date = new \Carbon\Carbon($request->input('date'));
+        $userToSignIn = \App\User::where('username', $request->input('username'))->first();
+        $time = $request->input('time');
 
-        $lectureInstacne = \App\lecture_instend::find(1);
+        $dateTime = new \Carbon\Carbon($request->input('date') . " " . $time);
+        $course = \App\course::where('code', $request->input('classcode'))->first();
 
+        if (is_null($course)) {
+            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+        }
+
+        $lecture = $course->lecture()// Get the lectures related to the course
+        ->where('dayofweek', strtolower($dateTime->format('l')))// Get the day of week
+        ->where('starttime', '<=', $dateTime->format('h:i:s'))// Check that the start time is before or equal to the time given
+        ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
+        ->first();                                          // Get the first instances as the can be to lecture
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => "failure", "message" => "No lecture on selected date and/or time"]);
+        }
+
+        $lecture_instance = $lecture->lecture_instance()->orderBy('created_at', 'decs')->first();
+
+        if (is_null($lecture_instance)) {
+            return json_encode(["state" => "failure", "message" => "can't find selected lecture"]);
+        }
+
+        if (!$userToSignIn->checkIfAlreadyAttendnes($lecture_instance)) {
+            $userToSignIn->addAttendnes($lecture_instance);
+            return json_encode(["state" => "success", "message" => "you have successfully signed the student into the lecture"]);
+        } else {
+            return json_encode(["state" => "failure", "message" => "unable to sign user in"]);
+        }
     }
 
     public function auth(Request $request, Guard $auth)
@@ -223,6 +261,11 @@ class lectureInstanceController extends Controller
     }
 
     public function status(Request $request)
+    {
+
+    }
+
+    public function attends(Request $request)
     {
 
     }

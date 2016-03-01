@@ -15,7 +15,7 @@ class quizController extends Controller
 
     public function ansQuiz(Request $data)
     {
-        $student_inc = \App\User::where('username', $data->input('user_id'))->first();
+        $student_inc = \App\User::where('username', $data->input('username'))->first();
         if (is_null($student_inc)) {
             return json_encode(['state' => 'fail', 'message' => 'No activate student id found.']);
         } else {
@@ -24,12 +24,12 @@ class quizController extends Controller
                 return json_encode(['state' => 'fail', 'message' => 'No activate question found.']);
             } else {
                 $question = $data->input('courseID');
-                $user = $data->input('user_id');
+                $user = $data->input('username');
                 $answer = $data->input('answer');
 
 
                 DB::table('awnsers')->insert(
-                    ['courseID' => $question, 'user_id' => $user, 'awnser' => $answer]
+                    ['courseID' => $question, 'username' => $user, 'awnser' => $answer]
                 );
 
                 return json_encode(['state' => 'success', 'message' => 'You have answered question.']);

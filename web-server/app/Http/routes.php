@@ -100,7 +100,12 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
     Route::post('/lecture_instends/store', 'lectureInstanceController@store');
     Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
+    Route::post('/lecture_instends/authUser', 'lectureInstanceController@authUser');
     Route::post('/lecture_instends/status', 'lectureInstanceController@status');
+    Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
+
+    Route::post('/quiz/studentQuiz','quizController@ansQuiz');
+    Route::post('/quiz/lectureQuiz','quizController@startNstop');
 
 });
 
@@ -138,8 +143,6 @@ Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
 
-Route::post('/quiz/studentQuiz','quizController@ansQuiz');
-Route::post('/quiz/lectureQuiz','quizController@startNstop');
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');

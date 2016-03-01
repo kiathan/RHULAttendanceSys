@@ -104,7 +104,7 @@
 			<div class = "collapse navbar-collapse navHeaderCollapse">
 				<ul class = "nav navbar-nav navbar-right">
 					
-					<li><a href = "/">Home</a></li>
+					<li class="active"><a href = "/">Home</a></li>
 					<li><a href = "/attendance">Attendance</a></li>
 					<li><a href = "/qa">Q&A</a></li>
 					<li><a href = "/timetable">Timetable</a></li>

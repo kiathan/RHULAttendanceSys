@@ -108,7 +108,7 @@
 					<li><a href = "/attendance">Attendance</a></li>
 					<li><a href = "/qa">Q&A</a></li>
 					<li><a href = "/timetable">Timetable</a></li>
-					<li><a href = "#">Logout</a></li>
+					<li><a href = "/auth/logout">Logout</a></li>
 					<li><a href = "/contact">Contact Us</a></li>
 					
 				</ul>

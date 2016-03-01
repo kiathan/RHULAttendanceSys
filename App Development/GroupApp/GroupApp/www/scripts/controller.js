@@ -116,7 +116,7 @@ function loadAttendance() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      var result1 = jQuery.parseJSON(data);
+      var result1 = makeJSON(data);
       var result;
 
       if (result1.state == "success") {
@@ -206,7 +206,7 @@ function signin_withServer() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
-      var result = JSON.parse(data);
+      var result = makeJSON(data);
       ActivityIndicator.hide();
 
       //sets the screen with the display picture
@@ -389,7 +389,7 @@ function loadLecturerSignInStud() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      var result1 = jQuery.parseJSON(data);
+      var result1 = makeJSON(data);
 
 
       if (result1.state == "failure") {
@@ -438,7 +438,7 @@ function signInStud_withServer() {
   var stud = $('#studname').val();
   var cc = $('#lect_currentclass').val();
   var date = $('#datePicker1').val();
-  var url = server + "/api/lecture_instends/index";
+  var url = server + "/api/lecture_instends/authUser";
   var dataString = "username=" + u + "&token=" + t + "&time=" + time +
     "&student=" + stud + "&classcode=" + cc + "&date=" + date;
 

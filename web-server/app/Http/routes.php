@@ -51,6 +51,10 @@ Route::get('/users', function () {
     return view('users');
 });
 
+Route::get('/bla', function(){
+    return "fff";
+});
+
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
 
     Route::post('/auth/index', 'AuthController@index');

@@ -271,10 +271,10 @@ function answerQuestion() {
     var u = localStorage.username;
     var t = localStorage.token;
     var cc = "CS1111";
-    var url = server + "/api/quiz/studentQuiz";
+    var url = server + "api/quiz/studentQuiz";
     var dataString = "username=" + u + "&token=" + t + "&answer=" + v + "&courseID=" + cc;
     $.ajax({
-        method: "POST",
+        type: "POST",
         url: url,
         data: dataString,
         tryCount: 0,

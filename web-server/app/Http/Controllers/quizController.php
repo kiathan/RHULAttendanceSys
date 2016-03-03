@@ -15,6 +15,7 @@ class quizController extends Controller
 
     public function ansQuiz(Request $data)
     {
+        return "HELLOOOOO";
         $student_inc = \App\User::where('username', $data->input('username'))->first();
         if (is_null($student_inc)) {
             return json_encode(['state' => 'failure', 'message' => 'No active student found.']);

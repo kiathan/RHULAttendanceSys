@@ -104,7 +104,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/status', 'lectureInstanceController@status');
     Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
 
-    Route::post('/quiz/studentQuiz','quizController@ansQuiz');
+    Route::any('/quiz/studentQuiz','quizController@ansQuiz');
     Route::post('/quiz/lectureQuiz','quizController@startNstop');
 
 });

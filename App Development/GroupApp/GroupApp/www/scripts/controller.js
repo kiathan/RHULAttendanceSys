@@ -269,9 +269,9 @@ function answerQuestion() {
     ActivityIndicator.show("Sending answer to lecture...");
     var v = this.value;
     var u = localStorage.username;
-    var t = 'login';
-    var cc = localStorage.currentClassCode;
-    var url = server + "api/quiz/studentQuiz";
+    var t = localStorage.token;
+    var cc = "CS1111";
+    var url = server + "/api/quiz/studentQuiz";
     var dataString = "username=" + u + "&token=" + t + "&answer=" + v + "&courseID=" + cc;
     $.ajax({
         method: "POST",

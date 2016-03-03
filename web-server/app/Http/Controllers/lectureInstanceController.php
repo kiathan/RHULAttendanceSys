@@ -8,13 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
-
-use Illuminate\Contracts\Auth\Guard;
-=======
 use Illuminate\Contracts\Auth\Guard;
 
->>>>>>> master
 
 class lectureInstanceController extends Controller
 {
@@ -23,9 +18,24 @@ class lectureInstanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Guard $auth)
     {
-        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get();
+        if ($request->segment(1) == "api") {
+            $user = $auth->user();
+            $user = \App\User::find($user->id);
+            $lecutesInstance = $user->getCurrentLectureInstance();
+            $checkOfActiveCount = sizeof($lecutesInstance);
+            if ($checkOfActiveCount == 0) {
+                $response['state'] = 'failure';
+                $response['message'] = 'No lecture is active right now';
+
+                return json_encode($response);
+            }
+            $reuslt = $user->getCurrentLectureInstance();
+            $reuslt = array_merge($reuslt, ['state' => "success", 'message' => ""]);
+            return json_encode($reuslt);
+        }
+        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get()->load('lecture');
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
@@ -54,7 +64,6 @@ class lectureInstanceController extends Controller
             $time = $currentTime->format("G:i:s");
             $lectures = \App\lecture::where("dayofweek", $day)->where("starttime", "<=", $time)->where("endtime", ">=", $time)->get();
         }
-
         return view('lecture_instend/create')->with(['lectures' => $lectures, "users" => $user]);
     }
 
@@ -79,14 +88,25 @@ class lectureInstanceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-<<<<<<< HEAD
-        return \App\lecture_instend::find($id);
-=======
->>>>>>> master
         $lecture_instend = \App\lecture_instend::find($id);
-        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend]);
+        $UserSignIn = $lecture_instend->attendentsSignin;
+        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
+
+        if ($request->segment(1) == "api") {
+            $return = array();
+            $return["state"] = 'success';
+            $return['message'] = "List of user that have attend and not attend the class";
+            $return['attend-count'] = sizeof($UserSignIn);
+            $return['absence-count'] = sizeof($UserNotSignIn);
+            $return['total-count'] = $lecture_instend->lecture->course->user->count();
+            $return['attend-students'] = $UserSignIn;
+            $return['absence-students'] = $UserNotSignIn;
+            return json_encode($return);
+        }
+
+        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend, 'UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
     }
 
     /**
@@ -126,6 +146,56 @@ class lectureInstanceController extends Controller
         //
     }
 
+    /**
+     * @param Request $request
+     * @param Guard $auth
+     *
+     * This is for sign in an user
+     * API
+     *  student    =>     student number (to be sign in)
+     *  date       =>     dd-mm-yyyy
+     *  time       =>     hh:mm
+     *  classcode  =>     yyxxxx
+     *
+     */
+    public function authUser(Request $request, Guard $auth)
+    {
+
+        $currentUser = $auth->user();
+        $userToSignIn = \App\User::where('username', $request->input('student'))->first();
+        $time = $request->input('time');
+
+        $dateTime = new \Carbon\Carbon($request->input('date') . " " . $time);
+        $course = \App\course::where('code', $request->input('classcode'))->first();
+
+        if (is_null($course)) {
+            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+        }
+
+        $lecture = $course->lecture()// Get the lectures related to the course
+        ->where('dayofweek', strtolower($dateTime->format('l')))// Get the day of week
+        ->where('starttime', '<=', $dateTime->format('h:i:s'))// Check that the start time is before or equal to the time given
+        ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
+        ->first();                                          // Get the first instances as the can be to lecture
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => "failure", "message" => "No lecture on selected date and/or time"]);
+        }
+
+        $lecture_instance = $lecture->lecture_instance()->orderBy('created_at', 'decs')->first();
+
+        if (is_null($lecture_instance)) {
+            return json_encode(["state" => "failure", "message" => "can't find selected lecture"]);
+        }
+
+        if (!$userToSignIn->checkIfAlreadyAttendnes($lecture_instance)) {
+            $userToSignIn->addAttendnes($lecture_instance);
+            return json_encode(["state" => "success", "message" => "you have successfully signed the student into the lecture"]);
+        } else {
+            return json_encode(["state" => "failure", "message" => "Student already signed in"]);
+        }
+    }
+
     public function auth(Request $request, Guard $auth)
     {
         if ($request->segment(1) == "api") {
@@ -138,21 +208,28 @@ class lectureInstanceController extends Controller
                 $jsonRespones['message'] = "No lecture instance is active for the user";
                 return json_encode($jsonRespones);
             }
-            $lecture_instances = $lecture_instances[0];
-            $authStatus = $lecture_instances->checkQRcode($request->get('lectureAuthCode'));
 
-            if ($user->checkIfAlreadyAttendnes($lecture_instances)) {
+            $lecture_instances = $lecture_instances[0];
+            $instanceAuth = NULL;
+            foreach ($lecture_instances as $lecture_instance) {
+                if ($lecture_instance->checkQRcode($request->get('lectureAuthCode'))) {
+                    $instanceAuth = $lecture_instance;
+                    break;
+                }
+            }
+
+            if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($instanceAuth)) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "Already sign in";
                 return json_encode($jsonRespones);
-            } else if ($authStatus) {
+            } else if ($instanceAuth) {
                 $jsonRespones['state'] = "success";
                 $jsonRespones['message'] = "you have sign in to the lecture";
-                $user->addAttendnes($lecture_instances);
+                $user->addAttendnes($instanceAuth);
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";
-                $jsonRespones['message'] = "The qr code did not matach the entry for the class";
+                $jsonRespones['message'] = "The qr code did not match the entry for the class";
                 return json_encode($jsonRespones);
             }
         }
@@ -169,14 +246,7 @@ class lectureInstanceController extends Controller
              */
             return "";
         }
-<<<<<<< HEAD
-=======
 
-        $response = Response::make($lecture_instend->sendQRcode(), 200);
-
-
-        return $response;
->>>>>>> master
         $response = Response::make($lecture_instend->sendQRcode(), 200);
         return $response;
     }
@@ -186,19 +256,30 @@ class lectureInstanceController extends Controller
     public function createLectureInstance(Request $request)
     {
         $user = \App\User::find($request->get('user_id'));
-        if (!$user->currentLectures()) {
+        if (sizeof($user->currentLectures()) == 0) {
             \App\lecture::createRandomLecture($user);
         }
 
-        $lecutre = $user->currentLectures();
-        if (\App\lecture_instend::where('isActive', 'true')->where('lecture_id', $lecutre->id)->first()) {
-            return redirect("/");
+        $lecutres = $user->currentLectures();
+        foreach ($lecutres as $lecutre) {
+            if (\App\lecture_instend::where('isActive', 'true')->where('lecture_id', $lecutre->id)->first()) {
+                return redirect("/");
+            }
         }
-        \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
+
+        foreach ($lecutres as $lecutre) {
+            \App\lecture_instend::create(['lecture_id' => $lecutre->id, 'isActive' => '1']);
+            break;
+        }
         return redirect("/");
     }
 
     public function status(Request $request)
+    {
+
+    }
+
+    public function attends(Request $request)
     {
 
     }

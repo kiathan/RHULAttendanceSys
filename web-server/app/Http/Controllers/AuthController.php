@@ -37,6 +37,7 @@ class AuthController extends Controller
     public function create(Request $request)
     {
         $roles = Role::all();
+
         $courses = \App\course::all();
         return view('auth.create', ["roles" => $roles, "courses" => $courses]);
     }
@@ -60,9 +61,11 @@ class AuthController extends Controller
                 $user = Auth::user();
                 $user->token = Str::random(60) . "-" . time();
                 $user->save();
+
                 return response()->json(["state" => "success", "username" => $user->username, "user_id" => $user->id, "token" => hash("sha256", $user->token)]);
             } else {
                 return json_encode(["state" => "failure", "message" => "username or password wrong"]);
+
             }
         }
 
@@ -75,6 +78,7 @@ class AuthController extends Controller
 
 
         return view('login')->with(["signInResult" => Auth::check()]);
+
     }
 
     /**
@@ -96,10 +100,12 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
+
             foreach ($request->get('coures') as $course_id) {
                 $user->saveCouse(\App\course::find($course_id), 'student');
             }
             return redirect("/");
+
 
         } else {
             return redirect("/auth/create");
@@ -157,3 +163,5 @@ class AuthController extends Controller
 
     }
 }
+
+

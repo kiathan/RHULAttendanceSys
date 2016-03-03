@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class lecture extends Model
 {
+    protected $with = ["course", "venue", 'lecture_instance'];
     protected $fillable = ["course_id", "venue_id", "dayofweek", "starttime", "endtime"];
-
+    protected $appends = ['UserAttended'];
 
     public function venue()
     {
@@ -19,6 +21,7 @@ class lecture extends Model
         return $this->belongsTo(\App\course::class);
     }
 
+
     public function lecture_instance()
     {
         return $this->hasMany(\App\lecture_instend::class);
@@ -29,6 +32,32 @@ class lecture extends Model
         return $this->lecture_instance()->where('isActive', '1');
     }
 
+    public function getUserAttendedAttribute()
+    {
+        $week = new \Carbon\Carbon();
+        $user = Auth::user();
+        $last_lecture_instances = $this->lecture_instance()->orderBy('created_at', 'desc')->where('created_at', '>=', $week->startOfWeek())->first();
+        if (is_null($last_lecture_instances)) {
+            return false;
+        }
+
+        if(is_null($user))
+        {
+            return false;
+        }
+        return $user->checkIfAlreadyAttendnes($last_lecture_instances);
+    }
+
+    public function setUserAttendedAttribute()
+    {
+        $week = new \Carbon\Carbon();
+        $user = Auth::user();
+        $last_lecture_instances = $this->lecture_instance()->orderBy('created_at', 'desc')->where('created_at', '>=', $week->startOfWeek())->first();
+        if (is_null($last_lecture_instances)) {
+            return false;
+        }
+        return $user->checkIfAlreadyAttendnes($last_lecture_instances);
+    }
 
     public static function createRandomLecture(\App\User $user)
     {
@@ -42,4 +71,5 @@ class lecture extends Model
         }
 
     }
+
 }

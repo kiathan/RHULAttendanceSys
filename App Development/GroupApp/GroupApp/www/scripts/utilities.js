@@ -26,6 +26,17 @@ function deg2rad(deg) {
   return deg * (Math.PI / 180)
 }
 
+function makeJSON(data) {
+  var json = data;
+  try {
+    var json = $.parseJSON(data);
+  } catch (err) {
+    return data;
+  }
+
+  return json;
+}
+
 //enables and set native pop up
 function enableNativePopUp() {
 

@@ -9,6 +9,7 @@
   document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
   function onDeviceReady() {
+    window.plugins.orientationLock.lock("portrait");
     // Handle the Cordova pause and resume events
     document.addEventListener('pause', onPause.bind(this), false);
     document.addEventListener('resume', onResume.bind(this), false);
@@ -36,10 +37,14 @@
     $('.answer-btn').click(answerQuestion);
     $('.quiz-btn').click(start_stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
+    $('.sign-stud-btn').click(signInStud_withServer);
+    $('.scan-stud-btn').click(scanInStud);
     //$('.scanner')
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
+    $(document).on("pageshow", "#StudentLanding", setOrientation);
     $(document).on("pageshow", "#Attendance", loadAttendance);
+    $(document).on("pageshow", "#LecturerSignInStud", loadLecturerSignInStud);
 
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",

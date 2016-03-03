@@ -13,7 +13,7 @@
 
 Route::get('/',
     function () {
-        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
+        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index/{filter?}", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
 
         $linkText = "";
         foreach ($links as $key => $link) {
@@ -22,6 +22,31 @@ Route::get('/',
         }
         return $linkText;
     });
+    
+Route::get('/welcome', function () {
+	return view('welcome');
+});
+    
+Route::get('/qa', function () {
+	return view('qa');
+});
+
+Route::get('/now', function () {
+	return view('now');
+});
+    
+Route::get('/timetable', function () {
+    return view('timetable');
+});
+    
+Route::get('/attendance', function () {
+    return view('attendance');
+});
+    
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -67,7 +92,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/couse/create', 'courseController@create');
     Route::post('/couse/store/', 'courseController@store');
 
-    Route::post('/lecture/index', 'lectureController@index');
+    Route::post('/lecture/index/{filter?}', 'lectureController@index');
     Route::post('/lecture/create', 'lectureController@create');
     Route::post('/lecture/store', 'lectureController@store');
 
@@ -79,24 +104,36 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/create/{filter?}', 'lectureInstanceController@create');
     Route::post('/lecture_instends/store', 'lectureInstanceController@store');
     Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
+    Route::post('/lecture_instends/authUser', 'lectureInstanceController@authUser');
+    Route::post('/lecture_instends/status', 'lectureInstanceController@status');
+    Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
+    Route::post('/lecture_instends/show/{id}', 'lectureInstanceController@show');
+
+    Route::post('/quiz/studentQuiz','quizController@ansQuiz');
+    Route::post('/quiz/lectureQuiz','quizController@startNstop');
 
 });
 
 Route::post('api/auth/login', 'AuthController@login');
 
+
 Route::any('/login', 'AuthController@login');
+
+Route::any('/logout', 'AuthController@logout');
+
 
 Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');
 Route::post('/auth/store', 'AuthController@store');
 Route::get('/auth/logout', 'AuthController@logout');
+Route::get('/auth/show/{id}', 'AuthController@show');
 
 
 Route::get('/couse/index', 'courseController@index');
 Route::get('/couse/create', 'courseController@create');
 Route::post('/couse/store/', 'courseController@store');
 
-Route::get('/lecture/index', 'lectureController@index');
+Route::get('/lecture/index/{filter?}', 'lectureController@index');
 Route::get('/lecture/create', 'lectureController@create');
 Route::post('/lecture/store', 'lectureController@store');
 
@@ -110,6 +147,8 @@ Route::get('/lecture_instends/create/{filter?}/{userid?}', 'lectureInstanceContr
 Route::post('/lecture_instends/store', 'lectureInstanceController@store');
 Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
+
+Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
 Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');

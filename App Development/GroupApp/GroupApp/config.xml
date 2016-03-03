@@ -109,4 +109,7 @@
     <plugin name="org.apache.cordova.plugin.ActivityIndicator" spec="https://github.com/Initsogar/cordova-activityindicator" />
     <plugin name="onesignal-cordova-plugin" spec="~1.11.0" />
     <plugin name="jaeger.Html5Video" spec="https://github.com/jaeger25/Html5Video.git" />
+
+    <plugin name="com.phonegap.plugins.OrientationLock" spec="https://github.com/cogitor/PhoneGap-OrientationLock.git" />
 </widget>
+

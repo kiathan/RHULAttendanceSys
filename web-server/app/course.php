@@ -10,7 +10,7 @@ class course extends Model
 
     public function lecture()
     {
-        return $this->belongsTo(\App\lecture::class);
+        return $this->hasMany(\App\lecture::class);
     }
 
     public function attachUser(\App\User $user, $role)

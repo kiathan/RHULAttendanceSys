@@ -18,8 +18,8 @@
     <div data-role="main" class="ui-content">
         <div class = "loginformspace"></div>
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-            <input type="text" name="username" id="username" value="testuser" placeholder="Username">
-            <input type="password" name="password" id="password" value="testpass" placeholder="Password">
+            <input type="text" name="username" id="username" value="100793773" placeholder="Username">
+            <input type="password" name="password" id="password" value="100793773" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
         </form>
     </div>
@@ -38,6 +38,7 @@
             <li><a href="#Attendance">Attendance Sign-In</a></li>
             <li><a href="#StudentQuestion">Answer Lecture Question</a></li>
             <li><a href="#TimetableScreen">Timetable</a></li>
+            <li><a href="#UsefulInfoScreen">Useful Information</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
 
@@ -78,7 +79,7 @@
         <h1>Timetable</h1>
     </div>
       <div data-role="main" id="tableContainer">
-          <h1 hidden align="center" style="background-color: lightslategrey; color:lightgrey; border-radius:50px;" id="rotateWarning" class="ui-content ui-icon-recycle">Rotate Device</h1>
+
           <div hidden class="timetable"></div>
       </div>
 
@@ -91,12 +92,33 @@
     </div>
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
-            <li><a href="#">Sign Students In</a></li>
+            <li><a href="#LecturerSignInStud">Sign Students In</a></li>
             <li><a href="#">Current Lecture Attendance</a></li>
             <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
             <li><a href="#TimetableScreen">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
         </ul>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="LecturerSignInStud">
+    <div data-role="header">
+        <h1>Sign Students In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
+          <p>You are now signing in:</p>
+          <input type="text" name="studname" id="studname" value="100793773" placeholder="Student's ID">
+          <button class="scan-stud-btn">Scan Student Card to Sign In</button>
+          <p>For Class:</p>
+          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1111" placeholder="Class Code">
+          <p>Date of Class:</p>
+          <input type="date" name="datePicker1" id="datePicker1" data-role="date">
+          <p>Time of Class:</p>
+          <input type="time" name="timePicker1" id="timePicker1" value="09:00">
+          <input type="submit" class="sign-stud-btn" value="Sign Student In">
+      </form>
+
     </div>
     <div class="footer-copy"></div>
 </div>
@@ -128,6 +150,20 @@
         </div>
     </div>
     <div class="footer-copy"></div>
+</div>
+
+<div data-role="page" data-position="fixed" id="UsefulInfoScreen">
+    <div data-role="header">
+        <h1>Useful Information</h1>
+    </div>
+      <div data-role="main" id="listContainer">
+          <ul data-role="listview" data-inset="true">
+            <li><a href="#">RHUL Moodle</a></li>
+            <li><a href="#">RHUL Website</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-copy"></div>
 </div>
 
 

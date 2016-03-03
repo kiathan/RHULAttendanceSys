@@ -14,7 +14,7 @@ class CreateBasicRoles extends Migration
     {
         PermissionsManager::createRole('admin', 'Administrator');
         PermissionsManager::createRole('manager', 'App manger');
-        PermissionsManager::createRole('lectuer', 'lectuer');
+        PermissionsManager::createRole('lecturer', 'lecturer');
         PermissionsManager::createRole('PhD', 'Postgraduate research');
         PermissionsManager::createRole('MSc', 'Postgraduate taught');
         PermissionsManager::createRole('BSc', 'Undergraduate');

@@ -1,6 +1,16 @@
 body {
 	margin-bottom: 80px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+html{
+	background-size:cover;
 }
+th{
+	text-align: center;
+	width: 15%;
+}
+
 
 /*And then change */
  .img-responsive {
@@ -24,4 +34,38 @@ body {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
+}
+
+.jumbotron1 {
+   background: rgb(40, 20, 0); /* This is for ie8 and below */
+   background: rgba(40, 20, 0, 0.5); 
+}
+
+
+.font1{
+	font-family: 'Lobster', cursive;
+	color: #FFFFFF;
+}
+
+.font2{
+	font-family: 'Lobster', cursive;
+	color: #F5D0A9;
+}
+.font3{
+	font-family: 'Lobster', cursive;
+	color: #69249A;
+}
+
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0.05, #f22),  color-stop(0.2, #ff2),color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.table1{
+	width: 80%;
+	text-align: center;
+	
 }

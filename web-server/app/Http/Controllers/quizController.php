@@ -17,11 +17,11 @@ class quizController extends Controller
     {
         $student_inc = \App\User::where('username', $data->input('username'))->first();
         if (is_null($student_inc)) {
-            return json_encode(['state' => 'fail', 'message' => 'No activate student id found.']);
+            return json_encode(['state' => 'failure', 'message' => 'No active student found.']);
         } else {
             $lecture_inc = \App\question::find($data->input('courseID'));
             if (is_null($lecture_inc)) {
-                return json_encode(['state' => 'fail', 'message' => 'No activate question found.']);
+                return json_encode(['state' => 'failure', 'message' => 'No active question found.']);
             } else {
                 $question = $data->input('courseID');
                 $user = $data->input('username');
@@ -44,7 +44,7 @@ class quizController extends Controller
         $lecture_inc = \App\lecture_instend::find($switcher->input('courseID'));
 
         if (is_null($lecture_inc)) {
-            return json_encode(['state' => 'fail', 'message' => 'No activate lecturer found.']);
+            return json_encode(['state' => 'failure', 'message' => 'No active lecturer found.']);
         } else {
             $question = \App\question::where('lecture_instend_id', $switcher->input('courseID'));
             $question = $question->first();

@@ -13,28 +13,43 @@ use Illuminate\Database\Query\Builder;
 class quizController extends Controller
 {
 
-    public function ansQuiz(Request $data)
+    public function ansQuiz(Request $data, Guard $auth)
     {
-        $student_inc = \App\User::where('username', $data->input('user_id'))->first();
-        if (is_null($student_inc)) {
-            return json_encode(['state' => 'fail', 'message' => 'No activate student id found.']);
-        } else {
-            $lecture_inc = \App\question::find($data->input('courseID'));
-            if (is_null($lecture_inc)) {
-                return json_encode(['state' => 'fail', 'message' => 'No activate question found.']);
-            } else {
-                $question = $data->input('courseID');
-                $user = $data->input('user_id');
-                $answer = $data->input('answer');
+        if ($data->segment(1) == "api") {
+            $data->all();
+            $student_inc = \App\User::find($auth->user()->id);
+            $lecture_instances = $user->getCurrentLectureInstance();
+
+            if (is_null($student_inc)) {
+                $jsonRespones['state'] = "failure";
+                $jsonRespones['message'] = "Invalid student.";
+                return json_encode($jsonRespones);
+            } else if (is_null($lecture_instances) || empty($lecture_instances)) {
+                $jsonRespones['state'] = "failure";
+                $jsonRespones['message'] = "There's no active lecture now!";
+                return json_encode($jsonRespones);
+            }else {
+                $lecture_inc = \App\question::find($data->input('courseID'));
+                if (is_null($lecture_inc)) {
+                    $jsonRespones['state'] = "failure";
+                    $jsonRespones['message'] = "There's no questions asked at the moment!";
+                    return json_encode($jsonRespones);
+                } else {
+                    $question = $data->input('courseID');
+                    $user = $data->input('username');
+                    $answer = $data->input('answer');
 
 
-                DB::table('awnsers')->insert(
-                    ['courseID' => $question, 'user_id' => $user, 'awnser' => $answer]
-                );
+                    DB::table('awnsers')->insert(
+                        ['courseID' => $question, 'username' => $user, 'awnser' => $answer]
+                    );
 
-                return json_encode(['state' => 'success', 'message' => 'You have answered question.']);
+                    $jsonRespones['state'] = "success";
+                    $jsonRespones['message'] = "You have answered the question successfully! Thanks!";
+                    return json_encode($jsonRespones);
+                }
+
             }
-
         }
     }
 
@@ -44,7 +59,7 @@ class quizController extends Controller
         $lecture_inc = \App\lecture_instend::find($switcher->input('courseID'));
 
         if (is_null($lecture_inc)) {
-            return json_encode(['state' => 'fail', 'message' => 'No activate lecturer found.']);
+            return json_encode(['state' => 'failure', 'message' => 'No active lecturer found.']);
         } else {
             $question = \App\question::where('lecture_instend_id', $switcher->input('courseID'));
             $question = $question->first();

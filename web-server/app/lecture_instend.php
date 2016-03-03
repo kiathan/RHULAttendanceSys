@@ -38,7 +38,7 @@ class lecture_instend extends Model
 
     public function attendentsSignin()
     {
-
+            return $this->belongsToMany(\App\User::class, 'lecture_user');
     }
 
     public function createQuestion()

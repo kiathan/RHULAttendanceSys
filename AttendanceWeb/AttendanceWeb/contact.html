@@ -10,6 +10,9 @@
 
 	</head>
 	<body>
+		<style type="text/css">
+			body { background-image: url("blurredBackground.jpg");}
+		</style>
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<div class = "container">
 				<a href="index.html" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
@@ -30,7 +33,7 @@
 					
 						<li><a href = "QA.html">Q&A</a></li>
 						<li><a href = "timetable.html">Timetable</a></li>
-						<li class = "active"><a href = "contact.html">Contact us</a></li>
+						<li><a href = "contact.html">Contact us</a></li>
 						
 						<li class = "dropdown">
 						
@@ -54,6 +57,19 @@
 
 			
 		</div>
+		<center><h2 class="font3">Contact us</h2>
+		<p>If you have any problem or question, contact us!</p>
+		<address>
+		  <strong>RHUL Administration office</strong><br>
+		  Royal Holloway University of London<br>
+		  Egham Hill, Egham, Surrey, TW20 0EX<br>
+		  <i class = "fa fa-phone"></i> (123) 456-7890
+		</address>
+
+		<address>
+		  <strong>Email</strong><br>
+		  <a href="mailto:#">admin@live.rhul.ac.uk</a>
+		</address>
 		
 		<form method="post" action="sendingMessage.php">
  
@@ -106,23 +122,7 @@
 				 </td>
 				 
 				</tr>
-				 
-				<tr>
-				 
-				 <td valign="top">
-				 
-				  <label for="telephone">Telephone Number</label>
-				 
-				 </td>
-				 
-				 <td valign="top">
-				 
-				  <input  type="text" name="telephone" maxlength="30" size="30">
-				 
-				 </td>
-				 
-				</tr>
-				 
+				 		 
 				<tr>
 				 
 				 <td valign="top">
@@ -143,7 +143,7 @@
 				 
 				 <td colspan="2" style="text-align:center">
 				 
-				  <input type="submit" value="Submit">   
+				  <input class = "btn btn-primary" type="submit" value="Submit">   
 				 
 				 </td>
 				 
@@ -151,28 +151,16 @@
 			 
 			</table>
 			 
-		</form>
+		</form></center>
 
 
 		
-		<h1 class = "text-center">Contact us</h1>
-		<p>If you have any problem or question, contact us!</p>
-		<address>
-		  <strong>RHUL Administration office</strong><br>
-		  Royal Holloway University of London<br>
-		  Egham Hill, Egham, Surrey, TW20 0EX<br>
-		  <i class = "fa fa-phone"></i> (123) 456-7890
-		</address>
-
-		<address>
-		  <strong>Email</strong><br>
-		  <a href="mailto:#">admin@live.rhul.ac.uk</a>
-		</address>
+		
 
 		
 			
 			
-		<div class = "navbar navbar-default navbar-fixed-bottom">
+		<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">
 				
 			<div class = "container">
 				<p class = "navbar-text pull-left">Site Built By Team6</p>

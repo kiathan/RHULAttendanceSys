@@ -77,7 +77,7 @@
 	<div class = "navbar navbar-inverse navbar-static-top">
 		<div class = "container">
 		
-			<a href="/" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
+			<a href="/welcome" class = "navbar-brand" data-toggle="tooltip" title="Go to the homepage">Attendance System</a>
 			<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 			
 				<span class = "icon-bar"></span>
@@ -88,12 +88,12 @@
 			<div class = "collapse navbar-collapse navHeaderCollapse">
 				<ul class = "nav navbar-nav navbar-right">
 					
-					<li><a href = "/">Home</a></li>
+					<li class="active"><a href = "/welcome">Home</a></li>
 					<li><a href = "/attendance">Attendance</a></li>
 					<li><a href = "/qa">Q&A</a></li>
 					<li><a href = "/timetable">Timetable</a></li>
 					@if(Auth::check())
-						<li><a href = "#">Logout</a></li>
+						<li><a href = "/auth/logout">Logout</a></li>
 					@elseif(!isset($signInResult))
 						<li><a href = "#login" data-toggle = "modal">Login</a></li>
 					@else

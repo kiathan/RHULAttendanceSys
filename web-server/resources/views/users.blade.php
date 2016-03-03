@@ -48,12 +48,6 @@
 							</div>
 						</fieldset>
 						<fieldset class="form-group">
-							<label for="name" class="col-sm-2 control-label"> Name </label>
-							<div class="col-sm-10">
-								<input type="text" name="name" id="name" class="form-control" placeholder="">
-							</div>
-						</fieldset>
-						<fieldset class="form-group">
 							<label for="firstname" class="col-sm-2 control-label"> First Name </label>
 							<div class="col-sm-10">
 								<input type="text" name="firstname" id="firstname" class="form-control" placeholder=""/>
@@ -81,16 +75,21 @@
 							<label for="role" class="col-sm-2 control-label"> Role </label>
 							<div class="col-sm-10">
 								<select name="role" id="role" class="form-control">
-       					 			<option value="1">Administrator</option>
-     								<option value="2">App Manager</option>
-   				         			<option value="3">Lecturer</option>
-        							<option value="4">Postgraduate Research</option>
-        							<option value="5">Postgraduate Taught</option>
-          				  			<option value="6">Undergraduate</option>
+       					 			@foreach($roles as $role)
+                    					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
+                					@endforeach
         						</select>
         					</div>
 						</fieldset>
-							
+						<fieldset>
+						<label for="coures[]">Attending</label>
+        					<select multiple name="coures[]" id="coures[]">
+                				@foreach($courses as $course)
+                    				<option value="{{$course->id}}">({{$course->code}}) - {{$course->name}}</option>
+                				@endforeach
+            				</select>
+						</fieldset>
+						
 					</div>
 					
 					<div class="modal-footer">

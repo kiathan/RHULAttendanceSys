@@ -371,7 +371,7 @@ function unlockOrientation() {
   window.plugins.orientationLock.unlock();
 };
 
-function loadLecturerSignInStud() {
+function loadCurrentClass() {
   //get current class details
   ActivityIndicator.show("Retrieving Class...");
   var u = localStorage.username;
@@ -390,7 +390,6 @@ function loadLecturerSignInStud() {
       ActivityIndicator.hide();
 
       var result1 = makeJSON(data);
-
 
       if (result1.state == "failure") {
         alert(result1.message);
@@ -422,7 +421,9 @@ function loadLecturerSignInStud() {
 function scanInStud() {
   cordova.plugins.barcodeScanner.scan(
     function(result) {
-      $('#studname').val(result.text);
+      var studid = "100" + result.text.substring(2, 9);
+      $('#studname').val(studid);
+
       window.location.href = "#LecturerSignInStud";
     },
     function(error) {
@@ -452,12 +453,12 @@ function signInStud_withServer() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      var result1 = makeJSON(data);
-
-      if (result1.state == "failure") {
-        alert(result1.message);
+      var result = makeJSON(data);
+      if (result.state == "failure") {
+        alert(result.message);
       } else {
-        alert(result1.message);
+        alert(result.message);
+        $('#studname').val("");
       }
     },
     error: function(data) {

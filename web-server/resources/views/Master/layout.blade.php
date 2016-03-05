@@ -5,12 +5,12 @@
     <meta charset = "UTF-8">
     <title>RHUL Attendance System</title>
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<link href = "css/bootstrap.min.css" rel = "stylesheet">
-	<link href = "css/style.css" rel = "stylesheet">
-	<link rel = "shortcut icon" href = "images\RHicon.ico">
+	<link href = "../../../public/css/bootstrap.min.css" rel = "stylesheet">
+	<link href = "../../../public/css/style.css" rel = "stylesheet">
+	<link rel = "shortcut icon" href = "../../../public/images/RHicon.ico">
 	<link href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src = "js/bootstrap.js"></script>
+	<script src = "../../../public/js/bootstrap.js"></script>
 
 </head>
 

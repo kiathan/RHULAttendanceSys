@@ -17,56 +17,56 @@
 <body>
 
 	<!-- LOGIN POP UP -->
-	
+
 	<div class = "modal fade" id = "login" role = "dialog" data-backdrop="static" data-keyboard="false">
 		<div class = "modal-dialog">
 			<div class = "modal-content">
 				<form class="form-horizontal" action="/login" method="post">
-				
+
 					<div class = "modal-header">
 						<h3>Login</h3>
 					</div>
-					
+
 					<div class = "modal-body">
-					
+
 						<div class="form-group">
 							<label for="username" class="col-sm-2 control-label">User ID</label>
 							<div class="col-sm-10">
-							
+
 								<input type="text" id="username" name="username" class="form-control" placeholder="abcd123">
-							
+
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
-							
+
 								<input type="password" id="password" name="password" class="form-control" placeholder="passw0rd">
-							
+
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="checkbox">
-								
+
 									<label><input type="checkbox"> Remember Me </label>
-									
+
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
-					
+
 					<div class = "modal-footer">
-						
+
 						<input type="hidden" name="route" value="{{ Route::getCurrentRoute()->getPath() }}">
 						<input type = "hidden" name ="_token" value = "{{ csrf_token() }}">
 						<input class = "btn btn-success" type = "submit" value="Submit" name="Submit">
-							
+
 					</div>
-					
+
 				</form>
 			</div>
 		</div>

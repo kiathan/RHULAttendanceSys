@@ -91,3 +91,7 @@ th{
     text-align: center;
 
 }
+.view_image1{
+    background-image: url('../images/rhul1.jpg');
+    background-size: cover;
+}

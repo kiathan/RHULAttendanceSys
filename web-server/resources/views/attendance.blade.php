@@ -1,12 +1,15 @@
 @extends('Master.layout')
 
 @section('content')
+	<div class='view_image1'>
+
+	</div>
 <div class = "container">
 
 	<div class = "jumbotron jumbotron1">
 		<center>
 			<h1 class="font1"><span class="rainbow">ATTENDENCE SYSTEM</span></h1>
-			<h2 class="font1">If you have any problems, click below to <a href="contact.html" style="color:white"><u>contact us</u></a></h2>
+			<h2 class="font1">If you have any problems, click below to <a href="contact.blade.php" style="color:white"><u>contact us</u></a></h2>
 		</center>
 	</div>
 

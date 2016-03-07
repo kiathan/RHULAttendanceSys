@@ -92,6 +92,6 @@ th{
 
 }
 .view_image1{
-    background-image: url('../images/rhul1.jpg');
+    background-image: url('../../public/images/rhul1.jpg');
     background-size: cover;
 }

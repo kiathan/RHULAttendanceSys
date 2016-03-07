@@ -1,9 +1,9 @@
 @extends('Master.layout')
 
 @section('content')
-	<div class='view_image1'>
-
-	</div>
+	<style>
+		body { background-image: url("images/rhul1.jpg");}
+	</style>
 <div class = "container">
 
 	<div class = "jumbotron jumbotron1">

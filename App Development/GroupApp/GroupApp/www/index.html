@@ -129,16 +129,28 @@
     <div data-role="main" class="ui-content">
       <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
           <p>For Class:</p>
-          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1111" placeholder="Class Code">
+          <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1111" placeholder="Class Code">
           <p>Date of Class:</p>
-          <input type="date" name="datePicker1" id="datePicker1" data-role="date">
+          <input type="date" name="datePicker_ca" id="datePicker_ca" data-role="date">
           <p>Time of Class:</p>
-          <input type="time" name="timePicker1" id="timePicker1" value="09:00">
+          <input type="time" name="timePicker_ca" id="timePicker_ca" value="09:00">
           <input type="submit" class="current-class-atd-btn" value="Check Attendance">
       </form>
     </div>
     <div class="footer-copy"></div>
 </div>
+
+<div data-role="page" data-position="fixed" id="ClassAttendanceList">
+    <div data-role="header">
+        <h1>Class Attendance List</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <ul data-role="listview">
+      </ul>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+
 <div data-role="page" data-position="fixed" id="StudentQuestion">
     <div data-role="header">
         <h1>Answer question</h1>

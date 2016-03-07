@@ -512,4 +512,55 @@ function signInStud_withServer() {
 
   });
 
-}
+  function classAtd_withServer() {
+    ActivityIndicator.show("Retrieving Attendance ...");
+    var u = localStorage.username;
+    var t = localStorage.token;
+    var time = $('#timePicker_ca').val();
+
+    var cc = $('#lect_currentclass_ca').val();
+    var date = $('#datePicker_ca').val();
+    var url = server + "/api/lecture_instends/classatd";
+    var dataString = "username=" + u + "&token=" + t + "&time=" + time +
+      "&classcode=" + cc + "&date=" + date;
+
+    $.ajax({
+      method: "POST",
+      url: url,
+      data: dataString,
+      tryCount: 0,
+      retryLimit: 5,
+      cache: false,
+      success: function(data) {
+        ActivityIndicator.hide();
+
+        var result = makeJSON(data);
+        if (result.state == "failure") {
+          alert(result.message);
+        } else {
+          alert(result.message);
+        }
+        $('ul').append('<li data-role="list-divider">Present</li>').listview(
+          'refresh');
+        $('ul').append('<li><a>hello</a></li>').listview('refresh');
+        $('ul').append('<li data-role="list-divider">Absent</li>').listview(
+          'refresh');
+        $('ul').append('<li><a>sad</a></li>').listview('refresh');
+
+        window.location.href = "ClassAttendanceList";
+
+      },
+      error: function(data) {
+        this.tryCount++;
+        if (this.tryCount <= this.retryLimit) {
+          //try again
+          $.ajax(this);
+          return;
+        }
+        ActivityIndicator.hide();
+      },
+      timeout: 3000 //3 seconds
+
+    });
+
+  }

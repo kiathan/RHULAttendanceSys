@@ -513,3 +513,7 @@ function signInStud_withServer() {
   });
 
 }
+
+function loadNextEvents() {
+	
+}

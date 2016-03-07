@@ -515,5 +515,32 @@ function signInStud_withServer() {
 }
 
 function loadNextEvents() {
-	
+	var date = new Date();
+	var day = date.getDate();
+
+	var u = localStorage.username;
+  var t = localStorage.token;
+  var url = server + "api/lecture/index";
+  var dataString = "username=" + u + "&token=" + t;
+  
+
+  ActivityIndicator.show("Retrieving timetable information...");
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      $.each(data, function(index) {
+        
+      });
+      ActivityIndicator.hide();
+    
+    },
+    error: function(data) {
+      ActivityIndicator.hide();
+      alert("Error - Cannot connect to server")
+    },
 }

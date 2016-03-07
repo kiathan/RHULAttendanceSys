@@ -541,14 +541,12 @@ function classAtd_withServer() {
       } else {
         alert(result.message);
       }
-      $('ul').append('<li data-role="list-divider">Present</li>').listview(
-        'refresh');
-      $('ul').append('<li><a>hello</a></li>').listview('refresh');
-      $('ul').append('<li data-role="list-divider">Absent</li>').listview(
-        'refresh');
-      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+      window.location.href = "#ClassAttendanceList";
 
-      window.location.href = "ClassAttendanceList";
+      $('ul').append('<li data-role="list-divider">Present</li>')
+      $('ul').append('<li><a>hello</a></li>')
+      $('ul').append('<li data-role="list-divider">Absent</li>')
+      $('ul').append('<li><a>sad</a></li>').listview('refresh');
 
     },
     error: function(data) {

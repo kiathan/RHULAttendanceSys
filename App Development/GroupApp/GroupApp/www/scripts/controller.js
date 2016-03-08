@@ -543,10 +543,10 @@ function classAtd_withServer() {
       }
       window.location.href = "#ClassAttendanceList";
 
-      $('ul').append('<li data-role="list-divider">Present</li>')
-      $('ul').append('<li><a>hello</a></li>')
-      $('ul').append('<li data-role="list-divider">Absent</li>')
-      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+      $('#classlist').append('<li data-role="list-divider">Present</li>')
+      $('#classlist').append('<li><a>hello</a></li>')
+      $('#classlist').append('<li data-role="list-divider">Absent</li>')
+      $('#classlist').append('<li><a>sad</a></li>').listview('refresh');
 
     },
     error: function(data) {

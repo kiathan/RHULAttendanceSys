@@ -1,8 +1,10 @@
 @extends('Master.open-layout')
 
 @section('content')
-	
-	<center><h1></h1>
+	<style>
+		body{background-image: url("images/blurredBackground.jpg");}
+	</style>
+	<center><h1 class="font3">Contact us</h1>
 	<p>If you have any problem or question, contact us!</p>
 	<address>
 		<strong>RHUL Administration office</strong><br>

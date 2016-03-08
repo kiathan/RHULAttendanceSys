@@ -43,6 +43,7 @@
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);
+    $(document).on("pageshow", "#LecturerLanding", setOrientation);
     $(document).on("pageshow", "#Attendance", loadAttendance);
     $(document).on("pageshow", "#LecturerSignInStud", loadCurrentClass);
     $(document).on("pageshow", "#CurrentClassAttendance",

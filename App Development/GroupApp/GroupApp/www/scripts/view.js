@@ -39,12 +39,15 @@
     $('.home-btn').click(loginReplyRedir);
     $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);
-    //$('.scanner')
+    $('.current-class-atd-btn').click(classAtd_withServer);
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);
+    $(document).on("pageshow", "#LecturerLanding", setOrientation);
     $(document).on("pageshow", "#Attendance", loadAttendance);
-    $(document).on("pageshow", "#LecturerSignInStud", loadLecturerSignInStud);
+    $(document).on("pageshow", "#LecturerSignInStud", loadCurrentClass);
+    $(document).on("pageshow", "#CurrentClassAttendance",
+      loadCurrentClass);
 
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",

@@ -18,8 +18,8 @@
     <div data-role="main" class="ui-content">
         <div class = "loginformspace"></div>
         <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-            <input type="text" name="username" id="username" value="100793773" placeholder="Username">
-            <input type="password" name="password" id="password" value="100793773" placeholder="Password">
+            <input type="text" name="username" id="username" value="87654321" placeholder="Username">
+            <input type="password" name="password" id="password" value="87654321" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
         </form>
     </div>
@@ -93,7 +93,7 @@
     <div data-role="main" class="ui-content">
         <ul data-role="listview" data-inset="true">
             <li><a href="#LecturerSignInStud">Sign Students In</a></li>
-            <li><a href="#">Current Lecture Attendance</a></li>
+            <li><a href="#CurrentClassAttendance">Current Lecture Attendance</a></li>
             <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
             <li><a href="#TimetableScreen">TimeTable</a></li>
             <li><a href="#">What's next</a></li>
@@ -122,6 +122,35 @@
     </div>
     <div class="footer-copy"></div>
 </div>
+<div data-role="page" data-position="fixed" id="CurrentClassAttendance">
+    <div data-role="header">
+        <h1>Check Class Attendance</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
+          <p>For Class:</p>
+          <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1111" placeholder="Class Code">
+          <p>Date of Class:</p>
+          <input type="date" name="datePicker_ca" id="datePicker_ca" data-role="date">
+          <p>Time of Class:</p>
+          <input type="time" name="timePicker_ca" id="timePicker_ca" value="09:00">
+          <input type="submit" class="current-class-atd-btn" value="Check Attendance">
+      </form>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+
+<div data-role="page" data-position="fixed" id="ClassAttendanceList">
+    <div data-role="header">
+        <h1>Class Attendance List</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <ul data-role="listview">
+      </ul>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+
 <div data-role="page" data-position="fixed" id="StudentQuestion">
     <div data-role="header">
         <h1>Answer question</h1>

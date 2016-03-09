@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/',
+Route::get('/api',
     function () {
         $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index/{filter?}", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
 
@@ -23,7 +23,7 @@ Route::get('/',
         return $linkText;
     });
     
-Route::get('/welcome', function () {
+Route::get('/', function () {
 	return view('welcome');
 });
     
@@ -74,6 +74,10 @@ Route::get('/contact', function () {
 
 Route::get('/users', function () {
     return view('users');
+});
+
+Route::get('/bla', function(){
+    return "fff";
 });
 
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {

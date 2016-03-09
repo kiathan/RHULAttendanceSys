@@ -4,7 +4,7 @@
 <!-- header video -->
 		<div class = "header-container">
 			<div class = "video-container">
-				<video class = "background" src = "images/Output.mp4" preload = "true" autoplay = "autoplay" loop="loop" volume = "0" poster = "students.jpg" style="width:100%; height:auto;">
+				<video class = "background" src = "images/Output.mp4" preload = "true" autoplay = "autoplay" loop="loop" muted="muted" poster = "students.jpg" style="width:100%; height:auto;">
 					
 				
 				

@@ -97,6 +97,7 @@ function logout() {
 
 //Loads and Displays the current class
 function loadAttendance() {
+
   setCurrentPosition();
   $('.sign-in-btn').prop('disabled', true);
 
@@ -153,7 +154,6 @@ function loadAttendance() {
       }
 
 
-
     },
     error: function(data) {
       this.tryCount++;
@@ -186,6 +186,7 @@ function signin() {
  * Handles the signing in to the server
  **/
 function signin_withServer() {
+
   setCurrentPosition();
   ActivityIndicator.show("Retrieving Class to sign in...");
   var u = localStorage.username;
@@ -197,6 +198,7 @@ function signin_withServer() {
   var url = server + "api/lecture_instends/auth";
   var dataString = "username=" + u + "&token=" + t + "&lectureAuthCode=" + c +
     "&lat=" + lat + "&long=" + long + "&classcode=" + classCode;
+
 
   $.ajax({
     method: "POST",
@@ -239,7 +241,6 @@ function signin_withServer() {
 };
 
 
-
 function scanner(input) {
   if (input == 1) {
     setCurrentPosition();
@@ -267,52 +268,89 @@ function scanner(input) {
 };
 
 
-
 function answerQuestion() {
-  var value = this.value;
-  $.getJSON("test.json", function(StudDetail) {
-    var username = StudDetail["username"];
-    alert("You have submit your answer \nYour answer is " +
-      value);
-    /*
-     var request = $.ajax({
+  ActivityIndicator.show("Sending answer to lecture...");
+  var v = this.value;
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var cc = "CS1111";
+  var url = server + "api/quiz/studentQuiz";
+  var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc +
+    "&token=" + t;
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      var result = makeJSON(data);
+      ActivityIndicator.hide();
+      alert(result.message);
 
-     url: "bartalveyhe.me",
-     method: "POST",
-     data: {username: username, answer: value}
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+      ActivityIndicator.hide();
 
-     });
+      //alert(data);
+      alert("Server unavailable, Please try again later.");
+    },
+    timeout: 3000 //3 seconds
 
-     request.done(function (msg) {
-     alert(msg);
-     }
-     */
-    $('.answer-btn').prop("disabled", true);
-    window.location.href = "#StudentLanding";
   });
+
+  //$('.answer-btn').prop("disabled", true);
+
+  window.location.href = "#StudentLanding";
+
 };
 
 function start_stop_Quiz() {
 
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var cc = localStorage.currentClassCode;
   var initQuiz = this.value;
+  var url = server + "api/quiz/lecturerQuiz";
+  var dataString = "username" + u + "courseID" + cc + "token" + t + "state" +
+    initQuiz;
 
-  /*
-   var requestQuiz = '{"initQuiz":' + initQuiz + ', "token":' + token + '}';*/
-  alert("You have " + initQuiz + " question. ");
-  /*
-   var request = $.ajax({
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      var result = makeJSON(data);
+      ActivityIndicator.hide();
+      alert(result.message);
+    },
 
-   url: "bartalveyhe.me",
-   method: "POST",
-   data: requestQuiz
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
 
-   });
+      ActivityIndicator.hide();
+      alert("Server unavailable, Please try again later.");
 
-   request.done(function (msg) {
-   alert(msg);
 
-   });
-   */
+    },
+    timeout: 3000 //3 seconds
+
+  });
 };
 
 function loadTimetable() {
@@ -371,7 +409,7 @@ function unlockOrientation() {
   window.plugins.orientationLock.unlock();
 };
 
-function loadLecturerSignInStud() {
+function loadCurrentClass() {
   //get current class details
   ActivityIndicator.show("Retrieving Class...");
   var u = localStorage.username;
@@ -389,8 +427,7 @@ function loadLecturerSignInStud() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      var result1 = jQuery.parseJSON(data);
-
+      var result1 = makeJSON(data);
 
       if (result1.state == "failure") {
         alert(result1.message);
@@ -422,7 +459,9 @@ function loadLecturerSignInStud() {
 function scanInStud() {
   cordova.plugins.barcodeScanner.scan(
     function(result) {
-      $('#studname').val(result.text);
+      var studid = "100" + result.text.substring(2, 9);
+      $('#studname').val(studid);
+
       window.location.href = "#LecturerSignInStud";
     },
     function(error) {
@@ -438,7 +477,7 @@ function signInStud_withServer() {
   var stud = $('#studname').val();
   var cc = $('#lect_currentclass').val();
   var date = $('#datePicker1').val();
-  var url = server + "/api/lecture_instends/index";
+  var url = server + "/api/lecture_instends/authUser";
   var dataString = "username=" + u + "&token=" + t + "&time=" + time +
     "&student=" + stud + "&classcode=" + cc + "&date=" + date;
 
@@ -452,12 +491,12 @@ function signInStud_withServer() {
     success: function(data) {
       ActivityIndicator.hide();
 
-      var result1 = makeJSON(data);
-
-      if (result1.state == "failure") {
-        alert(result1.message);
+      var result = makeJSON(data);
+      if (result.state == "failure") {
+        alert(result.message);
       } else {
-        alert(result1.message);
+        alert(result.message);
+        $('#studname').val("");
       }
     },
     error: function(data) {
@@ -472,5 +511,56 @@ function signInStud_withServer() {
     timeout: 3000 //3 seconds
 
   });
-
 }
+
+function classAtd_withServer() {
+  ActivityIndicator.show("Retrieving Attendance ...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var time = $('#timePicker_ca').val();
+
+  var cc = $('#lect_currentclass_ca').val();
+  var date = $('#datePicker_ca').val();
+  var url = server + "/api/lecture_instends/authUser";
+  var dataString = "username=" + u + "&token=" + t + "&time=" + time +
+    "&classcode=" + cc + "&date=" + date;
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+      ActivityIndicator.hide();
+
+      var result = makeJSON(data);
+      if (result.state == "failure") {
+        alert(result.message);
+      } else {
+        alert(result.message);
+      }
+      window.location.href = "#ClassAttendanceList";
+
+      $('ul').append('<li data-role="list-divider">Present</li>')
+      $('ul').append('<li><a>hello</a></li>')
+      $('ul').append('<li data-role="list-divider">Absent</li>')
+      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+
+};

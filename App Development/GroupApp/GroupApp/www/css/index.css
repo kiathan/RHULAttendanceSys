@@ -54,6 +54,13 @@
 
 }
 
-#Today, #Tomorrow {
+#today, #tomorrow {
+  text-indent: 10px;
+}
 
+#nextItem {
+  width:90%;
+  background-color: lightgreen;
+  border-radius: 10px;
+  padding:5px;
 }

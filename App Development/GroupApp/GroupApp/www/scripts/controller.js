@@ -515,6 +515,7 @@ function signInStud_withServer() {
 }
 
 function loadNextEvents() {
+	$('#dataToday, #dataTomorrow').empty();
 	var date = new Date();
 	var day = date.getDay();
 	
@@ -548,12 +549,14 @@ function loadNextEvents() {
         		$( "#dataToday" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}
         	if (weekday[day+1]==(data[index].dayofweek.toUpperCase())) {
-        		$( "#dataTomorrow" ).append("<h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4>");
+        		$( "#dataTomorrow" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}
       });
      	
       ActivityIndicator.hide();
     	$('#dataToday, #dataTomorrow').slideDown('slow');
+    	
+    	
     },
     error: function(data) {
       ActivityIndicator.hide();

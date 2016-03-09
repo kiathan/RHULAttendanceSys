@@ -41,3 +41,19 @@
      background: url(polina.jpg) no-repeat;
      background-size: cover;
 }
+
+#dataToday, #dataTomorrow {
+
+  width: 80%;
+  margin:0 auto;
+  text-align: left;
+  background-color: mediumspringgreen;
+  text-indent: 11px;
+  padding:5px;
+  border-radius: 10px;
+
+}
+
+#Today, #Tomorrow {
+
+}

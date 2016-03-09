@@ -516,13 +516,21 @@ function signInStud_withServer() {
 
 function loadNextEvents() {
 	var date = new Date();
-	var day = date.getDate();
+	var day = date.getDay();
+	
 
 	var u = localStorage.username;
   var t = localStorage.token;
   var url = server + "api/lecture/index";
   var dataString = "username=" + u + "&token=" + t;
-  
+  var weekday = new Array(7);
+	weekday[0]=  "SUNDAY";
+	weekday[1] = "MONDAY";
+	weekday[2] = "TUESDAY";
+	weekday[3] = "WEDNESDAY";
+	weekday[4] = "THURSDAY";
+	weekday[5] = "FRIDAY";
+	weekday[6] = "SATURDAY";
 
   ActivityIndicator.show("Retrieving timetable information...");
   $.ajax({
@@ -534,8 +542,14 @@ function loadNextEvents() {
     cache: false,
     success: function(data) {
       $.each(data, function(index) {
-        
+        	if (weekday[day-1]==(data[index].dayofweek.toUpperCase())) {
+        		$( "#dataToday" ).append("<h1>" + data[index].course.name + "</h1>");
+        	}
+        	if (weekday[day+1]==(data[index].dayofweek.toUpperCase())) {
+        		$( "#dataTomorrow" ).append("<p>" + data[index].course.name + "</p>");
+        	}
       });
+     	
       ActivityIndicator.hide();
     
     },
@@ -543,4 +557,5 @@ function loadNextEvents() {
       ActivityIndicator.hide();
       alert("Error - Cannot connect to server")
     },
-}
+})
+};

@@ -9,7 +9,7 @@
             </video>
         </div>
     </div>
-    
+
     <div>
         @if(Auth::check())
             You are alerady sign in

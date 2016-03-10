@@ -305,11 +305,11 @@ class lectureInstanceController extends Controller
             $return = array();
             $return["state"] = 'success';
             $return['message'] = "List of user that have attend and not attend the class";
-            $return['attend-count'] = sizeof($UserSignIn);
-            $return['absence-count'] = sizeof($UserNotSignIn);
-            $return['total-count'] = $lecture_instend->lecture->course->user->count();
-            $return['attend-students'] = $UserSignIn;
-            $return['absence-students'] = $UserNotSignIn;
+            $return['attendCount'] = sizeof($UserSignIn);
+            $return['absenceCount'] = sizeof($UserNotSignIn);
+            $return['totalCount'] = $lecture_instend->lecture->course->user->count();
+            $return['attendStudents'] = $UserSignIn;
+            $return['absenceStudents'] = $UserNotSignIn;
             return json_encode($return);
         }
 
@@ -332,19 +332,14 @@ class lectureInstanceController extends Controller
         ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
         ->first();
 
-        if(is_null($lecture)){
+        if (is_null($lecture)) {
             return json_encode(["state" => "failure", "message" => "No course with that code"]);
         }
 
         $lectureInstances = $lecture->lecture_instance()
-        ->where('created_at', '>=', $date->startOfDay()->copy())//
-        ->where('created_at', '<=', $date->endOfDay()->copy());
+            ->where('created_at', '>=', $date->startOfDay()->copy())//
+            ->where('created_at', '<=', $date->endOfDay()->copy());
 
         return $lectureInstances->first();
-
-        //select * from lecture_instend WHERE created_at >= '2016-03-10' AND created_at <= '2016-03-10 23:59:59';
-
-        // Date, Time, "&time=" + time +
-        // "&classcode=" + cc + "&date=" + date;
     }
 }

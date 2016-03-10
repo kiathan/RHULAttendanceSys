@@ -1,6 +1,9 @@
 @extends('Master.layout')
 
 @section('content')
+    <style>
+        body { background-color: #cccccc;}
+    </style>
     <div class="section">
         <div class="container vertical-center">
             <div class="row">

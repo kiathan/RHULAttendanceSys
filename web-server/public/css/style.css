@@ -89,6 +89,7 @@ th{
     text-align: center;
 }
 
+
 .rainbow {
     background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
     color:transparent;

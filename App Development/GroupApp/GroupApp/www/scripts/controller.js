@@ -546,7 +546,7 @@ function loadNextEvents() {
       $.each(data, function(index) {
       	var starttimeFormat = (data[index].starttime).split(":");
         var endtimeFormat = (data[index].endtime).split(":");
-        	if (weekday[day-1]==(data[index].dayofweek.toUpperCase())) {
+        	if (weekday[day]==(data[index].dayofweek.toUpperCase())) {
         		$( "#dataToday" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}
         	if (weekday[day+1]==(data[index].dayofweek.toUpperCase())) {

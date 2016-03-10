@@ -270,25 +270,39 @@ function scanner(input) {
 
 
 function answerQuestion() {
-  ActivityIndicator.show("Sending answer to lecture...");
-  var v = this.value;
-  var u = localStorage.username;
-  var t = localStorage.token;
-  var cc = localStorage.currentClassCode;
-  var url = server + "api/quiz/studentQuiz";
-  var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc +
-    "&token=" + t;
-  $.ajax({
-    method: "POST",
-    url: url,
-    data: dataString,
-    tryCount: 0,
-    retryLimit: 5,
-    cache: false,
-    success: function(data) {
-      var result = makeJSON(data);
-      ActivityIndicator.hide();
-      alert(result.message);
+    ActivityIndicator.show("Sending answer to lecture...");
+    var v = this.value;
+    var u = localStorage.username;
+    var t = localStorage.token;
+    var cc =localStorage.currentClassCode;
+    var url = server + "api/quiz/studentQuiz";
+    var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc+ "&token=" + t ;
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: dataString,
+        tryCount: 0,
+        retryLimit: 5,
+        cache: false,
+        success: function (data) {
+            var result = makeJSON(data);
+            ActivityIndicator.hide();
+            alert(result.message);
+
+        },
+        error: function (data) {
+            this.tryCount++;
+            if (this.tryCount <= this.retryLimit) {
+                //try again
+                $.ajax(this);
+                return;
+            }
+            ActivityIndicator.hide();
+
+            //alert(data);
+            alert("Server unavailable, Please try again later.");
+        },
+        timeout: 3000 //3 seconds
 
     },
     error: function(data) {
@@ -526,6 +540,7 @@ function loadNextEvents() {
   var url = server + "api/lecture/index";
   var dataString = "username=" + u + "&token=" + t;
   var weekday = new Array(7);
+
   weekday[0] = "SUNDAY";
   weekday[1] = "MONDAY";
   weekday[2] = "TUESDAY";
@@ -548,6 +563,7 @@ function loadNextEvents() {
       $.each(data, function(index) {
         var starttimeFormat = (data[index].starttime).split(":");
         var endtimeFormat = (data[index].endtime).split(":");
+
         if (weekday[day - 1] == (data[index].dayofweek.toUpperCase())) {
           $("#dataToday").append("<div id='nextItem'><h4>" + data[
               index].course.name + "<br>" + starttimeFormat[0] +
@@ -560,6 +576,7 @@ function loadNextEvents() {
             ":" + starttimeFormat[1] + " to " + endtimeFormat[0] +
             ":" + endtimeFormat[1] + "</h4></div>");
         }
+
       });
 
       ActivityIndicator.hide();

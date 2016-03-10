@@ -20,7 +20,7 @@ class quizController extends Controller
         if ($data->segment(1) == "api") {
             $data->all();
             $student_buf = \App\User::find($auth->user()->id);
-            $lecture_instances = $student_buf->getCurrentLectureInstance();
+            $lecture_instances = $student_buf->getCurrentLectureInstance()->where('code',$data->input('courseID'));
             if (is_null($student_buf)) {
                 $jsonResponse['state'] = "failure";
                 $jsonResponse['message'] = "Invalid student.";
@@ -35,7 +35,7 @@ class quizController extends Controller
                 $jsonResponse['message'] = "You have to register to a lecture first!";
                 return json_encode($jsonResponse);
             } else {
-                $question =$lecture_instances->question;
+                $question =$lecture_instances->question->where('isValit',1);
                 if (is_null($question)) {
                     $jsonResponse['state'] = "failure";
                     $jsonResponse['message'] = "There's no questions asked at the moment!";

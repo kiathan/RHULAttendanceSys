@@ -9,6 +9,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Contracts\Auth\Guard;
 
 class quizController extends Controller
 {

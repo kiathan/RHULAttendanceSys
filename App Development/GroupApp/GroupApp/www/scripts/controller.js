@@ -269,46 +269,46 @@ function scanner(input) {
 
 
 function answerQuestion() {
-  ActivityIndicator.show("Sending answer to lecture...");
-  var v = this.value;
-  var u = localStorage.username;
-  var t = localStorage.token;
-  var cc = "CS1111";
-  var url = server + "api/quiz/studentQuiz";
-  var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc +
-    "&token=" + t;
-  $.ajax({
-    type: "POST",
-    url: url,
-    data: dataString,
-    tryCount: 0,
-    retryLimit: 5,
-    cache: false,
-    success: function(data) {
-      var result = makeJSON(data);
-      ActivityIndicator.hide();
-      alert(result.message);
+    ActivityIndicator.show("Sending answer to lecture...");
+    var v = this.value;
+    var u = localStorage.username;
+    var t = localStorage.token;
+    var cc = localStorage.currentClassCode;
+    var url = server + "api/quiz/studentQuiz";
+    var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc+ "&token=" + t ;
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: dataString,
+        tryCount: 0,
+        retryLimit: 5,
+        cache: false,
+        success: function (data) {
+            var result = makeJSON(data);
+            ActivityIndicator.hide();
+            alert(result.message);
 
-    },
-    error: function(data) {
-      this.tryCount++;
-      if (this.tryCount <= this.retryLimit) {
-        //try again
-        $.ajax(this);
-        return;
-      }
-      ActivityIndicator.hide();
+        },
+        error: function (data) {
+            this.tryCount++;
+            if (this.tryCount <= this.retryLimit) {
+                //try again
+                $.ajax(this);
+                return;
+            }
+            ActivityIndicator.hide();
 
-      //alert(data);
-      alert("Server unavailable, Please try again later.");
-    },
-    timeout: 3000 //3 seconds
+            //alert(data);
+            alert("Server unavailable, Please try again later.");
+        },
+        timeout: 3000 //3 seconds
 
-  });
+    });
 
-  //$('.answer-btn').prop("disabled", true);
+    //$('.answer-btn').prop("disabled", true);
 
-  window.location.href = "#StudentLanding";
+    window.location.href = "#StudentLanding";
+
 
 };
 

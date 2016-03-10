@@ -39,15 +39,15 @@
             <li><a href="#StudentQuestion">Answer Lecture Question</a></li>
             <li><a href="#TimetableScreen">Timetable</a></li>
             <li><a href="#UsefulInfoScreen">Useful Information</a></li>
-            <li><a href="#">What's next</a></li>
+            <li><a href="#WhatsNext">What's next</a></li>
         </ul>
-
+    </div>
         <div class="footer-base" data-role="footer" data-position="fixed">
-            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            
             <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
         </div>
 
-</div>
+
 </div>
 <div data-role="page" data-position="fixed" id="Attendance">
     <div data-role="header">
@@ -62,7 +62,10 @@
         <div class="distance"></div>KM<br />
         <button class="sign-in-btn">Sign In</button>
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+      </div>
 </div>
 <div data-role="page" data-position="fixed" id="AttendanceAfter">
     <div data-role="header">
@@ -72,7 +75,10 @@
         <p>Sign in Status:</p>
         <div class="currentAttendance"></div>
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+    </div>
 </div>
 <div data-role="page" data-position="fixed" id="TimetableScreen">
     <div data-role="header">
@@ -83,7 +89,31 @@
           <div hidden class="timetable"></div>
       </div>
 
-      <div class="footer-copy"></div>
+       <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+      </div>
+</div>
+
+<div data-role="page" data-position="fixed" id="WhatsNext">
+    <div data-role="header">
+        <h1>What's Next</h1>
+    </div>
+      <div data-role="main" id="ui-content">
+          <div id="today">
+            <h2>Today: </h2>
+            <div hidden id="dataToday"></div>
+          </div>
+          <div id="tomorrow">
+            <h2>Tomorrow: </h2>
+            <div hidden id="dataTomorrow"></div>
+          </div>
+      </div>
+
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+     </div>
 </div>
 
 <div data-role="page" data-position="fixed" id="LecturerLanding">
@@ -96,10 +126,13 @@
             <li><a href="#CurrentClassAttendance">Current Lecture Attendance</a></li>
             <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
             <li><a href="#TimetableScreen">TimeTable</a></li>
-            <li><a href="#">What's next</a></li>
+            <li><a href="#WhatsNext">What's next</a></li>
         </ul>
     </div>
-    <div class="footer-copy"></div>
+    <div class="footer-base" data-role="footer" data-position="fixed">
+            
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+    </div>
 </div>
 <div data-role="page" data-position="fixed" id="LecturerSignInStud">
     <div data-role="header">
@@ -120,7 +153,10 @@
       </form>
 
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+    </div>
 </div>
 <div data-role="page" data-position="fixed" id="CurrentClassAttendance">
     <div data-role="header">
@@ -137,7 +173,10 @@
           <input type="submit" class="current-class-atd-btn" value="Check Attendance">
       </form>
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+      </div>
 </div>
 
 <div data-role="page" data-position="fixed" id="ClassAttendanceList">
@@ -165,7 +204,10 @@
 
         </div>
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+    </div>
 </div>
 <div data-role="page" data-position="fixed" id="LectureQuestion">
     <div data-role="header">
@@ -178,7 +220,10 @@
                 <li><input type="submit" class="result-btn" value="Review"></li>
         </div>
     </div>
-    <div class="footer-copy"></div>
+     <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+      </div>
 </div>
 
 <div data-role="page" data-position="fixed" id="UsefulInfoScreen">
@@ -192,7 +237,10 @@
         </ul>
       </div>
 
-      <div class="footer-copy"></div>
+       <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+        </div>
 </div>
 
 

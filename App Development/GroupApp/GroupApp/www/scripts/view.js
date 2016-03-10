@@ -39,7 +39,7 @@
     $('.home-btn').click(loginReplyRedir);
     $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);
-    $('.current-class-atd-btn').click(loadCurrentClass);
+    $('.current-class-atd-btn').click(classAtd_withServer);
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);

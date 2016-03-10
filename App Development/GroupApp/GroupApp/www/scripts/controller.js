@@ -511,7 +511,6 @@ function signInStud_withServer() {
     timeout: 3000 //3 seconds
 
   });
-
 }
 
 function loadNextEvents() {
@@ -534,6 +533,20 @@ function loadNextEvents() {
 	weekday[6] = "SATURDAY";
 
   ActivityIndicator.show("Retrieving timetable information...");
+
+function classAtd_withServer() {
+  ActivityIndicator.show("Retrieving Attendance ...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var time = $('#timePicker_ca').val();
+
+  var cc = $('#lect_currentclass_ca').val();
+  var date = $('#datePicker_ca').val();
+  var url = server + "/api/lecture_instends/authUser";
+  var dataString = "username=" + u + "&token=" + t + "&time=" + time +
+    "&classcode=" + cc + "&date=" + date;
+
+
   $.ajax({
     method: "POST",
     url: url,
@@ -542,6 +555,7 @@ function loadNextEvents() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
+
       $.each(data, function(index) {
       	var starttimeFormat = (data[index].starttime).split(":");
         var endtimeFormat = (data[index].endtime).split(":");
@@ -563,4 +577,36 @@ function loadNextEvents() {
       alert("Error - Cannot connect to server")
     },
 })
+
+      ActivityIndicator.hide();
+
+      var result = makeJSON(data);
+      if (result.state == "failure") {
+        alert(result.message);
+      } else {
+        alert(result.message);
+      }
+      window.location.href = "#ClassAttendanceList";
+
+      $('ul').append('<li data-role="list-divider">Present</li>')
+      $('ul').append('<li><a>hello</a></li>')
+      $('ul').append('<li data-role="list-divider">Absent</li>')
+      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+
+    },
+    error: function(data) {
+      this.tryCount++;
+      if (this.tryCount <= this.retryLimit) {
+        //try again
+        $.ajax(this);
+        return;
+      }
+
+      ActivityIndicator.hide();
+    },
+    timeout: 3000 //3 seconds
+
+  });
+
+
 };

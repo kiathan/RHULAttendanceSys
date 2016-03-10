@@ -546,7 +546,7 @@ function loadNextEvents() {
       $.each(data, function(index) {
       	var starttimeFormat = (data[index].starttime).split(":");
         var endtimeFormat = (data[index].endtime).split(":");
-        	if (weekday[day-1]==(data[index].dayofweek.toUpperCase())) {
+        	if (weekday[day]==(data[index].dayofweek.toUpperCase())) {
         		$( "#dataToday" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}
         	if (weekday[day+1]==(data[index].dayofweek.toUpperCase())) {
@@ -596,10 +596,10 @@ function classAtd_withServer() {
       }
       window.location.href = "#ClassAttendanceList";
 
-      $('ul').append('<li data-role="list-divider">Present</li>')
-      $('ul').append('<li><a>hello</a></li>')
-      $('ul').append('<li data-role="list-divider">Absent</li>')
-      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+      $('#classlist').append('<li data-role="list-divider">Present</li>')
+      $('#classlist').append('<li><a>hello</a></li>')
+      $('#classlist').append('<li data-role="list-divider">Absent</li>')
+      $('#classlist').append('<li><a>sad</a></li>').listview('refresh');
 
     },
     error: function(data) {

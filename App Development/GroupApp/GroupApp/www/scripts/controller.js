@@ -534,19 +534,6 @@ function loadNextEvents() {
 
   ActivityIndicator.show("Retrieving timetable information...");
 
-function classAtd_withServer() {
-  ActivityIndicator.show("Retrieving Attendance ...");
-  var u = localStorage.username;
-  var t = localStorage.token;
-  var time = $('#timePicker_ca').val();
-
-  var cc = $('#lect_currentclass_ca').val();
-  var date = $('#datePicker_ca').val();
-  var url = server + "/api/lecture_instends/authUser";
-  var dataString = "username=" + u + "&token=" + t + "&time=" + time +
-    "&classcode=" + cc + "&date=" + date;
-
-
   $.ajax({
     method: "POST",
     url: url,
@@ -577,7 +564,28 @@ function classAtd_withServer() {
       alert("Error - Cannot connect to server")
     },
 })
+};
+function classAtd_withServer() {
+  ActivityIndicator.show("Retrieving Attendance ...");
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var time = $('#timePicker_ca').val();
 
+  var cc = $('#lect_currentclass_ca').val();
+  var date = $('#datePicker_ca').val();
+  var url = server + "/api/lecture_instends/authUser";
+  var dataString = "username=" + u + "&token=" + t + "&time=" + time +
+    "&classcode=" + cc + "&date=" + date;
+
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
       ActivityIndicator.hide();
 
       var result = makeJSON(data);

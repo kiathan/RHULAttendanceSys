@@ -531,6 +531,7 @@ function loadNextEvents() {
 	weekday[4] = "THURSDAY";
 	weekday[5] = "FRIDAY";
 	weekday[6] = "SATURDAY";
+	
 
   ActivityIndicator.show("Retrieving timetable information...");
 
@@ -549,6 +550,7 @@ function loadNextEvents() {
         	if (weekday[day]==(data[index].dayofweek.toUpperCase())) {
         		$( "#dataToday" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}
+        	if ((day+1)==7) {day = -1;}
         	if (weekday[day+1]==(data[index].dayofweek.toUpperCase())) {
         		$( "#dataTomorrow" ).append("<div id='nextItem'><h4>" + data[index].course.name + "<br>" + starttimeFormat[0] + ":" + starttimeFormat[1] + " to " + endtimeFormat[0] + ":" + endtimeFormat[1] + "</h4></div>");
         	}

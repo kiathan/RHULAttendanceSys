@@ -43,6 +43,11 @@ th{
     max-height: 550px;
 }
 
+.img-size{
+    height: 360px;
+    width: 360px;
+}
+
 /*For a video*/
 .background {
     position: fixed;
@@ -78,12 +83,16 @@ th{
     color: #69249A;
 }
 
+.font4{
+    font-family: 'Lobster', cursive;
+    color: #008080;
+    text-align: center;
+}
+
 .rainbow {
     background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
-    background-image: gradient( linear, left top, right top, color-stop(0.05, #f22),  color-stop(0.2, #ff2),color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
     color:transparent;
     -webkit-background-clip: text;
-    background-clip: text;
 }
 
 .table1{
@@ -92,6 +101,11 @@ th{
 
 }
 .view_image1{
-    background-image: url('../../public/images/rhul1.jpg');
+    background-image: url('../images/rhul1.jpg');
     background-size: cover;
+}
+.vertical-center{
+    margin: auto;
+    position: absolute;
+    top: 15%; left: 0; bottom: 0; right: 0;
 }

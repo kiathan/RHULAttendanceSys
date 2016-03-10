@@ -70,7 +70,7 @@ class quizController extends Controller
                     $user = $data->input('username');
                     $answer = $data->input('answer');
                     DB::table('awnsers')->insert(
-                        ['question_id' => $question[0]->id, 'username' => $user, 'awnser' => $answer]
+                        ['question_id' => $question->id, 'username' => $user, 'awnser' => $answer]
                     );
                     $jsonResponse['state'] = "success";
                     $jsonResponse['message'] = "You have answered the question successfully! Thanks!";

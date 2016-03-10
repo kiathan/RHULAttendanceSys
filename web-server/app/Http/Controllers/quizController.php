@@ -19,7 +19,7 @@ class quizController extends Controller
         if ($data->segment(1) == "api") {
             $data->all();
             $student_inc = \App\User::find($auth->user()->id);
-            $lecture_instances = $user->getCurrentLectureInstance();
+            $lecture_instances = $student_inc->getCurrentLectureInstance();
 
             if (is_null($student_inc)) {
                 $jsonRespones['state'] = "failure";

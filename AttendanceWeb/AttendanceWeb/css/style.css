@@ -20,6 +20,11 @@ th{
 	max-height: 550px;
 }  
 
+.img-size{
+	height: 360px;
+	width: 360px;
+}
+
 /*For a video*/
 .background {
     position: fixed;
@@ -45,6 +50,7 @@ th{
 .font1{
 	font-family: 'Lobster', cursive;
 	color: #FFFFFF;
+	text-align: center;
 }
 
 .font2{
@@ -54,6 +60,11 @@ th{
 .font3{
 	font-family: 'Lobster', cursive;
 	color: #69249A;
+}
+.font4{
+	font-family: 'Lobster', cursive;
+	color: #008080;
+	text-align: center;
 }
 
 .rainbow {

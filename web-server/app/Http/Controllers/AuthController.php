@@ -41,6 +41,17 @@ class AuthController extends Controller
         $courses = \App\course::all();
         return view('auth.create', ["roles" => $roles, "courses" => $courses]);
     }
+    
+    public function users(Request $request)
+    {
+        $roles = Role::all();
+
+        $courses = \App\course::all();
+        
+         $users = \App\User::all();
+        
+        return view('users', ["roles" => $roles, "courses" => $courses, "users" => $users]);
+    }
 
     public function showLogin(Request $request)
     {
@@ -77,7 +88,7 @@ class AuthController extends Controller
             "password" => $password]);
 
 
-        return view('login')->with(["signInResult" => Auth::check()]);
+        return view('/welcome')->with(["signInResult" => Auth::check()]);
 
     }
 
@@ -90,7 +101,6 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $user = new \App\User();
-        $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->firstname = $request->input('firstname');
         $user->middlename = $request->input('middlename');
@@ -100,13 +110,22 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
-
-            foreach ($request->get('coures') as $course_id) {
-                $user->saveCouse(\App\course::find($course_id), 'student');
-            }
-            return redirect("/");
-
-
+			if(isSet($request->courses)) {
+	    	    foreach ($request->get('courses') as $course_id) {
+    		        $user->saveCouse(\App\course::find($course_id), 'student');
+        		}	
+        	}
+        	
+            $data = "@foreach($users as $user)";
+			$data = $data . "<li class='list-group-item'>{{$user->firstname}} {{$user->lastname}}";
+			$data = $data . "<a  href='#' onclick='deleteUser({{$user->id}})' data-toggle='tooltip' title='Delete User' class='glyphicon glyphicon-trash' style='float:right; margin-left:1em;'></a>";
+			$data = $data . "<a  href='#' onclick='' data-toggle='modal' data-toggle='tooltip' title='Edit User'class='glyphicon glyphicon-pencil' style='float:right; margin-left:1em;'></a>";
+			$data = $data . "<a  href='#' onclick='' data-toggle='modal' data-toggle='tooltip' title='View User'class='glyphicon glyphicon-search' style='float:right; margin-left:1em;'></a>";
+			$data = $data . "</li>";
+			$data = $data . "@endforeach";
+			
+			return $data;
+            
         } else {
             return redirect("/auth/create");
         }
@@ -160,6 +179,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+        return redirect("/");
 
     }
 }

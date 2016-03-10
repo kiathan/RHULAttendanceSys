@@ -124,6 +124,7 @@ function loadAttendance() {
         result = result1[0][0];
       }
       if (result1.state == "failure") {
+        $('.sign-in-btn').prop('disabled', false);
         alert(result1.message);
         loginReplyRedir();
       } else if (result.lecture.UserAttended == true) {
@@ -273,42 +274,45 @@ function answerQuestion() {
   var v = this.value;
   var u = localStorage.username;
   var t = localStorage.token;
-  var cc = "CS1111";
+  var cc = localStorage.currentClassCode;
   var url = server + "api/quiz/studentQuiz";
   var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc +
     "&token=" + t;
   $.ajax({
-    type: "POST",
-    url: url,
-    data: dataString,
-    tryCount: 0,
-    retryLimit: 5,
-    cache: false,
-    success: function(data) {
-      var result = makeJSON(data);
-      ActivityIndicator.hide();
-      alert(result.message);
+      method: "POST",
+      url: url,
+      data: dataString,
+      tryCount: 0,
+      retryLimit: 5,
+      cache: false,
+      success: function(data) {
+        var result = makeJSON(data);
+        ActivityIndicator.hide();
+        alert(result.message);
 
-    },
-    error: function(data) {
-      this.tryCount++;
-      if (this.tryCount <= this.retryLimit) {
-        //try again
-        $.ajax(this);
-        return;
-      }
-      ActivityIndicator.hide();
+      },
+      error: function(data) {
+        this.tryCount++;
+        if (this.tryCount <= this.retryLimit) {
+          //try again
+          $.ajax(this);
+          return;
+        }
+        ActivityIndicator.hide();
 
-      //alert(data);
-      alert("Server unavailable, Please try again later.");
-    },
-    timeout: 3000 //3 seconds
+        //alert(data);
+        alert("Server unavailable, Please try again later.");
+      },
+      timeout: 3000 //3 seconds
 
-  });
+    }
+
+  );
 
   //$('.answer-btn').prop("disabled", true);
 
   window.location.href = "#StudentLanding";
+
 
 };
 
@@ -513,6 +517,68 @@ function signInStud_withServer() {
   });
 }
 
+function loadNextEvents() {
+  $('#dataToday, #dataTomorrow').empty();
+  var date = new Date();
+  var day = date.getDay();
+
+
+  var u = localStorage.username;
+  var t = localStorage.token;
+  var url = server + "api/lecture/index";
+  var dataString = "username=" + u + "&token=" + t;
+  var weekday = new Array(7);
+
+  weekday[0] = "SUNDAY";
+  weekday[1] = "MONDAY";
+  weekday[2] = "TUESDAY";
+  weekday[3] = "WEDNESDAY";
+  weekday[4] = "THURSDAY";
+  weekday[5] = "FRIDAY";
+  weekday[6] = "SATURDAY";
+
+  ActivityIndicator.show("Retrieving timetable information...");
+
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: dataString,
+    tryCount: 0,
+    retryLimit: 5,
+    cache: false,
+    success: function(data) {
+
+      $.each(data, function(index) {
+        var starttimeFormat = (data[index].starttime).split(":");
+        var endtimeFormat = (data[index].endtime).split(":");
+
+        if (weekday[day - 1] == (data[index].dayofweek.toUpperCase())) {
+          $("#dataToday").append("<div id='nextItem'><h4>" + data[
+              index].course.name + "<br>" + starttimeFormat[0] +
+            ":" + starttimeFormat[1] + " to " + endtimeFormat[0] +
+            ":" + endtimeFormat[1] + "</h4></div>");
+        }
+        if (weekday[day + 1] == (data[index].dayofweek.toUpperCase())) {
+          $("#dataTomorrow").append("<div id='nextItem'><h4>" + data[
+              index].course.name + "<br>" + starttimeFormat[0] +
+            ":" + starttimeFormat[1] + " to " + endtimeFormat[0] +
+            ":" + endtimeFormat[1] + "</h4></div>");
+        }
+
+      });
+
+      ActivityIndicator.hide();
+      $('#dataToday, #dataTomorrow').slideDown('slow');
+
+
+    },
+    error: function(data) {
+      ActivityIndicator.hide();
+      alert("Error - Cannot connect to server")
+    },
+  })
+};
+
 function classAtd_withServer() {
   ActivityIndicator.show("Retrieving Attendance ...");
   var u = localStorage.username;
@@ -521,9 +587,10 @@ function classAtd_withServer() {
 
   var cc = $('#lect_currentclass_ca').val();
   var date = $('#datePicker_ca').val();
-  var url = server + "/api/lecture_instends/authUser";
+  var url = server + "/api/lecture_instends/attendes";
   var dataString = "username=" + u + "&token=" + t + "&time=" + time +
     "&classcode=" + cc + "&date=" + date;
+
 
   $.ajax({
     method: "POST",
@@ -538,15 +605,40 @@ function classAtd_withServer() {
       var result = makeJSON(data);
       if (result.state == "failure") {
         alert(result.message);
+        loginReplyRedir();
       } else {
-        alert(result.message);
-      }
-      window.location.href = "#ClassAttendanceList";
+        window.location.href = "#ClassAttendanceList";
 
-      $('ul').append('<li data-role="list-divider">Present</li>')
-      $('ul').append('<li><a>hello</a></li>')
-      $('ul').append('<li data-role="list-divider">Absent</li>')
-      $('ul').append('<li><a>sad</a></li>').listview('refresh');
+        $('#classlist').empty();
+
+        var presentnum = result.attendCount;
+        var absentnum = result.absenceCount;
+        $('#classlist').append(
+          '<li data-role="list-divider">Present :' +
+          presentnum + '</li>');
+
+        //Adds Present Student
+        $.each(result.attendStudents, function(index) {
+          $('#classlist').append('<li><a>' + result.attendStudents[
+              index].firstname +
+            " " + result.attendStudents[index].lastname +
+            '</a></li>'
+          );
+        });
+
+        $('#classlist').append(
+          '<li data-role="list-divider">Absent :' +
+          absentnum + '</li>');
+
+        //Adds Absent Student
+        $.each(result.absenceStudents, function(index) {
+          $('#classlist').append('<li><a>' + result.absenceStudents[
+              index].firstname +
+            " " + result.absenceStudents[index].lastname +
+            '</a></li>');
+        });
+        $('#classlist').listview('refresh');
+      }
 
     },
     error: function(data) {
@@ -562,5 +654,6 @@ function classAtd_withServer() {
     timeout: 3000 //3 seconds
 
   });
+
 
 };

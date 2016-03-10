@@ -35,7 +35,7 @@ class quizController extends Controller
                 $jsonResponse['message'] = "You have to register to a lecture first!";
                 return json_encode($jsonResponse);
             } else {
-                $question =$lecture_instances->question->first();
+                $question =$lecture_instances->question;
                 if (is_null($question)) {
                     $jsonResponse['state'] = "failure";
                     $jsonResponse['message'] = "There's no questions asked at the moment!";

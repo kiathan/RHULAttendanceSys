@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\lecture_instend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,25 +30,25 @@ class quizController extends Controller
                 $jsonRespones['state'] = "failure";
                 $jsonRespones['message'] = "There's no active lecture now!";
                 return json_encode($jsonRespones);
-            }else {
-                if(empty($data->input('courseID'))){
-                    $jsonRespones['state'] = "failure";
-                    $jsonRespones['message'] = "You have to register to a lecture first!";
-                    return json_encode($jsonRespones);
-                }
-                $lecture_inc = \App\question::where('code', $data->input('courseID'))->first();
-                if (is_null($lecture_inc)) {
+            } else if (empty($data->input('courseID'))) {
+
+                $jsonRespones['state'] = "failure";
+                $jsonRespones['message'] = "You have to register to a lecture first!";
+                return json_encode($jsonRespones);
+            } else {
+                $question =$lecture_instances->question->where('isValit',1);
+                if (is_null($question)) {
                     $jsonRespones['state'] = "failure";
                     $jsonRespones['message'] = "There's no questions asked at the moment!";
                     return json_encode($jsonRespones);
                 } else {
-                    $question = $data->input('courseID');
+
                     $user = $data->input('username');
                     $answer = $data->input('answer');
 
 
                     DB::table('awnsers')->insert(
-                        ['courseID' => $question, 'username' => $user, 'awnser' => $answer]
+                        ['question_id' => $question->id, 'username' => $user, 'awnser' => $answer]
                     );
 
                     $jsonRespones['state'] = "success";

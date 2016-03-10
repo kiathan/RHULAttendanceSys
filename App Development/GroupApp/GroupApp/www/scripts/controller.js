@@ -273,7 +273,7 @@ function answerQuestion() {
     var v = this.value;
     var u = localStorage.username;
     var t = localStorage.token;
-    var cc ="CS111";
+    var cc =localStorage.currentClassCode;
     var url = server + "api/quiz/studentQuiz";
     var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc+ "&token=" + t ;
     $.ajax({

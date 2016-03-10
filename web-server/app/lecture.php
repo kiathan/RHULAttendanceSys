@@ -48,8 +48,9 @@ class lecture extends Model
     public function deactiveLectureInstance()
     {
         $lectureInstances = $this->getActiveLecture();
+        printf("\tthe number of lectures to dative is %d\n", $this->getActiveLecture()->count());
         foreach ($lectureInstances as $lectureInstance) {
-            $lectureInstance->isActive = 0;
+            $lectureInstance->isActive = 'false';
             $lectureInstance->save();
         }
     }

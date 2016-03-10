@@ -80,3 +80,9 @@ th{
 	text-align: center;
 	
 }
+
+.vertical-center{
+	margin: auto;
+	position: absolute;
+	top: 15%; left: 0; bottom: 0; right: 0;
+}

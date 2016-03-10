@@ -30,7 +30,7 @@ class quizController extends Controller
                 $jsonRespones['message'] = "There's no active lecture now!";
                 return json_encode($jsonRespones);
             }else {
-                $lecture_inc = \App\question::find($data->input('courseID'));
+                $lecture_inc = \App\question::where('code', $data->input('courseID'))->first();
                 if (is_null($lecture_inc)) {
                     $jsonRespones['state'] = "failure";
                     $jsonRespones['message'] = "There's no questions asked at the moment!";

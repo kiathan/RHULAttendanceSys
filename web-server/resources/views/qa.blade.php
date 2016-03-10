@@ -9,11 +9,11 @@
                         <h2 class="font4">Question & Answer</h2></a>
                 </div>
                 <div class="col-md-4">
-                    <a href="previous.html"><img src="images/previous.JPG" class="img-size">
+                    <a href="previous.blade.php"><img src="images/previous.JPG" class="img-size">
                         <h2 class="font4">Previous questions</h2></a>
                 </div>
                 <div class="col-md-4">
-                    <a href="feedback.html"><img src="images/feedback.jpg" class="img-size">
+                    <a href="feedback.blade.php"><img src="images/feedback.jpg" class="img-size">
                         <h2 class="font4">Feedback</h2></a>
                 </div>
             </div>

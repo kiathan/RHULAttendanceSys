@@ -44,7 +44,7 @@
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
 
-								<input type="password" id="password" name="password" class="form-control" placeholder="passw0rd">
+								<input type="password" id="password" name="password" class="form-control" placeholder="password">
 
 							</div>
 						</div>
@@ -129,7 +129,7 @@
 		<div class = "container">
 		
 			<p class = "navbar-text pull-left">Site Built By Team6</p>
-			<a href = "moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
+			<a href = "http://moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
 		
 		</div>
 	</div>

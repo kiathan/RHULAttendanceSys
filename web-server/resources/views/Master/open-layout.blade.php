@@ -7,7 +7,7 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<link href = "css/bootstrap.min.css" rel = "stylesheet">
 	<link href = "css/style.css" rel = "stylesheet">
-	<link rel = "shortcut icon" href = "images\RHicon.ico">
+	<link rel = "shortcut icon" href = "images/RHicon.ico">
 	<link href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src = "js/bootstrap.js"></script>
@@ -117,8 +117,8 @@
 		<div class = "container">
 		
 			<p class = "navbar-text pull-left">Site Built By Team6</p>
-			<a href = "moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
-		
+			<a href = "http://moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
+
 		</div>
 	</div>
 	

@@ -25,6 +25,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('create_lecture_instance')->everyMinute();
+        $schedule->command('create_lecture_instance')->everyMinute()->appendOutputTo('storage/logs/create.log');
     }
 }

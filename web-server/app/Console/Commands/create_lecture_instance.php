@@ -30,10 +30,11 @@ class create_lecture_instance extends Command
     public function handle()
     {
 
-
+        $currentTime = new Carbon();
+        printf("-----------------------------------------------------------------------\n");
+        printf("start on update the lectures : %s\n\n", $currentTime->format('y-m-d:m:i:s'));
         // Offset in minuest
         $offset = 10;
-        $currentTime = new Carbon();
         $dayToDay = strtolower($currentTime->format('l'));
         $currentTime->addMinutes($offset);
         $currentClockTime = $currentTime->format("h:i:s");
@@ -42,6 +43,7 @@ class create_lecture_instance extends Command
         foreach ($lecturesToStart as $lecture) {
             if (!$lecture->hasActiveLecture()) {
                 $lecture->activeLectureInstance();
+                printf("\tStart lecture %s\n", $lecture->course->code);
             }
         }
         //
@@ -51,7 +53,10 @@ class create_lecture_instance extends Command
         foreach ($lecturesToEnd as $lecture) {
             if ($lecture->hasActiveLecture()) {
                 $lecture->deactiveLectureInstance();
+                printf("\tStop lecture %s\n", $lecture->course->code);
             }
         }
+        printf("end the update the lectures: %s\n", $currentTime->format('y-m-d:m:i:s'));
+        printf("-----------------------------------------------------------------------\n");
     }
 }

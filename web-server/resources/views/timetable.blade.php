@@ -4,7 +4,7 @@
 	<style>
 		body { background-image: url("images/blurred2.jpg");}
 	</style>
-	<h1><center>Timetable</center></h1>
+	<h1 class="font3"><center>Timetable</center></h1>
 	  <center><div>
 		<table class="table table-bordered table-hover table1" >
 		  <thead>

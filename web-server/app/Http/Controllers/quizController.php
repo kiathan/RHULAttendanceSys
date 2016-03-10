@@ -18,9 +18,35 @@ class quizController extends Controller
     public function ansQuiz(Request $data, Guard $auth)
     {
         if ($data->segment(1) == "api") {
-            $data->all();
+
+            // Get current user
             $student_buf = \App\User::find($auth->user()->id);
-            $lecture_instances = \App\lecture_instend::where('code', $data->input('courseID'));
+
+            // Get the timestamp
+            $currentDateTime = new \Carbon\Carbon();
+            // Get the day of week monday, tuesday etc
+            $dayOfWeek = strtolower($currentDateTime->format('l'));
+
+            // Ge the current course
+            $couse = \App\course::where('code', $data->input('courseID'))->first();
+            // Get the current lecture also
+            $lecture = $couse->lecture()
+                ->where('dayofweek', $dayOfWeek)
+                ->where('starttime', '>=', $currentDateTime->format('h:i:s'))
+                ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
+                ->first();
+
+            // Check to see if there is an lecture in progress
+            if (!$lecture->ActiveLecture) {
+                return json_encode(["state" => "Change to fail", "Message" => "No active lecture instances"]);
+            }
+            //Get the list of current lecutes this is an array,
+            $lecture_instances = $lecture->getActiveLecture;
+            foreach ($lecture_instances as $lecture_instance) {
+                // Get the list of question active in the lecture
+                $question = $lecture_instance->question;
+            }
+
             if (is_null($student_buf)) {
                 $jsonResponse['state'] = "failure";
                 $jsonResponse['message'] = "Invalid student.";
@@ -35,7 +61,7 @@ class quizController extends Controller
                 $jsonResponse['message'] = "You have to register to a lecture first!";
                 return json_encode($jsonResponse);
             } else {
-                $question =\App\question::where('lecture_instend_id',$lecture_instances->lecture_id);
+                $question = $lecture_instances->question->first();
                 if (is_null($question)) {
                     $jsonResponse['state'] = "failure";
                     $jsonResponse['message'] = "There's no questions asked at the moment!";

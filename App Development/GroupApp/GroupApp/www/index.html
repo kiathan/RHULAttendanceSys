@@ -42,11 +42,7 @@
             <li><a href="#WhatsNext">What's next</a></li>
         </ul>
     </div>
-        <div class="footer-base" data-role="footer" data-position="fixed">
-            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
-        </div>
-
-
+    <div class="footer-copy"></div>
 </div>
 <div data-role="page" data-position="fixed" id="Attendance">
     <div data-role="header">
@@ -60,8 +56,11 @@
         <p>Current Distance from Class:</p>
         <div class="distance"></div>KM<br />
         <button class="sign-in-btn">Sign In</button>
-    </div>
-     <div class="footer-copy"></div>
+<div class="footer-base" data-role="footer" data-position="fixed">
+        <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+        <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+</div>
+</div>
 </div>
 <div data-role="page" data-position="fixed" id="AttendanceAfter">
     <div data-role="header">
@@ -114,9 +113,7 @@
             <li><a href="#WhatsNext">What's next</a></li>
         </ul>
     </div>
-    <div class="footer-base" data-role="footer" data-position="fixed">
-            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
-    </div>
+    <div class="footer-copy"></div>
 </div>
 <div data-role="page" data-position="fixed" id="LecturerSignInStud">
     <div data-role="header">
@@ -128,7 +125,7 @@
           <input type="text" name="studname" id="studname" value="100793773" placeholder="Student's ID">
           <button class="scan-stud-btn">Scan Student Card to Sign In</button>
           <p>For Class:</p>
-          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1111" placeholder="Class Code">
+          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1801" placeholder="Class Code">
           <p>Date of Class:</p>
           <input type="date" name="datePicker1" id="datePicker1" data-role="date">
           <p>Time of Class:</p>
@@ -146,7 +143,7 @@
     <div data-role="main" class="ui-content">
       <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
           <p>For Class:</p>
-          <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1111" placeholder="Class Code">
+          <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1801" placeholder="Class Code">
           <p>Date of Class:</p>
           <input type="date" name="datePicker_ca" id="datePicker_ca" data-role="date">
           <p>Time of Class:</p>

@@ -28,9 +28,9 @@ class quizController extends Controller
             $dayOfWeek = strtolower($currentDateTime->format('l'));
 
             // Ge the current course
-            $couse = \App\course::where('code', $data->input('courseID'))->first();
+            $course = \App\course::where('code', $data->input('courseID'))->first();
             // Get the current lecture also
-            $lecture = $couse->lecture()
+            $lecture = $course->lecture()
                 ->where('dayofweek', $dayOfWeek)
                 ->where('starttime', '>=', $currentDateTime->format('h:i:s'))
                 ->where('endtime', '<=', $currentDateTime->format('h:i:s'))

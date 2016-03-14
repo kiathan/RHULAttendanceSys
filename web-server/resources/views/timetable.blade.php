@@ -5,6 +5,8 @@
     <script src="js/timetable.min.js"></script>
 
     <script>
+        @if(!is_null($lectues))
+
         $(document).ready(function () {
             var timetable = new Timetable();
             timetable.setScope(9, 17);
@@ -27,7 +29,8 @@
 
             var renderer = new Timetable.Renderer(timetable);
             renderer.draw('.timetable'); // any css selector
-        })
+        });
+        @endif
     </script>
     <style>
         body {
@@ -52,12 +55,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($lectues as $lectue)
-                    <tr>
-                        @foreach($lectue as $l)
-                        @endforeach
-                    </tr>
-                @endforeach
                 <tr>
                     <th scope="row">9:00</th>
                     <td>Table cell</td>

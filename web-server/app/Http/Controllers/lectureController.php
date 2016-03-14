@@ -118,10 +118,13 @@ class lectureController extends Controller
 
     public function timetable(Guard $guard)
     {
-        $user = \App\User::find(1);
+        $user = $guard->user();
 
-        $lecutes = $user->allLectures();
-
+        if (!is_null($user)) {
+            $lecutes = $user->allLectures();
+        } else {
+            $lecutes = NULL;
+        }
         return view('timetable')->with(["lectues" => $lecutes]);
     }
 }

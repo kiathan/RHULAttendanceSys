@@ -35,9 +35,7 @@ Route::get('/now', function () {
 	return view('now');
 });
     
-Route::get('/timetable', function () {
-    return view('timetable');
-});
+Route::get('/timetable', 'lectureController@timetable');
     
 Route::get('/attendance', function () {
     return view('attendance');
@@ -58,10 +56,6 @@ Route::get('/qa', function () {
 
 Route::get('/now', function () {
     return view('now');
-});
-
-Route::get('/timetable', function () {
-    return view('timetable');
 });
 
 Route::get('/attendance', function () {

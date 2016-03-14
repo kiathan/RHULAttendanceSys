@@ -21,13 +21,13 @@ class lectureController extends Controller
     public function index(Request $request, Guard $auth, $filter = "all")
 
     {
-        if($request->segment(1)=="api"){
+        if ($request->segment(1) == "api") {
             $user = $auth->user();
             $user = \App\User::find($user->id);
             // TODO switch this to the state pattern
-            if($filter == "current") {
+            if ($filter == "current") {
                 $lecutes = $user->currentLectures();
-            }else {
+            } else {
                 $lecutes = $user->allLectures();
             }
             return $lecutes;
@@ -114,5 +114,14 @@ class lectureController extends Controller
     public function updateInstance()
     {
 
+    }
+
+    public function timetable(Guard $guard)
+    {
+        $user = \App\User::find(1);
+
+        $lecutes = $user->allLectures();
+
+        return view('timetable')->with(["lectues" => $lecutes]);
     }
 }

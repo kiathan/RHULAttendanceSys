@@ -13,10 +13,15 @@
 	<link href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src = "js/bootstrap.js"></script>
-
+	<script>
+		function setupOnLoad() {
+           $.ajaxSetup({ headers: { 'X-CSRF-TOKEN' : '{{ csrf_token() }}' } });
+        }
+    </script>
+	
 </head>
 
-<body>
+<body onload="setupOnLoad();">
 
 	<!-- TOP NAV BAR -->
 

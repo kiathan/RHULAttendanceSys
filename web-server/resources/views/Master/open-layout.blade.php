@@ -33,7 +33,7 @@
 							<label for="username" class="col-sm-2 control-label">User ID</label>
 							<div class="col-sm-10">
 							
-								<input type="text" id="username" name="username" class="form-control" placeholder="abcd123">
+								<input type="text" id="username" name="username" class="form-control" required/>
 							
 							</div>
 						</div>
@@ -42,7 +42,7 @@
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
 							
-								<input type="password" id="password" name="password" class="form-control" placeholder="passw0rd">
+								<input type="password" id="password" name="password" class="form-control" required/>
 							
 							</div>
 						</div>
@@ -51,7 +51,7 @@
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="checkbox">
 								
-									<label><input type="checkbox"> Remember Me </label>
+									<label><input type="checkbox" name="remember"> Remember Me </label>
 									
 								</div>
 							</div>
@@ -61,7 +61,6 @@
 					
 					<div class = "modal-footer">
 						
-						<input type="hidden" name="route" value="{{ Route::getCurrentRoute()->getPath() }}">
 						<input type = "hidden" name ="_token" value = "{{ csrf_token() }}">
 						<input class = "btn btn-success" type = "submit" value="Submit" name="Submit">
 							

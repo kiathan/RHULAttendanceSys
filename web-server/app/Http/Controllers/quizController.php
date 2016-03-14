@@ -36,15 +36,32 @@ class quizController extends Controller
                 ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
                 ->first();
 
+            // TODO check if lecture is not null
+
             // Check to see if there is an lecture in progress
             if (!$lecture->ActiveLecture) {
                 return json_encode(["state" => "Change to fail", "Message" => "No active lecture instances"]);
             }
             //Get the list of current lecutes this is an array,
             $lecture_instances = $lecture->getActiveLecture;
+
+            // Update error detection
+
             foreach ($lecture_instances as $lecture_instance) {
                 // Get the list of question active in the lecture
-                $question = $lecture_instance->question;
+                $question = $lecture_instance->question()->where('isValit', true)->first();
+
+                // TODO skip if there is on question
+
+                $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
+                if(is_null($answer)) {
+                    $answer = new \App\awnser();
+                    $answer->question_id = $question->id;
+                    $answer->user_id = $student_buf->id;
+                    $answer->isValit = true;
+                }
+                $answer->awnser = $data->get('awnser');
+                $answer->save();
             }
 
             if (is_null($student_buf)) {

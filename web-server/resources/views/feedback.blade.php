@@ -2,4 +2,4 @@
 
 @section('content')
 
-@stop
+@stop ;

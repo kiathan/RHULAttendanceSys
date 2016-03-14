@@ -75,7 +75,12 @@ th{
 	text-align: center;
 	size: 10;
 }
-
+.font6{
+	font-family: 'Francois One', cursive;
+	color: #008080;
+	text-align: center;
+	size: 10;
+}
 
 
 .rainbow {

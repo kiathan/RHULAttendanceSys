@@ -29,6 +29,11 @@ class quizController extends Controller
 
             // Ge the current course
             $couse = \App\course::where('code', $data->input('courseID'))->first();
+
+            if (is_null($couse)) {
+                return json_encode(["state" => "failure", "Message" => "No couse with that couse code"]);
+            }
+
             // Get the current lecture also
             $lecture = $couse->lecture()
                 ->where('dayofweek', $dayOfWeek)
@@ -36,34 +41,35 @@ class quizController extends Controller
                 ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
                 ->first();
 
-            // TODO check if lecture is not null
+            if (is_null($lecture)) {
+                return json_encode(["state" => 'failure', "Message" => "No lecture currenly"]);
+            }
 
             // Check to see if there is an lecture in progress
             if (!$lecture->ActiveLecture) {
-                return json_encode(["state" => "Change to fail", "Message" => "No active lecture instances"]);
+                return json_encode(["state" => "failure", "Message" => "No active lecture instances"]);
             }
             //Get the list of current lecutes this is an array,
-            $lecture_instances = $lecture->getActiveLecture;
+            $lecture_instance = $lecture->getActiveLecture()->first();
 
-            // Update error detection
+            // Get the list of question active in the lecture
+            $question = $lecture_instance->question()->where('isValit', true)->first();
 
-            foreach ($lecture_instances as $lecture_instance) {
-                // Get the list of question active in the lecture
-                $question = $lecture_instance->question()->where('isValit', true)->first();
-
-                // TODO skip if there is on question
-
-                $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
-                if(is_null($answer)) {
-                    $answer = new \App\awnser();
-                    $answer->question_id = $question->id;
-                    $answer->user_id = $student_buf->id;
-                    $answer->isValit = true;
-                }
-                $answer->awnser = $data->get('awnser');
-                $answer->save();
+            if (is_null($question)) {
+                return json_encode(["state" => "failure", "Message" => "No question"]);
             }
 
+            $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
+            if (is_null($answer)) {
+                $answer = new \App\awnser();
+                $answer->question_id = $question->id;
+                $answer->user_id = $student_buf->id;
+                $answer->isValit = true;
+            }
+            $answer->awnser = $data->get('awnser');
+            $answer->save();
+
+            /*
             if (is_null($student_buf)) {
                 $jsonResponse['state'] = "failure";
                 $jsonResponse['message'] = "Invalid student.";
@@ -93,8 +99,8 @@ class quizController extends Controller
                     $jsonResponse['message'] = "You have answered the question successfully! Thanks!";
                     return json_encode($jsonResponse);
                 }
+            */
 
-            }
         }
     }
 

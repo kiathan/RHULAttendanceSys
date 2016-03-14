@@ -32,6 +32,29 @@ class lecture extends Model
         return $this->lecture_instance()->where('isActive', '1');
     }
 
+    public function hasActiveLecture()
+    {
+        return $this->getActiveLecture()->count() > 0;
+    }
+
+    public function activeLectureInstance()
+    {
+        $lectureInstance = new \App\lecture_instend();
+        $lectureInstance->lecture_id = $this->id;
+        $lectureInstance->isActive = 1;
+        return $lectureInstance->save();
+    }
+
+    public function deactiveLectureInstance()
+    {
+        $lectureInstances = $this->getActiveLecture();
+        printf("\tthe number of lectures to dative is %d\n", $this->getActiveLecture()->count());
+        foreach ($lectureInstances as $lectureInstance) {
+            $lectureInstance->isActive = 'false';
+            $lectureInstance->save();
+        }
+    }
+
     public function getUserAttendedAttribute()
     {
         $week = new \Carbon\Carbon();
@@ -41,8 +64,7 @@ class lecture extends Model
             return false;
         }
 
-        if(is_null($user))
-        {
+        if (is_null($user)) {
             return false;
         }
         return $user->checkIfAlreadyAttendnes($last_lecture_instances);

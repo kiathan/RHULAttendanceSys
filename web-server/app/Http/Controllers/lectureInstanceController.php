@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Response;
 use App\lecture_instend;
 use Illuminate\Http\Request;
@@ -88,9 +89,14 @@ class lectureInstanceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Request $request, $id = null)
     {
-        $lecture_instend = \App\lecture_instend::find($id);
+        if (is_null($id)) {
+            $lecture_instend = \App\lecture_instend::find($id);
+        } else {
+            $lecture_instend = $this->findLectureInstacnes($request);
+        }
+
         $UserSignIn = $lecture_instend->attendentsSignin;
         $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
 
@@ -108,6 +114,7 @@ class lectureInstanceController extends Controller
 
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend, 'UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -281,6 +288,58 @@ class lectureInstanceController extends Controller
 
     public function attends(Request $request)
     {
+        $lecture_instend = $this->findLectureInstacnes($request);
 
+        if ($lecture_instend == "{\"state\":\"failure\",\"message\":\"No course with that code\"}") {
+            return $lecture_instend;
+        } else if (is_null($lecture_instend)) {
+            $error['state'] = 'failure';
+            $error['message'] = 'no active lecture at the specify time';
+            return json_encode($error);
+        }
+
+        $UserSignIn = $lecture_instend->attendentsSignin;
+        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('users.id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
+
+        if ($request->segment(1) == "api") {
+            $return = array();
+            $return["state"] = 'success';
+            $return['message'] = "List of user that have attend and not attend the class";
+            $return['attendCount'] = sizeof($UserSignIn);
+            $return['absenceCount'] = sizeof($UserNotSignIn);
+            $return['totalCount'] = $lecture_instend->lecture->course->user->count();
+            $return['attendStudents'] = $UserSignIn;
+            $return['absenceStudents'] = $UserNotSignIn;
+            return json_encode($return);
+        }
+
+        return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend, 'UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
+    }
+
+    private function findLectureInstacnes(Request $request)
+    {
+        $time = $request->input('time');
+        $dateTime = new \Carbon\Carbon($request->input('date') . " " . $time);
+        $course = \App\course::where('code', $request->input('classcode'))->first();
+        $date = $dateTime->copy();
+        if (is_null($course)) {
+            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+        }
+
+        $lecture = $course->lecture()// Get the lectures related to the course
+        ->where('dayofweek', strtolower($dateTime->format('l')))// Get the day of week
+        ->where('starttime', '<=', $dateTime->format('h:i:s'))// Check that the start time is before or equal to the time given
+        ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
+        ->first();
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+        }
+
+        $lectureInstances = $lecture->lecture_instance()
+            ->where('created_at', '>=', $date->startOfDay()->copy())//
+            ->where('created_at', '<=', $date->endOfDay()->copy());
+
+        return $lectureInstances->first();
     }
 }

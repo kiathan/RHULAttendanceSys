@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Contracts\Auth\Guard;
@@ -105,25 +106,56 @@ class quizController extends Controller
     }
 
 
-    public function startNstop(Request $switcher)
+    public function startNstop(Request $request, Gate  $auth)
     {
-        $lecture_inc = \App\lecture_instend::find($switcher->input('courseID'));
+        $student_buf = \App\User::find($auth->user()->id);
 
-        if (is_null($lecture_inc)) {
-            return json_encode(['state' => 'failure', 'message' => 'No active lecturer found.']);
+        // Get the timestamp
+        $currentDateTime = new \Carbon\Carbon();
+        // Get the day of week monday, tuesday etc
+        $dayOfWeek = strtolower($currentDateTime->format('l'));
+
+        // Ge the current course
+        $couse = \App\course::where('code', $request->input('courseID'))->first();
+
+        if (is_null($couse)) {
+            return json_encode(["state" => "failure", "Message" => "No couse with that couse code"]);
+        }
+
+        // Get the current lecture also
+        $lecture = $couse->lecture()
+            ->where('dayofweek', $dayOfWeek)
+            ->where('starttime', '>=', $currentDateTime->format('h:i:s'))
+            ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
+            ->first();
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => 'failure', "Message" => "No lecture currenly"]);
+        }
+
+        // Check to see if there is an lecture in progress
+        if (!$lecture->ActiveLecture) {
+            return json_encode(["state" => "failure", "Message" => "No active lecture instances"]);
+        }
+        //Get the list of current lecutes this is an array,
+        $lecture_instance = $lecture->getActiveLecture()->first();
+
+        // Get the list of question active in the lecture
+        $question = $lecture_instance->question()->where('isValit', true)->first();
+
+        if (is_null($question) && $request->get('state') == 'true') {
+            $question = new \App\question();
+            $question->lecture_instend_id = $lecture_instance->id;
+            $question->isValit = true;
+            $question->save();
+
+            return json_encode(["state" => "success", "message" => "Create an new question"]);
+        } else if (!is_null($question) && $request->get('state') == 'false') {
+            $question->isValit = false;
+            $question->save();
+            return json_encode(["state" => "success", "message" => "Stop the current question"]);
         } else {
-            $question = \App\question::where('lecture_instend_id', $switcher->input('courseID'));
-            $question = $question->first();
-            if (is_null($question)) {
-                $question = new \App\question;
-                $question->lecture_instend_id = $switcher->input('courseID');
-                $question->isValit = true;
-                return json_encode(['state' => 'success', 'message' => 'Question added.']);
-            } else {
-                $question->isValit = !$switcher->input('state');
-                $question->save();
-                return json_encode(['state' => 'success', 'message' => 'Question state changed.']);
-            }
+            return json_encode(["state" => "failure", "message" => "No question to stop"]);
         }
     }
 

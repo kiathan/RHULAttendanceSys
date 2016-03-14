@@ -12,6 +12,7 @@
             @foreach($lectues as $lectue)
 
             <?php
+                //FIXME REMOVE THIS as it will only be use to remove the 24 hours classes
                 if($lectue->starttime == "00:00:00"){
                     continue;
                 }

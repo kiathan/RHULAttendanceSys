@@ -4,6 +4,7 @@
 	<style>
 		body{background-image: url("images/rhul1.jpg");}
 	</style>
+	<div class = "jumbotron jumbotron1">
 	<center><h1 class="font5">Contact us</h1>
 	<h3 class="font5">If you have any problem or question, contact us!</h3>
 	<address class="font5">
@@ -17,4 +18,5 @@
 		<strong>Email</strong><br>
 		<a href="mailto:#">admin@live.rhul.ac.uk</a>
 	</address></center>
+	</div>
 @stop

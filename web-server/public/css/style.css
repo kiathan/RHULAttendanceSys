@@ -64,14 +64,14 @@ th{
 }
 
 .jumbotron1 {
-    background: rgb(40, 20, 0); /* This is for ie8 and below */
-    background: rgba(40, 20, 0, 0.5);
+    background: rgb(0, 0, 0); /* This is for ie8 and below */
+    background: rgba(0, 0, 0, 0.6);
 }
 
 
 .font5{
-    font-family: 'Roboto';
-    color: white;
+    font-family: 'Roboto', 'bold';
+    color: white !important;
     text-align: center;
 }
 

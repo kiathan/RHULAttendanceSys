@@ -10,7 +10,7 @@
         $(document).ready(function () {
             var timetable = new Timetable();
             timetable.setScope(9, 17);
-            timetable.addLocations(["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]);
+            timetable.addLocations(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
             @foreach($lectues as $lectue)
 
             <?php
@@ -32,7 +32,7 @@
         });
         @endif
     </script>
-    <h1 class="font5">
+    <h1 class="titlehead">
         <center>Timetable</center>
     </h1>
     <center><div class="timetable"></div></center>

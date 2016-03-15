@@ -5,7 +5,7 @@
 <div class = "container">
 
 		<center>
-			<h1 class="font5">ATTENDANCE SYSTEM</h1>
+			<h1 class="titlehead">ATTENDANCE SYSTEM</h1>
 			<div class = "container">
 
 				<div class = "row">
@@ -37,7 +37,7 @@
 				</div>
 
 			</div>
-			<h2 class="font5">If you have any problems, click to <a href="contact.blade.php" style="color:white"><u>contact us</u></a></h2>
+			<h2 class="smallertext">If you have any problems, click to <a href="contact.blade.php" style="color:white"><u>contact us</u></a></h2>
 		</center>
 	</div>
 

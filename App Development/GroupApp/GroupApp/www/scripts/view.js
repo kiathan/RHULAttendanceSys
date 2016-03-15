@@ -33,7 +33,7 @@
     $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);
     $('.current-class-atd-btn').click(classAtd_withServer);
-    $('.result-btn').click(sendNotification);
+
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);

@@ -80,6 +80,7 @@ function loginReplyRedir() {
             localStorage.isStudent = "false";
         }
         if (localStorage.isStudent == "true") {
+
             window.location.href = "#StudentLanding";
         } else {
             window.location.href = "#LecturerLanding";
@@ -121,6 +122,7 @@ function loadAttendance() {
             var result;
 
             if (result1.state == "success") {
+
                 result = result1[0][0];
             }
             if (result1.state == "failure") {
@@ -175,6 +177,7 @@ function loadAttendance() {
  **/
 function signin() {
     setCurrentPosition();
+    setNotification();
     navigator.notification.confirm(
         "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
         scanner, // callback
@@ -329,14 +332,48 @@ function start_stop_Quiz(input) {
     var t = localStorage.token;
     var cc = localStorage.currentClassCode;
     var initQuiz = true;
+    var url = server + "api/quiz/lectureQuiz";
+    var dataString = "username=" + u + "&courseID=" + cc + "&token=" + t + "&state=" +
+        initQuiz;
+    setNotification();
     if (input != "start") {
         initQuiz = false;
-    } else {
+        window.plugins.OneSignal.getIds(function (ids) {
+            var notificationObj = {
+                "app_id": "f3910626-2f31-44fc-beeb-6bd9fb5103d5",
+                "contents": {"en": "Stopped question."},
+                include_player_ids: [ids.userId]
+            };
+            window.plugins.OneSignal.postNotification(notificationObj,
+                function (successResponse) {
+                    console.log("Notification Post Success:", successResponse);
+                },
+                function (failedResponse) {
+                    console.log("Notification Post Failed: ", failedResponse);
+                    alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
+                }
+            );
+        });
 
     }
-    var url = server + "api/quiz/lectureQuiz";
-    var dataString = "username" + u + "courseID" + cc + "token" + t + "state" +
-        initQuiz;
+    else {
+        window.plugins.OneSignal.getIds(function (ids) {
+            var notificationObj = {
+                "app_id": "f3910626-2f31-44fc-beeb-6bd9fb5103d5",
+                "contents": {"en": "Stopped question."},
+                include_player_ids: [ids.userId]
+            };
+            window.plugins.OneSignal.postNotification(notificationObj,
+                function (successResponse) {
+                    console.log("Notification Post Success:", successResponse);
+                },
+                function (failedResponse) {
+                    console.log("Notification Post Failed: ", failedResponse);
+                    alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
+                }
+            );
+        });
+    }
 
     $.ajax({
         method: "POST",
@@ -368,8 +405,9 @@ function start_stop_Quiz(input) {
         timeout: 3000 //3 seconds
 
     });
-};
-function sendNotification() {
+}
+;
+function setNotification() {
 
     var notificationOpenedCallback = function (jsonData) {
         if (localStorage.isStudent == "true") {
@@ -511,7 +549,7 @@ function signInStud_withServer() {
     var url = server + "/api/lecture_instends/authUser";
     var dataString = "username=" + u + "&token=" + t + "&time=" + time +
         "&student=" + stud + "&classcode=" + cc + "&date=" + date;
-
+    setNotification();
     $.ajax({
         method: "POST",
         url: url,

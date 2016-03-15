@@ -22,7 +22,9 @@
 </head>
 
 <body onload="setupOnLoad();">
-
+<style>
+	body { background-image: url("../images/rhul1.jpg");}
+</style>
 	<!-- TOP NAV BAR -->
 
 	<div class = "navbar navbar-inverse navbar-static-top">

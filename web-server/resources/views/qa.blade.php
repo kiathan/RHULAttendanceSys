@@ -1,8 +1,7 @@
 @extends('Master.layout')
 
 @section('content')
-    <div class="section">
-        <div class="container vertical-center jumbotron jumbotron1">
+
             <div class="row">
                 <div class="col-md-4">
                     <a href="now.blade.php"><img src="images/QA.JPG" class="img-size"></a>
@@ -14,6 +13,4 @@
                     <a href="feedback.blade.php"><img src="images/feedback.jpg" class="img-size"></a>
                 </div>
             </div>
-        </div>
-    </div>
 @stop

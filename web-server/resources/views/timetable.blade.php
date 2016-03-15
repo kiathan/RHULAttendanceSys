@@ -10,7 +10,7 @@
         $(document).ready(function () {
             var timetable = new Timetable();
             timetable.setScope(9, 17);
-            timetable.addLocations(["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]);
+            timetable.addLocations(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
             @foreach($lectues as $lectue)
 
             <?php
@@ -32,103 +32,8 @@
         });
         @endif
     </script>
-    <style>
-        body {
-            background-image: url("images/blurred2.jpg");
-        }
-    </style>
-    <h1 class="font3">
+    <h1 class="titlehead">
         <center>Timetable</center>
     </h1>
-    <div class="timetable"></div>
-    <center>
-        <div>
-            <table class="table table-bordered table-hover table1">
-                <thead>
-                <tr class="danger">
-                    <th>#</th>
-                    <th>Monday</th>
-                    <th>Tuesday
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">9:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">10:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">11:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">12:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">13:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">14:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">15:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">16:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <th scope="row">17:00</th>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </center>
+    <center><div class="timetable"></div></center>
 @stop

@@ -1,25 +1,17 @@
 @extends('Master.layout')
 
 @section('content')
-    <style>
-        body { background-color: #cccccc;}
-    </style>
-    <div class="section">
-        <div class="container vertical-center">
+        <center>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="now.blade.php"><img src="images/QA.JPG" class="img-size">
-                        <h2 class="font4">Question & Answer</h2></a>
+                    <a href="now.blade.php"><img src="images/QA.JPG" class="img-size"></a>
                 </div>
                 <div class="col-md-4">
-                    <a href="previous.blade.php"><img src="images/previous.JPG" class="img-size">
-                        <h2 class="font4">Previous questions</h2></a>
+                    <a href="previous.blade.php"><img src="images/previous.JPG" class="img-size"></a>
                 </div>
                 <div class="col-md-4">
-                    <a href="feedback.blade.php"><img src="images/feedback.jpg" class="img-size">
-                        <h2 class="font4">Feedback</h2></a>
+                    <a href="feedback.blade.php"><img src="images/feedback.jpg" class="img-size"></a>
                 </div>
             </div>
-        </div>
-    </div>
+        <center>
 @stop

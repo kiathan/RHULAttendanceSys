@@ -40,6 +40,12 @@ class lectureInstanceController extends Controller
         return view('lecture_instend/index')->with(['lecture_instends' => $lecture_instends]);
     }
 
+    public function displayAll(Request $request, Guard $auth)
+    {
+        $lecture_instends = \App\lecture_instend::where('isActive', '1')->get()->load('lecture');
+        return view('/overall')->with(['lecture_instends' => $lecture_instends]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

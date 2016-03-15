@@ -10,8 +10,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<link rel = "shortcut icon" href = "images/RHicon.ico">
-	<link href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
-	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src = "js/bootstrap.js"></script>
 	<script>
 		function setupOnLoad() {
@@ -22,7 +22,9 @@
 </head>
 
 <body onload="setupOnLoad();">
-
+<style>
+	body { background-image: url("../images/rhul1.jpg");}
+</style>
 	<!-- TOP NAV BAR -->
 
 	<div class = "navbar navbar-inverse navbar-static-top">
@@ -43,17 +45,18 @@
 			
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
-	
-	@yield('content')
+		<div class = "jumbotron jumbotron1">
+			@yield('content')
+		</div>
 
 	<!-- BOTTOM NAV BAR -->
 
 	<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">		
 		<div class = "container">
 		
-			<p class = "navbar-text pull-left">Site Built By Team6</p>
+			<p class = "navbar-text pull-left">Designed & Made By Team6</p>
 			<a href = "http://moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
 		
 		</div>

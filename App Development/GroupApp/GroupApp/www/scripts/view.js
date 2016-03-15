@@ -35,7 +35,8 @@
     $('.logout-btn').click(logout);
     $('.sign-in-btn').click(signin);
     $('.answer-btn').click(answerQuestion);
-    $('.quiz-btn').click(start_stop_Quiz);
+    $('.quiz-start-btn').click(start_Quiz);
+    $('.quiz-stop-btn').click(stop_Quiz);
     $('.home-btn').click(loginReplyRedir);
     $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);

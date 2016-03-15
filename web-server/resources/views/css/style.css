@@ -69,30 +69,10 @@ th{
 }
 
 
-.font1{
-    font-family: 'Lobster', cursive;
-    color: #FFFFFF;
-}
-
-.font2{
-    font-family: 'Lobster', cursive;
+.font5{
+    font-family: 'Roboto';
     color: #F5D0A9;
-}
-.font3{
-    font-family: 'Lobster', cursive;
-    color: #69249A;
-}
-
-.font4{
-    font-family: 'Lobster', cursive;
-    color: #008080;
     text-align: center;
-}
-
-.rainbow {
-    background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
-    color:transparent;
-    -webkit-background-clip: text;
 }
 
 .table1{

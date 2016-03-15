@@ -17,16 +17,8 @@
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
     //Push notification registration.
-    var notificationOpenedCallback = function(jsonData) {
-      alert("Received!");
-    };
-    window.plugins.OneSignal.init("f3910626-2f31-44fc-beeb-6bd9fb5103d5", {
-        googleProjectNumber: "610240135914"
-      },
-      notificationOpenedCallback);
-    // Show an alert box if a notification comes in when the user is in your app.
-    window.plugins.OneSignal.enableNotificationsWhenActive(true);
-    window.plugins.OneSignal.setSubscription(true);
+
+
 
     $('.footer-base').clone().appendTo('.footer-copy');
 
@@ -41,6 +33,7 @@
     $('.sign-stud-btn').click(signInStud_withServer);
     $('.scan-stud-btn').click(scanInStud);
     $('.current-class-atd-btn').click(classAtd_withServer);
+    $('.result-btn').click(sendNotification);
 
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);

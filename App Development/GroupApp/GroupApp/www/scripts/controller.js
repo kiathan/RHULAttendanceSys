@@ -315,24 +315,26 @@ function answerQuestion() {
 
 };
 
-function start_Quiz(){
+function start_Quiz() {
     start_stop_Quiz("start");
 }
 
-function stop_Quiz(){
+function stop_Quiz() {
     start_stop_Quiz("stop");
 }
 
 function start_stop_Quiz(input) {
-
+    ActivityIndicator.show(input + "ing question...");
     var u = localStorage.username;
     var t = localStorage.token;
     var cc = localStorage.currentClassCode;
-    var initQuiz=true;
-    if(input!="start"){
-        initQuiz=false;
+    var initQuiz = true;
+    if (input != "start") {
+        initQuiz = false;
+    } else {
+
     }
-    var url = server + "api/quiz/lecturerQuiz";
+    var url = server + "api/quiz/lectureQuiz";
     var dataString = "username" + u + "courseID" + cc + "token" + t + "state" +
         initQuiz;
 
@@ -347,6 +349,7 @@ function start_stop_Quiz(input) {
             var result = makeJSON(data);
             ActivityIndicator.hide();
             alert(result.message);
+
         },
 
         error: function (data) {
@@ -366,7 +369,21 @@ function start_stop_Quiz(input) {
 
     });
 };
+function sendNotification() {
 
+    var notificationOpenedCallback = function (jsonData) {
+        if (localStorage.isStudent == "true") {
+            window.location.href = "#StudentQuestion";
+        }
+    };
+    window.plugins.OneSignal.init("f3910626-2f31-44fc-beeb-6bd9fb5103d5", {
+            googleProjectNumber: "610240135914"
+        },
+        notificationOpenedCallback);
+
+    window.plugins.OneSignal.enableNotificationsWhenActive(true);
+    window.plugins.OneSignal.setSubscription(true);
+};
 function loadTimetable() {
     window.plugins.orientationLock.lock("landscape");
     var u = localStorage.username;

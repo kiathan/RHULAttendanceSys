@@ -22,55 +22,48 @@ Route::get('/api',
         }
         return $linkText;
     });
-    
+
 Route::get('/', function () {
-	return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
-	
+
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::group(array('middleware' => 'auth'), function(){
-    
-	Route::get('/qa', function () {
-		return view('qa');
-	});
-	
-	Route::get('/now', function () {
-		return view('now');
-	});
-	    
-	Route::get('/timetable', function () {
-	    return view('timetable');
-	});
-	    
-	Route::get('/attendance', function () {
-	    return view('attendance');
-	});
-	
-	Route::get('/qa', function () {
-	    return view('qa');
-	});
-	
-	Route::get('/now', function () {
-	    return view('now');
-	});
-	
-	Route::get('/timetable', function () {
-	    return view('timetable');
-	});
-	
-	Route::get('/attendance', function () {
-	    return view('attendance');
-	});
-	
-	Route::get('/users', 'authController@users');
-	    
+Route::group(array('middleware' => 'auth'), function () {
+
+    Route::get('/qa', function () {
+        return view('qa');
+    });
+
+    Route::get('/now', function () {
+        return view('now');
+    });
+
+    Route::get('/timetable', 'lectureController@timetable');
+
+    Route::get('/attendance', function () {
+        return view('attendance');
+    });
+
+    Route::get('/qa', function () {
+        return view('qa');
+    });
+
+    Route::get('/now', function () {
+        return view('now');
+    });
+
+    Route::get('/attendance', function () {
+        return view('attendance');
+    });
+
+    Route::get('/users', 'AuthController@users');
 });
 
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
@@ -102,8 +95,8 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
     Route::post('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 
-    Route::post('/quiz/studentQuiz','quizController@ansQuiz');
-    Route::post('/quiz/lectureQuiz','quizController@startNstop');
+    Route::post('/quiz/studentQuiz', 'quizController@ansQuiz');
+    Route::post('/quiz/lectureQuiz', 'quizController@startNstop');
 
 });
 

@@ -396,9 +396,13 @@ function loadTimetable() {
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
      // $('.time-entry').css("color", "red");
-      if (timetable.events[1].attended==false) {
-      		$(this).css("background-color", "red");
+     
+     $('.time-entry').each(function(index) {
+     	
+      if (timetable.events[index].attended==false) {
+      		$(".time-entry:nth-of-type(" + index + ")").css("background-color", "red");	
       }
+  });
     },
     error: function(data) {
       ActivityIndicator.hide();

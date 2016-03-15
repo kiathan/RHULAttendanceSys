@@ -22,9 +22,9 @@ Route::get('/api',
         }
         return $linkText;
     });
-    
+
 Route::get('/', function () {
-	return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/welcome', function () {
@@ -35,7 +35,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::group(array('middleware' => 'auth'), function(){
+Route::group(array('middleware' => 'auth'), function () {
 
     Route::get('/qa', function () {
         return view('qa');
@@ -67,7 +67,7 @@ Route::group(array('middleware' => 'auth'), function(){
         return view('attendance');
     });
 
-    Route::get('/users', 'authController@users');
+    Route::get('/users', 'AuthController@users');
 });
 
 Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () {
@@ -99,8 +99,8 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
     Route::post('/lecture_instends/attendes', 'lectureInstanceController@attends');
     Route::post('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 
-    Route::post('/quiz/studentQuiz','quizController@ansQuiz');
-    Route::post('/quiz/lectureQuiz','quizController@startNstop');
+    Route::post('/quiz/studentQuiz', 'quizController@ansQuiz');
+    Route::post('/quiz/lectureQuiz', 'quizController@startNstop');
 
 });
 

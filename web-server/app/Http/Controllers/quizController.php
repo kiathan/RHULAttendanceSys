@@ -38,8 +38,8 @@ class quizController extends Controller
             // Get the current lecture also
             $lecture = $couse->lecture()
                 ->where('dayofweek', $dayOfWeek)
-                ->where('starttime', '>=', $currentDateTime->format('h:i:s'))
-                ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
+                ->where('starttime', '>=', $currentDateTime->format('G:i:s'))
+                ->where('endtime', '<=', $currentDateTime->format('G:i:s'))
                 ->first();
 
             if (is_null($lecture)) {
@@ -92,8 +92,8 @@ class quizController extends Controller
         // Get the current lecture also
         $lecture = $couse->lecture()
             ->where('dayofweek', $dayOfWeek)
-            ->where('starttime', '>=', $currentDateTime->format('h:i:s'))
-            ->where('endtime', '<=', $currentDateTime->format('h:i:s'))
+            ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
+            ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
             ->first();
 
         if (is_null($lecture)) {
@@ -120,7 +120,7 @@ class quizController extends Controller
         } else if (!is_null($question) && $request->get('state') == 'false') {
             $question->isValit = false;
             $question->save();
-            return json_encode(["state" => "success", "message" => "Stop the current question"]);
+            return json_encode(["state" => "success", "message" => "Stop the current question", "data" => ""]);
         } else {
             return json_encode(["state" => "failure", "message" => "No question to stop"]);
         }

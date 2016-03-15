@@ -23,7 +23,7 @@
 
 			<h1 class="font2"><b>QR Code</b></h1>
 			<font size=4><p class="font2">Scan a QR Code using your mobile</p></font>
-			<a href = "QR.html" class = "btn btn-default font1" style="color:black">Click Here</a>
+			<a href = "{{url('/attendance/qr')}}" class = "btn btn-default font1" style="color:black">Click Here</a>
 
 		</div>
 
@@ -31,7 +31,7 @@
 
 			<h1 class="font2"><b>Overall Attendance</b></h1>
 			<font size=4><p class="font2">Overall attendance to each module</p></font>
-			<a href = "overall.html" class = "btn btn-default font1" style="color:black">Click Here</a>
+			<a href = "{{url('/attendance/overall')}}" class = "btn btn-default font1" style="color:black">Click Here</a>
 
 		</div>
 
@@ -39,7 +39,7 @@
 
 			<h1 class="font2"><b>Graph</b></h1>
 			<font size=4><p class="font2">Graph for</p></font>
-			<a href = "#" class = "btn btn-default font1" style="color:black">Click Here</a>
+			<a href = "{{url('/attendance/graph')}}" class = "btn btn-default font1" style="color:black">Click Here</a>
 
 		</div>
 

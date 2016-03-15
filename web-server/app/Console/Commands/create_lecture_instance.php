@@ -32,7 +32,7 @@ class create_lecture_instance extends Command
 
         $currentTime = new Carbon();
         printf("-----------------------------------------------------------------------\n");
-        printf("start on update the lectures : %s\n\n", $currentTime->format('y-m-d:m:i:s'));
+        printf("start on update the lectures : %s\n\n", $currentTime->format('y-m-d:H:i:s'));
         // Offset in minuest
         $offset = 10;
         $dayToDay = strtolower($currentTime->format('l'));
@@ -56,7 +56,7 @@ class create_lecture_instance extends Command
                 printf("\tStop lecture %s\n", $lecture->course->code);
             }
         }
-        printf("end the update the lectures: %s\n", $currentTime->format('y-m-d:m:i:s'));
+        printf("end the update the lectures: %s\n", $currentTime->format('y-m-d:H:i:s'));
         printf("-----------------------------------------------------------------------\n");
     }
 }

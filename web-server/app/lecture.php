@@ -47,11 +47,9 @@ class lecture extends Model
 
     public function deactiveLectureInstance()
     {
-        $lectureInstances = $this->getActiveLecture();
+        $lectureInstances = $this->getActiveLecture()->get();
         foreach ($lectureInstances as $lectureInstance) {
-            printf("Writeing to file");
             $lectureInstance->isActive = false;
-            printf("%b", $lectureInstance->isActive);
             $lectureInstance->save();
         }
     }

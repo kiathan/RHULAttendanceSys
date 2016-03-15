@@ -47,9 +47,11 @@
 	</div>
 
 	<!-- CONTENT -->
+<center><div class = "container vertical-center">
 	<div class = "jumbotron jumbotron1">
 	@yield('content')
 	</div>
+</div></center>
 	<!-- BOTTOM NAV BAR -->
 
 	<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">		

@@ -64,6 +64,7 @@ th{
 }
 
 .jumbotron1 {
+    align-content: center;
     background: rgb(210,210,210); /* This is for ie8 and below */
     background: rgba(210,210,210,0.6);
 }
@@ -76,9 +77,16 @@ th{
 }
 
 .titlehead{
+    font-family: 'Verdana', 'sans-serif';
+    color: black !important;
+    text-align: center;
+}
+
+.smallertext{
     font-family: 'Roboto', 'bold';
     color: black !important;
     text-align: center;
+    font-size: smaller;
 }
 
 .table1{

@@ -5,7 +5,7 @@
 <div class = "container">
 
 		<center>
-			<h1 class="font5">ATTENDANCE SYSTEM</h1>
+			<h1 class="titlehead">ATTENDANCE SYSTEM</h1>
 			<div class = "container">
 
 				<div class = "row">
@@ -14,7 +14,7 @@
 
 						<h2 class="font5" style="color:#F5D0A9"><b>QR Code</b></h2>
 						<font size=4><p class="font5" style="color:#F5D0A9">Scan a QR Code using your mobile</p></font>
-						<a href = "qr.blade.php" class = "btn btn-default" style="color:black">Click Here</a>
+						<a href = "/qr" class = "btn btn-default" style="color:black">Click Here</a>
 
 					</div>
 
@@ -22,7 +22,7 @@
 
  						<h2 class="font5" style="color:#F5D0A9"><b>Overall Attendance</b></h2>
 						<font size=4><p class="font5" style="color:#F5D0A9">Overall attendance to each module</p></font>
-						<a href = "overall.blade.php" class = "btn btn-default" style="color:black">Click Here</a>
+						<a href = "/overall" class = "btn btn-default" style="color:black">Click Here</a>
 
 					</div>
 
@@ -37,7 +37,7 @@
 				</div>
 
 			</div>
-			<h2 class="font5">If you have any problems, click to <a href="contact.blade.php" style="color:white"><u>contact us</u></a></h2>
+			<h2 class="smallertext">If you have any problems, click to <a href="contact.blade.php" style="color:white"><u>contact us</u></a></h2>
 		</center>
 	</div>
 

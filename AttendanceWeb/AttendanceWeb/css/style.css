@@ -43,7 +43,9 @@ th{
 
 .jumbotron1 {
    background: rgb(40, 20, 0); /* This is for ie8 and below */
-   background: rgba(40, 20, 0, 0.5); 
+   background: rgba(40, 20, 0, 0.6); 
+   padding-bottom: 50px;
+	
 }
 
 
@@ -67,6 +69,20 @@ th{
 	text-align: center;
 }
 
+.font5{
+	font-family: 'Roboto', cursive;
+	color: white;
+	text-align: center;
+	size: 10;
+}
+.font6{
+	font-family: 'Francois One', cursive;
+	color: #008080;
+	text-align: center;
+	size: 10;
+}
+
+
 .rainbow {
   background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
   color:transparent;
@@ -85,3 +101,4 @@ th{
 	position: absolute;
 	top: 15%; left: 0; bottom: 0; right: 0;
 }
+

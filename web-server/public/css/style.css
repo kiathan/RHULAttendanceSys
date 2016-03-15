@@ -1,19 +1,19 @@
 body {
-	margin-bottom: 80px;
+    margin-bottom: 80px;
 }
 
 /*And then change */
- .img-responsive {
+.img-responsive {
     display: block;
     height: auto;
     width: 100%;
-	max-height: 530px;
-	
-}  
+    max-height: 530px;
+
+}
 .img-QA{
-	display: block;
-	height: 300px;
-	width: 250px;
+    display: block;
+    height: 300px;
+    width: 250px;
 }
 .navbar-fnt {
     color: #CC3333;
@@ -64,36 +64,21 @@ th{
 }
 
 .jumbotron1 {
-    background: rgb(40, 20, 0); /* This is for ie8 and below */
-    background: rgba(40, 20, 0, 0.5);
+    background: rgb(210,210,210); /* This is for ie8 and below */
+    background: rgba(210,210,210,0.6);
 }
 
 
-.font1{
-    font-family: 'Lobster', cursive;
-    color: #FFFFFF;
-}
-
-.font2{
-    font-family: 'Lobster', cursive;
-    color: #F5D0A9;
-}
-.font3{
-    font-family: 'Lobster', cursive;
-    color: #69249A;
-}
-
-.font4{
-    font-family: 'Lobster', cursive;
-    color: #008080;
+.font5{
+    font-family: 'Roboto', 'bold';
+    color: black !important;
     text-align: center;
 }
 
-
-.rainbow {
-    background-image: -webkit-gradient( linear, left top, right top, color-stop(0.05, #f22), color-stop(0.2, #ff2),  color-stop(0.45, #2f2),color-stop(0.5, #2f2), color-stop(0.75, #ff2), color-stop(1, #f22) );
-    color:transparent;
-    -webkit-background-clip: text;
+.titlehead{
+    font-family: 'Roboto', 'bold';
+    color: black !important;
+    text-align: center;
 }
 
 .table1{
@@ -109,4 +94,8 @@ th{
     margin: auto;
     position: absolute;
     top: 15%; left: 0; bottom: 0; right: 0;
+}
+
+.timetable section{
+    overflow-x: hidden !important;
 }

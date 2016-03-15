@@ -19,7 +19,6 @@ class lectureController extends Controller
      */
 
     public function index(Request $request, Guard $auth, $filter = "all")
-
     {
         if ($request->segment(1) == "api") {
             $user = $auth->user();
@@ -118,7 +117,8 @@ class lectureController extends Controller
 
     public function timetable(Guard $guard)
     {
-        $user = \App\User::find($guard->user()->id);
+        $user = $guard->user();
+        $user = \App\User::find($user->id);
 
         if (!is_null($user)) {
             $lecutes = $user->allLectures();

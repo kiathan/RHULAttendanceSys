@@ -393,16 +393,17 @@ function loadTimetable() {
         }
       });
       ActivityIndicator.hide();
+
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
      // $('.time-entry').css("color", "red");
      
      $('.time-entry').each(function(index) {
-     	
-      if (timetable.events[index].attended==false) {
-      		$(".time-entry:nth-of-type(" + index + ")").css("background-color", "red");	
-      }
-  });
+     	if (timetable.events[index].attended==false) {
+      		$(".time-entry:nth-of-type(" + index + ")").css("background-color", "orange");
+      	}
+  	});
+     
     },
     error: function(data) {
       ActivityIndicator.hide();

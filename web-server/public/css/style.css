@@ -75,6 +75,12 @@ th{
     text-align: center;
 }
 
+.titlehead{
+    font-family: 'Roboto', 'bold';
+    color: black !important;
+    text-align: center;
+}
+
 .table1{
     width: 80%;
     text-align: center;
@@ -91,5 +97,5 @@ th{
 }
 
 .timetable section{
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }

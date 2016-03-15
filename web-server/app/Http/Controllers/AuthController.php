@@ -42,15 +42,15 @@ class AuthController extends Controller
         $courses = \App\course::all();
         return view('auth.create', ["roles" => $roles, "courses" => $courses]);
     }
-    
+
     public function users(Request $request)
     {
         $roles = Role::all();
 
         $courses = \App\course::all();
-        
+
          $users = \App\User::all();
-        
+
         return view('users', ["roles" => $roles, "courses" => $courses, "users" => $users]);
     }
 
@@ -116,11 +116,11 @@ class AuthController extends Controller
 			if(isSet($request->courses)) {
 	    	    foreach ($request->get('courses') as $course_id) {
     		        $user->saveCouse(\App\course::find($course_id), 'student');
-        		}	
+        		}
         	}
-			
+
 			return redirect("/users");
-            
+
         } else {
             return redirect("/users");
         }
@@ -134,10 +134,10 @@ class AuthController extends Controller
      */
     public function show(Request $request)
     {
-        
+
         $id = $request->input('id');
         $user = \App\User::find($id);
- 
+
         return response()->json([
         	'username' => $user->username,
         	'firstname' => $user->firstname,
@@ -147,7 +147,7 @@ class AuthController extends Controller
         	'role' => $user->role,
         	'course' => $user->course
         ]);
-        
+
     }
 
     /**
@@ -169,45 +169,45 @@ class AuthController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
+
     	$username = $request->input('username');
-    
+
         if(isSet($username)) {
-        
+
         	DB::table('users')->where('id', $request->input('id'))->update(['username' => $request->input('username')]);
-        
+
         }
-        
+
         $firstname = $request->input('firstname');
-        
+
         if(isSet($firstname)) {
-        
+
         	DB::table('users')->where('id', $request->input('id'))->update(['firstname' => $request->input('firstname')]);
-        
+
         }
-        
+
         $middlename = $request->input('middlename');
-        
+
         if(isSet($middlename)) {
-        
+
         	DB::table('users')->where('id', $request->input('id'))->update(['middlename' => $request->input('midddlename')]);
-        
+
         }
-        
+
         if(isSet($request->input('lastname'))) {
-        
+
         	DB::table('users')->where('id', $request->input('id'))->update(['lastname' => $request->input('lastname')]);
-        
+
         }
-        
+
         if(isSet($request->input('email'))) {
-        
+
         	DB::table('users')->where('id', $request->input('id'))->update(['email' => $request->input('email')]);
-        
+
         }
-        
+
         return redirect('/users');
-        
+
     }
 
     /**
@@ -222,15 +222,13 @@ class AuthController extends Controller
         $user = \App\User::find($id);
         $user->delete();
         return redirect('/users');
-        
+
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirec('/');
-        
+        return redirect('/');
+
     }
 }
-
-

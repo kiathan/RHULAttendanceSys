@@ -47,10 +47,9 @@
 	</div>
 
 	<!-- CONTENT -->
-
-	<div class = "jumbotron jumbotron1 vertical-center horizontal-center">
-	@yield('content')
-	</div>
+		<div class = "jumbotron jumbotron1">
+			@yield('content')
+		</div>
 
 	<!-- BOTTOM NAV BAR -->
 

@@ -59,10 +59,6 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('now');
     });
 
-    Route::get('/timetable', function () {
-        return view('timetable');
-    });
-
     Route::get('/attendance', function () {
         return view('attendance');
     });

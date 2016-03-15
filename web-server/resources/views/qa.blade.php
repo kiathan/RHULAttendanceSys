@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section">
-        <div class="container vertical-center">
+        <div class="container vertical-center jumbotron jumbotron1">
             <div class="row">
                 <div class="col-md-4">
                     <a href="now.blade.php"><img src="images/QA.JPG" class="img-size"></a>

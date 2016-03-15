@@ -40,7 +40,7 @@ class apiSignIn
             $this->auth->login($user);
         }
 
-        if (env('APP_DEBUG') && ($request->get('token') == "login")) {
+        if (!is_null($user) && env('APP_DEBUG') && ($request->get('token') == "login")) {
             $this->auth->login($user);
         }
 

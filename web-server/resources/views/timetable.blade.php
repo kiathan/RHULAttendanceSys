@@ -37,7 +37,7 @@
             background-image: url("images/blurred2.jpg");
         }
     </style>
-    <h1 class="font3">
+    <h1 class="font5">
         <center>Timetable</center>
     </h1>
     <div class="timetable"></div>

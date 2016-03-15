@@ -388,7 +388,7 @@ function loadTimetable() {
               index].venue.name), (data[index].dayofweek).toUpperCase(),
             new Date(null, null, null, starttimeFormat[0],
               starttimeFormat[1]), new Date(null, null, null,
-              endtimeFormat[0], endtimeFormat[1]), data[index].UserAttended);
+              endtimeFormat[0], endtimeFormat[1]), null, data[index].UserAttended);
      		 
         }
       });
@@ -396,7 +396,9 @@ function loadTimetable() {
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
      // $('.time-entry').css("color", "red");
-      alert(timetable.events[0].attended);
+      if (timetable.events[1].attended==false) {
+      		$(this).css("background-color", "red");
+      }
     },
     error: function(data) {
       ActivityIndicator.hide();

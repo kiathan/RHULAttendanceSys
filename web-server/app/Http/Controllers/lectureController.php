@@ -118,7 +118,7 @@ class lectureController extends Controller
 
     public function timetable(Guard $guard)
     {
-        $user = $guard->user();
+        $user = \App\User::find($guard->user()->id);
 
         if (!is_null($user)) {
             $lecutes = $user->allLectures();

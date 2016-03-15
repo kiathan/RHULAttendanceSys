@@ -106,7 +106,7 @@ class quizController extends Controller
     }
 
 
-    public function startNstop(Request $request, Gate  $auth)
+    public function startNstop(Request $request, Guard $auth)
     {
         $student_buf = \App\User::find($auth->user()->id);
 

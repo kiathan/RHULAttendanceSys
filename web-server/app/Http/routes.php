@@ -51,8 +51,12 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('attendance');
     });
 
-    Route::get('/qa', function () {
-        return view('qa');
+    Route::get('/qr', function () {
+        return view('qr');
+    });
+
+    Route::get('/overall', function () {
+        return view('overall');
     });
 
     Route::get('/now', function () {

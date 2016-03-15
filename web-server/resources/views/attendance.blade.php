@@ -14,7 +14,7 @@
 
 						<h2 class="font5" style="color:#F5D0A9"><b>QR Code</b></h2>
 						<font size=4><p class="font5" style="color:#F5D0A9">Scan a QR Code using your mobile</p></font>
-						<a href = "qr.blade.php" class = "btn btn-default" style="color:black">Click Here</a>
+						<a href = "/qr" class = "btn btn-default" style="color:black">Click Here</a>
 
 					</div>
 
@@ -22,7 +22,7 @@
 
  						<h2 class="font5" style="color:#F5D0A9"><b>Overall Attendance</b></h2>
 						<font size=4><p class="font5" style="color:#F5D0A9">Overall attendance to each module</p></font>
-						<a href = "overall.blade.php" class = "btn btn-default" style="color:black">Click Here</a>
+						<a href = "/overall" class = "btn btn-default" style="color:black">Click Here</a>
 
 					</div>
 

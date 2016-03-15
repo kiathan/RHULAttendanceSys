@@ -3,7 +3,12 @@
 @section('content')
     <link rel="stylesheet" href="css/timetablejs.css">
     <script src="js/timetable.min.js"></script>
-
+    <style>
+        .center{
+            margin-left: auto; !important;
+            margin-right: auto;!important;
+        }
+    </style>
     <script>
         @if(!is_null($lectues))
 
@@ -35,5 +40,5 @@
     <h1 class="font5">
         <center>Timetable</center>
     </h1>
-    <center><div class="timetable"></div></center>
+    <div class="center"><div class="timetable"></div></div>
 @stop

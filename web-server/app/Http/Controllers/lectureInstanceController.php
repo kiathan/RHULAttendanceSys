@@ -91,12 +91,7 @@ class lectureInstanceController extends Controller
      */
     public function show(Request $request, $id = null)
     {
-        if (is_null($id)) {
-            $lecture_instend = \App\lecture_instend::find($id);
-        } else {
-            $lecture_instend = $this->findLectureInstacnes($request);
-        }
-
+        $lecture_instend = \App\lecture_instend::find($id);
         $UserSignIn = $lecture_instend->attendentsSignin;
         $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
 
@@ -114,7 +109,6 @@ class lectureInstanceController extends Controller
 
         return view('lecture_instend.show')->with(["lecture_instend" => $lecture_instend, 'UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -251,7 +245,7 @@ class lectureInstanceController extends Controller
             /*
              * TODO update to proper error handling
              */
-            return "";
+            return "That is not an valid id";
         }
 
         $response = Response::make($lecture_instend->sendQRcode(), 200);

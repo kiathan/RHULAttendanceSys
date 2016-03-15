@@ -388,12 +388,15 @@ function loadTimetable() {
               index].venue.name), (data[index].dayofweek).toUpperCase(),
             new Date(null, null, null, starttimeFormat[0],
               starttimeFormat[1]), new Date(null, null, null,
-              endtimeFormat[0], endtimeFormat[1]));
+              endtimeFormat[0], endtimeFormat[1]), data[index].UserAttended);
+     		 
         }
       });
       ActivityIndicator.hide();
       var renderer = new Timetable.Renderer(timetable);
       renderer.draw('.timetable');
+     // $('.time-entry').css("color", "red");
+      alert(timetable.events[0].attended);
     },
     error: function(data) {
       ActivityIndicator.hide();

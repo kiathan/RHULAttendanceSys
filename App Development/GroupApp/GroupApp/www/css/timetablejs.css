@@ -194,7 +194,7 @@
 
 .timetable .hasnotattended  {
     background-color: coral !important;
-    
+
    
 }
 
@@ -209,3 +209,4 @@
     .timetable .time-entry:hover {
         background-color: lawngreen;
     }
+

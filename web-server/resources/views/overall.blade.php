@@ -1,11 +1,13 @@
 @extends('Master.layout')
 
 @section('content')
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
     <div>
         @if(sizeof($lecture_instends) == 0)7
         <p>There are currenly no active instances</p>
         @else
-            <table>
+            <table id="overall" class="display" cellspacing="0" width="100%">
                 <tr>
                     @foreach(array_keys($lecture_instends[0]->toArray()) as $names)
                         <th>{{$names}}</th>

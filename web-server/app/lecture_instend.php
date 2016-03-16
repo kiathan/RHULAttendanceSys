@@ -16,7 +16,7 @@ class lecture_instend extends Model
 
     public function question()
     {
-        return $this->belongsTo(\App\question::class);
+        return $this->hasMany(\App\question::class);
     }
 
 
@@ -38,7 +38,7 @@ class lecture_instend extends Model
 
     public function attendentsSignin()
     {
-            return $this->belongsToMany(\App\User::class, 'lecture_user');
+        return $this->belongsToMany(\App\User::class, 'lecture_user');
     }
 
     public function createQuestion()

@@ -398,6 +398,7 @@
         		$('#yes-course').html(list);
         		$('.active-check').prop('checked', false);
         		$('.edit-form-input').prop('disabled', true);
+        		$('#edit-user-id').attr("value",id);
         		
         	});
 			
@@ -421,7 +422,6 @@
         			list += "<li>" + data.course[i].code + ": " + data.course[i].name + "</li>";
         		}
         		$('#view_courses').html(list);
-        		$('#edit-user-id').attr("value",id);
         		
         	});
 			

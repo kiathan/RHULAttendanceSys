@@ -169,9 +169,7 @@ class AuthController extends Controller
     public function update(Request $request)
     {
     	
-    	$id = (int)$request->input('id');
-    	
-    	$user = \App\User::find($id);
+    	$user = \App\User::find((int)$request->input('id'));
     	
     	$username = $request->input('username');
     
@@ -183,7 +181,7 @@ class AuthController extends Controller
         
         $firstname = $request->input('firstname');
         
-        if(!empty($firstname != null) && !empty($user)) {
+        if(!empty($firstname) && !empty($user)) {
         
         	$user->update(['firstname' => $firstname]);
         
@@ -191,7 +189,7 @@ class AuthController extends Controller
         
         $middlename = $request->input('middlename');
         
-        if(!empty($middlename != null) && !empty($user)) {
+        if(!empty($middlename) && !empty($user)) {
         
         	$user->middlename = $middlename;
         
@@ -199,7 +197,7 @@ class AuthController extends Controller
         
         $lastname = $request->input('lastname');
         
-        if(!empty($lastname != null) && !empty($user)) {
+        if(!empty($lastname) && !empty($user)) {
         
         	$user->lastname = $lastname;;
         
@@ -207,12 +205,12 @@ class AuthController extends Controller
         
         $email = $request->input('email');
         
-        if(!empty($email != null) && !empty($user)) {
+        if(!empty($email) && !empty($user)) {
         
         	$user->email = $email;
         
         }
-        
+        if($user != null) {
         if ($user->save()) {
 			if(isSet($request->courses)) {
 	    	    foreach ($request->get('courses') as $course_id) {
@@ -223,6 +221,9 @@ class AuthController extends Controller
 			return redirect("/users");
             
         }
+        }
+        
+        return redirect("/");
         
     }
 

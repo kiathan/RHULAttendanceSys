@@ -32,7 +32,7 @@ class quizController extends Controller
             $couse = \App\course::where('code', $data->input('courseID'))->first();
 
             if (is_null($couse)) {
-                return json_encode(["state" => "failure", "message" => "No couse with that couse code"]);
+                return json_encode(["state" => "failure", "message" => "No course with that course code"]);
             }
 
             // Get the current lecture also
@@ -43,7 +43,7 @@ class quizController extends Controller
                 ->first();
 
             if (is_null($lecture)) {
-                return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+                return json_encode(["state" => 'failure', "message" => "No lecture currently"]);
             }
 
             // Check to see if there is an lecture in progress

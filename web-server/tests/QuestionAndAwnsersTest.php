@@ -28,7 +28,7 @@ class testQuestionAndAwnsers extends TestCase
         $courese = $lecture_instances->lecture->course;
         $question = ["username" => 87654321, 'token' => "login", "courseID" => $courese->code, "state" => true];
         $result = $this->post($url, $question);
-        var_dump($result);
+        var_dump($question);
         $this->assertTrue(true);
     }
 
@@ -62,7 +62,6 @@ class testQuestionAndAwnsers extends TestCase
         }
 
         $lecInstances = $lecture->getActiveLecture()->with('lecture')->first();
-        dd($lecture);
         return $lecInstances;
     }
 

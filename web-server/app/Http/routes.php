@@ -111,6 +111,7 @@ Route::any('/logout', 'AuthController@logout');
 Route::get('/auth/index', 'AuthController@index');
 Route::get('/auth/create', 'AuthController@create');
 Route::post('/auth/store', 'AuthController@store');
+Route::post('/auth/update/{id?}', 'AuthController@update');
 Route::post('/auth/destroy', 'AuthController@destroy');
 Route::post('/auth/show', 'AuthController@show');
 Route::get('/auth/logout', 'AuthController@logout');

@@ -103,13 +103,14 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $user = new \App\User();
-        $user->username = $request->input('username');
-        $user->firstname = $request->input('firstname');
-        $user->middlename = $request->input('middlename');
-        $user->lastname = $request->input('lastname');
-        $user->email = $request->input('email');
-        $user->password = Hash::make(hash("sha256", $request->input('password')));
+        $user->username =    $request->input('username');
+        $user->firstname =   $request->input('firstname');
+        $user->middlename =  $request->input('middlename');
+        $user->lastname =    $request->input('lastname');
+        $user->email =       $request->input('email');
+        $user->password =    Hash::make(hash("sha256", $request->input('password')));
 
 
         if ($user->save()) {
@@ -167,11 +168,16 @@ class AuthController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id = NULL)
     {
 
         $username = $request->input('username');
 
+        $user = \App\User::where('username', $username)->first();
+
+        $user->fill($request->all());
+        $user->save();
+/*
         if (isset($username)) {
 
             DB::table('users')->where('id', $request->input('id'))->update(['username' => $request->input('username')]);
@@ -207,6 +213,7 @@ class AuthController extends Controller
             DB::table('users')->where('id', $request->input('id'))->update(['email' => $request->input('email')]);
 
         }
+*/
 
         return redirect('/users');
 

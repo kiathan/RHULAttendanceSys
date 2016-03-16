@@ -325,35 +325,7 @@ function start_Quiz() {
 function stop_Quiz() {
     start_stop_Quiz("stop");
 }
-function sendNotifications(message) {
-    var app_id = "f3910626-2f31-44fc-beeb-6bd9fb5103d5";
-    var url = "https://onesignal.com/api/v1/notifications";
-    var data = {
-        "app_id": app_id,
-        "included_segments": ["All"],
-        "contents": {
-            "en": message + "ing question."
-        }
-    };
-    $.ajax({
-        method: "POST",
-        url: url,
-        headers: {
-            'Authorization': 'Basic ZWY3ZTdmYTEtOWM1OS00MDQxLTk4NWUtNDg2NjVkMDIxMDQ2',
-            'Content-Type': 'application/json'
-        },
-        data: data,
 
-        success: function (data) {
-            var result = makeJSON(data);
-            alert(result.message);
-        },
-        error: function (data) {
-            var result = makeJSON(data);
-            alert(result.message);
-        }
-    });
-}
     function start_stop_Quiz(input) {
         ActivityIndicator.show(input + "ing question...");
         var u = localStorage.username;
@@ -361,13 +333,10 @@ function sendNotifications(message) {
         var cc = localStorage.currentClassCode;
         var initQuiz = true;
         var url = server + "api/quiz/lectureQuiz";
-
         if (input != "start") {
             initQuiz = false;
         }
-        var dataString = "username=" + u + "&courseID=" + cc + "&token=" + t + "&state=" +
-            initQuiz;
-        sendNotifications(input);
+        var dataString = "username=" + u + "&courseID=" + cc + "&token=" + t + "&state=" +initQuiz;
 
         $.ajax({
             method: "POST",
@@ -382,7 +351,6 @@ function sendNotifications(message) {
                 alert(result.message);
 
             },
-
             error: function (data) {
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {

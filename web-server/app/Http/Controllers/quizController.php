@@ -94,8 +94,8 @@ class quizController extends Controller
         // Get the current lecture also
         $lecture = $couse->lecture()
             ->where('dayofweek', $dayOfWeek)
-            ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
-            ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('starttime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('endtime', '>=', $currentDateTime->format('H:i:s'))
             ->first();
 
         if (is_null($lecture)) {
@@ -130,7 +130,4 @@ class quizController extends Controller
     }
 
 
-        }
-
-    }
 }

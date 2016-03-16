@@ -179,6 +179,14 @@ class AuthController extends Controller
         
         }
         
+        $password = $request->input('password');
+        
+        if(!empty($password) && !empty($user)) {
+        
+        	$user->password = Hash::make(hash("sha256", $request->input('password')));
+        
+        }
+        
         $firstname = $request->input('firstname');
         
         if(!empty($firstname) && !empty($user)) {

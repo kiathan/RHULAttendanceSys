@@ -186,6 +186,16 @@
 						</fieldset>
 						
 						<fieldset class="form-group">
+							<label for="password" class="col-sm-2 control-label"> Password </label>
+							<div class="col-sm-9">
+								<input type="password" name="password" id="edit_password" class="form-control edit-form-input" required disabled/>
+							</div>
+							<div class="col-sm-1">
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_password')"> Edit </label>
+							</div>
+						</fieldset>
+						
+						<fieldset class="form-group">
 							<label for="firstname" class="col-sm-2 control-label"> First Name </label>
 							<div class="col-sm-9">
 								<input type="text" name="firstname" id="edit_firstname" class="form-control edit-form-input" required disabled/>

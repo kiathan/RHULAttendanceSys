@@ -45,17 +45,18 @@
 			
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
-	
-	@yield('content')
+		<div class = "jumbotron jumbotron1">
+			@yield('content')
+		</div>
 
 	<!-- BOTTOM NAV BAR -->
 
 	<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">		
 		<div class = "container">
 		
-			<p class = "navbar-text pull-left">Site Built By Team6</p>
+			<p class = "navbar-text pull-left">Designed & Made By Team6</p>
 			<a href = "http://moodle.rhul.ac.uk" class = "navbar-btn btn-danger btn pull-right" data-toggle="tooltip" title="Link to Moodle">RHUL MOODLE</a>
 		
 		</div>

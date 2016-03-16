@@ -181,8 +181,8 @@ class lectureInstanceController extends Controller
 
         $lecture = $course->lecture()// Get the lectures related to the course
         ->where('dayofweek', strtolower($dateTime->format('l')))// Get the day of week
-        ->where('starttime', '<=', $dateTime->format('h:i:s'))// Check that the start time is before or equal to the time given
-        ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
+        ->where('starttime', '<=', $dateTime->format('H:i:s'))// Check that the start time is before or equal to the time given
+        ->where('endtime', '>=', $dateTime->format('H:i:s'))// Check that the end time is after or equal to the time qiven
         ->first();                                          // Get the first instances as the can be to lecture
 
         if (is_null($lecture)) {
@@ -328,8 +328,8 @@ class lectureInstanceController extends Controller
 
         $lecture = $course->lecture()// Get the lectures related to the course
         ->where('dayofweek', strtolower($dateTime->format('l')))// Get the day of week
-        ->where('starttime', '<=', $dateTime->format('h:i:s'))// Check that the start time is before or equal to the time given
-        ->where('endtime', '>=', $dateTime->format('h:i:s'))// Check that the end time is after or equal to the time qiven
+        ->where('starttime', '<=', $dateTime->format('H:i:s'))// Check that the start time is before or equal to the time given
+        ->where('endtime', '>=', $dateTime->format('H:i:s'))// Check that the end time is after or equal to the time qiven
         ->first();
 
         if (is_null($lecture)) {

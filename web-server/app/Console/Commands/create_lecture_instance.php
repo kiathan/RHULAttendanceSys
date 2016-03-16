@@ -32,13 +32,16 @@ class create_lecture_instance extends Command
 
         $currentTime = new Carbon();
         printf("-----------------------------------------------------------------------\n");
-        printf("start on update the lectures : %s\n\n", $currentTime->format('y-m-d:m:i:s'));
+        printf("start on update the lectures : %s\n\n", $currentTime->format('y-m-d:H:i:s'));
         // Offset in minuest
         $offset = 10;
         $dayToDay = strtolower($currentTime->format('l'));
         $currentTime->addMinutes($offset);
-        $currentClockTime = $currentTime->format("h:i:s");
-        $lecturesToStart = \App\lecture::where("dayofweek", $dayToDay)->where('starttime', '<=', $currentClockTime)->get();
+        $starttime = $currentTime->format("h:i:s");
+        $currentTime->addMinutes((($offset * 2) * -1));
+        $endtime = $currentTime->format("h:i:s");
+
+        $lecturesToStart = \App\lecture::where("dayofweek", $dayToDay)->where('starttime', '<=', $starttime)->where('endtime', '>=', $endtime)->get();
 
         foreach ($lecturesToStart as $lecture) {
             if (!$lecture->hasActiveLecture()) {
@@ -46,17 +49,15 @@ class create_lecture_instance extends Command
                 printf("\tStart lecture %s\n", $lecture->course->code);
             }
         }
-        //
-        $currentTime->addMinutes((($offset * 2) * -1));
-        $currentClockTime = $currentTime->format("h:i:s");
-        $lecturesToEnd = \App\lecture::where('dayofweek', $dayToDay)->where('endtime', '>=', $currentClockTime)->get();
+
+        $lecturesToEnd = \App\lecture::where('dayofweek', $dayToDay)->where('endtime', '<=', $endtime)->get();
         foreach ($lecturesToEnd as $lecture) {
             if ($lecture->hasActiveLecture()) {
                 $lecture->deactiveLectureInstance();
                 printf("\tStop lecture %s\n", $lecture->course->code);
             }
         }
-        printf("end the update the lectures: %s\n", $currentTime->format('y-m-d:m:i:s'));
+        printf("end the update the lectures: %s\n", $currentTime->format('y-m-d:H:i:s'));
         printf("-----------------------------------------------------------------------\n");
     }
 }

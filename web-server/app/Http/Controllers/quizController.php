@@ -95,11 +95,11 @@ class quizController extends Controller
             ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => 'failure', "message" => "No lecture currently"]);
+            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
         }
 
         // Check to see if there is an lecture in progress
-        if (!$lecture->hasActiveLecture) {
+        if (!$lecture->hasActiveLecture()) {
             return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
         }
         //Get the list of current lecutes this is an array,

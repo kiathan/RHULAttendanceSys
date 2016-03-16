@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -82,7 +83,7 @@ class AuthController extends Controller
 
         $username = $request->input('username');
         $password = hash("sha256", $request->input('password'));
-		$remember = $request->input('remember');
+        $remember = $request->input('remember');
 
         $reuslts = Auth::attempt([
             "username" => $username,
@@ -112,14 +113,14 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
-			if(isSet($request->courses)) {
-	    	    foreach ($request->get('courses') as $course_id) {
-    		        $user->saveCouse(\App\course::find($course_id), 'student');
-        		}	
-        	}
-			
-			return redirect("/users");
-            
+            if (isSet($request->courses)) {
+                foreach ($request->get('courses') as $course_id) {
+                    $user->saveCouse(\App\course::find($course_id), 'student');
+                }
+            }
+
+            return redirect("/users");
+
         } else {
             return redirect("/users");
         }

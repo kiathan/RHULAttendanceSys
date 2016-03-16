@@ -20,7 +20,7 @@ class CreateAwnsersTable extends Migration
                 $table->integer('user_id')->unsigned()->index();
                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
                 $table->boolean('isValit');
-                $table->char('awnser');
+                $table->char('awnser', 2);
                 $table->timestamps();
             });
     }

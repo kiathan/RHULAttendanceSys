@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget defaultlocale="en-US" id="io.cordova.myapp81c6f5" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
-    <name>GroupApp</name>
+    <name>Royal A</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">Apache Cordova Team </author>
     <content src="index.html" />
@@ -112,4 +112,3 @@
 
     <plugin name="com.phonegap.plugins.OrientationLock" spec="https://github.com/cogitor/PhoneGap-OrientationLock.git" />
 </widget>
-

@@ -167,7 +167,7 @@
 	<div class = "modal fade" id = "edit-user" role = "dialog">
 		<div class = "modal-dialog modal-lg">
 			<div class = "modal-content">
-				<form class="form-horizontal" method="post" action="/auth/store">
+				<form class="form-horizontal" method="post" action="/auth/update">
 				
 					<div class = "modal-header">
 						<h3 id="edit_name"></h3>
@@ -178,81 +178,71 @@
 						<fieldset class="form-group">
 							<label for="username" class="col-sm-2 control-label"> Username </label>
 							<div class="col-sm-9">
-								<input type="text" name="username" id="edit_username" class="form-control" required disabled/>
+								<input type="text" name="username" id="edit_username" class="form-control edit-form-input" required disabled/>
 							</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_username')"> Edit </label>
-							</div>
-						</fieldset>
-						
-						<fieldset class="form-group">
-							<label for="password" class="col-sm-2 control-label"> Password </label>
-							<div class="col-sm-9">
-								<input type="password" name="password" id="edit_password" class="form-control" required disabled/>
-							</div>
-							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_password')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_username')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="firstname" class="col-sm-2 control-label"> First Name </label>
 							<div class="col-sm-9">
-								<input type="text" name="firstname" id="edit_firstname" class="form-control" required disabled/>
+								<input type="text" name="firstname" id="edit_firstname" class="form-control edit-form-input" required disabled/>
 							</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_firstname')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_firstname')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="middlename" class="col-sm-2 control-label"> Middle Name </label>
 							<div class="col-sm-9">
-								<input type="text" name="middlename" id="edit_middlename" class="form-control" disabled/>
+								<input type="text" name="middlename" id="edit_middlename" class="form-control edit-form-input" disabled/>
 							</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_middlename')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_middlename')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="lastname" class="col-sm-2 control-label"> Last Name </label>
 							<div class="col-sm-9">
-								<input type="text" name="lastname" id="edit_lastname" class="form-control" required disabled/>
+								<input type="text" name="lastname" id="edit_lastname" class="form-control edit-form-input" required disabled/>
 							</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_lastname')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_lastname')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="email" class="col-sm-2 control-label"> Email </label>
 							<div class="col-sm-9">
-								<input type="email" name="email" id="edit_email" class="form-control" required disabled/>
+								<input type="email" name="email" id="edit_email" class="form-control edit-form-input" required disabled/>
 							</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_email')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_email')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="role" class="col-sm-2 control-label"> Role </label>
 							<div class="col-sm-9">
-								<select name="role" id="edit_role" class="form-control" required disabled>
+								<select name="role" id="edit_role" class="form-control edit-form-input" required disabled>
        					 			@foreach($roles as $role)
                     					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
                 					@endforeach
         						</select>
         					</div>
         					<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('#edit_role')"> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_role')"> Edit </label>
 							</div>
 						</fieldset>
 						
 						<fieldset class="form-group">
 							<label for="courses[]" class="col-sm-2 control-label"> Attending </label>
 							<div class="col-sm-4">
-        						<select multiple name="non-courses[]" class="edit_courses form-control" id="no-course" disabled>
+        						<select multiple name="non-courses[]" class="edit_courses form-control edit-form-input" id="no-course" disabled>
                 					@foreach($courses as $course)
                     					<option value="{{$course->id}}">({{$course->code}}) - {{$course->name}}</option>
                 					@endforeach
@@ -269,12 +259,12 @@
             				</div>
             				
             				<div class="col-sm-4">
-            					<select multiple name="courses[]" class="edit_courses form-control" id="yes-course" disabled>
+            					<select multiple name="courses[]" class="edit_courses form-control edit-form-input" id="yes-course" disabled>
                 				
             					</select>
             				</div>
 							<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" onclick="toggleDisabled('.edit_courses')""> Edit </label>
+								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('.edit_courses')""> Edit </label>
 							</div>
 						</fieldset>
 						
@@ -282,6 +272,7 @@
 					
 					<div class="modal-footer">
 						
+						<input type="hidden" id="edit-user-id" name="id" value="">
      					<input type="hidden" name="_token" value="{{ csrf_token() }}">
     					<input type="submit" class="btn btn-success" value="Submit" name="Submit" id="editUser-button">
     					<button class = "btn btn-danger" type = "button" data-dismiss="modal">Cancel</button>
@@ -405,6 +396,8 @@
         			
         		}
         		$('#yes-course').html(list);
+        		$('.active-check').prop('checked', false);
+        		$('.edit-form-input').prop('disabled', true);
         		
         	});
 			
@@ -428,6 +421,8 @@
         			list += "<li>" + data.course[i].code + ": " + data.course[i].name + "</li>";
         		}
         		$('#view_courses').html(list);
+        		$('#edit-user-id').attr("value",id);
+        		
         	});
 			
 		}

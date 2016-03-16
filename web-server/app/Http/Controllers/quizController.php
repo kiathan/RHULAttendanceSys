@@ -18,59 +18,55 @@ class quizController extends Controller
 
     public function ansQuiz(Request $data, Guard $auth)
     {
-        if ($data->segment(1) == "api") {
+        $student_buf = \App\User::find($auth->user()->id);
 
-            // Get current user
-            $student_buf = \App\User::find($auth->user()->id);
+        // Get the timestamp
+        $currentDateTime = new \Carbon\Carbon();
+        // Get the day of week monday, tuesday etc
+        $dayOfWeek = strtolower($currentDateTime->format('l'));
 
-            // Get the timestamp
-            $currentDateTime = new \Carbon\Carbon();
-            // Get the day of week monday, tuesday etc
-            $dayOfWeek = strtolower($currentDateTime->format('l'));
+        // Ge the current course
+        $couse = \App\course::where('code', $data->input('courseID'))->first();
 
-            // Ge the current course
-
-            $couse = \App\course::where('code', $data->input('courseID'))->first();
-
-            if (is_null($couse)) {
-                return json_encode(["state" => "failure", "message" => "No course with that course code"]);
-            }
-
-            // Get the current lecture also
-            $lecture = $couse->lecture()
-                ->where('dayofweek', $dayOfWeek)
-                ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
-                ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
-                ->first();
-
-            if (is_null($lecture)) {
-                return json_encode(["state" => 'failure', "message" => "No lecture currently"]);
-            }
-
-            // Check to see if there is an lecture in progress
-            if (!$lecture->ActiveLecture) {
-                return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
-            }
-            //Get the list of current lecutes this is an array,
-            $lecture_instance = $lecture->getActiveLecture()->first();
-
-            // Get the list of question active in the lecture
-            $question = $lecture_instance->question()->where('isValit', true)->first();
-
-            if (is_null($question)) {
-                return json_encode(["state" => "failure", "message" => "No question"]);
-            }
-
-            $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
-            if (is_null($answer)) {
-                $answer = new \App\awnser();
-                $answer->question_id = $question->id;
-                $answer->user_id = $student_buf->id;
-                $answer->isValit = true;
-            }
-            $answer->awnser = $data->get('awnser');
-            $answer->save();
+        if (is_null($couse)) {
+            return json_encode(["state" => "failure", "message" => "No course with that course code"]);
         }
+
+        // Get the current lecture also
+        $lecture = $couse->lecture()
+            ->where('dayofweek', $dayOfWeek)
+            ->where('starttime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('endtime', '>=', $currentDateTime->format('H:i:s'))
+            ->first();
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+        }
+
+        // Check to see if there is an lecture in progress
+        if (!$lecture->hasActiveLecture()) {
+            return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
+        }
+        //Get the list of current lecutes this is an array,
+        $lecture_instance = $lecture->getActiveLecture()->first();
+
+        // Get the list of question active in the lecture
+        $question = $lecture_instance->question()->where('isValit', true)->first();
+
+
+        if (is_null($question)) {
+            return json_encode(["state" => "failure", "message" => "No question"]);
+        }
+
+        $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
+        if (is_null($answer)) {
+            $answer = new \App\awnser();
+            $answer->question_id = $question->id;
+            $answer->user_id = $student_buf->id;
+            $answer->isValit = true;
+        }
+        $answer->awnser = $data->get('awnser');
+        $answer->save();
     }
 
 

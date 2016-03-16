@@ -279,7 +279,7 @@ function answerQuestion() {
     var t = localStorage.token;
     var cc = localStorage.currentClassCode;
     var url = server + "api/quiz/studentQuiz";
-    var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc + "&token=" + t;
+    var dataString = "username=" + u + "&awnser=" + v + "&courseID=" + cc + "&token=" + t;
     $.ajax({
             method: "POST",
             url: url,

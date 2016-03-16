@@ -51,9 +51,11 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('attendance');
     });
 
-    Route::get('/qa', function () {
-        return view('qa');
+    Route::get('/qr', function () {
+        return view('qr');
     });
+
+    Route::get('/overall', 'lectureInstanceController@displayAll');
 
     Route::get('/now', function () {
         return view('now');
@@ -113,9 +115,9 @@ Route::get('/auth/create', 'AuthController@create');
 Route::post('/auth/store', 'AuthController@store');
 Route::post('/auth/update/{id?}', 'AuthController@update');
 Route::post('/auth/destroy', 'AuthController@destroy');
+Route::post('/auth/update', 'AuthController@update');
 Route::post('/auth/show', 'AuthController@show');
 Route::get('/auth/logout', 'AuthController@logout');
-Route::get('/auth/show/{id}', 'AuthController@show');
 
 
 Route::get('/couse/index', 'courseController@index');

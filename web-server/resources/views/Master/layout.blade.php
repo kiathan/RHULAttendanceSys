@@ -47,9 +47,10 @@
 	</div>
 
 	<!-- CONTENT -->
-	<div class = "jumbotron jumbotron1">
-	@yield('content')
-	</div>
+		<div class = "jumbotron jumbotron1">
+			@yield('content')
+		</div>
+
 	<!-- BOTTOM NAV BAR -->
 
 	<div class = "navbar navbar-default navbar-fixed-bottom navbar-inverse">		

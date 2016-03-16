@@ -68,7 +68,7 @@ class quizController extends Controller
         $answer->awnser = $data->get('awnser');
         $answer->save();
     }
-    
+
 
     public function startNstop(Request $request, Guard $auth)
     {

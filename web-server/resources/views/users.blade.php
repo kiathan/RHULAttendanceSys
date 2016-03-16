@@ -309,9 +309,7 @@
 								<li><a value="name">Name</a></li>
 								<li><a value="id">ID</a></li>
 								<li><a value="email">Email</a></li>
-								<li><a value="department">Department</a></li>
 								<li><a value="course">Course</a></li>
-								<li><a value="module">Module</a></li>
 							</ul>
 						</div>
 					</div>

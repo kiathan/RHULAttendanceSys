@@ -343,7 +343,6 @@ function sendNotifications(message) {
             'Content-Type': 'application/json'
         },
         data: data,
-        dataType: json,
 
         success: function (data) {
             var result = makeJSON(data);

@@ -86,7 +86,7 @@ class quizController extends Controller
         $couse = \App\course::where('code', $request->input('courseID'))->first();
 
         if (is_null($couse)) {
-            return json_encode(["state" => "failure", "message" => "No couse with that couse code"]);
+            return json_encode(["state" => "failure", "message" => "No course with that course code"]);
         }
 
         // Get the current lecture also
@@ -97,7 +97,7 @@ class quizController extends Controller
             ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+            return json_encode(["state" => 'failure', "message" => "No lecture currently"]);
         }
 
         // Check to see if there is an lecture in progress
@@ -116,13 +116,13 @@ class quizController extends Controller
             $question->isValit = true;
             $question->save();
 
-            return json_encode(["state" => "success", "message" => "Create an new question"]);
+            return json_encode(["state" => "success", "message" => "A new question has been created"]);
         } else if (!is_null($question) && $request->get('state') == 'false') {
             $question->isValit = false;
             $question->save();
-            return json_encode(["state" => "success", "message" => "Stop the current question"]);
+            return json_encode(["state" => "success", "message" => "The current question has stopped."]);
         } else {
-            return json_encode(["state" => "failure", "message" => "No question to stop"]);
+            return json_encode(["state" => "failure", "message" => "No questions available to stop"]);
         }
     }
 

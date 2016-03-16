@@ -176,7 +176,7 @@
         }
 
 .timetable .time-entry   {
-    background-color: lightsalmon;
+    background-color: lightgreen;
     transition: 200ms background-color;
     height: 90px;
     display: block;
@@ -190,6 +190,12 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     border-radius: 8px;
+}
+
+.timetable .hasnotattended  {
+    background-color: coral !important;
+    
+   
 }
 
     .timetable .time-entry small {

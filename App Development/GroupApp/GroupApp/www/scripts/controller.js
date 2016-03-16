@@ -398,12 +398,8 @@ function loadTimetable() {
       renderer.draw('.timetable');
      // $('.time-entry').css("color", "red");
      
-     $('.time-entry').each(function(index) {
-     	if (timetable.events[index].attended==false) {
-      		$(".time-entry:nth-of-type(" + index + ")").css("background-color", "orange");
-      	}
-  	});
      
+
     },
     error: function(data) {
       ActivityIndicator.hide();

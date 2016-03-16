@@ -349,12 +349,8 @@ function sendNotifications(message) {
             alert(result.message);
         },
         error: function (data) {
-            if (this.tryCount <= this.retryLimit) {
-                //try again
-                $.ajax(this);
-                return;
-            }
-            alert("Server unavailable, Please try again later.");
+            var result = makeJSON(data);
+            alert(result.message);
         }
     });
 }
@@ -365,13 +361,12 @@ function sendNotifications(message) {
         var cc = localStorage.currentClassCode;
         var initQuiz = true;
         var url = server + "api/quiz/lectureQuiz";
-        var dataString = "username=" + u + "&courseID=" + cc + "&token=" + t + "&state=" +
-            initQuiz;
+
         if (input != "start") {
             initQuiz = false;
-
-
         }
+        var dataString = "username=" + u + "&courseID=" + cc + "&token=" + t + "&state=" +
+            initQuiz;
         sendNotifications(input);
 
         $.ajax({

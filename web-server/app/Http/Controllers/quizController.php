@@ -26,7 +26,7 @@ class quizController extends Controller
         $dayOfWeek = strtolower($currentDateTime->format('l'));
 
         // Ge the current course
-        $couse = \App\course::where('code', $request->input('courseID'))->first();
+        $couse = \App\course::where('code', $data->input('courseID'))->first();
 
         if (is_null($couse)) {
             return json_encode(["state" => "failure", "message" => "No course with that course code"]);
@@ -40,11 +40,11 @@ class quizController extends Controller
             ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => 'failure', "message" => "No lecture currently"]);
+            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
         }
 
         // Check to see if there is an lecture in progress
-        if (!$lecture->hasActiveLecture) {
+        if (!$lecture->hasActiveLecture()) {
             return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
         }
         //Get the list of current lecutes this is an array,

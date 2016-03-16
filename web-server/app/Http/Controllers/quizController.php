@@ -37,7 +37,7 @@ class quizController extends Controller
             }
 
             // Get the current lecture also
-            $lecture = $course->lecture()
+            $lecture = $couse->lecture()
                 ->where('dayofweek', $dayOfWeek)
                 ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
                 ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
@@ -103,7 +103,7 @@ class quizController extends Controller
         }
 
         // Check to see if there is an lecture in progress
-        if (!$lecture->ActiveLecture) {
+        if (!$lecture->hasActiveLecture) {
             return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
         }
         //Get the list of current lecutes this is an array,

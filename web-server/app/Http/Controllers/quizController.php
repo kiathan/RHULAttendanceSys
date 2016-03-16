@@ -29,6 +29,7 @@ class quizController extends Controller
             $dayOfWeek = strtolower($currentDateTime->format('l'));
 
             // Ge the current course
+
             $couse = \App\course::where('code', $data->input('courseID'))->first();
 
             if (is_null($couse)) {
@@ -36,7 +37,7 @@ class quizController extends Controller
             }
 
             // Get the current lecture also
-            $lecture = $couse->lecture()
+            $lecture = $course->lecture()
                 ->where('dayofweek', $dayOfWeek)
                 ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
                 ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
@@ -75,6 +76,7 @@ class quizController extends Controller
 
     public function startNstop(Request $request, Guard $auth)
     {
+
         $student_buf = \App\User::find($auth->user()->id);
 
         // Get the timestamp
@@ -92,8 +94,8 @@ class quizController extends Controller
         // Get the current lecture also
         $lecture = $couse->lecture()
             ->where('dayofweek', $dayOfWeek)
-            ->where('starttime', '>=', $currentDateTime->format('H:i:s'))
-            ->where('endtime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('starttime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('endtime', '>=', $currentDateTime->format('H:i:s'))
             ->first();
 
         if (is_null($lecture)) {
@@ -122,6 +124,7 @@ class quizController extends Controller
             $question->save();
             return json_encode(["state" => "success", "message" => "The current question has stopped."]);
         } else {
+
             return json_encode(["state" => "failure", "message" => "No questions available to stop"]);
         }
     }

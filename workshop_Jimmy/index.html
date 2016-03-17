@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *; script-src 'unsafe-inline' *">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/timetablejs.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div data-role="page" data-position="fixed" id="logIn">
+        <div data-role="header">
+            <h1>Royal Ray</h1>
+        </div>
+    <div data-role="main" class="ui-content">
+		<div style="width: 1000px; height: 500px;"
+		  data-vide-bg="video/rhul" data-vide-options="loop: true, muted: false, position: 0% 0%">
+		</div>
+
+
+        <form class="form-container">
+				<div align=center class="form-title">
+					<h2>Log in</h2>
+				</div>
+				<div  class="form-title">USERNAME</div>
+					<input class="form-field" type="text" name="username" /><br />
+				<div  class="form-title">PASSWORD</div>
+					<input class="form-field" type="text" name="password" /><br />
+				<div align=center class="submit-container">
+					<input class="submit-button" type="submit" value="Submit" />
+				</div>
+		</form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h1>By Holloway, For Holloways</h1>
+    </div>
+</div>
+<div data-role="page" data-position="fixed" id="StudentLanding">
+
+    <div data-role="header">
+        <h1>Welcome Student</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#button1">Attendance Sign-In</a></li>
+            <li><a href="#button2">Answer Lecture Question</a></li>
+            <li><a href="#TimetableScreen">Timetable</a></li>
+            <li><a href="#">What's next</a></li>
+        </ul>
+
+        <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+        </div>
+
+</div>
+</div>
+<div data-role="page" data-position="fixed" id="Attendance">
+    <div data-role="header">
+        <h1>Attendance Sign In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>You are now signing in for:</p>
+        <div class="currentclass"></div></br>
+        <button class="sign-in-btn">Sign In</button>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="AttendanceAfter">
+    <div data-role="header">
+        <h1>Attendance Sign In</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>Sign in Status:</p>
+        <div class="currentAttendance"></div></br>
+        <p>Current Location:</p>
+        <div class="locationX"></div></br>
+        <div class="locationY"></div>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="TimetableScreen">
+    <div data-role="header">
+        <h1>Timetable</h1>
+    </div>
+      <div data-role="main" id="tableContainer">
+          <h1 hidden align="center" style="background-color: lightslategrey; color:lightgrey; border-radius:50px;" id="rotateWarning" class="ui-content ui-icon-recycle">Rotate Device</h1>
+          <div hidden class="timetable"></div>
+      </div>
+
+      <div class="footer-copy"></div>
+</div>
+
+<div data-role="page" data-position="fixed" id="LecturerLanding">
+    <div data-role="header">
+        <h1>Welcome Lecturer</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#">Sign Students In</a></li>
+            <li><a href="#">Current Lecture Attendance</a></li>
+            <li><a href="#LectureQuestion">Ask Lecture Question</a></li>
+            <li><a href="#TimetableScreen">TimeTable</a></li>
+            <li><a href="#">What's next</a></li>
+        </ul>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="StudentQuestion">
+    <div data-role="header">
+        <h1>Answer question</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="answerForm">
+
+            <li><input type="submit" class="answer-btn" value="A"></li>
+            <li><input type="submit" class="answer-btn" value="B"></li>
+            <li><input type="submit" class="answer-btn" value="C"></li>
+            <li><input type="submit" class="answer-btn" value="D"></li>
+
+        </div>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+<div data-role="page" data-position="fixed" id="LectureQuestion">
+    <div data-role="header">
+        <h1>Send question to Student</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="questionForm">
+                <li><input type="submit" class="quiz-btn" value="Start"></li>
+                <li><input type="submit" class="quiz-btn" value="Stop"></li>
+                <li><input type="submit" class="result-btn" value="Review"></li>
+        </div>
+    </div>
+    <div class="footer-copy"></div>
+</div>
+
+
+<!-- Cordova reference, this is added to your app when it's built. -->
+<script src="cordova.js"></script>
+<script src="scripts/platformOverrides.js"></script>
+<script src="scripts/view.js"></script>
+<script src="scripts/controller.js"></script>
+<script src="scripts/utilities.js"></script>
+<script src="scripts/timetable.min.js"></script>
+<script src="scripts/hash.js"></script>
+<script src="scripts/jquery.vide.min.js"></script>
+<script src="scripts/jquery-2.2.0.js"></script>
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+
+</body>
+</html>

@@ -272,6 +272,7 @@ function scanner(input) {
 
 
 function answerQuestion() {
+
   ActivityIndicator.show("Sending answer to lecture...");
   var v = this.value;
   var u = localStorage.username;

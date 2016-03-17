@@ -67,6 +67,8 @@ class quizController extends Controller
         }
         $answer->awnser = $data->get('awnser');
         $answer->save();
+
+        return json_encode(["state" => "success", "message" => "answers recode"]);
     }
 
 
@@ -118,7 +120,8 @@ class quizController extends Controller
         } else if (!is_null($question) && $request->get('state') == 'false') {
             $question->isValit = false;
             $question->save();
-            return json_encode(["state" => "success", "message" => "The current question has stopped."]);
+            $data = json_encode($question->hasMany(\App\awnser::class)->groupBy('awnser')->get(['awnser', DB::raw('count(*)')]));
+            return json_encode(["state" => "success", "message" => "The current question has stopped.", "data" => $data]);
         } else {
 
             return json_encode(["state" => "failure", "message" => "No questions available to stop"]);

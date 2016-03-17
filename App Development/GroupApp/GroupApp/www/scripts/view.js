@@ -43,6 +43,8 @@
       loadCurrentClass);
     $(document).on("pageshow", "#WhatsNext", loadNextEvents);
 
+    $('.quizResult').hide();
+
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",
     })

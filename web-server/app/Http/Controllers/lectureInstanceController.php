@@ -227,16 +227,16 @@ class lectureInstanceController extends Controller
 
             if (!is_null($instanceAuth) && $user->checkIfAlreadyAttendnes($instanceAuth)) {
                 $jsonRespones['state'] = "success";
-                $jsonRespones['message'] = "Already sign in";
+                $jsonRespones['message'] = "Student has signed in already.";
                 return json_encode($jsonRespones);
             } else if ($instanceAuth) {
                 $jsonRespones['state'] = "success";
-                $jsonRespones['message'] = "you have sign in to the lecture";
+                $jsonRespones['message'] = "You have signed in to the lecture.";
                 $user->addAttendnes($instanceAuth);
                 return json_encode($jsonRespones);
             } else {
                 $jsonRespones['state'] = "failure";
-                $jsonRespones['message'] = "The qr code did not match the entry for the class";
+                $jsonRespones['message'] = "Invalid QR code.";
                 return json_encode($jsonRespones);
             }
         }

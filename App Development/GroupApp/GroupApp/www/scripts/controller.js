@@ -355,9 +355,24 @@ function loadTimetable() {
             renderer.draw('.timetable');
             // $('.time-entry').css("color", "red");
 
-        }
+        },
+        error: function (data) {
+            this.tryCount++;
+            if (this.tryCount <= this.retryLimit) {
+                //try again
+                $.ajax(this);
+                return;
+            }
+            ActivityIndicator.hide();
+
+            //alert(data);
+            alert("Server unavailable, Please try again later.");
+        },
+        timeout: 3000 //3 seconds
+
+
     });
-    window.location.href = "#StudentLanding";
+
 };
 
 function loadTimetable() {

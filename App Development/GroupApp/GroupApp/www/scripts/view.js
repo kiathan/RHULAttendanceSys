@@ -44,6 +44,7 @@
     $(document).on("pageshow", "#WhatsNext", loadNextEvents);
 
     $('.quizResult').hide();
+    $('.quizResult').slideUp();
 
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",

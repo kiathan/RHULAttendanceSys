@@ -29,7 +29,7 @@ class quizController extends Controller
         $couse = \App\course::where('code', $data->input('courseID'))->first();
 
         if (is_null($couse)) {
-            return json_encode(["state" => "failure", "message" => "No course with that course code"]);
+            return json_encode(["state" => "failure", "message" => "Invalid course code selected"]);
         }
 
         // Get the current lecture also
@@ -40,12 +40,12 @@ class quizController extends Controller
             ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+            return json_encode(["state" => 'failure', "message" => "There is no lecture currently."]);
         }
 
         // Check to see if there is an lecture in progress
         if (!$lecture->hasActiveLecture()) {
-            return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
+            return json_encode(["state" => "failure", "message" => "There is currently no active lecture instances."]);
         }
         //Get the list of current lecutes this is an array,
         $lecture_instance = $lecture->getActiveLecture()->first();
@@ -55,7 +55,7 @@ class quizController extends Controller
 
 
         if (is_null($question)) {
-            return json_encode(["state" => "failure", "message" => "No question"]);
+            return json_encode(["state" => "failure", "message" => "No question was posted!"]);
         }
 
         $answer = $question->awnser()->where('user_id', $student_buf->id)->first();
@@ -68,7 +68,7 @@ class quizController extends Controller
         $answer->awnser = $data->get('awnser');
         $answer->save();
 
-        return json_encode(["state" => "success", "message" => "answers recode"]);
+        return json_encode(["state" => "success", "message" => "Your answer has been recorded."]);
     }
 
 
@@ -86,7 +86,7 @@ class quizController extends Controller
         $couse = \App\course::where('code', $request->input('courseID'))->first();
 
         if (is_null($couse)) {
-            return json_encode(["state" => "failure", "message" => "No course with that course code"]);
+            return json_encode(["state" => "failure", "message" => "Invalid course code selected."]);
         }
 
         // Get the current lecture also
@@ -97,7 +97,7 @@ class quizController extends Controller
             ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+            return json_encode(["state" => 'failure', "message" => "There is no lecture currently."]);
         }
 
         // Check to see if there is an lecture in progress

@@ -176,7 +176,7 @@ class lectureInstanceController extends Controller
         $course = \App\course::where('code', $request->input('classcode'))->first();
 
         if (is_null($course)) {
-            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+            return json_encode(["state" => "failure", "message" => "Invalid course code selected"]);
         }
 
         $lecture = $course->lecture()// Get the lectures related to the course
@@ -192,14 +192,14 @@ class lectureInstanceController extends Controller
         $lecture_instance = $lecture->lecture_instance()->orderBy('created_at', 'decs')->first();
 
         if (is_null($lecture_instance)) {
-            return json_encode(["state" => "failure", "message" => "can't find selected lecture"]);
+            return json_encode(["state" => "failure", "message" => "Selected lecture cant be found."]);
         }
 
         if (!$userToSignIn->checkIfAlreadyAttendnes($lecture_instance)) {
             $userToSignIn->addAttendnes($lecture_instance);
-            return json_encode(["state" => "success", "message" => "you have successfully signed the student into the lecture"]);
+            return json_encode(["state" => "success", "message" => "You have successfully signed the student into the lecture."]);
         } else {
-            return json_encode(["state" => "failure", "message" => "Student already signed in"]);
+            return json_encode(["state" => "failure", "message" => "Student has already signed in."]);
         }
     }
 
@@ -290,7 +290,7 @@ class lectureInstanceController extends Controller
     {
         $lecture_instend = $this->findLectureInstacnes($request);
 
-        if ($lecture_instend == "{\"state\":\"failure\",\"message\":\"No course with that code\"}") {
+        if ($lecture_instend == "{\"state\":\"failure\",\"message\":\"Invalid course code selected\"}") {
             return $lecture_instend;
         } else if (is_null($lecture_instend)) {
             $error['state'] = 'failure';
@@ -323,7 +323,7 @@ class lectureInstanceController extends Controller
         $course = \App\course::where('code', $request->input('classcode'))->first();
         $date = $dateTime->copy();
         if (is_null($course)) {
-            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+            return json_encode(["state" => "failure", "message" => "Invalid course code selected"]);
         }
 
         $lecture = $course->lecture()// Get the lectures related to the course
@@ -333,7 +333,7 @@ class lectureInstanceController extends Controller
         ->first();
 
         if (is_null($lecture)) {
-            return json_encode(["state" => "failure", "message" => "No course with that code"]);
+            return json_encode(["state" => "failure", "message" => "Invalid course code selected"]);
         }
 
         $lectureInstances = $lecture->lecture_instance()

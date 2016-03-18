@@ -5,7 +5,7 @@ var server = "https://bartalveyhe.me/";
 
 function login() {
     //retrieves username and password from the fields.
-
+    setNotification();
     ActivityIndicator.show("Logging you in...");
     var u = $("#username").val();
     var p = $("#password").val();
@@ -402,7 +402,7 @@ function start_stop_Quiz(input) {
             if (!initQuiz) {
                 getStudentResult(result.data);
             }
-
+            trigerNotification();
 
         },
         error: function (data) {
@@ -412,7 +412,6 @@ function start_stop_Quiz(input) {
                 $.ajax(this);
                 return;
             }
-
             ActivityIndicator.hide();
             alert("Server unavailable, Please try again later.");
 
@@ -422,7 +421,30 @@ function start_stop_Quiz(input) {
 
     });
 };
+function trigerNotification(){
+    var url=server+"js/RESTapi.php";
+    $.ajax({
+        method: "GET",
+        url: url,
+        tryCount: 0,
+        retryLimit: 5,
+        cache: false,
+        success: function (data) {
+            alert("Notification sent to student.");
+        },
+        error: function (data) {
+            this.tryCount++;
+            if (this.tryCount <= this.retryLimit) {
+                //try again
+                $.ajax(this);
+                return;
+            }
+            alert("Fail to send notification.");
+        },
+        timeout: 3000 //3 seconds
 
+    });
+}
 function getStudentResult(data) {
     var ansA = 1;
     var ansB = 2;

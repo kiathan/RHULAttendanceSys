@@ -3,24 +3,24 @@
 <head>
     <meta http-equiv="Content-Security-Policy" content="default-src *;  script-src 'unsafe-inline' *; style-src *;">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="css/rhultheme.css" />
-    <link rel="stylesheet" href="css/rhultheme.min.css" />
+    <link rel="stylesheet" href="css/rhultheme.css"/>
+    <link rel="stylesheet" href="css/rhultheme.min.css"/>
     <link rel="stylesheet" href="css/timetablejs.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div data-role="page" data-position="fixed" id="logIn">
-        <div data-role="header">
-            <h1>Royal A</h1>
-        </div>
-        <div class="fullscreen-bg">
-                <video id="rhul_video" class="fullscreen-bg__video" webkit-playsinline loop muted autoplay></video>
-        </div>
+    <div data-role="header">
+        <h1>Royal A</h1>
+    </div>
+    <div class="fullscreen-bg">
+        <video id="rhul_video" class="fullscreen-bg__video" webkit-playsinline loop muted autoplay></video>
+    </div>
     <div data-role="main" class="ui-content">
-        <div class = "loginformspace"></div>
-        <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
+        <div class="loginformspace"></div>
+        <form  onsubmit="return false;"> <!--action for processing details-->
             <input type="text" name="username" id="username" value="87654321" placeholder="Username">
             <input type="password" name="password" id="password" value="87654321" placeholder="Password">
             <input type="submit" class="login-btn" value="Log In">
@@ -53,17 +53,20 @@
     </div>
     <div data-role="main" class="ui-content">
         <p>You are now signing in for:</p>
-        <div class="currentclass"></div></br>
+        <div class="currentclass"></div>
+        </br>
         <p>Your Class is at:</p>
-        <div class="currentClassVenue"></div><br  />
+        <div class="currentClassVenue"></div>
+        <br/>
         <p>Current Distance from Class:</p>
-        <div class="distance"></div>KM<br />
+        <div class="distance"></div>
+        KM<br/>
         <button class="sign-in-btn">Sign In</button>
-<div class="footer-base" data-role="footer" data-position="fixed">
-        <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
-        <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
-</div>
-</div>
+        <div class="footer-base" data-role="footer" data-position="fixed">
+            <button class="home-btn ui-btn footer-btn-left ui-icon-home ui-btn-icon-left">Home</button>
+            <button class="logout-btn ui-btn footer-btn-right ui-icon-power ui-btn-icon-right">Logout</button>
+        </div>
+    </div>
 </div>
 <div data-role="page" data-position="fixed" id="AttendanceAfter">
     <div data-role="header">
@@ -79,11 +82,11 @@
     <div data-role="header">
         <h1>Timetable</h1>
     </div>
-      <div data-role="main" id="tableContainer">
+    <div data-role="main" id="tableContainer">
 
-          <div hidden class="timetable"></div>
-      </div>
-      <div class="footer-copy"></div>
+        <div hidden class="timetable"></div>
+    </div>
+    <div class="footer-copy"></div>
 </div>
 
 <div data-role="page" data-position="fixed" id="WhatsNext">
@@ -91,14 +94,14 @@
         <h1>What's Next</h1>
     </div>
     <div data-role="main" id="ui-content">
-          <div id="today">
+        <div id="today">
             <h2>Today: </h2>
             <div hidden id="dataToday"></div>
-          </div>
-          <div id="tomorrow">
+        </div>
+        <div id="tomorrow">
             <h2>Tomorrow: </h2>
             <div hidden id="dataTomorrow"></div>
-          </div>
+        </div>
     </div>
     <div class="footer-copy"></div>
 </div>
@@ -123,18 +126,18 @@
         <h1>Sign Students In</h1>
     </div>
     <div data-role="main" class="ui-content">
-      <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-          <p>You are now signing in:</p>
-          <input type="text" name="studname" id="studname" value="100793773" placeholder="Student's ID">
-          <button class="scan-stud-btn">Scan Student Card to Sign In</button>
-          <p>For Class:</p>
-          <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1801" placeholder="Class Code">
-          <p>Date of Class:</p>
-          <input type="date" name="datePicker1" id="datePicker1" data-role="date">
-          <p>Time of Class:</p>
-          <input type="time" name="timePicker1" id="timePicker1" value="09:00">
-          <input type="submit" class="sign-stud-btn" value="Sign Student In">
-      </form>
+        <form  onsubmit="return false;"> <!--action for processing details-->
+            <p>You are now signing in:</p>
+            <input type="text" name="studname" id="studname" value="100793773" placeholder="Student's ID">
+            <button class="scan-stud-btn">Scan Student Card to Sign In</button>
+            <p>For Class:</p>
+            <input type="text" name="lect_currentclass" id="lect_currentclass" value="CS1801" placeholder="Class Code">
+            <p>Date of Class:</p>
+            <input type="date" name="datePicker1" id="datePicker1" data-role="date">
+            <p>Time of Class:</p>
+            <input type="time" name="timePicker1" id="timePicker1" value="09:00">
+            <input type="submit" class="sign-stud-btn" value="Sign Student In">
+        </form>
 
     </div>
     <div class="footer-copy"></div>
@@ -144,15 +147,16 @@
         <h1>Check Class Attendance</h1>
     </div>
     <div data-role="main" class="ui-content">
-      <form id="logInForm" onsubmit="return false;"> <!--action for processing details-->
-          <p>For Class:</p>
-          <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1801" placeholder="Class Code">
-          <p>Date of Class:</p>
-          <input type="date" name="datePicker_ca" id="datePicker_ca" data-role="date">
-          <p>Time of Class:</p>
-          <input type="time" name="timePicker_ca" id="timePicker_ca" value="09:00">
-          <input type="submit" class="current-class-atd-btn" value="Check Attendance">
-      </form>
+        <form  onsubmit="return false;"> <!--action for processing details-->
+            <p>For Class:</p>
+            <input type="text" name="lect_currentclass_ca" id="lect_currentclass_ca" value="CS1801"
+                   placeholder="Class Code">
+            <p>Date of Class:</p>
+            <input type="date" name="datePicker_ca" id="datePicker_ca" data-role="date">
+            <p>Time of Class:</p>
+            <input type="time" name="timePicker_ca" id="timePicker_ca" value="09:00">
+            <input type="submit" class="current-class-atd-btn" value="Check Attendance">
+        </form>
     </div>
     <div class="footer-copy"></div>
 </div>
@@ -162,8 +166,8 @@
         <h1>Class Attendance List</h1>
     </div>
     <div data-role="main" class="ui-content">
-      <ul name="classlist" id="classlist" data-role="listview">
-      </ul>
+        <ul name="classlist" id="classlist" data-role="listview">
+        </ul>
     </div>
     <div class="footer-copy"></div>
 </div>
@@ -190,25 +194,39 @@
     </div>
     <div data-role="main" class="ui-content">
         <div class="questionForm">
-                <li><input type="submit" class="quiz-start-btn" value="Start"></li>
-                <li><input type="submit" class="quiz-stop-btn" value="Stop"></li>
-                <li><input type="submit" class="result-btn" value="Review"></li>
+            <li><input type="submit" class="quiz-start-btn" value="Start"></li>
+            <li><input type="submit" class="quiz-stop-btn" value="Stop"></li>
         </div>
-    </div>
-    <div class="footer-copy"></div>
+        <div class="quizResult">
+            Results for most current quiz:<br/>
+            A :
+            <div class="quizAnsA"></div>
+            <br/>
+            B :
+            <div class="quizAnsB"></div>
+            <br/>
+            C :
+            <div class="quizAnsC"></div>
+            <br/>
+            D :
+            <div class="quizAnsD"></div>
+            <br/>
+        </div>
+<div class="footer-copy"></div>
+</div>
 </div>
 
 <div data-role="page" data-position="fixed" id="UsefulInfoScreen">
     <div data-role="header">
         <h1>Useful Information</h1>
     </div>
-      <div data-role="main" id="listContainer">
-          <ul data-role="listview" data-inset="true">
+    <div data-role="main" id="listContainer">
+        <ul data-role="listview" data-inset="true">
             <li><a href="#">RHUL Moodle</a></li>
             <li><a href="#">RHUL Website</a></li>
         </ul>
-      </div>
-     <div class="footer-copy"></div>
+    </div>
+    <div class="footer-copy"></div>
 </div>
 
 

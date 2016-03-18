@@ -34,7 +34,6 @@
     $('.scan-stud-btn').click(scanInStud);
     $('.current-class-atd-btn').click(classAtd_withServer);
 
-
     $(document).on("pageshow", "#TimetableScreen", loadTimetable);
     $(document).on("pageshow", "#StudentLanding", setOrientation);
     $(document).on("pageshow", "#LecturerLanding", setOrientation);
@@ -43,6 +42,9 @@
     $(document).on("pageshow", "#CurrentClassAttendance",
       loadCurrentClass);
     $(document).on("pageshow", "#WhatsNext", loadNextEvents);
+
+    $('.quizResult').hide();
+    $('.quizResult').slideUp();
 
     window.plugins.html5Video.initialize({
       "rhul_video": "rhul.mp4",

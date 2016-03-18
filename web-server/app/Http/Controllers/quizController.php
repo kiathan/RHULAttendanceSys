@@ -172,14 +172,7 @@ class quizController extends Controller
             return json_encode(["state" => "failure", "message" => "No question"]);
         }
 
-
-        $question->hasMany(\App\awnser::class)->groupBy('awnser')->get(['awnser', DB::raw('count(*)')]);
-
-        if ($request->segment(1) == "api") {
-            return "";
-        }
-
-        return "";
+        return json_encode(["state" => "success", "message" => "results from question and answers session", "date" => $lecture_instance->question]);
     }
 
 }

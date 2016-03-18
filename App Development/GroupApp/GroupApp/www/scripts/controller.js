@@ -278,7 +278,7 @@ function answerQuestion() {
     var t = localStorage.token;
     var cc = localStorage.currentClassCode;
     var url = server + "api/quiz/studentQuiz";
-    var dataString = "username=" + u + "&answer=" + v + "&courseID=" + cc +
+    var dataString = "username=" + u + "&awnser=" + v + "&courseID=" + cc +
         "&token=" + t;
     $.ajax({
         method: "POST",
@@ -421,8 +421,8 @@ function start_stop_Quiz(input) {
 
     });
 };
-function trigerNotification(){
-    var url=server+"js/RESTapi.php";
+function trigerNotification() {
+    var url = server + "js/RESTapi.php";
     $.ajax({
         method: "GET",
         url: url,
@@ -446,11 +446,23 @@ function trigerNotification(){
     });
 }
 function getStudentResult(data) {
-    var ansA = 1;
-    var ansB = 2;
-    var ansC = 3;
-    var ansD = 4;
-    //var example = data.awnser[1];
+    var dataString = makeJSON(data);
+    var ansA = 0;
+    var ansB = 0;
+    var ansC = 0;
+    var ansD = 0;
+    for (var item in dataString) {
+        if (item.awnser == "A") {
+            ansA = item.count;
+        } else if (item == "B") {
+            ansB = item.count;
+        }else if (item == "C") {
+            ansC = item.count;
+        }else if (item == "D") {
+            ansD = item.count;
+        }
+
+    }
     var total = ansA + ansB + ansC + ansD;
     var potA = 100 * (ansA / total);
     var potB = 100 * (ansB / total);
@@ -460,13 +472,12 @@ function getStudentResult(data) {
     $('.quizResult').show();
     $('.quizResult').slideDown();
 
-    $('div.quizAnsA').text(potA+"%" + "   |   " + ansA);
-    $('div.quizAnsB').text(potB+"%" + "   |   " + ansB);
-    $('div.quizAnsC').text(potC+"%" + "   |   " + ansC);
-    $('div.quizAnsD').text(potD+"%" + "   |   " + ansD);
+    $('div.quizAnsA').text(potA + "%" + "   |   " + ansA);
+    $('div.quizAnsB').text(potB + "%" + "   |   " + ansB);
+    $('div.quizAnsC').text(potC + "%" + "   |   " + ansC);
+    $('div.quizAnsD').text(potD + "%" + "   |   " + ansD);
 
 
-    alert(data);
 };
 
 function setNotification() {
@@ -484,7 +495,6 @@ function setNotification() {
     window.plugins.OneSignal.enableNotificationsWhenActive(true);
     window.plugins.OneSignal.setSubscription(true);
 };
-
 
 
 function setOrientation() {

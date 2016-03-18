@@ -124,7 +124,7 @@ class quizController extends Controller
             return json_encode(["state" => "success", "message" => "The current question has stopped.", "data" => $data]);
         } else {
 
-            return json_encode(["state" => "failure", "message" => "No questions available to stop"]);
+            return json_encode(["state" => "failure", "message" => "There is an ongoing question!"]);
         }
     }
 

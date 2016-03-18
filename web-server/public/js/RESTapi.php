@@ -1,7 +1,7 @@
 <?PHP
   function sendMessage(){
     $content = array(
-      "en" => 'Question status has changed.'
+      "en" => 'Your lecturer has sent you a quiz in lecture!'
       );
     
     $fields = array(
@@ -11,8 +11,7 @@
     );
     
     $fields = json_encode($fields);
-    print("\nJSON sent:\n");
-    print($fields);
+
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
@@ -33,8 +32,6 @@
   $response = sendMessage();
   $return["allresponses"] = $response;
   $return = json_encode( $return);
-  
-  print("\n\nJSON received:\n");
-  print($return);
-  print("\n")
+
+ 
 ?>

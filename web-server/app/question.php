@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 class question extends Model
 {
     protected $appends = ['result'];
+    protected $hidden = ['lecture_instend_id', 'id', 'created_at', 'isValit', 'updated_at'];
+
 
     public function awnser()
     {

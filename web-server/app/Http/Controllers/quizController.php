@@ -129,4 +129,50 @@ class quizController extends Controller
     }
 
 
+    public function show(Request $request, Guard $auth)
+    {
+        $student_buf = \App\User::find($auth->user()->id);
+
+        // Get the timestamp
+        $currentDateTime = new \Carbon\Carbon();
+        // Get the day of week monday, tuesday etc
+        $dayOfWeek = strtolower($currentDateTime->format('l'));
+
+        // Ge the current course
+        $couse = \App\course::where('code', $request->input('courseID'))->first();
+
+        if (is_null($couse)) {
+            return json_encode(["state" => "failure", "message" => "No course with that course code"]);
+        }
+
+        // Get the current lecture also
+        $lecture = $couse->lecture()
+            ->where('dayofweek', $dayOfWeek)
+            ->where('starttime', '<=', $currentDateTime->format('H:i:s'))
+            ->where('endtime', '>=', $currentDateTime->format('H:i:s'))
+            ->first();
+
+        if (is_null($lecture)) {
+            return json_encode(["state" => 'failure', "message" => "No lecture currenly"]);
+        }
+
+        // Check to see if there is an lecture in progress
+        if (!$lecture->hasActiveLecture()) {
+            return json_encode(["state" => "failure", "message" => "No active lecture instances"]);
+        }
+        //Get the list of current lecutes this is an array,
+        $lecture_instance = $lecture->getActiveLecture()->first();
+
+        // Get the list of question active in the lecture
+
+        $question = $lecture_instance->question()->where('isValit', true)->orderBy('created_at', 'decs')->first();
+
+
+        if (is_null($question)) {
+            return json_encode(["state" => "failure", "message" => "No question"]);
+        }
+
+        return json_encode(["state" => "success", "message" => "results from question and answers session", "date" => $lecture_instance->question]);
+    }
+
 }

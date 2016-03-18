@@ -99,6 +99,7 @@ Route::group(array("prefix" => "api", "middleware" => "apiSignIn"), function () 
 
     Route::post('/quiz/studentQuiz', 'quizController@ansQuiz');
     Route::post('/quiz/lectureQuiz', 'quizController@startNstop');
+    Route::post('/quiz/lectureShow', 'quizController@show');
 
 });
 

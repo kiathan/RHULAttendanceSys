@@ -16,7 +16,7 @@ class attendanceController extends Controller
      */
     public function index()
     {
-
+        // Get the grouping by user / couse
     }
 
     /**
@@ -26,7 +26,7 @@ class attendanceController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -48,7 +48,9 @@ class attendanceController extends Controller
      */
     public function show($id)
     {
-        //
+        // Show attends for class / user
+
+        // Give list
     }
 
     /**

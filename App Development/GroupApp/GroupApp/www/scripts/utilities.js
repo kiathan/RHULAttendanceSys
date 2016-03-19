@@ -60,3 +60,11 @@ function enableNativePopUp() {
   }
 
 };
+
+function setOrientation() {
+  window.plugins.orientationLock.lock("portrait");
+};
+
+function unlockOrientation() {
+  window.plugins.orientationLock.unlock();
+};

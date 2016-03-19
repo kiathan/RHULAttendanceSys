@@ -177,7 +177,7 @@ function signin() {
   //Sends acknowledgement message with the usage of the attendance module.
   navigator.notification.confirm(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
-    scanner, // callback
+    scanner, // method to call once user clicks the buttons.
     "Warning", // title
     ['I Agree', 'Cancel']
   );

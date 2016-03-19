@@ -189,7 +189,9 @@ function signin() {
 function signin_withServer() {
   //Sets the current position of the user to localstorage variables
   setCurrentPosition();
+  //Set activity indicator before loading an ajax call to send the message
   ActivityIndicator.show("Retrieving Class to sign in...");
+  //Set the parameters to be sent to the server
   var u = localStorage.username;
   var t = localStorage.token;
   var c = localStorage.signinBarcode;
@@ -200,7 +202,7 @@ function signin_withServer() {
   var dataString = "username=" + u + "&token=" + t + "&lectureAuthCode=" + c +
     "&lat=" + lat + "&long=" + long + "&classcode=" + classCode;
 
-
+  //Ajax call to send sign in packet to the server
   $.ajax({
     method: "POST",
     url: url,
@@ -209,21 +211,19 @@ function signin_withServer() {
     retryLimit: 5,
     cache: false,
     success: function(data) {
-      var result = JSON.parse(data);
+      var result = makeJSON(data);
+      //Hides the activity indicator after success response packet.
       ActivityIndicator.hide();
 
       //sets the screen with the display picture
       localStorage.currentClassStatus = result.state;
+      //Displays status message to user.
       alert(result.message);
+      //Sets status message to sign-in status.
       $("div.currentAttendance").text(result.message);
-
-      if ($("div.currentAttendance").text() == "Sending to Server...") {
-        alert("Server unavailable. Please try again later");
-        loginReplyRedir();
-      }
-
     },
     error: function(data) {
+      //retry the internet call X number of times in case packet was not sent successfully
       this.tryCount++;
       if (this.tryCount <= this.retryLimit) {
         //try again
@@ -231,12 +231,11 @@ function signin_withServer() {
         return;
       }
       ActivityIndicator.hide();
-
+      //In the case of error, alerts user and redirect to home page.
       alert("Server unavailable. Please try again later");
       loginReplyRedir();
-
     },
-    timeout: 3000 //3 seconds
+    timeout: 3000 //Set timeout of 3 seconds
 
   });
 };

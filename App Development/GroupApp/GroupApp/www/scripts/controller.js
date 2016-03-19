@@ -55,7 +55,6 @@ function login() {
         loginReplyRedir();
       },
       timeout: 3000 //3 seconds
-
     });
   } else {
     ActivityIndicator.hide();
@@ -172,11 +171,10 @@ function loadAttendance() {
 };
 
 /**
- * Handles logging out of the account and clearing storage
+ * Sign-in (attendance) button actionlistener
  **/
 function signin() {
-  setCurrentPosition();
-  setNotification();
+  //Sends acknowledgement message with the usage of the attendance module.
   navigator.notification.confirm(
     "I understand that, according to the school's regulation, I am not allowed to sign in for other students. Failure to adhere to the school's regulation may result in discliplinary action.", // message
     scanner, // callback
@@ -189,7 +187,7 @@ function signin() {
  * Handles the signing in to the server
  **/
 function signin_withServer() {
-
+  //Sets the current position of the user to localstorage variables
   setCurrentPosition();
   ActivityIndicator.show("Retrieving Class to sign in...");
   var u = localStorage.username;
@@ -243,31 +241,34 @@ function signin_withServer() {
   });
 };
 
-
+/**
+ * Executes the barcode  scanner plugin to retrieve QR code
+ **/
 function scanner(input) {
   if (input == 1) {
+    //Sets the current position of the user to localstorage variables
     setCurrentPosition();
     cordova.plugins.barcodeScanner.scan(
       function(result) {
+        //Retrieves barcode scanner text from barcode scanner
         localStorage.signinBarcode = result.text;
+        //Set Sign-in status message
         $("div.currentAttendance").text("Sending to Server...");
-        $("div.locationX").text(localStorage.lat);
-        $("div.locationY").text(localStorage.long);
         signin_withServer();
-
+        //Register quiz notification when user signs in successfully
+        setNotification();
+        //redirect page to show sign in status.
         window.location.href = "#AttendanceAfter";
       },
       function(error) {
+        //Shows error message if barcodeScanner fails to work
         alert("Attendance sign-in unsuccessful! Please try again.");
+        //Redirect to home page
         loginReplyRedir();
       });
-
   } else {
     loginReplyRedir();
   }
-  //TODO: Clears session related data
-
-
 };
 
 
@@ -450,23 +451,22 @@ function triggerNotification() {
 }
 
 function getStudentResult(data) {
-  var dataString = makeJSON(data);
   var ansA = 0;
   var ansB = 0;
   var ansC = 0;
   var ansD = 0;
-  for (var item in dataString) {
-    if (item.awnser == "A") {
-      ansA = item.count;
-    } else if (item == "B") {
-      ansB = item.count;
-    } else if (item == "C") {
-      ansC = item.count;
-    } else if (item == "D") {
-      ansD = item.count;
+  $.each(data, function(index) {
+    if (data[index].awnser == "A") {
+      ansA = data[index].count;
+    } else if (data[index].awnser == "B") {
+      ansB = data[index].count;
+    } else if (data[index].awnser == "C") {
+      ansC = data[index].count;
+    } else if (data[index].awnser == "D") {
+      ansD = data[index].count;
     }
 
-  }
+  });
   var total = ansA + ansB + ansC + ansD;
   var potA = 100 * (ansA / total);
   var potB = 100 * (ansB / total);
@@ -498,15 +498,6 @@ function setNotification() {
 
   window.plugins.OneSignal.enableNotificationsWhenActive(true);
   window.plugins.OneSignal.setSubscription(true);
-};
-
-
-function setOrientation() {
-  window.plugins.orientationLock.lock("portrait");
-};
-
-function unlockOrientation() {
-  window.plugins.orientationLock.unlock();
 };
 
 function loadCurrentClass() {

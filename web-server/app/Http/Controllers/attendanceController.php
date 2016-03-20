@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 
 class attendanceController extends Controller
 {
@@ -14,9 +15,29 @@ class attendanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Guard $auth)
     {
-        // Get the grouping by user / couse
+        $user = \App\User::find($auth->user()->id)->load('course.lecture.lecture_instance');
+
+        $attendRate = array();
+        $overall = array('count' => 0, 'attended' => 0);
+        foreach ($user->course as $course) {
+            $attendRate[$course->code]['attended'] = 0;
+            $attendRate[$course->code]['count'] = 0;
+            foreach ($course->lecture as $lecture) {
+                foreach ($lecture->lecture_instance as $li) {
+                    if ($user->checkIfAlreadyAttendnes($li)) {
+                        $attendRate[$course->code]['attended'] += 1;
+                        $overall['attended'] += 1;
+                    }
+                    $attendRate[$course->code]['count'] += 1;
+                    $overall['count'] += 1;
+                }
+            }
+        }
+
+        // Build the query her
+        return view('overall')->with(['attendRate' => $attendRate, 'overall' => $overall]);
     }
 
     /**
@@ -32,7 +53,7 @@ class attendanceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,7 +64,7 @@ class attendanceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -56,7 +77,7 @@ class attendanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,8 +88,8 @@ class attendanceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -79,7 +100,7 @@ class attendanceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

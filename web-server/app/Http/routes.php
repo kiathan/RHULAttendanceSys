@@ -55,7 +55,7 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('qr');
     });
 
-    Route::get('/overall', 'lectureInstanceController@displayAll');
+    Route::get('/overall', 'attendanceController@index');
 
     Route::get('/now', function () {
         return view('now');

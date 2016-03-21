@@ -7,18 +7,24 @@
         <table class="table">
             <tr>
                 <th>#</th>
-                @foreach(array_keys($attendRate) as $course)
+                @foreach($courseList as $course)
                     <th>{{$course}}</th>
                 @endforeach
                 <th>Over all</th>
             </tr>
-            <tr>
-                <td></td>
-                @foreach($attendRate as $attendsRade)
-                    <td>{{sprintf("%.2f%%", ($attendsRade['attended']/$attendsRade['count']))}}</td>
-                @endforeach
-                <td>{{sprintf("%.2f%%", ($overall['attended']/$overall['count']))}}</td>
-            </tr>
+            @foreach($usersAttendsRate as $users)
+                <tr class="text-center">
+                    <td>{{$users['username']}}</td>
+                    @foreach($courseList as $coruseCode)
+                        @if(isset($users['attends'][$coruseCode]))
+                            <td>{{sprintf("%.2f%%", ($users['attends'][$coruseCode]['attended']/$users['attends'][$coruseCode]['count']))}}</td>
+                        @else
+                            <td>--</td>
+                        @endif
+                    @endforeach
+                    <td>{{sprintf("%.2f%%", ($users['overall']['attended']/$users['overall']['count']))}}</td>
+                </tr>
+            @endforeach
         </table>
     </div>
 @stop

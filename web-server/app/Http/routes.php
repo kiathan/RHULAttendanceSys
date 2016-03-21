@@ -56,6 +56,7 @@ Route::group(array('middleware' => 'auth'), function () {
     });
 
     Route::get('/overall', 'attendanceController@index');
+    Route::get('/attends/{id?}', 'attendanceController@show');
 
     Route::get('/now', function () {
         return view('now');

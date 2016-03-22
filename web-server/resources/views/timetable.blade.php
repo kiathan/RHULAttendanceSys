@@ -23,7 +23,7 @@
                 $endtime = explode(":", $lectue->endtime);
             ?>
 
-                timetable.addEvent('{{$lectue->course->code}}', '{{$lectue->dayofweek}}', new Date({{$currentTime->year}}, {{$currentTime->month}}, {{$currentTime->day}}, {{$starttime[0]}}, {{$starttime[1]}}), new Date({{$currentTime->year}}, {{$currentTime->month}}, {{$currentTime->day}}, {{$endtime[0]}}, {{$endtime[1]}}));
+                timetable.addEvent('{{$lectue->course->code}}', '{{ucfirst($lectue->dayofweek)}}', new Date({{$currentTime->year}}, {{$currentTime->month}}, {{$currentTime->day}}, {{$starttime[0]}}, {{$starttime[1]}}), new Date({{$currentTime->year}}, {{$currentTime->month}}, {{$currentTime->day}}, {{$endtime[0]}}, {{$endtime[1]}}));
 
                     @endforeach
 
@@ -35,5 +35,5 @@
     <h1 class="titlehead">
         <center>Timetable</center>
     </h1>
-    <center><div class="timetable"></div></center>
+    <div class="timetable"></div>
 @stop

@@ -108,7 +108,7 @@ class attendanceController extends Controller
         }
 
 
-        if (is_null($lecture_instend)) {
+        if (isset($lecture_instend) || is_null($lecture_instend)) {
             return view('overall-lecture')->with(['UserSignIn' => NULL, 'UserNotSignIn' => NULL]);
         }
 

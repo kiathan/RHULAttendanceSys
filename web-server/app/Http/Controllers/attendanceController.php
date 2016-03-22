@@ -92,9 +92,14 @@ class attendanceController extends Controller
             $dayofweek = strtolower($currentTime->format('l'));
             $time = $currentTime->toTimeString();
             $qrcode = null;
+            $courseOfLecture = null;
             foreach ($user->course as $course) {
                 foreach ($course->lecture()->where('dayofweek', $dayofweek)->where('starttime', '<=', $time)->where('endtime', '>=', $time)->get() as $lecture) {
                     $lecture_instend = $lecture->getActiveLecture()->first();
+                    if (!is_null($lecture_instend)) {
+                        $courseOfLecture = $course;
+                        break;
+                    }
                 }
             }
 
@@ -110,7 +115,7 @@ class attendanceController extends Controller
         $UserSignIn = $lecture_instend->attendentsSignin;
         $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
 
-        return view('overall-lecture')->with(['UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
+        return view('overall-lecture')->with(['UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn, 'course' => $courseOfLecture]);
     }
 
     /**

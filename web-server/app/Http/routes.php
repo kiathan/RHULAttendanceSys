@@ -11,18 +11,6 @@
 |
 */
 
-Route::get('/api',
-    function () {
-        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index/{filter?}", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
-
-        $linkText = "";
-        foreach ($links as $key => $link) {
-
-            $linkText .= "<a href=\"" . url($link) . "\">" . $link . "</a><br>";
-        }
-        return $linkText;
-    });
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -54,6 +42,8 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::get('/qr', 'qrCodeController@show');
 
     Route::get('/overall', 'attendanceController@show');
+    Route::get('/overall/lecture', 'attendanceController@showLecture');
+
     Route::get('/admin/attendance', 'attendanceController@index');
 
     Route::get('/now', function () {
@@ -140,7 +130,5 @@ Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
 
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');
 Route::any('/lecture_instends/createTest', 'lectureInstanceController@createLectureInstance');

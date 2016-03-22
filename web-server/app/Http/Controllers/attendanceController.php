@@ -78,8 +78,39 @@ class attendanceController extends Controller
             }
         }
         $usersAttendsRate[] = ['username' => $user->username, 'attends' => $attendRate, 'overall' => $overall];
-        
+
         return view('overall')->with(['usersAttendsRate' => $usersAttendsRate, 'courseList' => $courseList]);
+    }
+
+    public function showLecture(Guard $auth, $id = null)
+    {
+
+        if (is_null($id)) {
+            $user = \App\User::find($auth->user()->id)->load('course.lecture');
+
+            $currentTime = new \Carbon\Carbon();
+            $dayofweek = strtolower($currentTime->format('l'));
+            $time = $currentTime->toTimeString();
+            $qrcode = null;
+            foreach ($user->course as $course) {
+                foreach ($course->lecture()->where('dayofweek', $dayofweek)->where('starttime', '<=', $time)->where('endtime', '>=', $time)->get() as $lecture) {
+                    $lecture_instend = $lecture->getActiveLecture()->first();
+                }
+            }
+
+        } else {
+            $lecture_instend = \App\lecture_instend::find($id);
+        }
+
+
+        if (is_null($lecture_instend)) {
+            return view('overall-lecture')->with(['UserSignIn' => NULL, 'UserNotSignIn' => NULL]);
+        }
+
+        $UserSignIn = $lecture_instend->attendentsSignin;
+        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
+
+        return view('overall-lecture')->with(['UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn]);
     }
 
     /**

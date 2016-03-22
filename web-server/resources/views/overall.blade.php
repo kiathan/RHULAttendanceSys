@@ -4,27 +4,30 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <div>
-        <table class="table">
-            <tr>
-                <th>#</th>
-                @foreach($courseList as $course)
-                    <th>{{$course}}</th>
-                @endforeach
-                <th>Over all</th>
-            </tr>
-            @foreach($usersAttendsRate as $users)
-                <tr class="text-center">
-                    <td>{{$users['username']}}</td>
-                    @foreach($courseList as $coruseCode)
-                        @if(isset($users['attends'][$coruseCode]))
-                            <td>{{sprintf("%.2f%%", (($users['attends'][$coruseCode]['attended']/$users['attends'][$coruseCode]['count'])) * 100)}}</td>
-                        @else
-                            <td>--</td>
-                        @endif
+        @if(isset($UserSignIn, $UserNotSignIn))
+        @else
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    @foreach($courseList as $course)
+                        <th>{{$course}}</th>
                     @endforeach
-                    <td>{{sprintf("%.2f%%", (($users['overall']['attended']/$users['overall']['count'])) * 100)}}</td>
+                    <th>Over all</th>
                 </tr>
-            @endforeach
-        </table>
+                @foreach($usersAttendsRate as $users)
+                    <tr class="text-center">
+                        <td>{{$users['username']}}</td>
+                        @foreach($courseList as $coruseCode)
+                            @if(isset($users['attends'][$coruseCode]))
+                                <td>{{sprintf("%.2f%%", (($users['attends'][$coruseCode]['attended']/$users['attends'][$coruseCode]['count'])) * 100)}}</td>
+                            @else
+                                <td>--</td>
+                            @endif
+                        @endforeach
+                        <td>{{sprintf("%.2f%%", (($users['overall']['attended']/$users['overall']['count'])) * 100)}}</td>
+                    </tr>
+                @endforeach
+            </table>
     </div>
+    @endif
 @stop

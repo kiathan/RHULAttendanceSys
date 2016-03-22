@@ -25,9 +25,9 @@ class lecture_instend extends Model
         return hash("sha256", $this->id . "" . $this->created_at);
     }
 
-    public function sendQRcode()
+    public function sendQRcode($size = 250)
     {
-        return \QrCode::format('svg')->size(250)->generate($this->createHash());
+        return \QrCode::format('svg')->size($size)->generate($this->createHash());
 
     }
 

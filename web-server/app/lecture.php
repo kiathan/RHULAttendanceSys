@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class lecture extends Model
 {
-    protected $with = ["course", "venue", 'lecture_instance'];
+    protected $with = ["course", "venue"];
     protected $fillable = ["course_id", "venue_id", "dayofweek", "starttime", "endtime"];
     protected $appends = ['UserAttended'];
 

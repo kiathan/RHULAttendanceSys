@@ -17,12 +17,12 @@
                     <td>{{$users['username']}}</td>
                     @foreach($courseList as $coruseCode)
                         @if(isset($users['attends'][$coruseCode]))
-                            <td>{{sprintf("%.2f%%", ($users['attends'][$coruseCode]['attended']/$users['attends'][$coruseCode]['count']))}}</td>
+                            <td>{{sprintf("%.2f%%", (($users['attends'][$coruseCode]['attended']/$users['attends'][$coruseCode]['count'])) * 100)}}</td>
                         @else
                             <td>--</td>
                         @endif
                     @endforeach
-                    <td>{{sprintf("%.2f%%", ($users['overall']['attended']/$users['overall']['count']))}}</td>
+                    <td>{{sprintf("%.2f%%", (($users['overall']['attended']/$users['overall']['count'])) * 100)}}</td>
                 </tr>
             @endforeach
         </table>

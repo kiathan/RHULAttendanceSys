@@ -51,12 +51,10 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('attendance');
     });
 
-    Route::get('/qr', function () {
-        return view('qr');
-    });
+    Route::get('/qr', 'qrCodeController@show');
 
-    Route::get('/overall', 'attendanceController@index');
-    Route::get('/attends/{id?}', 'attendanceController@show');
+    Route::get('/overall', 'attendanceController@show');
+    Route::get('/admin/attendance', 'attendanceController@index');
 
     Route::get('/now', function () {
         return view('now');

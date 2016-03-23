@@ -529,6 +529,8 @@ return array(
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'createMassFakeUsers' => $baseDir . '/database/seeds/createMassFakeUsers.php',
+    'create_make_attends' => $baseDir . '/database/seeds/create_make_attends.php',
     'fakeUsername' => $baseDir . '/database/seeds/fakeUsername.php',
     'fillDatabase' => $baseDir . '/database/seeds/fillDatabase.php',
 );

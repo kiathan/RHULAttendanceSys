@@ -164,14 +164,6 @@ class quizController extends Controller
         $lecture_instance = $lecture->getActiveLecture()->first();
 
         // Get the list of question active in the lecture
-
-        $question = $lecture_instance->question()->where('isValit', true)->orderBy('created_at', 'decs')->first();
-
-
-        if (is_null($question)) {
-            return json_encode(["state" => "failure", "message" => "No question"]);
-        }
-
         return json_encode(["state" => "success", "message" => "results from question and answers session", "date" => $lecture_instance->question]);
     }
 

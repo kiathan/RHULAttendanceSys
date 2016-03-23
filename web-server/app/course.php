@@ -20,6 +20,6 @@ class course extends Model
 
     public function user()
     {
-        return $this->belongsToMany(\App\user::class);
+        return $this->belongsToMany(\App\User::class);
     }
 }

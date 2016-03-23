@@ -1,1 +1,21 @@
-bla
+Royal-A
+In this project we developed a solution that is easily accessible to all students attending the lectures. It is integrated with a backend system for the course administration showing statistics on the student attendance.
+
+Installation and Setup
+Mobile Application
+Install Node.js
+Install git client
+Install apache cordova using “sudo npm install -g cordova”
+Clone project directory, and go into Cordova project directory
+Run “cordova platform add ios/android” in the command line
+Run “cordova run ios/android” in the command line to run the application
+
+Web Application
+Install Composer with the code snippet provided in https://getcomposer.org/download/
+Install Laravel using the command: composer global require "laravel/installer"
+Download and install PostgreSQL from http://www.postgresql.org/download/
+Install Git client
+Clone project directory, into any directory you wish to use
+Edit .env file to accommodate your system
+Migrate tables using the following command in the web-server directory:
+php artisan migrate:refresh --seed

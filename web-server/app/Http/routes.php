@@ -11,18 +11,6 @@
 |
 */
 
-Route::get('/api',
-    function () {
-        $links = ["/login", "/auth", "/auth/index", "/auth/create", "/couse", "/couse/index", "/couse/create", "/lecture/index/{filter?}", "/lecture/create", "/venue/index", "/venue/create", "/lecture_instends/index", "/lecture_instends/create"];
-
-        $linkText = "";
-        foreach ($links as $key => $link) {
-
-            $linkText .= "<a href=\"" . url($link) . "\">" . $link . "</a><br>";
-        }
-        return $linkText;
-    });
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -41,6 +29,14 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('qa');
     });
 
+    Route::get('/qa/now', 'QuestionAndAwnersController@show');
+    Route::get('/qa/feedback', 'QuestionAndAwnersController@index');
+
+    Route::get('/qa/previous', function () {
+        return view('qa-previous');
+    });
+
+
     Route::get('/now', function () {
         return view('now');
     });
@@ -51,11 +47,14 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('attendance');
     });
 
-    Route::get('/qr', function () {
-        return view('qr');
-    });
+    Route::get('/qr', 'qrCodeController@show');
 
-    Route::get('/overall', 'lectureInstanceController@displayAll');
+    Route::get('/overall', 'attendanceController@index');
+    Route::get('/overall/lecture', 'attendanceController@showLecture');
+    Route::get('/overall/self', 'attendanceController@show');
+
+
+    Route::get('/admin/attendance', 'attendanceController@index');
 
     Route::get('/now', function () {
         return view('now');
@@ -119,6 +118,7 @@ Route::post('/auth/destroy', 'AuthController@destroy');
 Route::post('/auth/update', 'AuthController@update');
 Route::post('/auth/show', 'AuthController@show');
 Route::get('/auth/logout', 'AuthController@logout');
+Route::post('/auth/edit', 'AuthController@edit');
 
 
 Route::get('/couse/index', 'courseController@index');
@@ -141,7 +141,5 @@ Route::post('/lecture_instends/auth', 'lectureInstanceController@auth');
 
 
 Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-Route::get('/lecture_instends/qrcode/{id}', 'lectureInstanceController@qrCode');
-Route::get('/lecture_instends/show/{id}', 'lectureInstanceController@show');
 Route::post('/lecture_instends/update/{id}', 'lectureInstanceController@update');
 Route::any('/lecture_instends/createTest', 'lectureInstanceController@createLectureInstance');

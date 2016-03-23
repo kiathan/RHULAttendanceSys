@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\create_lecture_instance::class,
+        \App\Console\Commands\create_test_lecture::class,
+        \App\Console\Commands\create_test_questionWithAwnsers::class,
     ];
 
     /**

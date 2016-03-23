@@ -22,7 +22,9 @@
 
  						<h2 class="font5" style="color:#F5D0A9"><b>Overall Attendance</b></h2>
 						<font size=4><p class="font5" style="color:#F5D0A9">Overall attendance to each module</p></font>
-						<a href = "/overall" class = "btn btn-default" style="color:black">Click Here</a>
+						<a href = "/overall" class = "btn btn-default" style="color:black">Click Here view attends</a>
+						<a href = "/overall/lecture" class = "btn btn-default" style="color:black">Click Here attends of lecture</a>
+						<a href = "/overall/self" class = "btn btn-default" style="color:black">Click Here attends own user</a>
 
 					</div>
 

@@ -37,9 +37,9 @@ class create_lecture_instance extends Command
         $offset = 10;
         $dayToDay = strtolower($currentTime->format('l'));
         $currentTime->addMinutes($offset);
-        $starttime = $currentTime->format("h:i:s");
+        $starttime = $currentTime->format("H:i:s");
         $currentTime->addMinutes((($offset * 2) * -1));
-        $endtime = $currentTime->format("h:i:s");
+        $endtime = $currentTime->format("H:i:s");
 
         $lecturesToStart = \App\lecture::where("dayofweek", $dayToDay)->where('starttime', '<=', $starttime)->where('endtime', '>=', $endtime)->get();
 
@@ -50,7 +50,7 @@ class create_lecture_instance extends Command
             }
         }
 
-        $lecturesToEnd = \App\lecture::where('dayofweek', $dayToDay)->where('endtime', '<=', $endtime)->get();
+        $lecturesToEnd = \App\lecture::where('dayofweek', $dayToDay)->where('endtime', '<=', $endtime)->orWhere('dayofweek', '<>', $dayToDay)->get();
         foreach ($lecturesToEnd as $lecture) {
             if ($lecture->hasActiveLecture()) {
                 $lecture->deactiveLectureInstance();

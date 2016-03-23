@@ -47,7 +47,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
         'remember_token',
-        'token','created_at', 'updated_at'];
+        'token', 'created_at', 'updated_at'];
 
 
     public function course()
@@ -77,7 +77,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function currentLectures()
     {
-        $couresesAttending = $this->course()->get()->keys()->all();
+        $couresesAttending = array();
+        foreach ($this->course as $course) {
+            $couresesAttending[] = $course->id;
+        }
+
         $currentTime = new Carbon();
         $day = strtolower($currentTime->format("l"));
         $time = $currentTime->format("G:i:s");
@@ -93,8 +97,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
 
         $lectureInstances = array();
-        foreach($lecture as $item){
-            if(sizeof($item->getActiveLecture()->get()) > 0) {
+        foreach ($lecture as $item) {
+            if (sizeof($item->getActiveLecture()->get()) > 0) {
                 $lectureInstances[] = $item->getActiveLecture()->with('lecture')->get();
             }
         }
@@ -104,7 +108,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function allLectures()
     {
-        $couresesAttending = $this->course()->get()->keys()->all();
+        $couresesAttending = array();
+        foreach ($this->course as $course) {
+            $couresesAttending[] = $course->id;
+        }
+
+
         return $lectures = \App\lecture::whereIn("course_id", $couresesAttending)->get();
     }
 

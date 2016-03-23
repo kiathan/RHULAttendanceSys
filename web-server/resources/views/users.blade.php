@@ -34,10 +34,6 @@
 						<div class="col-sm-10" id="view_email"> </div>
 					</div>
 					<div class="row">
-						<label for="role" class="col-sm-2"> Role </label>
-						<div class="col-sm-10" id="view_role"> </div>
-					</div>
-					<div class="row">
 					<label for="courses[]" class="col-sm-2"> Attending </label>
     					<ul class="col-sm-10" id="view_courses">
                 			
@@ -125,17 +121,6 @@
 							<div class="col-sm-10">
 								<input type="email" name="email" id="email" class="form-control" required/>
 							</div>
-						</fieldset>
-						
-						<fieldset class="form-group">
-							<label for="role" class="col-sm-2 control-label"> Role </label>
-							<div class="col-sm-10">
-								<select name="role" id="role" class="form-control" required>
-       					 			@foreach($roles as $role)
-                    					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
-                					@endforeach
-        						</select>
-        					</div>
 						</fieldset>
 						
 						<fieldset>
@@ -236,20 +221,6 @@
 						</fieldset>
 						
 						<fieldset class="form-group">
-							<label for="role" class="col-sm-2 control-label"> Role </label>
-							<div class="col-sm-9">
-								<select name="role" id="edit_role" class="form-control edit-form-input" required disabled>
-       					 			@foreach($roles as $role)
-                    					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
-                					@endforeach
-        						</select>
-        					</div>
-        					<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_role')"> Edit </label>
-							</div>
-						</fieldset>
-						
-						<fieldset class="form-group">
 							<label for="courses[]" class="col-sm-2 control-label"> Attending </label>
 							<div class="col-sm-4">
         						<select multiple name="non-courses[]" class="edit_courses form-control edit-form-input" id="no-course" disabled>
@@ -302,14 +273,16 @@
 	
 				<form class="col-xs-10 col-md-11">		
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input type="text" class="form-control" id="value" placeholder="Search">
 						<div class="input-group-btn">
 							<button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a value="name">Name</a></li>
-								<li><a value="id">ID</a></li>
-								<li><a value="email">Email</a></li>
-								<li><a value="course">Course</a></li>
+								<li><a class="option-list" value="id">ID</a></li>
+								<li><a class="option-list" value="username">Username</a></li>
+								<li><a class="option-list" value="firstname">First Name</a></li>
+								<li><a class="option-list" value="lastname">Last Name</a></li>
+								<li><a class="option-list" value="email">Email</a></li>
+								<li><a class="option-list" value="course">Course</a></li>
 							</ul>
 						</div>
 					</div>
@@ -424,7 +397,6 @@
         		$('#view_middlename').text(data.middlename);
         		$('#view_lastname').text(data.lastname);
         		$('#view_email').text(data.email);
-        		$('#view_role').text(data.role);
         		for(i in data.course) {
         			
         			list += "<li>" + data.course[i].code + ": " + data.course[i].name + "</li>";
@@ -434,5 +406,30 @@
         	});
 			
 		}
+		
+		$(document).ready(function() {
+		
+			$('.option-list').click(function() {
+			
+				var list = "";
+				var i = 0;
+			
+				$.post('/auth/edit', {'value':$('#value').val(), 'column':$(this).attr('value')},function(data){
+        			for(i in data.user) {
+        			
+        				list += "<li class='list-group-item'>" + data.user[i]['firstname'] + " " + data.user[i]['lastname'] +
+								"<a  href='#check' onclick='checkUpdate('" + data.user[i]['firstname'] + "', '" + data.user[i]['lastname'] + "', " + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='Delete User' class='glyphicon glyphicon-trash' style='float:right; margin-left:1em;'></a>" +
+								"<a  href='#edit-user' onclick='editUpdate(" + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='Edit User' class='glyphicon glyphicon-pencil' style='float:right; margin-left:1em;'></a>" +
+								"<a  href='#view' onclick='viewUpdate(" + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='View User' class='glyphicon glyphicon-search' style='float:right; margin-left:1em;'></a>" +
+								"</li>";
+							
+        			}
+        			$('#user-list').html(list);
+        		
+        		});
+        		
+        	});
+		
+		});
 	</script>
 @stop

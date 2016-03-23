@@ -9,7 +9,7 @@
 	<link href = "/css/style.css" rel = "stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-	<link rel = "shortcut icon" href = "images/RHicon.ico">
+	<link rel = "shortcut icon" href = "/images/RHicon.ico">
 	<link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel = "stylesheet" type="text/css">
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src = "/js/bootstrap.js"></script>

@@ -112,7 +112,7 @@ class attendanceController extends Controller
         }
 
         $UserSignIn = $lecture_instend->attendentsSignin;
-        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
+        $UserNotSignIn = $lecture_instend->lecture->course->user()->whereNotIn('users.id', $lecture_instend->attendentsSignin->fetch('id')->toArray())->get();
 
         return view('overall-lecture')->with(['UserSignIn' => $UserSignIn, 'UserNotSignIn' => $UserNotSignIn, 'course' => $courseOfLecture]);
     }

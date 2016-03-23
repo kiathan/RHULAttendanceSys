@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="list-group">
-                                @foreach($UserNotSignIn as $user)
+                                @foreach($UserSignIn as $user)
                                     <div href="#" class="list-group-item">
                                         <p class="list-group-item-text">{{$user->lastname}}, {{$user->firstname}}</p>
                                     </div>

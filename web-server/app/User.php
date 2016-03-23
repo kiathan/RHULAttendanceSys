@@ -77,7 +77,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function currentLectures()
     {
-        $couresesAttending = $this->course()->get()->keys()->all();
+        $couresesAttending = array();
+        foreach ($this->course as $course) {
+            $couresesAttending[] = $course->id;
+        }
+
         $currentTime = new Carbon();
         $day = strtolower($currentTime->format("l"));
         $time = $currentTime->format("G:i:s");

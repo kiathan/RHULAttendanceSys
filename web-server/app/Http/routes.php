@@ -118,6 +118,7 @@ Route::post('/auth/destroy', 'AuthController@destroy');
 Route::post('/auth/update', 'AuthController@update');
 Route::post('/auth/show', 'AuthController@show');
 Route::get('/auth/logout', 'AuthController@logout');
+Route::post('/auth/edit', 'AuthController@edit');
 
 
 Route::get('/couse/index', 'courseController@index');

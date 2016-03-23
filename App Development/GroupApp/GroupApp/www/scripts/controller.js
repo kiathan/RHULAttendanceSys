@@ -456,34 +456,7 @@ function getStudentResult(input) {
     var ansB = 0;
     var ansC = 0;
     var ansD = 0;
-    alert(data);
-    /*
-    $.each(data, function (answer, count) {
-        alert(data[index]);
-        if (answer == "A") {
-            ansA = count;
-        } else if (answer == "B") {
-            ansB = count;
-        } else if (answer == "C") {
-            ansC = count;
-        } else if (answer == "D") {
-            ansD = count;
-        }
-    });*/
-    /*for (i = 0; i < 4; i++) {
-        if(data[i]==null){
-
-        }
-        if (data[i].awnser == "A") {
-            ansA = data[i].count;
-        } else if (data[i].awnser == "B") {
-            ansB = data[i].count;
-        } else if (data[i].awnser == "C") {
-            ansC = data[i].count;
-        } else if (data[i].awnser == "D") {
-            ansD = data[i].count;
-        }
-    }*/
+ 
     for (var key in data) {
         if (data[key].awnser=="A") ansA=data[key].count;
         if (data[key].awnser=="B") ansB=data[key].count;

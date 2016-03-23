@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -26,7 +25,7 @@ class AuthController extends Controller
         if ($request->segment(1) == "api") {
             return $users;
         }
-
+		
         return view('auth.index')->with(["users" => $users]);
     }
 
@@ -42,15 +41,15 @@ class AuthController extends Controller
         $courses = \App\course::all();
         return view('auth.create', ["roles" => $roles, "courses" => $courses]);
     }
-
+    
     public function users(Request $request)
     {
         $roles = Role::all();
 
         $courses = \App\course::all();
-
+        
          $users = \App\User::all();
-
+        
         return view('users', ["roles" => $roles, "courses" => $courses, "users" => $users]);
     }
 
@@ -76,14 +75,14 @@ class AuthController extends Controller
 
                 return response()->json(["state" => "success", "username" => $user->username, "user_id" => $user->id, "token" => hash("sha256", $user->token)]);
             } else {
-                return json_encode(["state" => "failure", "message" => "Username/Password entered incorrectly."]);
+                return json_encode(["state" => "failure", "message" => "username or password wrong"]);
 
             }
         }
 
         $username = $request->input('username');
         $password = hash("sha256", $request->input('password'));
-        $remember = $request->input('remember');
+		$remember = $request->input('remember');
 
         $reuslts = Auth::attempt([
             "username" => $username,
@@ -113,14 +112,14 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
-            if (isSet($request->courses)) {
-                foreach ($request->get('courses') as $course_id) {
-                    $user->saveCouse(\App\course::find($course_id), 'student');
-                }
-            }
-
-            return redirect("/users");
-
+			if(isSet($request->courses)) {
+	    	    foreach ($request->get('courses') as $course_id) {
+    		        $user->saveCouse(\App\course::find($course_id), 'student');
+        		}	
+        	}
+			
+			return redirect("/users");
+            
         } else {
             return redirect("/users");
         }
@@ -134,10 +133,10 @@ class AuthController extends Controller
      */
     public function show(Request $request)
     {
-
+        
         $id = $request->input('id');
         $user = \App\User::find($id);
-
+ 
         return response()->json([
         	'username' => $user->username,
         	'firstname' => $user->firstname,
@@ -147,17 +146,80 @@ class AuthController extends Controller
         	'role' => $user->role,
         	'course' => $user->course
         ]);
-
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request)
     {
-        //
+        
+        $userarray = array();
+        $users = \App\User::all();
+       
+        if("" == trim($request->input('value'))) {
+        
+        	return response()->json([
+        	'user' => $users
+       		]);
+        
+        }
+        
+        foreach($users as $user) {
+        	if(strtolower($request->input('column')) === 'firstname') {
+        		if(strpos(strtolower($user->firstname), strtolower($request->input('value'))) !== false) {
+        			array_push($userarray, $user);
+        			continue;
+        		}
+        	}
+        	
+        	if(strtolower($request->input('column')) === 'username') {
+        		if(strpos(strtolower($user->username), strtolower($request->input('value'))) !== false) {
+        			array_push($userarray, $user);
+        			continue;
+        		}
+        	}
+        			
+        	if(strtolower($request->input('column')) === 'lastname') {
+        		if(strpos(strtolower($user->lastname), strtolower($request->input('value'))) !== false) {
+        			array_push($userarray, $user);
+        			continue;
+        		}
+        	}			
+        		
+        	if(strtolower($request->input('column')) === 'id') {
+        		if(strpos(strtolower($user->id), strtolower($request->input('value'))) !== false) {
+        			array_push($userarray, $user);
+        			continue;
+        		}
+        	}
+        	
+        	if(strtolower($request->input('column')) === 'email') {
+        		if(strpos(strtolower($user->email), strtolower($request->input('value'))) !== false) {
+        			array_push($userarray, $user);
+        			continue;
+        		}
+        	}
+        		
+        	if(strtolower($request->input('column')) === 'course') {
+        		foreach($user->course as $course) {
+        			if(strpos(strtolower($course->name), strtolower($request->input('value'))) !== false) {
+        				array_push($userarray, $user);
+        				break;
+        			}
+        		}
+        	}
+        		
+        }
+        
+        return response()->json([
+        	'user' => $userarray
+        ]);
+        
     }
 
     /**
@@ -169,71 +231,71 @@ class AuthController extends Controller
      */
     public function update(Request $request)
     {
-
+    	
     	$user = \App\User::find((int)$request->input('id'));
-
+    	
     	$username = $request->input('username');
-
+    
         if(!empty($username) && !empty($user)) {
-
+        
         	$user->username = $username;
-
+        
         }
-
+        
         $password = $request->input('password');
-
+        
         if(!empty($password) && !empty($user)) {
-
+        
         	$user->password = Hash::make(hash("sha256", $request->input('password')));
-
+        
         }
-
+        
         $firstname = $request->input('firstname');
-
+        
         if(!empty($firstname) && !empty($user)) {
-
+        
         	$user->update(['firstname' => $firstname]);
-
+        
         }
-
+        
         $middlename = $request->input('middlename');
-
+        
         if(!empty($middlename) && !empty($user)) {
-
+        
         	$user->middlename = $middlename;
-
+        
         }
-
+        
         $lastname = $request->input('lastname');
-
+        
         if(!empty($lastname) && !empty($user)) {
-
+        
         	$user->lastname = $lastname;;
-
+        
         }
-
+        
         $email = $request->input('email');
-
+        
         if(!empty($email) && !empty($user)) {
-
+        
         	$user->email = $email;
-
+        
         }
         if($user != null) {
         if ($user->save()) {
 			if(isSet($request->courses)) {
 	    	    foreach ($request->get('courses') as $course_id) {
     		        $user->saveCouse(\App\course::find($course_id), 'student');
-        		}
+        		}	
         	}
-
+			
 			return redirect("/users");
-
+            
         }
         }
-
+        
         return redirect("/");
-
+        
     }
 
     /**
@@ -248,13 +310,13 @@ class AuthController extends Controller
         $user = \App\User::find($id);
         $user->delete();
         return redirect('/users');
-
+        
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect('/');
-
+        
     }
 }

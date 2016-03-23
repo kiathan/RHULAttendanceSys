@@ -302,14 +302,16 @@
 	
 				<form class="col-xs-10 col-md-11">		
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
+						<input type="text" class="form-control" id="value" placeholder="Search">
 						<div class="input-group-btn">
 							<button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a value="name">Name</a></li>
-								<li><a value="id">ID</a></li>
-								<li><a value="email">Email</a></li>
-								<li><a value="course">Course</a></li>
+								<li><a class="option-list" value="id">ID</a></li>
+								<li><a class="option-list" value="username">Username</a></li>
+								<li><a class="option-list" value="firstname">First Name</a></li>
+								<li><a class="option-list" value="lastname">Last Name</a></li>
+								<li><a class="option-list" value="email">Email</a></li>
+								<li><a class="option-list" value="course">Course</a></li>
 							</ul>
 						</div>
 					</div>
@@ -434,5 +436,30 @@
         	});
 			
 		}
+		
+		$(document).ready(function() {
+		
+			$('.option-list').click(function() {
+			
+				var list = "";
+				var i = 0;
+			
+				$.post('/auth/edit', {'value':$('#value').val(), 'column':$(this).attr('value')},function(data){
+        			for(i in data.user) {
+        			
+        				list += "<li class='list-group-item'>" + data.user[i]['firstname'] + " " + data.user[i]['lastname'] +
+								"<a  href='#check' onclick='checkUpdate('" + data.user[i]['firstname'] + "', '" + data.user[i]['lastname'] + "', " + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='Delete User' class='glyphicon glyphicon-trash' style='float:right; margin-left:1em;'></a>" +
+								"<a  href='#edit-user' onclick='editUpdate(" + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='Edit User' class='glyphicon glyphicon-pencil' style='float:right; margin-left:1em;'></a>" +
+								"<a  href='#view' onclick='viewUpdate(" + data.user[i]['id'] + ")' data-toggle='modal' data-toggle='tooltip' title='View User' class='glyphicon glyphicon-search' style='float:right; margin-left:1em;'></a>" +
+								"</li>";
+							
+        			}
+        			$('#user-list').html(list);
+        		
+        		});
+        		
+        	});
+		
+		});
 	</script>
 @stop

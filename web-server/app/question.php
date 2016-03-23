@@ -28,11 +28,11 @@ class question extends Model
 
     public function setResultAttribute()
     {
-        return $this->awnser()->groupBy('awnser')->get(['awnser', DB::raw('count(*)')]);
+        return $this->awnser()->groupBy('awnser')->get([DB::raw('TRIM(awnser) as awnser'), DB::raw('count(*)')]);
     }
 
     public function getResultAttribute()
     {
-        return $this->awnser()->groupBy('awnser')->get(['awnser', DB::raw('count(*)')]);
+        return $this->awnser()->groupBy('awnser')->get([DB::raw('TRIM(awnser) as awnser'), DB::raw('count(*)')]);
     }
 }

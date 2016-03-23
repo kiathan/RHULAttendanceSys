@@ -91,7 +91,6 @@ class attendanceController extends Controller
             $currentTime = new \Carbon\Carbon();
             $dayofweek = strtolower($currentTime->format('l'));
             $time = $currentTime->toTimeString();
-            $qrcode = null;
             $courseOfLecture = null;
             foreach ($user->course as $course) {
                 foreach ($course->lecture()->where('dayofweek', $dayofweek)->where('starttime', '<=', $time)->where('endtime', '>=', $time)->get() as $lecture) {

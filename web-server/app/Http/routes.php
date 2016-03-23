@@ -29,6 +29,14 @@ Route::group(array('middleware' => 'auth'), function () {
         return view('qa');
     });
 
+    Route::get('/qa/now', 'QuestionAndAwnersController@show');
+    Route::get('/qa/feedback', 'QuestionAndAwnersController@index');
+
+    Route::get('/qa/previous', function () {
+        return view('qa-previous');
+    });
+
+
     Route::get('/now', function () {
         return view('now');
     });

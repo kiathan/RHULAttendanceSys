@@ -34,10 +34,6 @@
 						<div class="col-sm-10" id="view_email"> </div>
 					</div>
 					<div class="row">
-						<label for="role" class="col-sm-2"> Role </label>
-						<div class="col-sm-10" id="view_role"> </div>
-					</div>
-					<div class="row">
 					<label for="courses[]" class="col-sm-2"> Attending </label>
     					<ul class="col-sm-10" id="view_courses">
                 			
@@ -125,17 +121,6 @@
 							<div class="col-sm-10">
 								<input type="email" name="email" id="email" class="form-control" required/>
 							</div>
-						</fieldset>
-						
-						<fieldset class="form-group">
-							<label for="role" class="col-sm-2 control-label"> Role </label>
-							<div class="col-sm-10">
-								<select name="role" id="role" class="form-control" required>
-       					 			@foreach($roles as $role)
-                    					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
-                					@endforeach
-        						</select>
-        					</div>
 						</fieldset>
 						
 						<fieldset>
@@ -232,20 +217,6 @@
 							</div>
 							<div class="col-sm-1">
 								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_email')"> Edit </label>
-							</div>
-						</fieldset>
-						
-						<fieldset class="form-group">
-							<label for="role" class="col-sm-2 control-label"> Role </label>
-							<div class="col-sm-9">
-								<select name="role" id="edit_role" class="form-control edit-form-input" required disabled>
-       					 			@foreach($roles as $role)
-                    					<option value="{{$role->id}}">({{$role->str_id}}) - {{$role->name}}</option>
-                					@endforeach
-        						</select>
-        					</div>
-        					<div class="col-sm-1">
-								<label style="margin:auto;"><input type="checkbox" class="active-check" onclick="toggleDisabled('#edit_role')"> Edit </label>
 							</div>
 						</fieldset>
 						
@@ -426,7 +397,6 @@
         		$('#view_middlename').text(data.middlename);
         		$('#view_lastname').text(data.lastname);
         		$('#view_email').text(data.email);
-        		$('#view_role').text(data.role);
         		for(i in data.course) {
         			
         			list += "<li>" + data.course[i].code + ": " + data.course[i].name + "</li>";

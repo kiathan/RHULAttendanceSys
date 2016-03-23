@@ -58,6 +58,9 @@ class qrCodeController extends Controller
         foreach ($user->course as $course) {
             foreach ($course->lecture()->where('dayofweek', $dayofweek)->where('starttime', '<=', $time)->where('endtime', '>=', $time)->get() as $lecture) {
                 $qrcode = $lecture->getActiveLecture()->first();
+                if (!is_null($qrcode)) {
+                    break;
+                }
             }
         }
 

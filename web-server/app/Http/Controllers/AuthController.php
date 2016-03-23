@@ -150,7 +150,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Return results of users that contain the searched item.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -160,6 +160,8 @@ class AuthController extends Controller
         
         $userarray = array();
         $users = \App\User::all();
+        $column = strtolower($request->input('column'));
+        $value = strtolower($request->input('value'));
        
         if("" == trim($request->input('value'))) {
         
@@ -170,44 +172,44 @@ class AuthController extends Controller
         }
         
         foreach($users as $user) {
-        	if(strtolower($request->input('column')) === 'firstname') {
-        		if(strpos(strtolower($user->firstname), strtolower($request->input('value'))) !== false) {
+        	if($column === 'firstname') {
+        		if(strpos(strtolower($user->firstname), $value) !== false) {
         			array_push($userarray, $user);
         			continue;
         		}
         	}
         	
-        	if(strtolower($request->input('column')) === 'username') {
-        		if(strpos(strtolower($user->username), strtolower($request->input('value'))) !== false) {
+        	if($column === 'username') {
+        		if(strpos(strtolower($user->username), $value) !== false) {
         			array_push($userarray, $user);
         			continue;
         		}
         	}
         			
-        	if(strtolower($request->input('column')) === 'lastname') {
-        		if(strpos(strtolower($user->lastname), strtolower($request->input('value'))) !== false) {
+        	if($column === 'lastname') {
+        		if(strpos(strtolower($user->lastname), $value) !== false) {
         			array_push($userarray, $user);
         			continue;
         		}
         	}			
         		
-        	if(strtolower($request->input('column')) === 'id') {
-        		if(strpos(strtolower($user->id), strtolower($request->input('value'))) !== false) {
+        	if($column === 'id') {
+        		if(strpos(strtolower($user->id), $value) !== false) {
         			array_push($userarray, $user);
         			continue;
         		}
         	}
         	
-        	if(strtolower($request->input('column')) === 'email') {
-        		if(strpos(strtolower($user->email), strtolower($request->input('value'))) !== false) {
+        	if($column === 'email') {
+        		if(strpos(strtolower($user->email), $value) !== false) {
         			array_push($userarray, $user);
         			continue;
         		}
         	}
         		
-        	if(strtolower($request->input('column')) === 'course') {
+        	if($column === 'course') {
         		foreach($user->course as $course) {
-        			if(strpos(strtolower($course->name), strtolower($request->input('value'))) !== false) {
+        			if(strpos(strtolower($course->name), $value) !== false) {
         				array_push($userarray, $user);
         				break;
         			}
@@ -235,52 +237,50 @@ class AuthController extends Controller
     	$user = \App\User::find((int)$request->input('id'));
     	
     	$username = $request->input('username');
-    
-        if(!empty($username) && !empty($user)) {
-        
-        	$user->username = $username;
+    	
+        if(!empty($username) && "" != trim($username)) {
+        	
+        	if(\App\User::where('username', '=', $username)->count() == 0) {
+        		$user->username = $username;
+        	}
         
         }
         
-        $password = $request->input('password');
-        
-        if(!empty($password) && !empty($user)) {
+        if(!empty($request->input('password')) && "" != trim($request->input('password'))) {
         
         	$user->password = Hash::make(hash("sha256", $request->input('password')));
         
         }
         
-        $firstname = $request->input('firstname');
-        
-        if(!empty($firstname) && !empty($user)) {
-        
-        	$user->update(['firstname' => $firstname]);
-        
-        }
-        
-        $middlename = $request->input('middlename');
-        
-        if(!empty($middlename) && !empty($user)) {
-        
-        	$user->middlename = $middlename;
+        if(!empty($request->input('firstname')) && "" != trim($request->input('firstname'))) {
+        	
+        	
+        	$user->firstname = $request->input('firstname');
         
         }
         
-        $lastname = $request->input('lastname');
+        if(!empty($request->input('middlename')) && "" != trim($request->input('middlename'))) {
         
-        if(!empty($lastname) && !empty($user)) {
+        	$user->middlename = $request->input('middlename');
         
-        	$user->lastname = $lastname;;
+        }
+        
+        if(!empty($request->input('lastname')) && "" != trim($request->input('lastname'))) {
+        
+        	$user->lastname = $request->input('lastname');
         
         }
         
         $email = $request->input('email');
         
-        if(!empty($email) && !empty($user)) {
+        if(!empty($email) && "" != trim($email)) {
         
-        	$user->email = $email;
+        	if(\App\User::where('email', '=', $email)->count() == 0) {
+	        	$user->email = $email;
+	        }
         
         }
+        
         if($user != null) {
         if ($user->save()) {
 			if(isSet($request->courses)) {
@@ -294,7 +294,7 @@ class AuthController extends Controller
         }
         }
         
-        return redirect("/");
+        return redirect("/welcome");
         
     }
 
